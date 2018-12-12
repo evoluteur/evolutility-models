@@ -27,6 +27,7 @@ for(var mid in models){
                 id: f.id,
                 type: f.type, 
                 label: f.label, 
+                entity: f.entity, //TODO: rename it
                 required: f.required,
                 readonly: f.readonly,
                 width: f.width, 
