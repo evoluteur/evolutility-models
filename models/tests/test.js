@@ -90,7 +90,7 @@ module.exports = {
             inMany: true
         },
         {
-            id: "int", 
+            id: "integer", 
             type: "integer", 
             column: "f_integer",
             label: "Integer", 
@@ -99,7 +99,7 @@ module.exports = {
             inMany: true
         },
         {
-            id: "dec", 
+            id: "decimal", 
             type: "decimal", 
             column: "f_decimal",
             label: "Decimal", 
@@ -113,7 +113,7 @@ module.exports = {
             width: 100,
         },
         {
-            id: "bool", 
+            id: "boolean", 
             type: "boolean", 
             column: "f_boolean",
             label: "Boolean", 
