@@ -1,43 +1,23 @@
 /*
-Create "ui" models from full models
+Create DB models from full models
 */
 var fs = require('fs');
 
+var mfn = require('./models-mapping.js');
 var models = require('../models/all_models.js');
 var dir = 'gen-db'
 var allModels = []
 
+console.log('Generating DB models in directory "'+dir+'".');
 if (!fs.existsSync(dir)){
     fs.mkdirSync(dir);
 }
-console.log('Generating DB models in directory "'+dir+'".');
 dir = dir +'/'
 for(var mid in models){
     var m = models[mid]
-    var newm = {
-        id: m.id,
-        table: m.table,
-        titleField: m.titleField,
-        searchFields: m.searchFields,
+    var newm = mfn.dbModel(m)
 
-        fields: m.fields.map(function(f){
-            return {
-                id: f.id,
-                type: f.type, 
-                //label: f.label, 
-                column: f.column,
-                lovtable: f.lovtable,
-                lovcolumn: f.lovcolumn,
-                required: f.required,
-                readonly: f.readonly,
-                noCharts: f.noCharts,
-                list: f.list,
-                inMany: f.inMany,
-            }
-        })
-    }
-
-    allModels.push(m.id) 
+    allModels.push(newm.id) 
 
     console.log(m.name);
     const txt = '/*\n  Evolutility DB Model for '+(m.label||m.title)+

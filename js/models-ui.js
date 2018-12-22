@@ -1,53 +1,29 @@
 /*
-Create "ui" models from full models
+Create UI models from full models
 */
 var fs = require('fs');
 
+var mfn = require('./models-mapping.js');
 var models = require('../models/all_models.js');
 var dir = 'gen-ui'
 var allModels = []
 
+console.log('Generating UI models in "'+dir+'".');
 if (!fs.existsSync(dir)){
     fs.mkdirSync(dir);
 }
-console.log('Generating UI models in "'+dir+'".');
 dir = '' + dir + '/'
 for(var mid in models){
     var m = models[mid]
-    var newm = {
-        id: m.id,
-        label: m.label,
-        name: m.name,
-        namePlural: m.namePlural,
-        icon: m.icon,
-        titleField: m.titleField,
-        searchFields: m.searchFields,
-        fields: m.fields.map(function(f){
-            return {
-                id: f.id,
-                type: f.type, 
-                label: f.label, 
-                entity: f.entity, //TODO: rename it
-                required: f.required,
-                readonly: f.readonly,
-                width: f.width, 
-                height: f.height,
-                noCharts: f.noCharts,
-                list: f.list,
-                inMany: f.inMany,
-            }
-        }),
-        groups: m.groups,
-    }
+    var newm = mfn.uiModel(m)
 
     allModels.push(m.id) 
 
     console.log(m.name);
     const txt = '/*\n  Evolutility UI Model for '+(m.label||m.title)+
-    '\nUI: https://github.com/evoluteur/evolutility-ui-react'+
+    '\n  https://github.com/evoluteur/evolutility-ui-react'+
         '\n*/\n\nmodule.exports = '+
         JSON.stringify(newm, null, '\t');
-
 
     fs.writeFile(dir+m.id+'.js', txt, function(err){
         if (err){
