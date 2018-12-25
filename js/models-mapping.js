@@ -42,6 +42,7 @@ const dbField = (f) => ({
     min: f.min,
     maxLength: f.maxLength,
     minLength: f.minLength,
+    defaultValue: f.defaultValue,
     inMany: f.inMany,
 })
 const uiCollec = (collec) => ({
