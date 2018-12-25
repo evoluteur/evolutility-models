@@ -30,6 +30,7 @@ const dbField = (f) => ({
     id: f.id,
     type: f.type, 
     //label: f.label, 
+    entity: f.entity, //TODO: rename it
     column: f.column || f.dbcolumn || f.id,
     lovtable: f.lovtable || f.dbtablelov,
     lovcolumn: f.lovcolumn || f.dbcolumnreadlov,
@@ -68,7 +69,7 @@ module.exports = {
 
     uiModel: (m) => ({
         id: m.id,
-        title: m.title,
+        title: m.title || m.label,
         name: m.name,
         namePlural: m.namePlural,
         icon: m.icon,
