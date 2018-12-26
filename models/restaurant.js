@@ -15,8 +15,8 @@ module.exports = {
 	],
 	"fields": [
 		{
-			"type": "text",
 			"id": "name",
+			"type": "text",
 			"label": "Name",
 			"required": true,
 			"width": 62,
@@ -24,8 +24,8 @@ module.exports = {
 			"column": "name"
 		},
 		{
-			"type": "lov",
 			"id": "cuisine",
+			"type": "lov",
 			"column": "cuisine_id",
 			"label": "Cuisine",
 			"width": 38,
@@ -91,11 +91,11 @@ module.exports = {
 			"inMany": true
 		},
 		{
-			"type": "lov",
 			"id": "price",
+			"type": "lov",
 			"column": "price_id",
 			"label": "Price",
-			"width": 30,
+			"width": 38,
 			"list": [
 				{
 					"id": "1",
@@ -122,58 +122,48 @@ module.exports = {
 			"inMany": true
 		},
 		{
-			"type": "url",
 			"id": "web",
+			"type": "url",
 			"label": "web",
-			"width": 32,
+			"width": 100,
 			"column": "web"
 		},
 		{
-			"type": "url",
 			"id": "yelp",
-			"label": "yelp",
-			"width": 38,
+			"type": "url",
+			"label": "Yelp",
+			"width": 62,
 			"column": "yelp"
 		},
 		{
-			"type": "textmultiline",
-			"id": "schedule",
-			"label": "Schedule",
-			"maxLength": 1000,
-			"width": 30,
-			"height": 3,
-			"column": "schedule"
-		},
-		{
-			"type": "textmultiline",
 			"id": "notes",
+			"type": "textmultiline",
 			"label": "Notes",
-			"maxLength": 1000,
-			"width": 32,
-			"height": 3,
+			"maxLength": 2000,
+			"width": 62,
+			"height": 6,
 			"column": "notes"
 		},
 		{
-			"type": "textmultiline",
 			"id": "favorite",
+			"type": "textmultiline",
 			"label": "Favorite dish",
-			"maxLength": 1000,
+			"maxLength": 2000,
 			"width": 38,
-			"height": 3,
+			"height": 6,
 			"column": "favorite"
 		},
 		{
-			"type": "text",
 			"id": "phone",
+			"type": "text",
 			"label": "Phone",
 			"maxLength": 20,
-			"width": 50,
-			"mini": "1",
+			"width": 100,
 			"column": "phone"
 		},
 		{
-			"type": "textmultiline",
 			"id": "address",
+			"type": "textmultiline",
 			"label": "Address",
 			"maxLength": 150,
 			"width": 100,
@@ -181,28 +171,41 @@ module.exports = {
 			"column": "address"
 		},
 		{
-			"type": "text",
 			"id": "city",
+			"type": "text",
 			"label": "City",
 			"maxLength": 100,
-			"width": 62,
+			"width": 50,
 			"inMany": true,
 			"column": "city"
 		},
 		{
-			"type": "text",
 			"id": "state",
+			"type": "text",
 			"label": "State",
-			"width": 23,
+			"width": 15,
 			"column": "state"
 		},
 		{
-			"type": "text",
 			"id": "zip",
+			"type": "text",
 			"label": "Zip",
 			"maxLength": 12,
-			"width": 15,
+			"width": 20,
 			"column": "zip"
 		}
-	]
+	],
+
+    groups: [
+        {
+          id:"pResto", type:"panel", 
+          label: "Restaurant", width: 62,
+          fields: ['name','cuisine','schedule','yelp','price','notes','favorite']
+        },
+        {
+          id:"pContact", type:"panel", 
+          label: "Contact", width: 38,
+          fields: ['phone','web','address','city','state','zip',]
+        },
+    ]
 }

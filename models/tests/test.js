@@ -161,7 +161,7 @@ module.exports = {
       {
         id:"pnum", type:"panel", 
         label: "Numbers", width: 38,
-        fields: ["int", "dec", "money", "bool", ]
+        fields: ["integer", "decimal", "money", "boolean", ]
       },
       {
         id:"pdate", type:"panel", 

@@ -10,6 +10,7 @@ module.exports = {
 	"namePlural": "wines",
 	"label": "Wine Cellar",
 	"icon": "wine.gif",
+	"titleField": "name",
 	"fnSearch": [
 		"name",
 		"winery",
@@ -96,6 +97,7 @@ module.exports = {
 	"collections": [
 		{
 			"id": "wine_tasting",
+            title: 'Degustations',
 			"table": "wine_tasting",
 			"column": "wine_id",
 			"entity": "winetasting",
@@ -676,7 +678,8 @@ module.exports = {
 					"text": "United States"
 				}
 			],
-			"lovtable": "wine_country"
+			"lovtable": "wine_country",
+			"lovicon": true
 		},
 		{
 			"id": "region",
