@@ -1,31 +1,36 @@
 /*
-Create UI models from full models
+    Create UI models from full models
+    https://github.com/evoluteur/evolutility-models
 */
-var fs = require('fs');
+const fs = require('fs');
+const mfn = require('./models-mapping.js');
+const models = require('../models/all_models.js');
+const github = 'https://github.com/evoluteur/evolutility-ui-react'
 
-var mfn = require('./models-mapping.js');
-var models = require('../models/all_models.js');
-var dir = 'gen-ui'
-var allModels = []
+let dir = 'gen-ui'
+let allModels = []
 
-console.log('Generating UI models in "'+dir+'".');
+console.log('Generating UI models:');
 if (!fs.existsSync(dir)){
     fs.mkdirSync(dir);
 }
-dir = '' + dir + '/'
-for(var mid in models){
-    var m = models[mid]
-    var newm = mfn.uiModel(m)
+
+// - Generate UI models
+dir = dir + '/'
+for(let mid in models){
+    const m = models[mid]
+    const newm = mfn.uiModel(m)
+    let filename = dir + m.id + '.js'
 
     allModels.push(m.id) 
 
-    console.log(m.name);
+    console.log(filename);
     const txt = '/*\n  Evolutility UI Model for '+(m.label||m.title)+
-    '\n  https://github.com/evoluteur/evolutility-ui-react'+
+    '\n  '+github+
         '\n*/\n\nmodule.exports = '+
         JSON.stringify(newm, null, '\t');
 
-    fs.writeFile(dir+m.id+'.js', txt, function(err){
+    fs.writeFile(filename, txt, function(err){
         if (err){
             throw err;
         }
@@ -33,8 +38,15 @@ for(var mid in models){
  
 }
 
-var txt = allModels.map(mid => `    ${mid}: require('./${mid}')`).join(',\n')
-fs.writeFile(dir+'all_models.js', 'module.exports = {\n'+txt+'\n}', function(err){
+// - Generate "all_models.js" with list of models
+const txt = '/*\n  Evolutility UI Models\n  '+github+'\n*/\n\n'+
+    'import {prepModel} from \'../utils/dico\'\n\n'+
+    allModels.map(mid => `import ${mid} from './${mid}'`).join('\n') +
+    '\n\nexport default {\n'+allModels.map(mid => `    ${mid}: prepModel(${mid}),`).join('\n')+'\n}\n'
+    
+filename = dir+'all_models.js'
+console.log(filename)
+fs.writeFile(filename, txt, function(err){
     if (err){
         throw err;
     }

@@ -1,31 +1,36 @@
 /*
-Create DB models from full models
+    Create DB models from full models
+    https://github.com/evoluteur/evolutility-models
 */
-var fs = require('fs');
+const fs = require('fs');
+const mfn = require('./models-mapping.js');
+const models = require('../models/all_models.js');
+const github = 'https://github.com/evoluteur/evolutility-server-node'
 
-var mfn = require('./models-mapping.js');
-var models = require('../models/all_models.js');
-var dir = 'gen-db'
-var allModels = []
+let dir = 'gen-db'
+let allModels = []
 
-console.log('Generating DB models in directory "'+dir+'".');
+console.log('Generating DB models:');
 if (!fs.existsSync(dir)){
     fs.mkdirSync(dir);
 }
+
+// - Generate DB models
 dir = dir +'/'
-for(var mid in models){
-    var m = models[mid]
-    var newm = mfn.dbModel(m)
+for(let mid in models){
+    const m = models[mid]
+    const newm = mfn.dbModel(m)
+    let filename = dir + m.id + '.js'
 
-    allModels.push(newm.id) 
+    allModels.push(newm.id)
 
-    console.log(m.name);
-    const txt = '/*\n  Evolutility DB Model for '+(m.label||m.title)+
-    '\n  https://github.com/evoluteur/evolutility-server-node'+
+    const txt = '/*\n  Evolutility DB Model for '+(m.label||m.title||m.id)+
+        '\n  '+github+
         '\n*/\n\nmodule.exports = '+
         JSON.stringify(newm, null, '\t');
 
-    fs.writeFile(dir+m.id+'.js', txt, function(err){
+    console.log(filename);
+    fs.writeFile(filename, txt, function(err){
         if (err){
             throw err;
         }
@@ -33,9 +38,17 @@ for(var mid in models){
  
 }
 
-var txt = allModels.map(mid => `    ${mid}: require('./${mid}')`).join(',\n')
-fs.writeFile(dir+'all_models.js', 'module.exports = {\n'+txt+'\n}', function(err){
+// - Generate "all_models.js" with list of models
+const txt = '/*\n  Evolutility DB Models'+
+    '\n  '+github+
+    '\n*/\n\nmodule.exports = {\n'+
+        allModels.map(mid => `    ${mid}: require('./${mid}')`).join(',\n')+
+    '\n}'
+
+filename = dir+'all_models.js'
+console.log(filename)
+fs.writeFile(filename, txt, function(err){
     if (err){
         throw err;
     }
-}) 
+})
