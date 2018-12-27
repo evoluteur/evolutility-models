@@ -6,6 +6,7 @@ module.exports = {
 	"id": "restaurant",
 	"active": true,
 	"table": "restaurant",
+	"titleField": "name",
 	"label": "Restaurants",
 	"icon": "resto.gif",
 	"name": "restaurant",

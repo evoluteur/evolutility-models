@@ -1,63 +1,59 @@
 /*!
-    Evolutility-UI-React
-    https://github.com/evoluteur/evolutility-ui-react
-    (c) 2018 Olivier Giulieri
+    Evolutility-Models
 
-    Function to transform full element into ui or db elements.
+    Functions to transform full models into ui/db models.
+
+    https://github.com/evoluteur/evolutility-models
+    (c) 2018 Olivier Giulieri
 */
 
-const uiField = (f) => ({
-    id: f.id,
-    type: f.type, 
-    label: f.label, 
-    entity: f.entity, //TODO: rename it
-    required: f.required,
-    readonly: f.readonly,
-    help: f.help,
-    width: f.width, 
-    height: f.height,
-    noCharts: f.noCharts,
-    list: f.list,
-    lovicon: f.lovicon,
-    max: f.max,
-    min: f.min,
-    maxLength: f.maxLength,
-    minLength: f.minLength,
-    defaultValue: f.defaultValue,
-    inMany: f.inMany,
-})
-const dbField = (f) => ({
-    id: f.id,
-    type: f.type, 
-    //label: f.label, 
-    entity: f.entity, //TODO: rename it
-    column: f.column || f.dbcolumn || f.id,
-    lovtable: f.lovtable || f.dbtablelov,
-    lovcolumn: f.lovcolumn || f.dbcolumnreadlov,
-    required: f.required,
-    readonly: f.readonly,
-    noCharts: f.noCharts,
-    list: f.list,
-    lovicon: f.lovicon,
-    max: f.max,
-    min: f.min,
-    maxLength: f.maxLength,
-    minLength: f.minLength,
-    defaultValue: f.defaultValue,
-    inMany: f.inMany,
-})
+const gField = (f) => {
+    return {
+        id: f.id,
+        type: f.type, 
+        label: f.label, 
+        entity: f.entity,
+        required: f.required,
+        readonly: f.readonly,
+        noCharts: f.noCharts,
+        list: f.list,
+        lovicon: f.lovicon,
+        max: f.max,
+        min: f.min,
+        maxLength: f.maxLength,
+        minLength: f.minLength,
+        defaultValue: f.defaultValue,
+        inMany: f.inMany,
+    }
+}
+
+const uiField = (f) => {
+    let fld = gField(f)
+    const props = ['label', 'width', 'height', 'help']
+    props.forEach(function(prop){
+        fld[prop] = f[prop]
+    })
+    return fld
+}
+const dbField = (f) => {
+    let fld = gField(f)
+    fld.column = f.column || f.dbcolumn || f.id
+    if(f.type==='lov'){
+        fld.lovtable = f.lovtable || f.dbtablelov
+        fld.lovcolumn = f.lovcolumn || f.dbcolumnreadlov
+    }
+    return fld
+}
+
 const uiCollec = (collec) => ({
     id: collec.id,
-    title: collec.title,
+    title: collec.title || collec.label,
+    entity: collec.entity,
     icon: collec.icon,
-    name: collec.name,
-    namePlural: collec.namePlural, 
     fields: collec.fields.map(uiField),
 })
 const dbCollec = (collec) => ({
     id: collec.id,
-    label: collec.label,
-    namePlural: collec.namePlural,
     table: collec.table,
     column: collec.column,
     entity: collec.entity,
