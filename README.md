@@ -1,3 +1,4 @@
+
 # evolutility-models
 
 Models are brief but complete application descriptions (with metadata for both UI and back-end) to run with [Evolutility-UI-React](https://github.com/evoluteur/evolutility-ui-react) and [Evolutility-Server-Node](https://github.com/evoluteur/evolutility-server-node). 
@@ -31,7 +32,7 @@ Models describe objects with fields and collections. Fields can be grouped.
 | fields       | Array of fields.           | X | X |  |
 | groups       | Array of groups. If not provided a single group will be used.   | X | |  |
 | titleField   | Field id for the column value used as record title. titleField can also be a function. | X | X |  |
-| table        | Database table name.       | | X |  |
+| table        | Driving database table name (there are secondary tables for fields of type "lov").     | | X |  |
 | titleField    | Field id for the column value used as record title. | X | X |  |
 | searchFields    | Array of field ids for fields used to perform searches.  | |X|  |  
 
@@ -56,14 +57,13 @@ Models describe objects with fields and collections. Fields can be grouped.
 | column       | Database column name for the field    ||X|
 | lovtable     | Table to join to for field value (only for fields of "lov" type). ||X|  
 | lovcolumn    | Column name (in the lovtable) for field value (only for fields of "lov" type). ||X|
-| lovicon    | LOV items have icons. |X|X|
-    
+| lovicon      | LOV items have icons. |X|X|
 
 ### Group
 
 Groups are used to visually group fields on the page for browsing or editing.
 
-Groups are only used in UI models.
+Groups are only used in UI models and are optional. By default a single group hold all fields.
 
 | Property     | Meaning                               |
 |--------------|---------------------------------------|
@@ -84,8 +84,8 @@ Multiple Master-Details can be specified with collections.
 | table        | DB Table to query.                    ||X|
 | column       | Column in the detail table to match against id of object. ||X|
 | entity       | Object (model id) linked to.                        |X|X|
-| order       | "asc/desc" for sorting by the first field in fields.     ||X|
-| fields       | Array of fields.                        |X|X|
+| order        | "asc/desc" for sorting by the first field in fields.     ||X|
+| fields       | Array of fields. Fields in collections do not need all properties of Fields in objects.   |X|X|
 
 
 ## Scripts
