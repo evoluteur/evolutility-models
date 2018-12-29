@@ -182,7 +182,7 @@ module.exports = {
 			"type": "textmultiline",
 			"label": "Notes",
 			"maxLength": 1000,
-			"width": 70,
+			"width": 100,
 			"height": 7,
 			"inMany": false,
 			"column": "notes"
