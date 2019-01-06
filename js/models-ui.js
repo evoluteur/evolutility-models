@@ -7,10 +7,11 @@ const mfn = require('./models-mapping.js');
 const models = require('../models/all_models.js');
 const github = 'https://github.com/evoluteur/evolutility-ui-react'
 
-let dir = 'gen-ui'
+let dir = 'models-ui'
+//let dir = '../evolutility-ui-react/src/models'
 let allModels = []
 
-console.log('Generating UI models:');
+console.log('Evolutility - Generating UI models:');
 if (!fs.existsSync(dir)){
     fs.mkdirSync(dir);
 }
@@ -45,7 +46,7 @@ const txt = '/*\n  Evolutility UI Models\n  '+github+'\n*/\n\n'+
     '\n\nexport default {\n'+allModels.map(mid => `    ${mid}: prepModel(${mid}),`).join('\n')+'\n}\n'
     
 filename = dir+'all_models.js'
-console.log(filename)
+console.log(filename+'\n')
 fs.writeFile(filename, txt, function(err){
     if (err){
         throw err;

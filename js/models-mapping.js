@@ -12,7 +12,7 @@ const gField = (f) => {
         id: f.id,
         type: f.type, 
         label: f.label, 
-        entity: f.entity,
+        object: f.object || f.entity,
         required: f.required,
         readonly: f.readonly,
         noCharts: f.noCharts,
@@ -48,7 +48,7 @@ const dbField = (f) => {
 const uiCollec = (collec) => ({
     id: collec.id,
     title: collec.title || collec.label,
-    entity: collec.entity,
+    object: collec.object || collec.entity,
     icon: collec.icon,
     fields: collec.fields.map(uiField),
 })
@@ -56,7 +56,7 @@ const dbCollec = (collec) => ({
     id: collec.id,
     table: collec.table,
     column: collec.column,
-    entity: collec.entity,
+    object: collec.object || collec.entity,
     order: collec.order,
     fields: collec.fields.map(dbField)
 })

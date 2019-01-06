@@ -7,10 +7,11 @@ const mfn = require('./models-mapping.js');
 const models = require('../models/all_models.js');
 const github = 'https://github.com/evoluteur/evolutility-server-node'
 
-let dir = 'gen-db'
+let dir = 'models-server'
+//let dir = '../evolutility-server-node/models'
 let allModels = []
 
-console.log('Generating DB models:');
+console.log('Evolutility - Generating DB models:');
 if (!fs.existsSync(dir)){
     fs.mkdirSync(dir);
 }
@@ -46,7 +47,7 @@ const txt = '/*\n  Evolutility DB Models'+
     '\n}'
 
 filename = dir+'all_models.js'
-console.log(filename)
+console.log(filename+'\n')
 fs.writeFile(filename, txt, function(err){
     if (err){
         throw err;
