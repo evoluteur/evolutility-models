@@ -170,6 +170,20 @@ module.exports = {
 			"css": "cBlue"
 		},
 		{
+			"id": "url_bdfugue",
+			"type": "url",
+			"width": 62,
+			"label": "BDFugue",
+			"column": "url_bdfugue",
+		},
+		{
+			"id": "url_amazon",
+			"type": "url",
+			"width": 38,
+			"label": "Amazon",
+			"column": "url_amazon",
+		},
+		{
 			"id": "pix",
 			"type": "image",
 			"width": 30,
@@ -204,6 +218,8 @@ module.exports = {
 				"language",
 				"complete",
 				"finished",
+				"url_bdfugue",
+				"url_amazon",
 				"notes"
 			]
 		},

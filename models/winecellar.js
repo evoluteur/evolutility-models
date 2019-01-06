@@ -100,7 +100,7 @@ module.exports = {
             title: 'Degustations',
 			"table": "wine_tasting",
 			"column": "wine_id",
-			"entity": "winetasting",
+			"object": "winetasting",
 			"order": "desc",
 			"fields": [
 				{
@@ -589,92 +589,92 @@ module.exports = {
 			"list": [
 				{
 					"id": 1,
-					"icon": "flags/ar.png",
+					"icon": "wine/flags/ar.png",
 					"text": "Argentina"
 				},
 				{
 					"id": 2,
-					"icon": "flags/at.png",
+					"icon": "wine/flags/at.png",
 					"text": "Austria"
 				},
 				{
 					"id": 3,
-					"icon": "flags/bg.png",
+					"icon": "wine/flags/bg.png",
 					"text": "Bulgaria"
 				},
 				{
 					"id": 4,
-					"icon": "flags/ca.png",
+					"icon": "wine/flags/ca.png",
 					"text": "Canada"
 				},
 				{
 					"id": 5,
-					"icon": "flags/cl.png",
+					"icon": "wine/flags/cl.png",
 					"text": "Chile"
 				},
 				{
 					"id": 6,
-					"icon": "flags/cy.png",
+					"icon": "wine/flags/cy.png",
 					"text": "Cyprus"
 				},
 				{
 					"id": 7,
-					"icon": "flags/fr.png",
+					"icon": "wine/flags/fr.png",
 					"text": "France"
 				},
 				{
 					"id": 8,
-					"icon": "flags/de.png",
+					"icon": "wine/flags/de.png",
 					"text": "Germany"
 				},
 				{
 					"id": 9,
-					"icon": "flags/gr.png",
+					"icon": "wine/flags/gr.png",
 					"text": "Greece"
 				},
 				{
 					"id": 10,
-					"icon": "flags/hu.png",
+					"icon": "wine/flags/hu.png",
 					"text": "Hungary"
 				},
 				{
 					"id": 11,
-					"icon": "flags/it.png",
+					"icon": "wine/flags/it.png",
 					"text": "Italy"
 				},
 				{
 					"id": 12,
-					"icon": "flags/lu.png",
+					"icon": "wine/flags/lu.png",
 					"text": "Luxembourg"
 				},
 				{
 					"id": 13,
-					"icon": "flags/nz.png",
+					"icon": "wine/flags/nz.png",
 					"text": "New Zealand"
 				},
 				{
 					"id": 14,
-					"icon": "flags/pt.png",
+					"icon": "wine/flags/pt.png",
 					"text": "Portugal"
 				},
 				{
 					"id": 15,
-					"icon": "flags/za.png",
+					"icon": "wine/flags/za.png",
 					"text": "South Africa"
 				},
 				{
 					"id": 16,
-					"icon": "flags/es.png",
+					"icon": "wine/flags/es.png",
 					"text": "Spain"
 				},
 				{
 					"id": 17,
-					"icon": "flags/ch.png",
+					"icon": "wine/flags/ch.png",
 					"text": "Switzerland"
 				},
 				{
 					"id": 18,
-					"icon": "flags/us.png",
+					"icon": "wine/flags/us.png",
 					"text": "United States"
 				}
 			],
