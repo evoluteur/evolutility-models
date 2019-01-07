@@ -1,7 +1,7 @@
 
-# evolutility-models
+# Evolutility-Models
 
-Models are brief but complete application descriptions (with metadata for both UI and back-end) to run with [Evolutility-UI-React](https://github.com/evoluteur/evolutility-ui-react) and [Evolutility-Server-Node](https://github.com/evoluteur/evolutility-server-node). 
+Models (with metadata for both UI and back-end) for [Evolutility-UI-React](https://github.com/evoluteur/evolutility-ui-react) and [Evolutility-Server-Node](https://github.com/evoluteur/evolutility-server-node). 
 
 
 ## Sample models
@@ -25,13 +25,13 @@ Models describe objects with fields and collections. Fields can be grouped.
 | Property     | Meaning                                 | UI | DB |
 |--------------|-----------------------------------------|----|----|
 | id           | Unique key to identify the entity (used as API parameter). |X|X|
-| icon         | Icon file name for the entity (example: "cube.gif". |X||
-| name         | Object name (singular).    | X | |  
-| namePlural   | Object name (plural).      | X | |  
-| title        | Application name.          | X | |  
+| icon         | Icon file name for the entity (example: "cube.gif"). |X||
+| name         | Object name (singular) (example: "contact").   | X | |  
+| namePlural   | Object name (plural) (example: "contacts").     | X | |  
+| title        | Application name (example: "Addressbook").         | X | |  
 | fields       | Array of fields.           | X | X |  
 | groups       | Array of groups. If not provided a single group will be used.   | X | |  
-| titleField   | Field id for the column value used as record title. titleField can also be a function. | X | X |  
+| titleField   | Id of the field which value is used as record title. titleField can also be a function. | X | X |  
 | table        | Driving database table name (there are secondary tables for fields of type "lov").     | | X |  
 | searchFields    | Array of field ids for fields used to perform searches.  | |X|  
 
@@ -63,12 +63,12 @@ Models describe objects with fields and collections. Fields can be grouped.
 
 Groups are used to visually group fields on the page for browsing or editing.
 
-Groups are only used in UI models and are optional. By default a single group hold all fields.
+Groups are only used in UI models and are optional. By default a single group holds all fields.
 
 | Property     | Meaning                               |
 |--------------|---------------------------------------|
 | id           | Unique key for the group. It is optional.            |
-| type         | panel (tab, accordeon will be added later).
+| type         | Type of group. Only "panel" is currently implemented ("tab" and "accordeon" will be added later). |
 | label        | Group title as displayed to the user.      |
 | fields       | Array of field ids.                        |
 
@@ -81,7 +81,7 @@ Multiple Master-Details can be specified with collections.
 |--------------|---------------------------------------|----|----|
 | id           | Unique key for the collection.        |X|X|
 | title        | Collection title.                     |X||
-| table        | DB Table to query.                    ||X|
+| table        | Table to query for the details list.                    ||X|
 | column       | Column in the detail table to match against id of object. ||X|
 | object       | Model id for the object to link to.   |X|X|
 | order        | "asc/desc" for sorting by the first field in fields.     ||X|
@@ -110,3 +110,8 @@ node js/models-db.js
 Generated models are saved in the directories "models-ui" and "models-db". The list of "full" models to generate from is specified in "/models/all_models.js".
  
  
+## License
+
+Copyright (c) 2019 [Olivier Giulieri](https://evoluteur.github.io/).
+
+Evolutility-Models is released under the [MIT license](http://github.com/evoluteur/evolutility-models/blob/master/LICENSE.md).
