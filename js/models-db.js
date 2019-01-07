@@ -40,16 +40,18 @@ for(let mid in models){
 }
 
 // - Generate "all_models.js" with list of models
-const txt = '/*\n  Evolutility DB Models'+
-    '\n  '+github+
-    '\n*/\n\nmodule.exports = {\n'+
-        allModels.map(mid => `    ${mid}: require('./${mid}')`).join(',\n')+
-    '\n}'
+if(!dir.startsWith('../')){
+    const txt = '/*\n  Evolutility DB Models'+
+        '\n  '+github+
+        '\n*/\n\nmodule.exports = {\n'+
+            allModels.map(mid => `    ${mid}: require('./${mid}')`).join(',\n')+
+        '\n}'
 
-filename = dir+'all_models.js'
-console.log(filename+'\n')
-fs.writeFile(filename, txt, function(err){
-    if (err){
-        throw err;
-    }
-})
+    filename = dir+'all_models.js'
+    console.log(filename+'\n')
+    fs.writeFile(filename, txt, function(err){
+        if (err){
+            throw err;
+        }
+    })
+}

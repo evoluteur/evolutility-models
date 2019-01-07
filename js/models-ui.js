@@ -44,11 +44,13 @@ const txt = '/*\n  Evolutility UI Models\n  '+github+'\n*/\n\n'+
     'import {prepModel} from \'../utils/dico\'\n\n'+
     allModels.map(mid => `import ${mid} from './${mid}'`).join('\n') +
     '\n\nexport default {\n'+allModels.map(mid => `    ${mid}: prepModel(${mid}),`).join('\n')+'\n}\n'
-    
-filename = dir+'all_models.js'
-console.log(filename+'\n')
-fs.writeFile(filename, txt, function(err){
-    if (err){
-        throw err;
-    }
-}) 
+
+if(!dir.startsWith('../')){  
+    filename = dir+'all_models.js'
+    console.log(filename+'\n')
+    fs.writeFile(filename, txt, function(err){
+        if (err){
+            throw err;
+        }
+    }) 
+}
