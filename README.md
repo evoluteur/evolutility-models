@@ -57,6 +57,7 @@ Models describe objects with fields and collections. Fields can be grouped.
 | lovtable     | Table to join to for field value (only for fields of "lov" type). ||X|  
 | lovcolumn    | Column name (in the lovtable) for field value (only for fields of "lov" type). ||X|
 | lovicon      | LOV items have icons. |X|X|
+| deletetrigger | Deleting records in the lovtable will trigger a cascade delete (this property is only used for creating the database). |X|X|
 | object       | Model id for the object to link to (only for fields of "lov" type).       |X|X|
 
 ### Group
