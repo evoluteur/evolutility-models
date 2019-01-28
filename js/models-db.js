@@ -7,7 +7,7 @@ const mfn = require('./models-mapping.js');
 const models = require('../models/all_models.js');
 const github = 'https://github.com/evoluteur/evolutility-server-node'
 
-let dir = 'models-server'
+let dir = 'models-db'
 //let dir = '../evolutility-server-node/models'
 let allModels = []
 

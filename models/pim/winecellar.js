@@ -4,6 +4,7 @@
 
 module.exports = {
 	"id": "winecellar",
+	"world": "pim",
 	"active": true,
 	"table": "wine",
 	"name": "wine",
@@ -11,7 +12,7 @@ module.exports = {
 	"label": "Wine Cellar",
 	"icon": "wine.gif",
 	"titleField": "name",
-	"fnSearch": [
+	"searchFields": [
 		"name",
 		"winery",
 		"appellation",

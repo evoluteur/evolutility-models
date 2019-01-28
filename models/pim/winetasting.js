@@ -4,6 +4,7 @@
 
 module.exports = {
 	"id": "winetasting",
+	"world": "pim",
 	"active": true,
 	"table": "wine_tasting",
 	"title": "Wine Tasting",
@@ -12,6 +13,7 @@ module.exports = {
 	"label": "Wine Tasting",
 	"icon": "wine.gif",
 	"titleField": "drink_date",
+    "searchFields": ['robe', 'nose', 'taste', 'notes'],
 	"fields": [
 		{
 			"id": "drink_date",

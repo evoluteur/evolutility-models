@@ -4,12 +4,12 @@
 */
 
 module.exports = {
-    todo: require('./todo'),
-    contact: require('./contact'),
-    comics: require('./comics'),
-    restaurant: require('./restaurant'),
-    winecellar: require('./winecellar'),
-    winetasting: require('./winetasting'),
+    todo: require('./pim/todo'),
+    contact: require('./pim/contact'),
+    comics: require('./pim/comics'),
+    restaurant: require('./pim/restaurant'),
+    winecellar: require('./pim/winecellar'),
+    winetasting: require('./pim/winetasting'),
 
     test: require('./tests/test'),
 }

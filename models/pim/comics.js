@@ -4,6 +4,7 @@
 
 module.exports = {
 	"id": "comics",
+	"world": "pim",
 	"active": true,
 	"label": "Graphic Novels",
 	"name": "serie",
@@ -42,58 +43,20 @@ module.exports = {
 			"width": 38,
 			"inMany": true,
 			"list": [
-				{
-					"id": 1,
-					"text": "Adventure"
-				},
-				{
-					"id": 2,
-					"text": "Fairy tale"
-				},
-				{
-					"id": 3,
-					"text": "Erotic"
-				},
-				{
-					"id": 4,
-					"text": "Fantastic"
-				},
-				{
-					"id": 5,
-					"text": "Heroic Fantasy"
-				},
-				{
-					"id": 6,
-					"text": "Historic"
-				},
-				{
-					"id": 7,
-					"text": "Humor"
-				},
-				{
-					"id": 8,
-					"text": "One of a kind"
-				},
-				{
-					"id": 9,
-					"text": "Youth"
-				},
-				{
-					"id": 10,
-					"text": "Thriller"
-				},
-				{
-					"id": 11,
-					"text": "Science-fiction"
-				},
-				{
-					"id": 12,
-					"text": "Super Heros"
-				},
-				{
-					"id": 13,
-					"text": "Western"
-				}
+                {id: 1, text: 'Adventure'},
+                {id: 3, text: 'Erotic'},
+                {id: 2, text: 'Fairy tale'},
+                {id: 4, text: 'Fantastic'},
+                {id: 14, text: 'Graphic novel'},
+                {id: 5, text: 'Heroic Fantasy'},
+                {id: 6, text: 'Historic'},
+                {id: 7, text: 'Humor'},
+                {id: 8, text: 'One of a kind'},
+                {id: 11, text: 'Science-fiction'},
+                {id: 12, text: 'Super Heros'},
+                {id: 10, text: 'Thriller'},
+                {id: 13, text: 'Western'},
+                {id: 9, text: 'Youth'},
 			],
 			"column": "genre_id",
 			"lovtable": "comics_genre"

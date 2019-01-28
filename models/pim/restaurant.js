@@ -4,6 +4,7 @@
 
 module.exports = {
 	"id": "restaurant",
+	"world": "pim",
 	"active": true,
 	"table": "restaurant",
 	"titleField": "name",
@@ -141,9 +142,17 @@ module.exports = {
 			"type": "textmultiline",
 			"label": "Notes",
 			"maxLength": 2000,
-			"width": 62,
+			"width": 32,
 			"height": 6,
 			"column": "notes"
+		},
+		{
+			"id": "hours",
+			"type": "textmultiline",
+			"label": "Hours",
+			"width": 30,
+			"height": 6,
+			"column": "hours"
 		},
 		{
 			"id": "favorite",
@@ -201,7 +210,7 @@ module.exports = {
         {
           id:"pResto", type:"panel", 
           label: "Restaurant", width: 62,
-          fields: ['name','cuisine','schedule','yelp','price','notes','favorite']
+          fields: ['name','cuisine','schedule','yelp','price','notes','hours','favorite']
         },
         {
           id:"pContact", type:"panel", 
