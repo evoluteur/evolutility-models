@@ -167,6 +167,7 @@ const fields = [
 
 module.exports = {
     id: "test",
+    world: 'tests',
     table: 'z_test',
     label: "Test List",
     name: "test",

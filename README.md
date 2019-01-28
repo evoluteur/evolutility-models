@@ -6,11 +6,13 @@ Models (with metadata for both UI and back-end) for [Evolutility-UI-React](https
 
 ## Sample models
 
-- [To-do list](https://github.com/evoluteur/evolutility-models/blob/master/models/todo.js)
-- [Address book](https://github.com/evoluteur/evolutility-models/blob/master/models/contact.js)
-- [Restaurants list](https://github.com/evoluteur/evolutility-models/blob/master/models/restaurant.js)
-- [Graphic novels](https://github.com/evoluteur/evolutility-models/blob/master/models/comics.js)
-- [Wine cellar](https://github.com/evoluteur/evolutility-models/blob/master/models/winecellar.js)
+Personal Information Manager (PIM)
+
+- [To-do list](https://github.com/evoluteur/evolutility-models/blob/master/models/pim/todo.js)
+- [Address book](https://github.com/evoluteur/evolutility-models/blob/master/models/pim/contact.js)
+- [Restaurants list](https://github.com/evoluteur/evolutility-models/blob/master/models/pim/restaurant.js)
+- [Graphic novels](https://github.com/evoluteur/evolutility-models/blob/master/models/pim/comics.js)
+- [Wine cellar](https://github.com/evoluteur/evolutility-models/blob/master/models/pim/winecellar.js)
 
 ...and a [Test model](https://github.com/evoluteur/evolutility-models/blob/master/models/tests/test.js) with fields of all possible types.
 
