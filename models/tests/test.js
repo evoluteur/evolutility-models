@@ -55,6 +55,7 @@ const fields = [
         inMany: true,
         help: 'LOV ',
         object: 'test',
+        chartType: 'Pie',
     },
     {
         id: "lovlc", type: "lov", 

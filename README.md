@@ -75,6 +75,7 @@ Models describe objects with fields and collections. Fields can be grouped.
 | height       | For fields of type "textmultiline", number of lines used in the field (in Browse and Edit views). |X||        
 | width        | Field width in Browse and Edit views (in percent of parent width).  |X||
 | help         | Optional help on the field. |X||
+| chartType | Default charts type. Possible values: "Pie", "Bars", "Table". |X||
 | noCharts     | Prevent the field to have a charts (only necessary for fields of type integer, decimal, money, boolean, list of values which are "chartable"). |X|X|
 | column       | Database column name for the field    ||X|
 | lovtable     | Table to join to for field value (only for fields of "lov" type). ||X|  
