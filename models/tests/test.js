@@ -197,7 +197,8 @@ module.exports = {
       {
         id:"pdate", type:"panel", 
         label: "Date & Time", width: 31,
-        fields: ["date", "datetime", "time"]
+        fields: ["date", "datetime", "time"],
+        footer: "Not fully implemented yet"
       },
       {
         id:"ppix", type:"panel", 

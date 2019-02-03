@@ -89,12 +89,14 @@ Groups are used to visually group fields on the page for browsing or editing.
 
 Groups are only used in UI models and are optional. By default a single group holds all fields.
 
-| Property     | Meaning                               |
-|--------------|---------------------------------------|
-| id           | Unique key for the group. It is optional.            |
-| type         | Type of group. Only "panel" is currently implemented ("tab" and "accordeon" will be added later). |
-| label        | Group title as displayed to the user.      |
-| fields       | Array of field ids.                        |
+| Property     | Meaning                               | UI | DB |
+|--------------|---------------------------------------|----|----|
+| id           | Unique key for the group. It is optional.            |X||
+| type         | Type of group. Only "panel" is currently implemented ("tab" and "accordeon" will be added later). |X||
+| label        | Group title as displayed to the user.      |X||
+| fields       | Array of field ids.                        |X||
+| width       | Width (in % of the container total width).    |X||
+| footer       | Text to be displayed at the bottom of the group.    |X||
 
 
 ### Collection
