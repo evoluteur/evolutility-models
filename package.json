@@ -1,0 +1,23 @@
+{
+    "name": "evolutility-models",
+    "version": "0.0.3",
+    "description": "Models for Evolutility",
+    "license": "MIT",
+    "homepage": "https://github.com/evoluteur/evolutility-models",
+    "author": "Olivier Giulieri (https://evoluteur.github.io/)",
+    "repository": {
+      "type": "git",
+      "url": "git://github.com/evoluteur/evolutility-models.git"
+    },
+    "bugs": "https://github.com/evoluteur/evolutility-models/issues",
+    "keywords": [
+        "model",
+        "model-driven",
+        "low-code",
+        "generator",
+        "MDA",
+        "metadata",
+        "CRUD"
+    ]
+  }
+  
