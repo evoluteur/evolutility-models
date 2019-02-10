@@ -10,6 +10,7 @@ const github = 'https://github.com/evoluteur/evolutility-server-node'
 let dir = 'models-db'
 //let dir = '../evolutility-server-node/models'
 let allModels = []
+let worlds = {}
 
 console.log('Evolutility - Generating DB models:');
 if (!fs.existsSync(dir)){
@@ -23,7 +24,17 @@ for(let mid in models){
     const newm = mfn.dbModel(m)
     let filename = dir + m.id + '.js'
 
-    allModels.push(newm.id)
+    if(m.world){
+        if(!worlds[m.world]){
+            const nDir = dir + '/' + m.world
+            if (!fs.existsSync(nDir)){
+                fs.mkdirSync(nDir);
+            }
+            worlds[m.world] = true
+        }
+        filename = dir + m.world + '/' + m.id + '.js'
+    }
+    allModels.push({mid: newm.id, path: m.world})
 
     const txt = '/*\n  Evolutility DB Model for '+(m.label||m.title||m.id)+
         '\n  '+github+
@@ -44,7 +55,7 @@ if(!dir.startsWith('../')){
     const txt = '/*\n  Evolutility DB Models'+
         '\n  '+github+
         '\n*/\n\nmodule.exports = {\n'+
-            allModels.map(mid => `    ${mid}: require('./${mid}')`).join(',\n')+
+            allModels.map(m => `    ${m.mid}: require('./${m.path?m.path+'/':''}${m.mid}')`).join(',\n')+
         '\n}'
 
     filename = dir+'all_models.js'
