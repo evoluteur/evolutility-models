@@ -56,7 +56,8 @@ Models describe objects with fields and collections. Fields can be grouped.
 | groups       | Array of groups. If not provided a single group will be used.   | X | |  
 | titleField   | Id of the field which value is used as record title. titleField can also be a function. | X | X |  
 | table        | Driving database table name (there are secondary tables for fields of type "lov").     | | X |  
-| searchFields    | Array of field ids for fields used to perform searches.  | |X|  
+| pkey         | Name of the Primary key column (single column of type serial). Default to "id". In the data the key is always called "id". | | X |  
+| searchFields | Array of field ids for fields used to perform searches.  | |X|  
 
 
 
@@ -75,7 +76,7 @@ Models describe objects with fields and collections. Fields can be grouped.
 | height       | For fields of type "textmultiline", number of lines used in the field (in Browse and Edit views). |X||        
 | width        | Field width in Browse and Edit views (in percent of parent width).  |X||
 | help         | Optional help on the field. |X||
-| chartType | Default charts type. Possible values: "Pie", "Bars", "Table". |X||
+| chartType    | Default charts type used for the field ("Bars", "Pie", or "Table"). The default value is "Bars".  |X||
 | noCharts     | Prevent the field to have a charts (only necessary for fields of type integer, decimal, money, boolean, list of values which are "chartable"). |X|X|
 | column       | Database column name for the field    ||X|
 | lovtable     | Table to join to for field value (only for fields of "lov" type). ||X|  
