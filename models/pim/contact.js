@@ -79,34 +79,15 @@ module.exports = {
 			"label": "Category",
 			"width": 100,
 			"list": [
-				{
-					"id": 1,
-					"text": "Work"
-				},
-				{
-					"id": 2,
-					"text": "Fun"
-				},
-				{
-					"id": 3,
-					"text": "Travel"
-				},
-				{
-					"id": 4,
-					"text": "Business"
-				},
-				{
-					"id": 5,
-					"text": "Cars"
-				},
-				{
-					"id": 6,
-					"text": "Sport"
-				},
-				{
-					"id": 7,
-					"text": "Misc."
-				}
+				{id: 1, text: 'Friends'},
+				{id: 2, text: 'Family'},
+				{id: 3, text: 'Work'},
+				{id: 4, text: 'Meditation'},
+				{id: 5, text: 'Travel'},
+				{id: 6, text: 'Business'},
+				{id: 7, text: 'Sport'},
+				{id: 8, text: 'Restaurants'},
+				{id: 9, text: 'Misc.'}
 			],
 			"inMany": true,
 			"column": "category_id",
