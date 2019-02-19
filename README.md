@@ -14,6 +14,12 @@ Personal Information Manager (PIM)
 - [Graphic novels](https://github.com/evoluteur/evolutility-models/blob/master/models/pim/comics.js)
 - [Wine cellar](https://github.com/evoluteur/evolutility-models/blob/master/models/pim/winecellar.js)
 
+Music
+
+- [Artists](https://github.com/evoluteur/evolutility-models/blob/master/models/music/artist.js)
+- [Albums](https://github.com/evoluteur/evolutility-models/blob/master/models/music/album.js)
+- [Tracks](https://github.com/evoluteur/evolutility-models/blob/master/models/music/track.js)
+
 ...and a [Test model](https://github.com/evoluteur/evolutility-models/blob/master/models/tests/test.js) with fields of all possible types.
 
 

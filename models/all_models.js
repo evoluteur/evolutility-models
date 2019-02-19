@@ -11,5 +11,9 @@ module.exports = {
     winecellar: require('./pim/winecellar'),
     winetasting: require('./pim/winetasting'),
 
+    album: require('./music/album'),
+    artist: require('./music/artist'),
+    track: require('./music/track'),
+
     test: require('./tests/test'),
 }
