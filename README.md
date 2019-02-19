@@ -54,6 +54,7 @@ Models describe objects with fields and collections. Fields can be grouped.
 | title        | Application name (example: "Addressbook").         | X | |  
 | fields       | Array of fields.           | X | X |  
 | groups       | Array of groups. If not provided a single group will be used.   | X | |  
+| collections  | Array of collections (displayed as Lists).      | X | X |  
 | titleField   | Id of the field which value is used as record title. titleField can also be a function. | X | X |  
 | table        | Driving database table name (there are secondary tables for fields of type "lov").     | | X |  
 | pkey         | Name of the Primary key column (single column of type serial). Default to "id". In the data the key is always called "id". | | X |  

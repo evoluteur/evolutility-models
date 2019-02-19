@@ -29,7 +29,7 @@ const gField = (f) => {
 
 const uiField = (f) => {
     let fld = gField(f)
-    const props = ['label', 'width', 'height', 'help']
+    const props = ['width', 'height', 'chartType', 'help']
     props.forEach(function(prop){
         fld[prop] = f[prop]
     })
@@ -41,6 +41,9 @@ const dbField = (f) => {
     if(f.type==='lov'){
         fld.lovtable = f.lovtable || f.dbtablelov
         fld.lovcolumn = f.lovcolumn || f.dbcolumnreadlov
+    }
+    if(f.deletetrigger){
+        fld.deletetrigger = true
     }
     return fld
 }
@@ -77,6 +80,7 @@ module.exports = {
 
     dbModel: (m) => ({
         id: m.id,
+        pkey: m.pkey || 'id',
         table: m.table,
         titleField: m.titleField,
         searchFields: m.searchFields,
