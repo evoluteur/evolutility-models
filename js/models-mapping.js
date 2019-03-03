@@ -4,7 +4,7 @@
     Functions to transform full models into ui/db models.
 
     https://github.com/evoluteur/evolutility-models
-    (c) 2018 Olivier Giulieri
+    (c) 2019 Olivier Giulieri
 */
 
 const gField = (f) => {
@@ -41,6 +41,7 @@ const dbField = (f) => {
     if(f.type==='lov'){
         fld.lovtable = f.lovtable || f.dbtablelov
         fld.lovcolumn = f.lovcolumn || f.dbcolumnreadlov
+        fld.lovicon = f.lovicon || false
     }
     if(f.deletetrigger){
         fld.deletetrigger = true
@@ -72,6 +73,7 @@ module.exports = {
         name: m.name,
         namePlural: m.namePlural,
         icon: m.icon,
+        defaultViewOne: m.defaultViewOne || 'browse',
         titleField: m.titleField,
         fields: m.fields.map(uiField),
         groups: m.groups,

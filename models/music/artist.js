@@ -42,6 +42,7 @@ module.exports = {
 			column: 'description', 
 			type: 'textmultiline', 
 			label: 'Description', 
+			height: 4,
 		}
 	],
 	groups: [

@@ -65,6 +65,7 @@ Models describe objects with fields and collections. Fields can be grouped.
 | table        | Driving database table name (there are secondary tables for fields of type "lov").     | | X |  
 | pkey         | Name of the Primary key column (single column of type serial). Default to "id". In the data the key is always called "id". | | X |  
 | searchFields | Array of field ids for fields used to perform searches.  | |X|  
+| defaultViewOne| Default view for One record (possible values browse, edit).    | |X| 
 
 
 
@@ -104,7 +105,8 @@ Groups are only used in UI models and are optional. By default a single group ho
 | type         | Type of group. Only "panel" is currently implemented ("tab" and "accordeon" will be added later). |X||
 | label        | Group title as displayed to the user.      |X||
 | fields       | Array of field ids.                        |X||
-| width       | Width (in % of the container total width).    |X||
+| width        | Width (in % of the container total width).    |X||
+| header       | Text to be displayed at the top of the group (just below the group title).|X||
 | footer       | Text to be displayed at the bottom of the group.    |X||
 
 
