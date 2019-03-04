@@ -23,6 +23,14 @@ Music
 ...and a [Test model](https://github.com/evoluteur/evolutility-models/blob/master/models/tests/test.js) with fields of all possible types.
 
 
+## Models of models
+
+If we store the models like the data (instead of JSON fi), we can use models to create and modify other models.
+
+- [Objects](https://github.com/evoluteur/evolutility-models/blob/master/models/designer/object.js)
+- [Fields](https://github.com/evoluteur/evolutility-models/blob/master/models/designer/field.js)
+- [Worlds](https://github.com/evoluteur/evolutility-models/blob/master/models/designer/world.js)
+
 
 ## Scripts
 
@@ -44,10 +52,16 @@ node js/models-db.js
 ``` 
 
 Generated models are saved in the directories "models-ui" and "models-db". The list of "full" models to generate from is specified in "/models/all_models.js".
- 
-## Vocabulary for Models
 
-Models describe objects with fields and collections. Fields can be grouped. 
+Note: The full models can be used as they are by both UI and back-end (which ignore what they do not need in the models).
+ 
+## Metamodel
+
+The metamodel is the structure of the model (the model of models). 
+I think about it as the vocabulary for making models.
+
+Models describe objects with fields, groups of fields, and collections (nested lists). 
+For any object, all views use the same model (single source of truth for UI metadata).
 
 ### Object
 
@@ -55,16 +69,17 @@ Models describe objects with fields and collections. Fields can be grouped.
 |--------------|-----------------------------------------|----|----|
 | id           | Unique key to identify the entity (used as API parameter). |X|X|
 | icon         | Icon file name for the entity (example: "cube.gif"). |X||
-| name         | Object name (singular) (example: "contact").   | X | |  
-| namePlural   | Object name (plural) (example: "contacts").     | X | |  
-| title        | Application name (example: "Addressbook").         | X | |  
-| fields       | Array of fields.           | X | X |  
-| groups       | Array of groups. If not provided a single group will be used.   | X | |  
-| collections  | Array of collections (displayed as Lists).      | X | X |  
-| titleField   | Id of the field which value is used as record title. titleField can also be a function. | X | X |  
-| table        | Driving database table name (there are secondary tables for fields of type "lov").     | | X |  
-| pkey         | Name of the Primary key column (single column of type serial). Default to "id". In the data the key is always called "id". | | X |  
-| searchFields | Array of field ids for fields used to perform searches.  | |X|  
+| name         | Object name (singular) (example: "contact").   | X | |
+| namePlural   | Object name (plural) (example: "contacts").     | X | |
+| title        | Application name (example: "Addressbook").         | X | |
+| fields       | Array of fields.           | X | X |
+| groups       | Array of groups. If not provided a single group will be used.   | X | |
+| collections  | Array of collections (displayed as Lists).      | X | X |
+| titleField   | Id of the field which value is used as record title. titleField can also be a function. | X | X | 
+| table        | Driving database table name (there are secondary tables for fields of type "lov").     | | X | 
+| pkey         | Name of the Primary key column (single column of type serial). Default to "id". In the data the key is always called "id". | | X |
+| searchFields | Array of field ids for fields used to perform searches.  | |X|
+| defaultViewMany| Default view for Many records (possible values: list, cards, charts).  | |X|
 | defaultViewOne| Default view for One record (possible values browse, edit).    | |X| 
 
 
@@ -79,15 +94,15 @@ Models describe objects with fields and collections. Fields can be grouped.
 | readonly     | Field value cannot be changed.   |X|X|
 | defaultValue | Default field value for new records.                 |X|X|
 | max, min     | Maximum/Minimum value allowed (only applies to numeric fields).      |X|X|
-| maxLength, minLength | Maximum/Minimum length allowed (only applies to text fields).      |X|X|              
-| inMany       | Determines if the field is present (by default) in lists of records. |X|X|           
-| height       | For fields of type "textmultiline", number of lines used in the field (in Browse and Edit views). |X||        
+| maxLength, minLength | Maximum/Minimum length allowed (only applies to text fields).      |X|X|
+| inMany       | Determines if the field is present (by default) in lists of records. |X|X|
+| height       | For fields of type "textmultiline", number of lines used in the field (in Browse and Edit views). |X||
 | width        | Field width in Browse and Edit views (in percent of parent width).  |X||
 | help         | Optional help on the field. |X||
 | chartType    | Default charts type used for the field ("Bars", "Pie", or "Table"). The default value is "Bars".  |X||
 | noCharts     | Prevent the field to have a charts (only necessary for fields of type integer, decimal, money, boolean, list of values which are "chartable"). |X|X|
 | column       | Database column name for the field    ||X|
-| lovtable     | Table to join to for field value (only for fields of "lov" type). ||X|  
+| lovtable     | Table to join to for field value (only for fields of "lov" type). ||X|
 | lovcolumn    | Column name (in the lovtable) for field value (only for fields of "lov" type). ||X|
 | lovicon      | LOV items have icons. |X|X|
 | deletetrigger | Deleting records in the lovtable will trigger a cascade delete (this property is only used for creating the database). | |X|
