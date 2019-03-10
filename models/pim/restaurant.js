@@ -13,7 +13,10 @@ module.exports = {
 	"name": "restaurant",
 	"namePlural": "restaurants",
 	"searchFields": [
-		"name"
+		"name",
+		"web",
+		"notes",
+		"favorites"
 	],
 	"fields": [
 		{

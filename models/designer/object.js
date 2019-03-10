@@ -14,6 +14,12 @@ module.exports = {
 	"titleField": "title",
 	"table": "evol_object",
 	"active": true,
+	"searchFields": [
+		"title",
+		"name",
+		"table",
+		"description",
+	],
 	"fields": [
 		{
 			"id": "title",

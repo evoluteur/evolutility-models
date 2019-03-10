@@ -13,6 +13,10 @@ module.exports = {
 	"name": "world",
 	"namePlural": "worlds",
 	"titleField": "name",
+	"searchFields": [
+		"name",
+		"description",
+	],
 	"fields": [
 		{
 			"id": "name",

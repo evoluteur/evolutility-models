@@ -47,7 +47,7 @@ const fieldTypes = [
 	{
 		id: 9,
 		"text": "Date-time",
-		"icon": "designer/ft-datehm.gif"
+		"icon": "designer/ft-datetime.gif"
 	},
 	{
 		id: 10,
