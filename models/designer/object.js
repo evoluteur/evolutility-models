@@ -63,7 +63,7 @@ module.exports = {
 		},
 		{
 			"id": "entity",
-			"column": "entity_name",
+			"column": "entity",
 			"label": "Entity Id",
 			"type": "text",
 			"help": "Internal identifier for the entity",
@@ -144,7 +144,7 @@ module.exports = {
 			"label": "Info",
 			"width": 38,
 			"fields": [
-				"entity_name",
+				"entity",
 				"icon",
 				"description",
 			]
@@ -155,7 +155,7 @@ module.exports = {
 			"id": "collec-fields",
 			"table": "evol_field",
 			"column": "object_id",
-            "object": "field",
+			"object": "field",
 			"fields": [
 				{
 					"id": "label",

@@ -82,6 +82,12 @@ module.exports = {
 	"titleField": "label",
 	"table": "evol_field",
 	"active": true,
+	"searchFields": [
+		"label",
+		"column",
+		"help",
+		"description",
+	],
 	"fields": [
 		{
 			id: "label",
@@ -364,7 +370,7 @@ module.exports = {
 			width: 50,
 		},
 	],
-    groups: [
+    "groups": [
         {
             type: 'panel',
             label: 'Definition',
