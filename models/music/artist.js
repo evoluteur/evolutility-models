@@ -1,12 +1,13 @@
 module.exports = {
 	"id": "artist",
-	world: 'music',
-	title: 'Artists',
+    "active": true,
+	"world": 'music',
+	"title": 'Artists',
 	"table": "music_artist",
 	"name": "artist",
 	"namePlural": "artists",
 	"titleField": "name",
-	defaulViewMany: 'cards',
+	"defaulViewMany": 'cards',
 	"fields": [
 		{
 			"id": "name",

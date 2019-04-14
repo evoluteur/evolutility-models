@@ -1,5 +1,6 @@
 module.exports = {
 	"id": "track",
+    "active": true,
 	world: 'music',
 	title: 'Tracks',
 	"table": "music_track",
@@ -22,7 +23,7 @@ module.exports = {
 			"type": "lov",
 			"label": "Album",
 			"column": "album_id",
-			entity: 'album',
+			object: 'album',
 			"height": 1,
 			"width": 100,
 			"inMany": true,

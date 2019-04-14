@@ -25,12 +25,13 @@ Music
 
 ## Models of models
 
-If we store the models like the data (instead of JSON fi), we can use models to create and modify other models.
+If we store the models like the data (instead of JSON files), we can use models to create and modify other models.
 
 - [Objects](https://github.com/evoluteur/evolutility-models/blob/master/models/designer/object.js)
 - [Fields](https://github.com/evoluteur/evolutility-models/blob/master/models/designer/field.js)
 - [Worlds](https://github.com/evoluteur/evolutility-models/blob/master/models/designer/world.js)
 
+TODO: field groups and collections.
 
 ## Scripts
 
@@ -69,22 +70,26 @@ For any object, all views use the same model (single source of truth for UI meta
 |--------------|-----------------------------------------|----|----|
 | id           | Unique key to identify the entity (used as API parameter). |X|X|
 | icon         | Icon file name for the entity (example: "cube.gif"). |X||
-| name         | Object name (singular) (example: "contact").   | X | |
-| namePlural   | Object name (plural) (example: "contacts").     | X | |
-| title        | Application name (example: "Addressbook").         | X | |
-| fields       | Array of fields.           | X | X |
-| groups       | Array of groups. If not provided a single group will be used.   | X | |
-| collections  | Array of collections (displayed as Lists).      | X | X |
-| titleField   | Id of the field which value is used as record title. titleField can also be a function. | X | X | 
-| table        | Driving database table name (there are secondary tables for fields of type "lov").     | | X | 
-| pkey         | Name of the Primary key column (single column of type serial). Default to "id". In the data the key is always called "id". | | X |
-| searchFields | Array of field ids for fields used to perform searches.  | |X|
+| name         | Object name (singular) (example: "contact").   |X| |
+| namePlural   | Object name (plural) (example: "contacts").     |X| |
+| title        | Application name (example: "Addressbook").         |X| |
+| fields       | Array of fields.           |X|X|
+| groups       | Array of groups. If not provided a single group will be used.   |X| |
+| collections  | Array of collections (displayed as Lists).      |X|X|
+| titleField   | Id of the field which value is used as record title. titleField can also be a function. |X|X| 
+| table        | Driving database table name (there are secondary tables for fields of type "lov").     | |X| 
+| pkey         | Name of the Primary key column (single column of type serial). Default to "id". In the data the key is always called "id". | |X|
+| searchFields | Array of field ids for fields used to perform searches (default to fields of text value which are included in the List view.  | |X|
 | defaultViewMany| Default view for Many records (possible values: list, cards, charts).  | |X|
 | defaultViewOne| Default view for One record (possible values browse, edit).    | |X| 
 
-
+X: Indicate if the property is used in UI/DB models.
+ 
 
 ### Field
+
+For the backend, fields are columns in a database table. 
+For the frontend, fields are textboxes, checkboxes, datepickers... in Edit view, and they are columns in List view.
 
 | Property     | Meaning                               | UI | DB |
 |--------------|---------------------------------------|----|----|
@@ -97,14 +102,14 @@ For any object, all views use the same model (single source of truth for UI meta
 | maxLength, minLength | Maximum/Minimum length allowed (only applies to text fields).      |X|X|
 | inMany       | Determines if the field is present (by default) in lists of records. |X|X|
 | height       | For fields of type "textmultiline", number of lines used in the field (in Browse and Edit views). |X||
-| width        | Field width in Browse and Edit views (in percent of parent width).  |X||
+| width        | Field width in Browse and Edit views (in percent of parent width). Default: 100%  |X||
 | help         | Optional help on the field. |X||
 | chartType    | Default charts type used for the field ("Bars", "Pie", or "Table"). The default value is "Bars".  |X||
 | noCharts     | Prevent the field to have a charts (only necessary for fields of type integer, decimal, money, boolean, list of values which are "chartable"). |X|X|
 | column       | Database column name for the field    ||X|
 | lovtable     | Table to join to for field value (only for fields of "lov" type). ||X|
 | lovcolumn    | Column name (in the lovtable) for field value (only for fields of "lov" type). ||X|
-| lovicon      | LOV items have icons. |X|X|
+| lovicon      | LOV items have icons (only for fields of "lov" type). |X|X|
 | deletetrigger | Deleting records in the lovtable will trigger a cascade delete (this property is only used for creating the database). | |X|
 | object       | Model id for the object to link to (only for fields of "lov" type).       |X|X|
 
@@ -120,7 +125,7 @@ Groups are only used in UI models and are optional. By default a single group ho
 | type         | Type of group. Only "panel" is currently implemented ("tab" and "accordeon" will be added later). |X||
 | label        | Group title as displayed to the user.      |X||
 | fields       | Array of field ids.                        |X||
-| width        | Width (in % of the container total width).    |X||
+| width        | Width (in % of the container total width). |X||
 | header       | Text to be displayed at the top of the group (just below the group title).|X||
 | footer       | Text to be displayed at the bottom of the group.    |X||
 
@@ -133,7 +138,7 @@ Multiple Master-Details can be specified with collections.
 |--------------|---------------------------------------|----|----|
 | id           | Unique key for the collection.        |X|X|
 | title        | Collection title.                     |X||
-| table        | Table to query for the details list.                    ||X|
+| table        | Table to query for the details list.  ||X|
 | column       | Column in the detail table to match against id of object. ||X|
 | object       | Model id for the object to link to.   |X|X|
 | order        | "asc/desc" for sorting by the first field in fields.     ||X|

@@ -95,14 +95,13 @@ module.exports = {
 			"label": "Language",
 			"width": 17,
 			"inMany": true,
-			"lovicon": true,
 			"list": [
                 {id: 2, text: 'French', icon:'comics/flags/fr.png'},
                 {id: 1, text: 'American', icon:'comics/flags/us.png'}
 			],
 			"column": "language_id",
 			"lovtable": "comics_language",
-			lovicon: true,
+			"lovicon": true,
 		},
 		{
 			"id": "complete",

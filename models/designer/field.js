@@ -325,7 +325,7 @@ module.exports = {
 			"label": "Exclude from Charts",
 			"type": "boolean",
 			"width": 50,
-			"help": "If chacked, the field\'s charts will not appear in the dashboard."
+			"help": "If chacked, the field's charts will not appear in the dashboard."
 		},
 		{
 			id: "chartType",
