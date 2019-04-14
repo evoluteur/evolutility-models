@@ -95,6 +95,8 @@ For the frontend, fields are textboxes, checkboxes, datepickers... in Edit view,
 |--------------|---------------------------------------|----|----|
 | id           | Unique key for the field (can be the same as column but doesn't have to be). |X|X|
 | type         | Field type to show in the UI. Possible field types: <ul><li>boolean (yes/no)</li><li>date</li><li>datetime</li><li>decimal</li><li>document</li><li>email</li><li>image</li><li>integer</li><li>lov (list of values)</li><li>money</li><li>text</li><li>textmultiline</li><li>time</li><li>url</li></ul> |X|X|
+| label        | Field description (displayed with an asterisk for required fields).      |X||
+| labelShort   | Optional shorter version of the labels (used in List and Cards views). |X||
 | required     | Determines if the field is required for saving.      |X|X|
 | readonly     | Field value cannot be changed.   |X|X|
 | defaultValue | Default field value for new records.                 |X|X|
@@ -107,10 +109,10 @@ For the frontend, fields are textboxes, checkboxes, datepickers... in Edit view,
 | chartType    | Default charts type used for the field ("Bars", "Pie", or "Table"). The default value is "Bars".  |X||
 | noCharts     | Prevent the field to have a charts (only necessary for fields of type integer, decimal, money, boolean, list of values which are "chartable"). |X|X|
 | column       | Database column name for the field    ||X|
-| lovtable     | Table to join to for field value (only for fields of "lov" type). ||X|
-| lovcolumn    | Column name (in the lovtable) for field value (only for fields of "lov" type). ||X|
-| lovicon      | LOV items have icons (only for fields of "lov" type). |X|X|
-| deletetrigger | Deleting records in the lovtable will trigger a cascade delete (this property is only used for creating the database). | |X|
+| lovTable     | Table to join to for field value (only for fields of "lov" type). ||X|
+| lovColumn    | Column name (in the lovTable) for field value (only for fields of "lov" type). ||X|
+| lovIcon      | LOV items have icons (only for fields of "lov" type). |X|X|
+| deleteTrigger | Deleting records in the lovTable will trigger a cascade delete (this property is only used for creating the database). | |X|
 | object       | Model id for the object to link to (only for fields of "lov" type).       |X|X|
 
 ### Group

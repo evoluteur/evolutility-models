@@ -59,7 +59,7 @@ module.exports = {
                 {id: 9, text: 'Youth'},
 			],
 			"column": "genre_id",
-			"lovtable": "comics_genre"
+			"lovTable": "comics_genre"
 		},
 		{
 			"id": "serie_nb",
@@ -100,8 +100,8 @@ module.exports = {
                 {id: 1, text: 'American', icon:'comics/flags/us.png'}
 			],
 			"column": "language_id",
-			"lovtable": "comics_language",
-			"lovicon": true,
+			"lovTable": "comics_language",
+			"lovIcon": true,
 		},
 		{
 			"id": "complete",

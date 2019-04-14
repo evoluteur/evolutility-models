@@ -33,8 +33,8 @@ module.exports = {
 			"inMany": true,
 			"width": 62,
 			"required": true,
-			"lovtable": "wine",
-			deletetrigger: true,
+			"lovTable": "wine",
+			deleteTrigger: true,
 		},
 		{
 			"id": "taste",

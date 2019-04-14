@@ -110,9 +110,9 @@ module.exports = {
 			"width": 38,
 			"required": true,
 			"column": "type_id",
-			"lovtable": "evol_field_type",
-			"lovcolumn": "name",
-			"lovicon": true,
+			"lovTable": "evol_field_type",
+			"lovColumn": "name",
+			"lovIcon": true,
 			"inMany": true
 		},
 		{
@@ -145,9 +145,9 @@ module.exports = {
 			"noCharts": true,
 			"width": 32,
 			"column": "object_id",
-			"lovtable": "evol_object",
-			"lovcolumn": "title",
-			"deletetrigger": true,
+			"lovTable": "evol_object",
+			"lovColumn": "title",
+			"deleteTrigger": true,
 		},/*
 		{
 			id: "fieldgroup",
@@ -157,15 +157,15 @@ module.exports = {
 			"help": "Group the field belong to.",
 			"width": 38,
 			"column": "field_group_id",
-			"lovtable": "evol_field_group",
-			"lovcolumn": "label",
-			"lovicon": true,
+			"lovTable": "evol_field_group",
+			"lovColumn": "label",
+			"lovIcon": true,
 			"inMany": true,
 			object: 'fieldgroup',
 		},*/
 		{
-			id: "lovtable",
-			"column": "lovtable",
+			id: "lovTable",
+			"column": "lovTable",
 			"label": "LOV Table",
 			"help": "Lookup table",
 			"type": "text",
@@ -173,7 +173,7 @@ module.exports = {
 			"width": 32
 		},
 		{
-			id: "lovcolumn",
+			id: "lovColumn",
 			"column": "lovcolumn",
 			"label": "LOV column",
 			"type": "text",
@@ -182,7 +182,7 @@ module.exports = {
 			"width": 38
 		},
 		{
-			id: "lovicon",
+			id: "lovIcon",
 			"column": "lovicon",
 			"label": "LOV Icon",
 			"type": "text",
@@ -192,7 +192,7 @@ module.exports = {
 		},
 		{
 			id: "inMany",
-			"column": "inMany",
+			"column": "inmany",
 			"label": "List",
 			"help": "Field is used in summary lists",
 			"type": "boolean",
@@ -270,7 +270,7 @@ module.exports = {
 		},
 		{
 			id: "minLength",
-			"column": "minLength",
+			"column": "minlength",
 			"label": "Min. length",
 			"help": "Minimum number of characters required",
 			"type": "integer",
@@ -279,7 +279,7 @@ module.exports = {
 		},
 		{
 			id: "maxLength",
-			"column": "maxLength",
+			"column": "maxlength",
 			"label": "Max. length",
 			"help": "Maximum number of characters allowed",
 			"type": "integer",
@@ -290,30 +290,30 @@ module.exports = {
 		{
 			id: "minvalue",
 			"label": "Min. value",
-			"labelList": "Min.",
+			"labelShort": "Min.",
 			"help": "Minimum value allowed for the field",
 			"type": "integer",
 			"maxLength": 4,
 			"width": 50,
 			"noCharts": true,
-			"column": "minValue"
+			"column": "minvalue"
 		},
 		{
 			id: "maxvalue",
 			"label": "Max. value",
-			"labelList": "Max.",
+			"labelShort": "Max.",
 			"help": "Maximum value allowed for the field",
 			"type": "integer",
 			"maxLength": 4,
 			"width": 50,
 			"noCharts": true,
-			"column": "maxValue"
+			"column": "maxvalue"
 		},
 		{
 			id: "regExp",
-			"column": "regExp",
+			"column": "regexp",
 			"label": "Regular Expression",
-			"labelList": "RegExp",
+			"labelShort": "RegExp",
 			"type": "text",
 			"maxLength": 100,
 			"width": 50,
@@ -321,7 +321,7 @@ module.exports = {
 		},
 		{
 			id: "noCharts",
-			"column": "noCharts",
+			"column": "nocharts",
 			"label": "Exclude from Charts",
 			"type": "boolean",
 			"width": 50,
@@ -329,7 +329,7 @@ module.exports = {
 		},
 		{
 			id: "chartType",
-			"column": "chartType",
+			"column": "charttype",
 			"label": "Default Chart Type",
 			"type": "text",
 			"width": 50,
@@ -356,16 +356,16 @@ module.exports = {
 		},
 		{
 			id: "defaultValue",
-			"column": "defaultValue",
+			"column": "defaultvalue",
 			"label": "Default Value",
 			"type": "text",
 			width: 50,
 		},
 		{
-			id: "deletetrigger",
+			id: "deleteTrigger",
 			"column": "deletetrigger",
 			"label": "Delete trigger",
-			help: "If checked, deleting records in the lovtable will trigger a cascade delete (only for list (dropdown) fields).",
+			help: "If checked, deleting records in the lovTable will trigger a cascade delete (only for list (dropdown) fields).",
 			"type": "boolean",
 			width: 50,
 		},
@@ -382,7 +382,7 @@ module.exports = {
 				'fid',
 				'object',
 				//'fieldgroup',
-				'lovtable','lovcolumn'
+				'lovTable','lovColumn'
 			]
         },
         {
@@ -395,7 +395,7 @@ module.exports = {
             type: 'panel',
             label: 'Validation',
             width: 62,
-            fields: ['defaultValue','deletetrigger','required','readonly','minvalue','maxvalue','minLength','maxLength','regExp','noCharts']
+            fields: ['defaultValue','deleteTrigger','required','readonly','minvalue','maxvalue','minLength','maxLength','regExp','noCharts']
         },
         {
             id: 'p-help',

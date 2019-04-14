@@ -17,7 +17,7 @@ const gField = (f) => {
         readonly: f.readonly,
         noCharts: f.noCharts,
         list: f.list,
-        lovicon: f.lovicon,
+        lovIcon: f.lovIcon,
         max: f.max,
         min: f.min,
         maxLength: f.maxLength,
@@ -29,7 +29,7 @@ const gField = (f) => {
 
 const uiField = (f) => {
     let fld = gField(f)
-    const props = ['width', 'height', 'chartType', 'help']
+    const props = ['labelShort', 'width', 'height', 'chartType', 'help']
     props.forEach(function(prop){
         fld[prop] = f[prop]
     })
@@ -39,12 +39,12 @@ const dbField = (f) => {
     let fld = gField(f)
     fld.column = f.column || f.dbcolumn || f.id
     if(f.type==='lov'){
-        fld.lovtable = f.lovtable || f.dbtablelov
-        fld.lovcolumn = f.lovcolumn || f.dbcolumnreadlov
-        fld.lovicon = f.lovicon || false
+        fld.lovTable = f.lovTable || f.dbtablelov
+        fld.lovColumn = f.lovColumn || f.dbcolumnreadlov
+        fld.lovIcon = f.lovIcon || false
     }
-    if(f.deletetrigger){
-        fld.deletetrigger = true
+    if(f.deleteTrigger){
+        fld.deleteTrigger = true
     }
     return fld
 }

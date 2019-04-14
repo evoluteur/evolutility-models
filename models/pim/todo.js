@@ -64,7 +64,7 @@ module.exports = {
 			"width": 62,
 			"inMany": true,
 			"column": "category_id",
-			"lovtable": "task_category"
+			"lovTable": "task_category"
 		},
 		{
 			"id": "priority",
@@ -97,7 +97,7 @@ module.exports = {
 			"defaultValue": 4,
 			"column": "priority_id",
 			"required": true,
-			"lovtable": "task_priority"
+			"lovTable": "task_priority"
 		},
 		{
 			"id": "complete",

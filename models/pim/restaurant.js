@@ -92,7 +92,7 @@ module.exports = {
 					"text": "Others"
 				}
 			],
-			"lovtable": "restaurant_cuisine",
+			"lovTable": "restaurant_cuisine",
 			"inMany": true
 		},
 		{
@@ -123,7 +123,7 @@ module.exports = {
 					"text": "$$$$$"
 				}
 			],
-			"lovtable": "restaurant_price",
+			"lovTable": "restaurant_price",
 			"inMany": true
 		},
 		{

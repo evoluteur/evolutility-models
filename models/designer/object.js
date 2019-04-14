@@ -5,7 +5,7 @@
 
 module.exports = {
 	"id": "object",
-  "world": "designer",
+	"world": "designer",
 	"title": "Object",
 	"icon": "cube.gif",
 	"schema": "evolutility",
@@ -48,7 +48,7 @@ module.exports = {
 			"table": "evol_world",
 			"inMany": true,
 			"column": "world_id",
-			"lovtable": "evol_world",
+			"lovTable": "evol_world",
 			"object": "world"
 		},
 		{
@@ -88,7 +88,7 @@ module.exports = {
 			"help": "example: 'contacts'",
 			"type": "text",
 			"id": "namePlural",
-			"column": "namePlural",
+			"column": "nameplural",
 			"required": true,
 			"maxLength": 50,
 			"width": 38
@@ -170,7 +170,7 @@ module.exports = {
 				},
 				{
 					"id": "inMany",
-					"column": "inMany",
+					"column": "inmany",
 					"label": "List",
 					"type": "boolean",
 				},

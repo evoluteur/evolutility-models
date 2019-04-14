@@ -40,7 +40,7 @@ const fields = [
         label: "List of Values", 
         width: 100,  
         list: flavors,
-        lovtable: 'z_test_flavor',
+        lovTable: 'z_test_flavor',
         required: true,
         inMany: true,
     },
@@ -50,7 +50,7 @@ const fields = [
         column: "parent_id",
         label: "Parent", 
         width: 100,
-        lovtable: 'z_test',
+        lovTable: 'z_test',
         required: true,
         inMany: true,
         help: 'LOV ',
@@ -64,7 +64,7 @@ const fields = [
         width: 100,
         list: flavors,
         help: "List of Values with \"Lemon Cookie\" as default value.",
-        lovtable: 'z_test_flavor',
+        lovTable: 'z_test_flavor',
         defaultValue: 5
     },/*
     {
@@ -74,7 +74,7 @@ const fields = [
         "list": flavors,
         "defaultValue": 5,
         "column": "f_list",
-        "lovtable": "z_test_flavor"
+        "lovTable": "z_test_flavor"
     },*/
     {
         id: "date", 

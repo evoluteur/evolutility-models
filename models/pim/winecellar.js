@@ -179,7 +179,7 @@ module.exports = {
 			"column": "bottle_size",
 			"type": "lov",
 			"label": "Bottle Size",
-			"labelList": "Bottle",
+			"labelShort": "Bottle",
 			"width": 38,
 			"list": [
 				{
@@ -211,7 +211,7 @@ module.exports = {
 					"text": "8.0 L"
 				}
 			],
-			"lovtable": "wine_bsize"
+			"lovTable": "wine_bsize"
 		},
 		{
 			"id": "grape",
@@ -534,7 +534,7 @@ module.exports = {
 					"text": "Weißburgunder"
 				}
 			],
-			"lovtable": "wine_grape"
+			"lovTable": "wine_grape"
 		},
 		{
 			"id": "type",
@@ -570,8 +570,8 @@ module.exports = {
 					"icon": "wine/winerose.gif"
 				}
 			],
-			"lovtable": "wine_type",
-			"lovicon": true
+			"lovTable": "wine_type",
+			"lovIcon": true
 		},
 		{
 			"id": "appellation",
@@ -679,8 +679,8 @@ module.exports = {
 					"text": "United States"
 				}
 			],
-			"lovtable": "wine_country",
-			"lovicon": true
+			"lovTable": "wine_country",
+			"lovIcon": true
 		},
 		{
 			"id": "region",
@@ -735,7 +735,7 @@ module.exports = {
 			"column": "purchased",
 			"type": "integer",
 			"label": "Bottles Purchased",
-			"labelList": "Purchased",
+			"labelShort": "Purchased",
 			"maxLength": 10,
 			"width": 40
 		},
@@ -763,7 +763,7 @@ module.exports = {
 			"column": "drink_from",
 			"type": "integer",
 			"label": "Drink from (year)",
-			"labelList": "Drink",
+			"labelShort": "Drink",
 			"labelCharts": "Wines by Start drinking period",
 			"placeholder": "2012",
 			"maxLength": 10,
@@ -818,7 +818,7 @@ module.exports = {
 			"column": "score",
 			"type": "lov",
 			"label": "My Score",
-			"labelList": "Score",
+			"labelShort": "Score",
 			"list": [
 				{
 					"id": 1,
@@ -841,7 +841,7 @@ module.exports = {
 					"text": "*****"
 				}
 			],
-			"lovtable": "wine_score"
+			"lovTable": "wine_score"
 		},
 		{
 			"id": "score_parker",

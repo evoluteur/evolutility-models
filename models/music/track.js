@@ -27,8 +27,8 @@ module.exports = {
 			"height": 1,
 			"width": 100,
 			"inMany": true,
-			"lovtable": "music_album",
-			"lovcolumn": "title"
+			"lovTable": "music_album",
+			"lovColumn": "title"
 		},
 		{
 			"id": "length",
@@ -45,7 +45,7 @@ module.exports = {
 			"column": "genre_id",
 			"width": 62,
 			"inMany": true,
-			"lovtable": "music_genre",
+			"lovTable": "music_genre",
 			list:[
 				{
 					id: 1,

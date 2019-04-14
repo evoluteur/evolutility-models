@@ -91,7 +91,7 @@ module.exports = {
 			],
 			"inMany": true,
 			"column": "category_id",
-			"lovtable": "contact_category"
+			"lovTable": "contact_category"
 		},
 		{
 			"type": "text",
