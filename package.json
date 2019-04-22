@@ -1,6 +1,6 @@
 {
     "name": "evolutility-models",
-    "version": "0.0.3",
+    "version": "0.1.0",
     "description": "Models for Evolutility",
     "license": "MIT",
     "homepage": "https://github.com/evoluteur/evolutility-models",
@@ -11,13 +11,14 @@
     },
     "bugs": "https://github.com/evoluteur/evolutility-models/issues",
     "keywords": [
-        "model",
-        "model-driven",
+        "CRUD",
         "low-code",
-        "generator",
         "MDA",
         "metadata",
-        "CRUD"
+        "metamodel",
+        "model",
+        "model-driven",
+        "generator"
     ]
   }
   
