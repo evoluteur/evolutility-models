@@ -82,7 +82,7 @@ module.exports = {
 
     dbModel: (m) => ({
         id: m.id,
-        pkey: m.pkey || 'id',
+        pKey: m.pKey || 'id',
         table: m.table,
         titleField: m.titleField,
         searchFields: m.searchFields,
