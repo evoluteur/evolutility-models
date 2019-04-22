@@ -206,7 +206,8 @@ module.exports = {
 			"help": "Order of the field",
 			"type": "integer",
 			"maxLength": 3,
-			"width": 50
+			"width": 50,
+			"noCharts": true
 		},
 		{
 			id: "width",
