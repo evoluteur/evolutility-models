@@ -1,7 +1,13 @@
 
 # Evolutility-Models
 
-Models (with metadata for both UI and back-end) for [Evolutility-UI-React](https://github.com/evoluteur/evolutility-ui-react) and [Evolutility-Server-Node](https://github.com/evoluteur/evolutility-server-node). 
+With Evolutility, models are DRY (Don't Repeat Yourself) descriptions of applications. These models contain all the information necessary for the backend (database tables and columns, validation...) and the UI (views, fields, validation...).
+
+Cool things to do with models:
+
+- Create a database and automatically provide REST or GraphQL endpoints using [Evolutility-Server-Node](https://github.com/evoluteur/evolutility-server-node).
+
+- Run a Web UI with [Evolutility-UI-React](https://github.com/evoluteur/evolutility-ui-react).
 
 
 ## Sample models
