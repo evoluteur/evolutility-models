@@ -199,12 +199,13 @@ module.exports = {
         id:"pdate", type:"panel", 
         label: "Date & Time", width: 31,
         fields: ["date", "datetime", "time"],
-        footer: "Not fully implemented yet"
+        header: "Not fully implemented yet."
       },
       {
         id:"ppix", type:"panel", 
         label: "Image & Document", width: 38,
-        fields: ["image","document"]
+        fields: ["image","document"],
+        footer: "Uploaded images and documents are saved as files (use 'filesUrl' to specify the path).",
       }
     ],
 
