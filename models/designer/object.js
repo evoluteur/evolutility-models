@@ -56,10 +56,17 @@ module.exports = {
 			"column": "table",
 			"label": "DB Table name",
 			"type": "text",
-			"width": 38,
+			"width": 62,
 			"maxLength": 100,
 			"required": true,
 			"inMany": true
+		},
+		{
+			"id": "pKey",
+			"column": "pkey",
+			"label": "Primary key column",
+			"type": "text",
+			"width": 38
 		},
 		{
 			"id": "entity",

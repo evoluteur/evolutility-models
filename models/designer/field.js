@@ -250,6 +250,14 @@ module.exports = {
 			"width": 50
 		},
 		{
+			id: "labelShort",
+			"label": "Label",
+			"type": "text",
+			"help": "Optional shorter Field title to display in list header",
+			"width": 100,
+			"column": "labelshort"
+		},
+		{
 			id: "required",
 			"column": "required",
 			"label": "Required",
@@ -383,14 +391,15 @@ module.exports = {
 				'fid',
 				'object',
 				//'fieldgroup',
-				'lovTable','lovColumn'
+				'lovTable','lovColumn','lovIcon'
 			]
         },
         {
             type: 'panel',
             label: 'Layout',
             width: 38,
-            fields: ['position','inMany','width','height','css','format','chartType','noCharts']
+			fields: ['position','inMany','width','height','css','format',
+				'labelShort', 'chartType','noCharts']
         },
         {
             type: 'panel',

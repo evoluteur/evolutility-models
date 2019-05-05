@@ -86,8 +86,8 @@ For any object, all views use the same model (single source of truth for UI meta
 | table        | Driving database table name (there are secondary tables for fields of type "lov").     | |X| 
 | pKey         | Name of the Primary key column (single column of type serial). Default to "id". In the data the key is always called "id". | |X|
 | searchFields | Array of field ids for fields used to perform searches (default to fields of text value which are included in the List view.  | |X|
-| defaultViewMany| Default view for Many records (possible values: list, cards, charts).  | |X|
-| defaultViewOne| Default view for One record (possible values browse, edit).    | |X| 
+| defaultViewMany| Default view for Many records (possible values: list, cards, charts).  |X| |
+| defaultViewOne| Default view for One record (possible values browse, edit).    |X| | 
 
 X: Indicate if the property is used in UI/DB models.
  
