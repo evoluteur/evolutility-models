@@ -14,7 +14,7 @@ const gField = (f) => {
         label: f.label, 
         object: f.object || f.entity,
         required: f.required,
-        readonly: f.readonly,
+        readOnly: f.readOnly,
         noCharts: f.noCharts,
         list: f.list,
         lovIcon: f.lovIcon,

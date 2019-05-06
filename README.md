@@ -104,7 +104,7 @@ For the frontend, fields are textboxes, checkboxes, datepickers... in Edit view,
 | label        | Field description (displayed with an asterisk for required fields).      |X||
 | labelShort   | Optional shorter version of the labels (used in List and Cards views). |X||
 | required     | Determines if the field is required for saving.      |X|X|
-| readonly     | Field value cannot be changed.   |X|X|
+| readOnly     | Field value cannot be changed.   |X|X|
 | defaultValue | Default field value for new records.                 |X|X|
 | max, min     | Maximum/Minimum value allowed (only applies to numeric fields).      |X|X|
 | maxLength, minLength | Maximum/Minimum length allowed (only applies to text fields).      |X|X|

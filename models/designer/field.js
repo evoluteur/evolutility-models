@@ -268,7 +268,7 @@ module.exports = {
 			"img": "checkr.gif"
 		},
 		{
-			id: "readonly",
+			id: "readOnly",
 			"column": "readonly",
 			"label": "Read only",
 			"defaultValue": false,
@@ -405,7 +405,7 @@ module.exports = {
             type: 'panel',
             label: 'Validation',
             width: 62,
-            fields: ['defaultValue','deleteTrigger','required','readonly','minvalue','maxvalue','minLength','maxLength','regExp','noCharts']
+            fields: ['defaultValue','deleteTrigger','required','readOnly','minValue','maxValue','minLength','maxLength','regExp','noCharts']
         },
         {
             id: 'p-help',

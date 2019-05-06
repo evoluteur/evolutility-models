@@ -108,7 +108,7 @@ module.exports = {
 			"maxLength": "50",
 			"width": 62,
 			"help": "example='contact.gif'",
-			"readonly": true,
+			"readOnly": true,
 			"inMany": true
 		},
 		{
