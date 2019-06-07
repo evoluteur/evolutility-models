@@ -173,7 +173,7 @@ module.exports = {
 				{
 					"id": "column",
 					"column": "dbcolumn",
-					"label": "column",
+					"label": "Column",
 				},
 				{
 					"id": "inMany",
