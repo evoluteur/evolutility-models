@@ -58,6 +58,14 @@ node js/models-db.js
 
 ``` 
 
+For both:
+
+```bash
+node js/models-db.js && node js/models-ui.js
+
+``` 
+
+
 Generated models are saved in the directories "models-ui" and "models-db". The list of "full" models to generate from is specified in "/models/all_models.js".
 
 Note: The full models can be used as they are by both UI and back-end (which ignore what they do not need in the models).
@@ -147,7 +155,7 @@ Multiple Master-Details can be specified with collections.
 | id           | Unique key for the collection.        |X|X|
 | title        | Collection title.                     |X||
 | table        | Table to query for the details list.  ||X|
-| column       | Column in the detail table to match against id of object. ||X|
+| column       | Column in the details table to match against object's id. ||X|
 | object       | Model id for the object to link to.   |X|X|
 | order        | "asc/desc" for sorting by the first field in fields.     ||X|
 | fields       | Array of fields. Fields in collections do not need all properties of Fields in objects.   |X|X|
