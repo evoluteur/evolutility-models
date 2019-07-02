@@ -7,35 +7,33 @@
     (c) 2019 Olivier Giulieri
 */
 
-const gField = (f) => {
-    return {
-        id: f.id,
-        type: f.type, 
-        label: f.label, 
-        object: f.object || f.entity,
-        required: f.required,
-        readOnly: f.readOnly,
-        noCharts: f.noCharts,
-        list: f.list,
-        lovIcon: f.lovIcon,
-        max: f.max,
-        min: f.min,
-        maxLength: f.maxLength,
-        minLength: f.minLength,
-        defaultValue: f.defaultValue,
-        inMany: f.inMany,
-    }
-}
+const gField = f => ({
+    id: f.id,
+    type: f.type, 
+    label: f.label, 
+    object: f.object || f.entity,
+    required: f.required,
+    readOnly: f.readOnly,
+    noCharts: f.noCharts,
+    list: f.list,
+    lovIcon: f.lovIcon,
+    max: f.max,
+    min: f.min,
+    maxLength: f.maxLength,
+    minLength: f.minLength,
+    defaultValue: f.defaultValue,
+    inMany: f.inMany,
+})
 
-const uiField = (f) => {
+const uiProps = ['labelShort', 'width', 'height', 'chartType', 'help']
+const uiField = f => {
     let fld = gField(f)
-    const props = ['labelShort', 'width', 'height', 'chartType', 'help']
-    props.forEach(function(prop){
+    uiProps.forEach(function(prop){
         fld[prop] = f[prop]
     })
     return fld
 }
-const dbField = (f) => {
+const dbField = f => {
     let fld = gField(f)
     fld.column = f.column || f.dbcolumn || f.id
     if(f.type==='lov'){
@@ -49,14 +47,14 @@ const dbField = (f) => {
     return fld
 }
 
-const uiCollec = (collec) => ({
+const uiCollec = collec => ({
     id: collec.id,
     title: collec.title || collec.label,
     object: collec.object || collec.entity,
     icon: collec.icon,
     fields: collec.fields.map(uiField),
 })
-const dbCollec = (collec) => ({
+const dbCollec = collec => ({
     id: collec.id,
     table: collec.table,
     column: collec.column,
@@ -67,12 +65,13 @@ const dbCollec = (collec) => ({
 
 module.exports = {
 
-    uiModel: (m) => ({
+    uiModel: m => ({
         id: m.id,
         title: m.title || m.label,
         name: m.name,
         namePlural: m.namePlural,
         icon: m.icon,
+        defaultViewMany: m.defaultViewMany || 'list',
         defaultViewOne: m.defaultViewOne || 'browse',
         titleField: m.titleField,
         fields: m.fields.map(uiField),
@@ -80,7 +79,7 @@ module.exports = {
         collections: m.collections ? m.collections.map(uiCollec) : [],
     }),
 
-    dbModel: (m) => ({
+    dbModel: m => ({
         id: m.id,
         pKey: m.pKey || 'id',
         table: m.table,
