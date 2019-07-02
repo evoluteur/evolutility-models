@@ -31,6 +31,8 @@ Music
 
 ## Models of models
 
+Still work in progress
+
 If we store the models like the data (instead of JSON files), we can use models to create and modify other models.
 
 - [Objects](https://github.com/evoluteur/evolutility-models/blob/master/models/designer/object.js)
@@ -75,9 +77,11 @@ Note: The full models can be used as they are by both UI and back-end (which ign
 The metamodel is the structure of the model (the model of models). 
 I think about it as the vocabulary for making models.
 
-Models describe objects with fields, groups of fields, and collections (nested lists). 
+Models describe [objects](#Object) with [fields](#Field), [groups](#Group) of fields, and [collections](#Collection) (nested lists). 
 For any object, all views use the same model (single source of truth for UI metadata).
 
+
+<a name="Object"></a>
 ### Object
 
 | Property     | Meaning                                 | UI | DB |
@@ -87,7 +91,7 @@ For any object, all views use the same model (single source of truth for UI meta
 | name         | Object name (singular) (example: "contact").   |X| |
 | namePlural   | Object name (plural) (example: "contacts").     |X| |
 | title        | Application name (example: "Addressbook").         |X| |
-| fields       | Array of fields.           |X|X|
+| fields       | Array of [fields](#Field).           |X|X|
 | groups       | Array of groups. If not provided a single group will be used.   |X| |
 | collections  | Array of collections (displayed as Lists).      |X|X|
 | titleField   | Id of the field which value is used as record title. titleField can also be a function. |X|X| 
@@ -99,7 +103,7 @@ For any object, all views use the same model (single source of truth for UI meta
 
 X: Indicate if the property is used in UI/DB models.
  
-
+<a name="Field"></a>
 ### Field
 
 For the backend, fields are columns in a database table. 
@@ -129,6 +133,7 @@ For the frontend, fields are textboxes, checkboxes, datepickers... in Edit view,
 | deleteTrigger | Deleting records in the lovTable will trigger a cascade delete (this property is only used for creating the database). | |X|
 | object       | Model id for the object to link to (only for fields of "lov" type).       |X|X|
 
+<a name="Group"></a>
 ### Group
 
 Groups are used to visually group fields on the page for browsing or editing.
@@ -146,6 +151,7 @@ Groups are only used in UI models and are optional. By default a single group ho
 | footer       | Text to be displayed at the bottom of the group.    |X||
 
 
+<a name="Collection"></a>
 ### Collection
 
 Multiple Master-Details can be specified with collections. 
