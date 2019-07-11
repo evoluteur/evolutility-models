@@ -1,6 +1,10 @@
 /*
-  Evolutility-Models
-  https://github.com/evoluteur/evolutility-models
+  ___         _      _   _ _ _ _         
+ | __|_ _____| |_  _| |_(_) (_) |_ _  _  
+ | _|\ V / _ \ | || |  _| | | |  _| || | 
+ |___|\_/\___/_|\_,_|\__|_|_|_|\__|\_, | 
+                                   |__/  
+https://github.com/evoluteur/evolutility-models
 */
 
 module.exports = {
