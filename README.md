@@ -12,7 +12,7 @@ Cool things to do with models:
 
 ## Sample models
 
-Personal Information Manager (PIM)
+#### Personal Information Manager (PIM)
 
 - [To-do list](https://github.com/evoluteur/evolutility-models/blob/master/models/pim/todo.js)
 - [Address book](https://github.com/evoluteur/evolutility-models/blob/master/models/pim/contact.js)
@@ -20,20 +20,23 @@ Personal Information Manager (PIM)
 - [Graphic novels](https://github.com/evoluteur/evolutility-models/blob/master/models/pim/comics.js)
 - [Wine cellar](https://github.com/evoluteur/evolutility-models/blob/master/models/pim/winecellar.js)
 
-Music
+#### Music
 
 - [Artists](https://github.com/evoluteur/evolutility-models/blob/master/models/music/artist.js)
 - [Albums](https://github.com/evoluteur/evolutility-models/blob/master/models/music/album.js)
 - [Tracks](https://github.com/evoluteur/evolutility-models/blob/master/models/music/track.js)
 
-...and a [Test model](https://github.com/evoluteur/evolutility-models/blob/master/models/tests/test.js) with fields of all possible types.
+#### Test
+
+- [Test model](https://github.com/evoluteur/evolutility-models/blob/master/models/tests/test.js) with fields of all possible types.
 
 
-## Models of models
+#### Models of models
 
-Still work in progress
 
-If we store the models like the data (instead of JSON files), we can use models to create and modify other models.
+If we store the models in the database (instead of JSON files), we can use the application to modify the application.
+
+Still under construction. 
 
 - [Objects](https://github.com/evoluteur/evolutility-models/blob/master/models/designer/object.js)
 - [Fields](https://github.com/evoluteur/evolutility-models/blob/master/models/designer/field.js)
@@ -77,8 +80,49 @@ Note: The full models can be used as they are by both UI and back-end (which ign
 The metamodel is the structure of the model (the model of models). 
 I think about it as the vocabulary for making models.
 
-Models describe [objects](#Object) with [fields](#Field), [groups](#Group) of fields, and [collections](#Collection) (nested lists). 
-For any object, all views use the same model (single source of truth for UI metadata).
+Models describe [objects](#Object) with [fields](#Field), [groups](#Group) of fields, and [collections](#Collection) (nested lists of objects). 
+For any object, all UI views (List, Cards, Edit, Charts...) share the same model. 
+All Fields are present in the Edit and Browse views. Fields can be flagged as "inMany" to be included in List, Cards, and Charts views.
+
+
+```javascript
+module.exports = {
+	"id": "todo",
+	"label": "To-Do List",
+	"name": "task",
+	"namePlural": "tasks",
+	"icon": "todo.gif",
+	"titleField": "title",
+	"table": "task",
+	"searchFields": [
+		"title",
+		"description"
+	],
+	"fields": [
+		{
+			"id": "title",
+			"label": "Title",
+			"type": "text",
+			"width": 100,
+			"required": true,
+			"inMany": true,
+			"column": "title",
+			"maxLength": 255
+		},
+		{
+			"id": "duedate",
+			"type": "date",
+			"label": "Due Date",
+			"width": 38,
+			"inMany": true,
+			"column": "due_date"
+		},
+		...
+	]
+}
+
+```
+
 
 
 <a name="Object"></a>
@@ -92,8 +136,8 @@ For any object, all views use the same model (single source of truth for UI meta
 | namePlural   | Object name (plural) (example: "contacts").     |X| |
 | title        | Application name (example: "Addressbook").         |X| |
 | fields       | Array of [fields](#Field).           |X|X|
-| groups       | Array of groups. If not provided a single group will be used.   |X| |
-| collections  | Array of collections (displayed as Lists).      |X|X|
+| groups       | Array of [groups](#Group). If not provided a single group will be used.   |X| |
+| collections  | Array of [collections](#Collection) (displayed as Lists).      |X|X|
 | titleField   | Id of the field which value is used as record title. titleField can also be a function. |X|X| 
 | table        | Driving database table name (there are secondary tables for fields of type "lov").     | |X| 
 | pKey         | Name of the Primary key column (single column of type serial). Default to "id". In the data the key is always called "id". | |X|
@@ -132,6 +176,8 @@ For the frontend, fields are textboxes, checkboxes, datepickers... in Edit view,
 | lovIcon      | LOV items have icons (only for fields of "lov" type). |X|X|
 | deleteTrigger | Deleting records in the lovTable will trigger a cascade delete (this property is only used for creating the database). | |X|
 | object       | Model id for the object to link to (only for fields of "lov" type).       |X|X|
+| onlyUI | The field will  only be present in the UI model. |||
+| onlyDB | The field will  only be present in the DB model. |||
 
 <a name="Group"></a>
 ### Group
@@ -142,10 +188,10 @@ Groups are only used in UI models and are optional. By default a single group ho
 
 | Property     | Meaning                               | UI | DB |
 |--------------|---------------------------------------|----|----|
-| id           | Unique key for the group. It is optional.            |X||
+| id           | Unique key for the group. It is optional.  |X||
 | type         | Type of group. Only "panel" is currently implemented ("tab" and "accordeon" will be added later). |X||
 | label        | Group title as displayed to the user.      |X||
-| fields       | Array of field ids.                        |X||
+| fields       | Array of [field](#Field) ids.              |X||
 | width        | Width (in % of the container total width). |X||
 | header       | Text to be displayed at the top of the group (just below the group title).|X||
 | footer       | Text to be displayed at the bottom of the group.    |X||
@@ -163,11 +209,11 @@ Multiple Master-Details can be specified with collections.
 | table        | Table to query for the details list.  ||X|
 | column       | Column in the details table to match against object's id. ||X|
 | object       | Model id for the object to link to.   |X|X|
-| order        | "asc/desc" for sorting by the first field in fields.     ||X|
-| fields       | Array of fields. Fields in collections do not need all properties of Fields in objects.   |X|X|
+| order        | "asc/desc" for sorting by the first field in list of fields.     ||X|
+| fields       | Array of fields. Collections are not editable so their fields do not need as many properties as the main object's fields.   |X|X|
 
 
- 
+<a name="License"></a>
 ## License
 
 Copyright (c) 2019 [Olivier Giulieri](https://evoluteur.github.io/).
