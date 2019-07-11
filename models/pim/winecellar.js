@@ -95,49 +95,6 @@ module.exports = {
 			]
 		}
 	],
-	"collections": [
-		{
-			"id": "wine_tasting",
-            title: 'Degustations',
-			"table": "wine_tasting",
-			"column": "wine_id",
-			"object": "winetasting",
-			"order": "desc",
-			"fields": [
-				{
-					"id": "drink_date",
-					"column": "drink_date",
-					"type": "date",
-					"label": "Date",
-					"required": true
-				},
-				{
-					"id": "robe",
-					"column": "robe",
-					"type": "text",
-					"label": "Robe"
-				},
-				{
-					"id": "nose",
-					"column": "nose",
-					"type": "text",
-					"label": "Nose"
-				},
-				{
-					"id": "taste",
-					"column": "taste",
-					"type": "text",
-					"label": "Taste"
-				},
-				{
-					"id": "notes",
-					"column": "notes",
-					"type": "textmultiline",
-					"label": "Note"
-				}
-			]
-		}
-	],
 	"fields": [
 		{
 			"id": "name",
@@ -874,5 +831,48 @@ module.exports = {
 			"width": 100,
 			"height": 8
 		}
-	]
+	],
+	"collections": [
+		{
+			"id": "wine_tasting",
+            title: 'Degustations',
+			"table": "wine_tasting",
+			"column": "wine_id",
+			"object": "winetasting",
+			"order": "desc",
+			"fields": [
+				{
+					"id": "drink_date",
+					"column": "drink_date",
+					"type": "date",
+					"label": "Date",
+					"required": true
+				},
+				{
+					"id": "robe",
+					"column": "robe",
+					"type": "text",
+					"label": "Robe"
+				},
+				{
+					"id": "nose",
+					"column": "nose",
+					"type": "text",
+					"label": "Nose"
+				},
+				{
+					"id": "taste",
+					"column": "taste",
+					"type": "text",
+					"label": "Taste"
+				},
+				{
+					"id": "notes",
+					"column": "notes",
+					"type": "textmultiline",
+					"label": "Note"
+				}
+			]
+		}
+	],
 }
