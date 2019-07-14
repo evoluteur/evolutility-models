@@ -65,15 +65,16 @@ module.exports = {
 			"id": "pKey",
 			"column": "pkey",
 			"label": "Primary key column",
+			"help": 'By default the primary key is called "id". This property let\'s you use another column name.',
 			"type": "text",
 			"width": 38
 		},
 		{
 			"id": "entity",
 			"column": "entity",
-			"label": "Entity Id",
+			"label": "Object Id",
 			"type": "text",
-			"help": "Internal identifier for the entity",
+			"help": "Internal identifier for the object",
 			"maxLength": 100,
 			"required": true,
 			"inMany": true,
@@ -111,6 +112,24 @@ module.exports = {
 			"readOnly": true,
 			"inMany": true
 		},
+
+		{
+			"label": "Title field",
+			"help": "Id of the field used as record title",
+			"type": "text",
+			"id": "titleField",
+			"column": "titlefield",
+			"width": 38
+		},
+		{
+			"label": "Search fields",
+			"help": "Ids of the fields used in searches.",
+			"type": "textmultiline",
+			"id": "searchFields",
+			"column": "searchfields",
+			"width": 62
+		},
+		
 		{
 			"label": "Description",
 			"type": "textmultiline",
@@ -142,6 +161,8 @@ module.exports = {
 				"namePlural",
 				"world",
 				"table",
+				"titleField",
+				"searchFields",
 				//"layout"
 			]
 		},

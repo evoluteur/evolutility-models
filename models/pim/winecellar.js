@@ -9,7 +9,7 @@ module.exports = {
 	"table": "wine",
 	"name": "wine",
 	"namePlural": "wines",
-	"label": "Wine Cellar",
+	"label": "Wine cellar",
 	"icon": "wine.gif",
 	"titleField": "name",
 	"searchFields": [

@@ -7,7 +7,7 @@ module.exports = {
 	"world": "pim",
 	"active": true,
 	"table": "wine_tasting",
-	"title": "Wine Tasting",
+	"title": "Wine tastings",
 	"name": "wine tasting",
 	"namePlural": "wine tastings",
 	"label": "Wine Tasting",
