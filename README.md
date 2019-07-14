@@ -49,25 +49,16 @@ TODO: field groups and collections.
 This project provides scripts to make UI-models for [Evolutility-UI-React](https://github.com/evoluteur/evolutility-ui-react) and DB-models for [Evolutility-Server-Node](https://github.com/evoluteur/evolutility-server-node) from models.
 
 ```bash
-node js/models-ui.js
+# DB and UI models
+npm run models
+
+## UI models
+npm run models_ui
+
+## DB models
+npm run models_db
 
 ```
-
-
-Make back-end models (with only back-end metadata) for [Evolutility-Server-Node](https://github.com/evoluteur/evolutility-server-node):
-
-```bash
-node js/models-db.js
-
-``` 
-
-For both:
-
-```bash
-node js/models-db.js && node js/models-ui.js
-
-``` 
-
 
 Generated models are saved in the directories "models-ui" and "models-db". The list of "full" models to generate from is specified in "/models/all_models.js".
 
