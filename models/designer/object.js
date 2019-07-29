@@ -6,7 +6,7 @@
 module.exports = {
 	"id": "object",
 	"world": "designer",
-	"title": "Object",
+	"title": "Objects",
 	"icon": "cube.gif",
 	"schema": "evolutility",
 	"name": "object",

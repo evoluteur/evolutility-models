@@ -2,6 +2,7 @@ module.exports = {
 	"id": "album",
     "active": true,
 	"world": 'music',
+	icon: 'cd.png',
 	"title": "Albums",
 	"table": "music_album",
 	"name": "album",
@@ -84,6 +85,7 @@ module.exports = {
 		{
 			"id": "music_track",
 			"label": "Tracks",
+			"icon": "music.png",
 			"table": "music_track",
 			"column": "album_id",
 			"order": "name",

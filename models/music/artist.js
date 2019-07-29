@@ -2,6 +2,7 @@ module.exports = {
 	"id": "artist",
     "active": true,
 	"world": 'music',
+	icon: 'star.png',
 	"title": 'Artists',
 	"table": "music_artist",
 	"name": "artist",
@@ -14,21 +15,23 @@ module.exports = {
 			"type": "text",
 			"label": "Name",
 			"column": "name", 
-			"height": 1,
-			"width": 80,
-			"inMany": true
+			"inMany": true,
+			"required": true,
 		},
 		{
 			"id": "url",
 			label: 'Web site',
 			"type": "url",
 			"column": "url",
+			width: 80,
 		},
 		{
-			"id": "url_wiki",
-			label: 'Wikipedia',
-			"type": "url_wiki",
-			"column": "url",
+			"id": "bdate",
+			"column": "bdate",
+			label: 'Birth date',
+			"type": "date",
+			"column": "bdate",
+			width: 20,
 		},
 		{
 			"id": "photo",
@@ -55,6 +58,7 @@ module.exports = {
 			"fields": [
 				"name",
 				"url",
+				"bdate",
 				'description'
 			]
 		},
@@ -72,6 +76,7 @@ module.exports = {
 		{
 			"id": "music_album",
 			"label": "Albums",
+			"icon": "cd.png",
 			"table": "music_album",
 			"object": "album",
 			"column": "artist_id",

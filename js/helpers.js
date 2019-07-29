@@ -15,6 +15,7 @@ const github = {
     UI: 'https://github.com/evoluteur/evolutility-ui-react',
     DB: 'https://github.com/evoluteur/evolutility-server-node',
 }
+
 function fnError(err){
     if (err){
         throw err;
