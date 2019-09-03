@@ -71,7 +71,7 @@ module.exports = {
 				},
 				{
 					"label": "Icon",
-					"type": "text",
+					"type": "image",
 					"id": "icon",
 					"column": "icon",
 				},
