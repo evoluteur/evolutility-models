@@ -33,17 +33,17 @@ module.exports = {
 			"required": true
 		},
 		{
+			"id": "active",
 			"label": "Active",
 			"type": "boolean",
-			"id": "active",
 			"column": "active",
 			"inMany": true,
 			"width": 20
 		},
 		{
-			"type": "lov",
 			"id": "world",
-			"label": "World",
+			"type": "lov",
+			"label": "App",
 			"width": 100,
 			"table": "evol_world",
 			"inMany": true,
@@ -81,10 +81,10 @@ module.exports = {
 			"width": 75
 		},
 		{
+			"id": "name",
 			"label": "Object name (singular)",
 			"help": "example: 'contact'",
 			"type": "text",
-			"id": "name",
 			"column": "name",
 			"required": true,
 			"maxLength": 50,
@@ -92,19 +92,19 @@ module.exports = {
 			"width": 62
 		},
 		{
+			"id": "namePlural",
 			"label": "name (plural)",
 			"help": "example: 'contacts'",
 			"type": "text",
-			"id": "namePlural",
 			"column": "nameplural",
 			"required": true,
 			"maxLength": 50,
 			"width": 38
 		},
 		{
+			"id": "icon",
 			"label": "Icon",
 			"type": "image",
-			"id": "icon",
 			"column": "icon",
 			"maxLength": "50",
 			"width": 62,
@@ -114,36 +114,36 @@ module.exports = {
 		},
 
 		{
+			"id": "titleField",
 			"label": "Title field",
 			"help": "Id of the field used as record title",
 			"type": "text",
-			"id": "titleField",
 			"column": "titlefield",
 			"width": 38
 		},
 		{
+			"id": "searchFields",
 			"label": "Search fields",
 			"help": "Ids of the fields used in searches.",
 			"type": "textmultiline",
-			"id": "searchFields",
 			"column": "searchfields",
 			"width": 62
 		},
 		
 		{
+			"id": "description",
 			"label": "Description",
 			"type": "textmultiline",
-			"id": "description",
 			"column": "description",
 			"maxLength": 250,
 			"width": 100,
 			"height": 4
 		},/*
 		{
+			"id": "layout",
 			"label": "Layout",
 			"labelMany": "Layout",
 			"type": "json",
-			"id": "layout",
 			"column": "layout",
 			"height": 5
 		}*/
@@ -195,6 +195,16 @@ module.exports = {
 					"id": "column",
 					"column": "dbcolumn",
 					"label": "Column",
+				},
+				{
+					"id": "type",
+					"type": "lov",
+					"label": "Type",
+					//"list": fieldTypes,
+					"column": "type_id",
+					"lovTable": "evol_field_type",
+					"lovColumn": "name",
+					"lovIcon": true,
 				},
 				{
 					"id": "inMany",

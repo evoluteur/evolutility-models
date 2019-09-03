@@ -6,12 +6,12 @@
 module.exports = {
 	"id": "world",
 	"world": "designer",
-	"title": "Worlds",
+	"title": "Applications",
 	"icon": "",
 	"table": "evol_world",
 	"schema": "evolutility",
-	"name": "world",
-	"namePlural": "worlds",
+	"name": "application",
+	"namePlural": "applications",
 	"titleField": "name",
 	"searchFields": [
 		"name",

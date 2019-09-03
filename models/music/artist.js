@@ -23,7 +23,7 @@ module.exports = {
 			label: 'Web site',
 			"type": "url",
 			"column": "url",
-			width: 80,
+			width: 70,
 		},
 		{
 			"id": "bdate",
@@ -31,7 +31,7 @@ module.exports = {
 			label: 'Birth date',
 			"type": "date",
 			"column": "bdate",
-			width: 20,
+			width: 30,
 		},
 		{
 			"id": "photo",

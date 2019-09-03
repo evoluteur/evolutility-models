@@ -45,6 +45,8 @@ module.exports = {
 			type: 'textmultiline', 
 			label: 'Description', 
 			maxLength: 1000,
+			width: 100,
+			height: 5,
 			inMany: false
 		},
 		{

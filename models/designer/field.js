@@ -297,7 +297,7 @@ module.exports = {
 			"noCharts": true
 		},
 		{
-			id: "minvalue",
+			id: "minValue",
 			"label": "Min. value",
 			"labelShort": "Min.",
 			"help": "Minimum value allowed for the field",
@@ -308,7 +308,7 @@ module.exports = {
 			"column": "minvalue"
 		},
 		{
-			id: "maxvalue",
+			id: "maxValue",
 			"label": "Max. value",
 			"labelShort": "Max.",
 			"help": "Maximum value allowed for the field",

@@ -53,7 +53,7 @@ function logTask(modelType, models){
     console.log('Evolutility-models v.'+pkg.version+
         ' -> Generating '+nbModels+' '+modelType+' models:');
 }
-const headComment = (modelType, m) => '/*\n  '+headEvol(modelType)+headSubject(m)+github[modelType]+'\n*/\n\n'
+const headComment = (modelType, m) => '/*\n  '+headEvol(modelType)+headSubject(m)+' '+github[modelType]+'\n*/\n\n'
 const headSubject = m => (m ? ' model for ' + (m.label || m.title || m.id) : ' Models')+'\n '
 const headEvol = modelType => 'Evolutility ' + modelType
 const txtExportModel = (modelType, model) => headComment(modelType, model)+

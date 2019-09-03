@@ -1,5 +1,5 @@
 
-# Evolutility-Models
+# Evolutility-Models &middot; [![GitHub license](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/evoluteur/evolutility-models/blob/master/LICENSE.md)
 
 With Evolutility, models are DRY (Don't Repeat Yourself) descriptions of applications. These models contain all the information necessary for the backend (database tables and columns, validation...) and the UI (views, fields, validation...).
 
@@ -123,7 +123,7 @@ module.exports = {
 | icon         | Icon file name for the entity (example: "cube.gif"). |X||
 | name         | Object name (singular) (example: "contact").   |X| |
 | namePlural   | Object name (plural) (example: "contacts").     |X| |
-| title        | Application name (example: "Addressbook").         |X| |
+| title        | Application name (example: "Addressbook").         |X|X|
 | fields       | Array of [fields](#Field).           |X|X|
 | groups       | Array of [groups](#Group). If not provided a single group will be used.   |X| |
 | collections  | Array of [collections](#Collection) (displayed as Lists).      |X|X|
