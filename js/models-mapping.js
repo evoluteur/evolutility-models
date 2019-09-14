@@ -52,7 +52,7 @@ const uiCollec = collec => ({
     title: collec.title || collec.label,
     object: collec.object || collec.entity,
     icon: collec.icon,
-    fields: collec.fields.map(uiField),
+    fields: collec.fields.map(f => f.id),
 })
 const dbCollec = collec => ({
     id: collec.id,

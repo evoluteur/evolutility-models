@@ -149,10 +149,11 @@ For the frontend, fields are textboxes, checkboxes, datepickers... in Edit view,
 | label        | Field description (displayed with an asterisk for required fields).      |X||
 | labelShort   | Optional shorter version of the labels (used in List and Cards views). |X||
 | required     | Determines if the field is required for saving.      |X|X|
-| readOnly     | Field value cannot be changed.   |X|X|
+| readOnly     | Field value cannot be changed.                       |X|X|
 | defaultValue | Default field value for new records.                 |X|X|
 | max, min     | Maximum/Minimum value allowed (only applies to numeric fields).      |X|X|
 | maxLength, minLength | Maximum/Minimum length allowed (only applies to text fields).      |X|X|
+| regExp       | Regular expression used to validate the field value. |X|X|
 | inMany       | Determines if the field is present (by default) in lists of records. |X|X|
 | height       | For fields of type "textmultiline", number of lines used in the field (in Browse and Edit views). |X||
 | width        | Field width in Browse and Edit views (in percent of parent width). Default: 100%  |X||
@@ -165,8 +166,8 @@ For the frontend, fields are textboxes, checkboxes, datepickers... in Edit view,
 | lovIcon      | LOV items have icons (only for fields of "lov" type). |X|X|
 | deleteTrigger | Deleting records in the lovTable will trigger a cascade delete (this property is only used for creating the database). | |X|
 | object       | Model id for the object to link to (only for fields of "lov" type).       |X|X|
-| onlyUI | The field will  only be present in the UI model. |||
-| onlyDB | The field will  only be present in the DB model. |||
+| onlyUI | The field will only be present in the UI model. |||
+| onlyDB | The field will only be present in the DB model. |||
 
 <a name="Group"></a>
 ### Group

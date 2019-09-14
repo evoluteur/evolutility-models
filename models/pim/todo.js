@@ -33,7 +33,7 @@ module.exports = {
 			"label": "Due Date",
 			"width": 38,
 			"inMany": true,
-			"column": "due_date"
+			"column": "duedate"
 		},
 		{
 			"id": "category",

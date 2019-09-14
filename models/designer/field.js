@@ -165,7 +165,7 @@ module.exports = {
 		},*/
 		{
 			id: "lovTable",
-			"column": "lovTable",
+			"column": "lovtable",
 			"label": "LOV Table",
 			"help": "Lookup table",
 			"type": "text",
