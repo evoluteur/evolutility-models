@@ -4,7 +4,7 @@
 
 module.exports = {
 	"id": "restaurant",
-	"world": "pim",
+	"world": "organizer",
 	"active": true,
 	"table": "restaurant",
 	"titleField": "name",

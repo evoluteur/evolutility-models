@@ -8,13 +8,13 @@ https://github.com/evoluteur/evolutility-models
 */
 
 module.exports = {
-    // - Personal Information Manager
-    todo: require('./pim/todo'),
-    contact: require('./pim/contact'),
-    comics: require('./pim/comics'),
-    restaurant: require('./pim/restaurant'),
-    winecellar: require('./pim/winecellar'),
-    winetasting: require('./pim/winetasting'),
+    // - Personal Organizer
+    todo: require('./organizer/todo'),
+    contact: require('./organizer/contact'),
+    comics: require('./organizer/comics'),
+    restaurant: require('./organizer/restaurant'),
+    winecellar: require('./organizer/winecellar'),
+    winetasting: require('./organizer/winetasting'),
 
     // - Music
     album: require('./music/album'),

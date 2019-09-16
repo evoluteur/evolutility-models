@@ -3,7 +3,7 @@
 
 With Evolutility, models are DRY (Don't Repeat Yourself) descriptions of applications. These models contain all the information necessary for the backend (database tables and columns, validation...) and the UI (views, fields, validation...).
 
-Cool things to do with models:
+Cool things to do with Evolutility models:
 
 - Create a database and automatically provide REST or GraphQL endpoints using [Evolutility-Server-Node](https://github.com/evoluteur/evolutility-server-node).
 
@@ -12,13 +12,15 @@ Cool things to do with models:
 
 ## Sample models
 
-#### Personal Information Manager (PIM)
+Models are description of objects and their properties/fields. 
 
-- [To-do list](https://github.com/evoluteur/evolutility-models/blob/master/models/pim/todo.js)
-- [Address book](https://github.com/evoluteur/evolutility-models/blob/master/models/pim/contact.js)
-- [Restaurants list](https://github.com/evoluteur/evolutility-models/blob/master/models/pim/restaurant.js)
-- [Graphic novels](https://github.com/evoluteur/evolutility-models/blob/master/models/pim/comics.js)
-- [Wine cellar](https://github.com/evoluteur/evolutility-models/blob/master/models/pim/winecellar.js)
+#### Organizer
+
+- [To-do list](https://github.com/evoluteur/evolutility-models/blob/master/models/organizer/todo.js)
+- [Address book](https://github.com/evoluteur/evolutility-models/blob/master/models/organizer/contact.js)
+- [Restaurants list](https://github.com/evoluteur/evolutility-models/blob/master/models/organizer/restaurant.js)
+- [Graphic novels](https://github.com/evoluteur/evolutility-models/blob/master/models/organizer/comics.js)
+- [Wine cellar](https://github.com/evoluteur/evolutility-models/blob/master/models/organizer/winecellar.js)
 
 #### Music
 
@@ -32,7 +34,6 @@ Cool things to do with models:
 
 
 #### Models of models
-
 
 If we store the models in the database (instead of JSON files), we can use the application to modify the application.
 
@@ -160,7 +161,8 @@ For the frontend, fields are textboxes, checkboxes, datepickers... in Edit view,
 | help         | Optional help on the field. |X||
 | chartType    | Default charts type used for the field ("Bars", "Pie", or "Table"). The default value is "Bars".  |X||
 | noCharts     | Prevent the field to have a charts (only necessary for fields of type integer, decimal, money, boolean, list of values which are "chartable"). |X|X|
-| column       | Database column name for the field    ||X|
+| column       | Database column name for the field.    ||X|
+| orderBy      | Database list of columns to add to the SQL order clause.    ||X|
 | lovTable     | Table to join to for field value (only for fields of "lov" type). ||X|
 | lovColumn    | Column name (in the lovTable) for field value (only for fields of "lov" type). ||X|
 | lovIcon      | LOV items have icons (only for fields of "lov" type). |X|X|

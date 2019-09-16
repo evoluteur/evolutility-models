@@ -4,7 +4,7 @@
 
 module.exports = {
 	"id": "winecellar",
-	"world": "pim",
+	"world": "organizer",
 	"active": true,
 	"table": "wine",
 	"name": "wine",

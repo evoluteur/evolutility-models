@@ -57,7 +57,7 @@ module.exports = {
 			"label": "DB Table name",
 			"type": "text",
 			"width": 62,
-			"maxLength": 100,
+			"maxLength": 63,
 			"required": true,
 			"inMany": true
 		},
@@ -184,6 +184,7 @@ module.exports = {
 			"table": "evol_field",
 			"column": "object_id",
 			"object": "field",
+			"orderby": "position, t1.id",
 			"fields": [
 				{
 					"id": "label",

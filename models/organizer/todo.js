@@ -4,7 +4,7 @@
 
 module.exports = {
 	"id": "todo",
-	"world": "pim",
+	"world": "organizer",
 	"active": true,
 	"label": "To-Do List",
 	"name": "task",

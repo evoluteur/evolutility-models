@@ -122,7 +122,7 @@ module.exports = {
 			"help": "Database column name",
 			"required": true,
 			"type": "text",
-			"maxLength": 100,
+			"maxLength": 63,
 			"width": 62
 		},
 		{
@@ -169,7 +169,7 @@ module.exports = {
 			"label": "LOV Table",
 			"help": "Lookup table",
 			"type": "text",
-			"maxLength": 100,
+			"maxLength": 63,
 			"width": 32
 		},
 		{
@@ -178,7 +178,7 @@ module.exports = {
 			"label": "LOV column",
 			"type": "text",
 			"help": "Column fom Lookup table to display",
-			"maxLength": 100,
+			"maxLength": 63,
 			"width": 38
 		},
 		{
@@ -187,7 +187,7 @@ module.exports = {
 			"label": "LOV Icon",
 			"type": "text",
 			"help": "Column fom Lookup table to display",
-			"maxLength": 100,
+			"maxLength": 63,
 			"width": 38
 		},
 		{

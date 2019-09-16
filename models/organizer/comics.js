@@ -4,7 +4,7 @@
 
 module.exports = {
 	"id": "comics",
-	"world": "pim",
+	"world": "organizer",
 	"active": true,
 	"label": "Graphic Novels",
 	"name": "serie",

@@ -4,7 +4,7 @@
 
 module.exports = {
 	"id": "contact",
-	"world": "pim",
+	"world": "organizer",
 	"active": true,
 	"label": "Address book",
 	"icon": "contact.gif",
