@@ -122,9 +122,10 @@ module.exports = {
 |--------------|-----------------------------------------|----|----|
 | id           | Unique key to identify the entity (used as API parameter). |X|X|
 | icon         | Icon file name for the entity (example: "cube.gif"). |X||
-| name         | Object name (singular) (example: "contact").   |X| |
-| namePlural   | Object name (plural) (example: "contacts").     |X| |
-| title        | Application name (example: "Addressbook").         |X|X|
+| world        | Application the object belongs to (e.g. "organizer").   |X|X|
+| name         | Object name (singular) (e.g.: "contact").       |X| |
+| namePlural   | Object name (plural) (e.g.: "contacts").        |X| |
+| title        | Application name (e.g.: "Addressbook").         |X|X|
 | fields       | Array of [fields](#Field).           |X|X|
 | groups       | Array of [groups](#Group). If not provided a single group will be used.   |X| |
 | collections  | Array of [collections](#Collection) (displayed as Lists).      |X|X|

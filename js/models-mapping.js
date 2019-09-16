@@ -68,6 +68,7 @@ module.exports = {
     uiModel: m => ({
         id: m.id,
         title: m.title || m.label,
+        world: m.world,
         name: m.name,
         namePlural: m.namePlural,
         icon: m.icon,
@@ -82,6 +83,7 @@ module.exports = {
     dbModel: m => ({
         id: m.id,
         title: m.title || m.label,
+        world: m.world,
         pKey: m.pKey || 'id',
         table: m.table,
         titleField: m.titleField,
