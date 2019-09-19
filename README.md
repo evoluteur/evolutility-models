@@ -202,7 +202,7 @@ Multiple Master-Details can be specified with collections.
 | table        | Table to query for the details list.  ||X|
 | column       | Column in the details table to match against object's id. ||X|
 | object       | Model id for the object to link to.   |X|X|
-| order        | "asc/desc" for sorting by the first field in list of fields.     ||X|
+| orderby      | SQL where clause, e.g. orderby="id DESC".    ||X|
 | fields       | Array of fields. Collections are not editable so their fields do not need as many properties as the main object's fields.   |X|X|
 
 

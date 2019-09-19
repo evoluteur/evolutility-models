@@ -59,7 +59,7 @@ const dbCollec = collec => ({
     table: collec.table,
     column: collec.column,
     object: collec.object || collec.entity,
-    order: collec.order,
+    orderby: collec.orderby,
     fields: collec.fields.map(dbField)
 })
 
