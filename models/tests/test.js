@@ -58,7 +58,8 @@ const fields = [
         chartType: 'Pie',
     },
     {
-        id: "lovlc", type: "lov", 
+        id: "lovlc", 
+        type: "lov", 
         column: "f_lovlc",
         label: "Lemon Cookie", 
         width: 100,
@@ -66,16 +67,16 @@ const fields = [
         help: "List of Values with \"Lemon Cookie\" as default value.",
         lovTable: 'z_test_flavor',
         defaultValue: 5
-    },/*
+    },
     {
-        "id": "list",
-        "type": "list",
-        "label": "Flavor(s)",
-        "list": flavors,
-        "defaultValue": 5,
-        "column": "f_list",
-        "lovTable": "z_test_flavor"
-    },*/
+        id: "list",
+        column: "f_list",
+        type: "list",
+        label: "Flavor(s)",
+        list: flavors,
+        defaultValue: 5,
+        lovTable: "z_test_flavor"
+    },
     {
         id: "date", 
         type: "date", 

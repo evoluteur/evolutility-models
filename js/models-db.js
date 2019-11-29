@@ -6,7 +6,8 @@ const helpers = require('./helpers.js');
 const mfn = require('./models-mapping.js');
 const models = require('../models/all_models.js');
 
-let dir = 'models-db'
+helpers.makeDirectory('dist')
+let dir = 'dist/models-db'
 //let dir = '../evolutility-server-node/models'
 let allModels = []
 let worlds = {}

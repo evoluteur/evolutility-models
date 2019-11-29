@@ -6,7 +6,8 @@ const helpers = require('./helpers.js');
 const mfn = require('./models-mapping.js');
 const models = require('../models/all_models.js');
 
-let dir = 'models-ui'
+helpers.makeDirectory('dist')
+let dir = 'dist/models-ui'
 //let dir = '../evolutility-ui-react/src/models'
 let allModels = []
 let worlds = {}

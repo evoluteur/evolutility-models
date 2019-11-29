@@ -45,26 +45,6 @@ Still under construction.
 
 TODO: field groups and collections.
 
-## Scripts
-
-This project provides scripts to make UI-models for [Evolutility-UI-React](https://github.com/evoluteur/evolutility-ui-react) and DB-models for [Evolutility-Server-Node](https://github.com/evoluteur/evolutility-server-node) from models.
-
-```bash
-# DB and UI models
-npm run models
-
-## UI models
-npm run models_ui
-
-## DB models
-npm run models_db
-
-```
-
-Generated models are saved in the directories "models-ui" and "models-db". The list of "full" models to generate from is specified in "/models/all_models.js".
-
-Note: The full models can be used as they are by both UI and back-end (which ignore what they do not need in the models).
- 
 ## Metamodel
 
 The metamodel is the structure of the model (the model of models). 
@@ -161,7 +141,7 @@ For the frontend, fields are textboxes, checkboxes, datepickers... in Edit view,
 | width        | Field width in Browse and Edit views (in percent of parent width). Default: 100%  |X||
 | help         | Optional help on the field. |X||
 | chartType    | Default charts type used for the field ("Bars", "Pie", or "Table"). The default value is "Bars".  |X||
-| noCharts     | Prevent the field to have a charts (only necessary for fields of type integer, decimal, money, boolean, list of values which are "chartable"). |X|X|
+| noCharts     | Exclude field from charts (only applies to fields of type integer, decimal, money, boolean, list of values which are "chartable"). |X|X|
 | column       | Database column name for the field.    ||X|
 | orderBy      | Database list of columns to add to the SQL order clause.    ||X|
 | lovTable     | Table to join to for field value (only for fields of "lov" type). ||X|
@@ -205,6 +185,26 @@ Multiple Master-Details can be specified with collections.
 | orderby      | SQL where clause, e.g. orderby="id DESC".    ||X|
 | fields       | Array of fields. Collections are not editable so their fields do not need as many properties as the main object's fields.   |X|X|
 
+## Scripts
+
+This project provides scripts to make UI-models for [Evolutility-UI-React](https://github.com/evoluteur/evolutility-ui-react) and DB-models for [Evolutility-Server-Node](https://github.com/evoluteur/evolutility-server-node) from models.
+
+```bash
+# Generate DB and UI models
+npm run models
+
+## Generate UI models
+npm run models_ui
+
+## Generate DB models
+npm run models_db
+
+```
+
+Generated models are saved in the directories "/dist/models-ui" and "/dist/models-db". The list of "full" models to generate from is specified in "/models/all_models.js".
+
+Note: The full models can be used as they are by both UI and back-end (which ignore what they do not need in the models).
+ 
 
 <a name="License"></a>
 ## License
