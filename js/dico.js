@@ -93,7 +93,7 @@ function getFields(model) {
 
 export function prepModel(m){
 	if(m){
-		if(!m.prepared){
+		if(!m._prepared){
 			if(!m.fields){
 				m.fields = getFields(m);
 			}
@@ -109,7 +109,7 @@ export function prepModel(m){
 			if(!m.titleField){
 				m.titleField = m.fields[0];
 			}
-			m.prepared = true
+			m._prepared = true
 		}
 		return m;
 	}
