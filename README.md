@@ -141,9 +141,11 @@ For the frontend, fields are textboxes, checkboxes, datepickers... in Edit view,
 | width        | Field width in Browse and Edit views (in percent of parent width). Default: 100%  |X||
 | help         | Optional help on the field. |X||
 | chartType    | Default charts type used for the field ("Bars", "Pie", or "Table"). The default value is "Bars".  |X||
+| search      | Include field in search. |X|X|
+| noFilter     | Exclude field from filters (only applies to fields of type integer, decimal, money, boolean, list of values which are "chartable"). |X|X|
 | noCharts     | Exclude field from charts (only applies to fields of type integer, decimal, money, boolean, list of values which are "chartable"). |X|X|
+| noStats     | Exclude field from stats. |X|X|
 | column       | Database column name for the field.    ||X|
-| orderBy      | Database list of columns to add to the SQL order clause.    ||X|
 | lovTable     | Table to join to for field value (only for fields of "lov" type). ||X|
 | lovColumn    | Column name (in the lovTable) for field value (only for fields of "lov" type). ||X|
 | lovIcon      | LOV items have icons (only for fields of "lov" type). |X|X|
@@ -182,7 +184,7 @@ Multiple Master-Details can be specified with collections.
 | table        | Table to query for the details list.  ||X|
 | column       | Column in the details table to match against object's id. ||X|
 | object       | Model id for the object to link to.   |X|X|
-| orderby      | SQL where clause, e.g. orderby="id DESC".    ||X|
+| orderBy      | SQL where clause, e.g. { orderBy="id DESC" }.    ||X|
 | fields       | Array of fields. Collections are not editable so their fields do not need as many properties as the main object's fields.   |X|X|
 
 ## Scripts

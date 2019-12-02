@@ -80,7 +80,7 @@ module.exports = {
 			"table": "music_album",
 			"object": "album",
 			"column": "artist_id",
-			"order": "title",
+			"orderBy": "title",
 			"fields": [
 				{
 					"id": "title",

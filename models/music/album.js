@@ -90,7 +90,7 @@ module.exports = {
 			"icon": "music.png",
 			"table": "music_track",
 			"column": "album_id",
-			"order": "name",
+			"orderBy": "name",
 			"object": "track",
 			"fields": [
 				{
