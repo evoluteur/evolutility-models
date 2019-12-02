@@ -16,6 +16,7 @@ module.exports = {
 		"title",
 		"description"
 	],
+	noStats: true,
 	"fields": [
 		{
 			"id": "title",

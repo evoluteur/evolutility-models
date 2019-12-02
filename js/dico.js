@@ -38,8 +38,6 @@ var ft = {
 	//widget: 'widget'
 };
 
-const isFunction = x => typeof x === "function"
-
 export const fieldTypes = ft
 
 export const fieldIsNumber = f => f.type===ft.int || f.type===ft.dec || f.type===ft.money

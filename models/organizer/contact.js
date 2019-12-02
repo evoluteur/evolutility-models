@@ -18,6 +18,7 @@ module.exports = {
 		"jobtitle",
 		"company"
 	],
+	noStats: true,
 	"fields": [
 		{
 			"type": "text",

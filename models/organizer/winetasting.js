@@ -14,6 +14,7 @@ module.exports = {
 	"icon": "wine.gif",
 	"titleField": "drink_date",
     "searchFields": ['robe', 'nose', 'taste', 'notes'],
+	noStats: true,
 	"fields": [
 		{
 			"id": "drink_date",

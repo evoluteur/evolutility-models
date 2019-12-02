@@ -9,6 +9,7 @@ module.exports = {
 	"namePlural": "albums",
 	"titleField": "name",
 	"defaulViewMany": 'cards',
+	noStats: true,
 	"fields": [
 		{
 			"id": "title",

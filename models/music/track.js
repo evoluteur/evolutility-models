@@ -8,6 +8,7 @@ module.exports = {
 	"name": "track",
 	"namePlural": "tracks",
 	"titleField": "name",
+	noStats: true,
 	"fields": [
 		{
 			"id": "name",

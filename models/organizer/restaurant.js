@@ -18,6 +18,7 @@ module.exports = {
 		"notes",
 		"favorites"
 	],
+	noStats: true,
 	"fields": [
 		{
 			"id": "name",
