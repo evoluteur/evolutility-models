@@ -13,7 +13,6 @@ module.exports = {
 	"namePlural": "objects",
 	"titleField": "title",
 	"table": "evol_object",
-	"active": true,
 	"searchFields": [
 		"title",
 		"name",
@@ -184,7 +183,7 @@ module.exports = {
 			"table": "evol_field",
 			"column": "object_id",
 			"object": "field",
-			"orderby": "position, t1.id",
+			"orderBy": "position, t1.id",
 			"fields": [
 				{
 					"id": "label",

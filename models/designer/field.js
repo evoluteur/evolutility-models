@@ -81,7 +81,6 @@ module.exports = {
 	"namePlural": "fields",
 	"titleField": "label",
 	"table": "evol_field",
-	"active": true,
 	"searchFields": [
 		"label",
 		"column",
