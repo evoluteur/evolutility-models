@@ -6,6 +6,7 @@ module.exports = {
 	"id": "todo",
 	"world": "organizer",
 	"active": true,
+	position: 20,
 	"label": "To-Do List",
 	"name": "task",
 	"namePlural": "tasks",

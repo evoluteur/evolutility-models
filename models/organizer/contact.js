@@ -6,6 +6,7 @@ module.exports = {
 	"id": "contact",
 	"world": "organizer",
 	"active": true,
+	position: 10,
 	"label": "Address book",
 	"icon": "contact.gif",
 	"table": "contact",

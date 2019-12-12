@@ -6,6 +6,7 @@ module.exports = {
 	"id": "restaurant",
 	"world": "organizer",
 	"active": true,
+	position: 30,
 	"table": "restaurant",
 	"titleField": "name",
 	"label": "Restaurants",

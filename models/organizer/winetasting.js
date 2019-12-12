@@ -6,6 +6,7 @@ module.exports = {
 	"id": "winetasting",
 	"world": "organizer",
 	"active": true,
+	position: 55,
 	"table": "wine_tasting",
 	"title": "Wine tastings",
 	"name": "wine tasting",

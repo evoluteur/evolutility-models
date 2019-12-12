@@ -1,6 +1,7 @@
 module.exports = {
 	"id": "track",
     "active": true,
+	position: 30,
 	world: 'music',
 	icon: 'music.png',
 	title: 'Tracks',

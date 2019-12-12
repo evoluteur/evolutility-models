@@ -1,15 +1,16 @@
 module.exports = {
 	"id": "album",
-    "active": true,
+	"active": true,
+	"position": 20,
 	"world": 'music',
-	icon: 'cd.png',
+	"icon": 'cd.png',
 	"title": "Albums",
 	"table": "music_album",
 	"name": "album",
 	"namePlural": "albums",
 	"titleField": "name",
-	"defaulViewMany": 'cards',
-	noStats: true,
+	"defaultViewMany": 'cards',
+	"noStats": true,
 	"fields": [
 		{
 			"id": "title",

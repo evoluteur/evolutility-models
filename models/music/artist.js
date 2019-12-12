@@ -1,6 +1,7 @@
 module.exports = {
 	"id": "artist",
     "active": true,
+	position: 10,
 	"world": 'music',
 	icon: 'star.png',
 	"title": 'Artists',
@@ -8,7 +9,7 @@ module.exports = {
 	"name": "artist",
 	"namePlural": "artists",
 	"titleField": "name",
-	"defaulViewMany": 'cards',
+	"defaultViewMany": 'cards',
 	noCharts: true,
 	noStats: true,
 	"fields": [

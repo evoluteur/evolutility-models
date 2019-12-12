@@ -74,6 +74,7 @@ module.exports = {
             namePlural: m.namePlural,
             icon: m.icon,
             active: m.active,
+            position: m.position,
             defaultViewMany: m.defaultViewMany || 'list',
             defaultViewOne: m.defaultViewOne || 'browse',
             titleField: m.titleField,
