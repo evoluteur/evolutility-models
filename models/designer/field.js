@@ -56,7 +56,7 @@ const fieldTypes = [
 	},
 	{
 		id: 11,
-		"text": "List (dropdown)",
+		"text": "LoV (dropdown)",
 		"icon": "designer/ft-lov.gif"
 	},
 	{
@@ -68,7 +68,17 @@ const fieldTypes = [
 		id: 13,
 		"text": "Link",
 		"icon": "designer/ft-url.gif"
-	}
+	},
+	{
+		id: 14,
+		"text": "List (multiselect)",
+		"icon": "designer/ft-list.gif"
+	},
+	{
+		id: 15,
+		"text": "JSON",
+		"icon": "designer/ft-json.png"
+	},
 ]
 
 module.exports = {
@@ -76,7 +86,7 @@ module.exports = {
     "world": "designer",
 	"title": "Fields",
 	"schema": "evolutility",
-	"icon": "edi_fld.png",
+	"icon": "/designer/edi_fld.png",
 	"name": "field",
 	"namePlural": "fields",
 	"titleField": "label",

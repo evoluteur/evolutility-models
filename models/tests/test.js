@@ -165,6 +165,15 @@ const fields = [
         width: 100,
         inMany: true
     },
+    {
+        id: "json", 
+        type: "json", 
+        column: "f_json",
+        label: "JSON", 
+        width: 100,
+        height: 5,
+        inMany: true
+    },
   ]
 
 module.exports = {
@@ -174,7 +183,7 @@ module.exports = {
     label: "Test List",
     name: "test",
     namePlural: "tests",
-    icon: "test.gif",
+    icon: "cup.png",
     titleField: "name",
     help: "Test object with fields of every possible type.",
   
@@ -184,7 +193,7 @@ module.exports = {
       {
         id:"ptxt", type:"panel", 
         label: "Text", width: 62,
-        fields: ["name", "text", "textmultiline", "email", "url", ]
+        fields: ["name", "text", "textmultiline", "email", "url", "json"]
       },
       {
         id:"plist", type:"panel", 

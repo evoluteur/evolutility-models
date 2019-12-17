@@ -23,7 +23,7 @@ module.exports = {
 	track: require('./music/track-data'),
 
 	// - Test
-	test: require('./test/test-data'),
+	test: require('./tests/test-data'),
 
 	// - Designer
 	world: require('./designer/world-data'),

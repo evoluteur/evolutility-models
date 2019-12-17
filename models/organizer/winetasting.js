@@ -4,6 +4,7 @@
 
 module.exports = {
 	"id": "winetasting",
+	"oid": 6,
 	"world": "organizer",
 	"active": true,
 	position: 55,

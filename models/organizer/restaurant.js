@@ -4,6 +4,7 @@
 
 module.exports = {
 	"id": "restaurant",
+	"oid": 4,
 	"world": "organizer",
 	"active": true,
 	position: 30,

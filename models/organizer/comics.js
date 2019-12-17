@@ -4,9 +4,10 @@
 
 module.exports = {
 	"id": "comics",
+	"oid": 3,
 	"world": "organizer",
 	"active": true,
-	position: 40,
+	"position": 40,
 	"label": "Graphic Novels",
 	"name": "serie",
 	"namePlural": "series",

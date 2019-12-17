@@ -4,6 +4,7 @@
 
 module.exports = {
 	"id": "winecellar",
+	"oid": 5,
 	"world": "organizer",
 	"active": true,
 	position: 50,
@@ -11,7 +12,7 @@ module.exports = {
 	"name": "wine",
 	"namePlural": "wines",
 	"label": "Wine cellar",
-	"icon": "wine.gif",
+	"icon": "wine-bottle.png",
 	"titleField": "name",
 	"defaultViewMany": 'cards',
 	"searchFields": [

@@ -4,6 +4,7 @@
 
 module.exports = {
 	"id": "contact",
+	"oid": 2,
 	"world": "organizer",
 	"active": true,
 	position: 10,

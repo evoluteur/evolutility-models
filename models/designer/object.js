@@ -7,7 +7,7 @@ module.exports = {
 	"id": "object",
 	"world": "designer",
 	"title": "Objects",
-	"icon": "cube.gif",
+	"icon": "/designer/edi_frm.png",
 	"schema": "evolutility",
 	"name": "object",
 	"namePlural": "objects",
@@ -28,7 +28,7 @@ module.exports = {
 			"type": "text",
 			"maxLength": 200,
 			"inMany": true,
-			"width": 80,
+			"width": 82,
 			"required": true
 		},
 		{
@@ -37,18 +37,32 @@ module.exports = {
 			"type": "boolean",
 			"column": "active",
 			"inMany": true,
-			"width": 20
+			"width": 18
 		},
 		{
 			"id": "world",
 			"type": "lov",
-			"label": "App",
-			"width": 100,
+			"label": "World",
+			"width": 62,
 			"table": "evol_world",
 			"inMany": true,
 			"column": "world_id",
 			"lovTable": "evol_world",
 			"object": "world"
+		},
+		{
+			"id": "noCharts",
+			"label": "No Charts",
+			"type": "boolean",
+			"column": "nocharts",
+			"width": 30
+		},
+		{
+			"id": "noStats",
+			"label": "No Stats",
+			"type": "boolean",
+			"column": "nostats",
+			"width": 30
 		},
 		{
 			"id": "table",
@@ -73,7 +87,7 @@ module.exports = {
 			"column": "entity",
 			"label": "Object Id",
 			"type": "text",
-			"help": "Internal identifier for the object",
+			"help": "Unique identifier for the object",
 			"maxLength": 100,
 			"required": true,
 			"inMany": true,
@@ -126,9 +140,9 @@ module.exports = {
 			"help": "Ids of the fields used in searches.",
 			"type": "textmultiline",
 			"column": "searchfields",
-			"width": 62
+			"width": 62,
+			"height": 2,
 		},
-		
 		{
 			"id": "description",
 			"label": "Description",
@@ -145,7 +159,22 @@ module.exports = {
 			"type": "json",
 			"column": "layout",
 			"height": 5
-		}*/
+		}*/,
+
+		{
+			"id": "groups",
+			"label": "Fields groups",
+			"type": "json",
+			"column": "groups",
+			"height": 5
+		},
+		{
+			"id": "collections",
+			"label": "Collections",
+			"type": "json",
+			"column": "collections",
+			"height": 5
+		}
 	],
 	"groups": [
 		{
@@ -162,7 +191,9 @@ module.exports = {
 				"table",
 				"titleField",
 				"searchFields",
-				//"layout"
+				//"layout",
+				"groups",
+				"collections",
 			]
 		},
 		{
@@ -173,6 +204,8 @@ module.exports = {
 			"fields": [
 				"entity",
 				"icon",
+				"noCharts",
+				"noStats",
 				"description",
 			]
 		}

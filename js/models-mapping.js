@@ -68,6 +68,7 @@ module.exports = {
     uiModel: m => {
         const m1 = {
             id: m.id,
+            oid: m.oid,
             title: m.title || m.label,
             world: m.world,
             name: m.name,

@@ -1,15 +1,16 @@
 module.exports = {
 	"id": "track",
+	"oid": 9,
     "active": true,
-	position: 30,
-	world: 'music',
-	icon: 'music.png',
-	title: 'Tracks',
+	"position": 30,
+	"world": 'music',
+	"icon": 'music.png',
+	"title": 'Tracks',
 	"table": "music_track",
 	"name": "track",
 	"namePlural": "tracks",
 	"titleField": "name",
-	noStats: true,
+	"noStats": true,
 	"fields": [
 		{
 			"id": "name",

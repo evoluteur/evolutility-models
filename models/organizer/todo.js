@@ -4,6 +4,7 @@
 
 module.exports = {
 	"id": "todo",
+	"oid": 1,
 	"world": "organizer",
 	"active": true,
 	position: 20,

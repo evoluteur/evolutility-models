@@ -1,17 +1,18 @@
 module.exports = {
 	"id": "artist",
+	"oid": 8,
     "active": true,
-	position: 10,
+	"position": 10,
 	"world": 'music',
-	icon: 'star.png',
+	"icon": 'star.png',
 	"title": 'Artists',
 	"table": "music_artist",
 	"name": "artist",
 	"namePlural": "artists",
 	"titleField": "name",
 	"defaultViewMany": 'cards',
-	noCharts: true,
-	noStats: true,
+	"noCharts": true,
+	"noStats": true,
 	"fields": [
 		{
 			"id": "name",
@@ -23,18 +24,18 @@ module.exports = {
 		},
 		{
 			"id": "url",
-			label: 'Web site',
+			"label": 'Web site',
 			"type": "url",
 			"column": "url",
-			width: 70,
+			"width": 70,
 		},
 		{
 			"id": "bdate",
 			"column": "bdate",
-			label: 'Birth date',
+			"label": 'Birth date',
 			"type": "date",
 			"column": "bdate",
-			width: 30,
+			"width": 30,
 		},
 		{
 			"id": "photo",
@@ -45,14 +46,14 @@ module.exports = {
 			"column": "photo"
 		},
 		{
-			id: 'description', 
-			column: 'description', 
-			type: 'textmultiline', 
-			label: 'Description', 
-			height: 4,
+			"id": 'description', 
+			"column": 'description', 
+			"type": 'textmultiline', 
+			"label": 'Description', 
+			"height": 4,
 		}
 	],
-	groups: [
+	"groups": [
 		{
 			"id": "g1",
 			"type": "panel",
@@ -92,10 +93,10 @@ module.exports = {
 					"column": "title",
 				},
 				{
-					id: 'cover', 
-					column: 'cover', 
-					type: 'image', 
-					label: 'Cover',
+					"id": "cover", 
+					"column": "cover", 
+					"type": "image", 
+					"label": "Cover",
 				}
 			]
 		}

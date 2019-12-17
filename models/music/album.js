@@ -1,5 +1,6 @@
 module.exports = {
 	"id": "album",
+	"oid": 7,
 	"active": true,
 	"position": 20,
 	"world": 'music',
@@ -65,8 +66,8 @@ module.exports = {
 			"id": "p-album",
 			"type": "panel",
 			"label": "Album",
-			table: 'music_album',
-			column: 'album_id',
+			"table": 'music_album',
+			"column": 'album_id',
 			"width": 70,
 			"fields": [
 				"title",
