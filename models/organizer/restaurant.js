@@ -216,7 +216,7 @@ module.exports = {
         {
           id:"pResto", type:"panel", 
           label: "Restaurant", width: 62,
-          fields: ['name','cuisine','schedule','yelp','price','notes','hours','favorite']
+          fields: ['name','cuisine','schedule','yelp','price','favorite','notes','hours']
         },
         {
           id:"pContact", type:"panel", 

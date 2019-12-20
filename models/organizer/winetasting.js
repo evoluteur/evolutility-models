@@ -28,7 +28,7 @@ module.exports = {
 			"required": true
 		},
 		{
-			"id": "wine_id",
+			"id": "wine",
 			"object": "winecellar",
 			"column": "wine_id",
 			"type": "lov",

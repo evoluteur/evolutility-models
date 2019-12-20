@@ -32,18 +32,13 @@ Models are description of objects and their properties/fields.
 
 - [Test model](https://github.com/evoluteur/evolutility-models/blob/master/models/tests/test.js) with fields of all possible types.
 
-
 #### Models of models
 
-If we store the models in the database (instead of JSON files), we can use the application to modify the application.
-
-Still under construction. 
+We can store models in the database (instead of JSON files), and manage them with apps similar to the demo apps.
 
 - [Objects](https://github.com/evoluteur/evolutility-models/blob/master/models/designer/object.js)
 - [Fields](https://github.com/evoluteur/evolutility-models/blob/master/models/designer/field.js)
 - [Worlds](https://github.com/evoluteur/evolutility-models/blob/master/models/designer/world.js)
-
-TODO: field groups and collections.
 
 ## Metamodel
 

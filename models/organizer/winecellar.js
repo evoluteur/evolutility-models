@@ -831,7 +831,7 @@ module.exports = {
 	"collections": [
 		{
 			"id": "wine_tasting",
-            title: 'Degustations',
+            "title": "Degustations",
 			"table": "wine_tasting",
 			"column": "wine_id",
 			"object": "winetasting",
