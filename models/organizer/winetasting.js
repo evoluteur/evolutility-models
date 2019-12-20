@@ -84,7 +84,7 @@ module.exports = {
 			"width": 62,
 			"fields": [
 				"drink_date",
-				"wine_id",
+				"wine",
 				"notes"
 			]
 		},
