@@ -834,7 +834,7 @@ module.exports = {
 			"table": "wine_tasting",
 			"column": "wine_id",
 			"object": "winetasting",
-			"order": "desc",
+			"orderBy": "drink_date desc",
 			"fields": [
 				{
 					"id": "drink_date",

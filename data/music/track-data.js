@@ -300,74 +300,95 @@ module.exports = [
     {    
         name: "We Are All Made of Stars",
         album: 6,
+        length: "4:32",
+        genre: 4,
     },
     {    
         name: "In This World",
         album: 6,
+        length: "4:02",
+        genre: 4,
     },
     {    
         name: "In My Heart",
         album: 6,
+        genre: 4,
     },
     {    
-        name: "Great Esacpe",
+        name: "Great Escape",
         album: 6,
+        genre: 4,
     },
     {    
         name: "Signs of Love",
         album: 6,
+        genre: 4,
     },
     {    
         name: "One of These Mornings",
         album: 6,
+        genre: 4,
     },
     {    
         name: "Another Woman",
         album: 6,
+        genre: 4,
     },
     {    
         name: "Fireworks",
         album: 6,
+        genre: 4,
     },
     {    
         name: "Extreme Ways",
         album: 6,
+        genre: 4,
     },
     {    
         name: "Jam for the Ladies",
         album: 6,
+        genre: 4,
     },
     {    
         name: "Sunday (The Day Before My Birthday)",
         album: 6,
+        genre: 4,
     },
     {    
         name: "18",
         album: 6,
+        genre: 4,
+        length: "4:28"
     },
     {    
         name: "Sleep Alone",
         album: 6,
+        genre: 4,
     },
     {    
         name: "At Least We Tried",
         album: 6,
+        genre: 4,
     },
     {    
         name: "Harbour",
         album: 6,
+        genre: 4,
     },
     {    
         name: "Look Back In",
         album: 6,
+        genre: 4,
     },
     {    
         name: "The Rafters",
         album: 6,
+        genre: 4,
     },
     {    
         name: "I'm Not Worried at All",
         album: 6,
+        genre: 4,
     },
 
 
