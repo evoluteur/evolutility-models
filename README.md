@@ -59,10 +59,6 @@ module.exports = {
 	"icon": "todo.gif",
 	"titleField": "title",
 	"table": "task",
-	"searchFields": [
-		"title",
-		"description"
-	],
 	"fields": [
 		{
 			"id": "title",
@@ -71,6 +67,7 @@ module.exports = {
 			"width": 100,
 			"required": true,
 			"inMany": true,
+			"inSearch": true,
 			"column": "title",
 			"maxLength": 255
 		},
@@ -107,7 +104,6 @@ module.exports = {
 | titleField   | Id of the field which value is used as record title. titleField can also be a function. |X|X| 
 | table        | Driving database table name (there are secondary tables for fields of type "lov").     | |X| 
 | pKey         | Name of the Primary key column (single column of type serial). Default to "id". In the data the key is always called "id". | |X|
-| searchFields | Array of field ids for fields used to perform searches (default to fields of text value which are included in the List view.  | |X|
 | defaultViewMany| Default view for Many records (possible values: list, cards, charts).  |X| |
 | defaultViewOne| Default view for One record (possible values browse, edit).    |X| | 
 
@@ -132,6 +128,7 @@ For the frontend, fields are textboxes, checkboxes, datepickers... in Edit view,
 | maxLength, minLength | Maximum/Minimum length allowed (only applies to text fields).      |X|X|
 | regExp       | Regular expression used to validate the field value. |X|X|
 | inMany       | Determines if the field is present (by default) in lists of records. |X|X|
+| inSearch     | Determine if the field is used in text searches.                     | |X|
 | height       | For fields of type "textmultiline", number of lines used in the field (in Browse and Edit views). |X||
 | width        | Field width in Browse and Edit views (in percent of parent width). Default: 100%  |X||
 | help         | Optional help on the field. |X||
@@ -165,7 +162,6 @@ Groups are only used in UI models and are optional. By default a single group ho
 | width        | Width (in % of the container total width). |X||
 | header       | Text to be displayed at the top of the group (just below the group title).|X||
 | footer       | Text to be displayed at the bottom of the group.    |X||
-
 
 <a name="Collection"></a>
 ### Collection

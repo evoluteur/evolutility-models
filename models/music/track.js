@@ -20,7 +20,8 @@ module.exports = {
 			"required": true,
 			"height": 3,
 			"width": 100,
-			"inMany": true
+			"inMany": true,
+			"inSearch": true,
 		},
 		{
 			"id": "album",

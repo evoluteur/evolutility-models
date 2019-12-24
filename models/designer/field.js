@@ -91,12 +91,6 @@ module.exports = {
 	"namePlural": "fields",
 	"titleField": "label",
 	"table": "evol_field",
-	"searchFields": [
-		"label",
-		"column",
-		"help",
-		"description",
-	],
 	"fields": [
 		{
 			id: "label",
@@ -107,7 +101,8 @@ module.exports = {
 			"required": true,
 			"inMany": true,
 			"width": 62,
-			"column": "label"
+			"column": "label",
+			"inSearch": true,
 		},
 		{
 			id: "type",
@@ -132,7 +127,8 @@ module.exports = {
 			"required": true,
 			"type": "text",
 			"maxLength": 63,
-			"width": 62
+			"width": 62,
+			"inSearch": true,
 		},
 		{
 			id: "fid",
@@ -142,7 +138,8 @@ module.exports = {
 			"required": true,
 			"inMany": true,
 			"width": 38,
-			"column": "fid"
+			"column": "fid",
+			"inSearch": true,
 		},
 		{
 			id: "object",
@@ -202,8 +199,26 @@ module.exports = {
 		{
 			id: "inMany",
 			"column": "inmany",
-			"label": "List",
-			"help": "Field is used in summary lists",
+			"label": "In List",
+			"help": "Field is displayed in summary lists (List and Cards views in the UI)",
+			"type": "boolean",
+			"inMany": true,
+			"width": 50
+		},
+		{
+			id: "inSearch",
+			"column": "insearch",
+			"label": "In Search",
+			"help": "Field is used for text searches.",
+			"type": "boolean",
+			"inMany": true,
+			"width": 50
+		},
+		{
+			id: "noFilter",
+			"column": "nofilter",
+			"label": "In Filter",
+			"help": "Excludes the field from filters' conditions.",
 			"type": "boolean",
 			"inMany": true,
 			"width": 50
@@ -346,14 +361,6 @@ module.exports = {
 			"help": "If chacked, the field's charts will not appear in the dashboard."
 		},
 		{
-			id: "chartType",
-			"column": "charttype",
-			"label": "Default Chart Type",
-			"type": "text",
-			"width": 50,
-			"help": "Possible values: Bars, Pie, or List."
-		},
-		{
 			id: "help",
 			"column": "help",
 			"label": "Help",
@@ -361,7 +368,8 @@ module.exports = {
 			"type": "textmultiline",
 			"maxLength": 500,
 			"width": 100,
-			"height": 4
+			"height": 4,
+			"inSearch": true,
 		},
 		{
 			id: "description",
@@ -370,7 +378,8 @@ module.exports = {
 			"type": "textmultiline",
 			"maxLength": 500,
 			"width": 100,
-			"height": 6
+			"height": 6,
+			"inSearch": true,
 		},
 		{
 			id: "defaultValue",
@@ -408,13 +417,13 @@ module.exports = {
             label: 'Layout',
             width: 38,
 			fields: ['position','inMany','width','height','css','format',
-				'labelShort', 'chartType','noCharts']
+				'labelShort']
         },
         {
             type: 'panel',
             label: 'Validation',
             width: 62,
-            fields: ['defaultValue','deleteTrigger','required','readOnly','minValue','maxValue','minLength','maxLength','regExp','noCharts']
+            fields: ['defaultValue','required','readOnly','inSearch','inFilter','minValue','maxValue','minLength','maxLength','regExp','deleteTrigger','noCharts']
         },
         {
             id: 'p-help',

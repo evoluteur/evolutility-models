@@ -13,12 +13,6 @@ module.exports = {
 	"namePlural": "objects",
 	"titleField": "title",
 	"table": "evol_object",
-	"searchFields": [
-		"title",
-		"name",
-		"table",
-		"description",
-	],
 	"fields": [
 		{
 			"id": "title",
@@ -28,8 +22,9 @@ module.exports = {
 			"type": "text",
 			"maxLength": 200,
 			"inMany": true,
+			"inSearch": true,
 			"width": 82,
-			"required": true
+			"required": true,
 		},
 		{
 			"id": "active",
@@ -55,7 +50,7 @@ module.exports = {
 			"label": "No Charts",
 			"type": "boolean",
 			"column": "nocharts",
-			"width": 30
+			"width": 35
 		},
 		{
 			"id": "noStats",
@@ -72,7 +67,8 @@ module.exports = {
 			"width": 62,
 			"maxLength": 63,
 			"required": true,
-			"inMany": true
+			"inMany": true,
+			"inSearch": true,
 		},
 		{
 			"id": "pKey",
@@ -91,7 +87,8 @@ module.exports = {
 			"maxLength": 100,
 			"required": true,
 			"inMany": true,
-			"width": 75
+			"inSearch": true,
+			"width": 75,
 		},
 		{
 			"id": "name",
@@ -102,7 +99,8 @@ module.exports = {
 			"required": true,
 			"maxLength": 50,
 			"inMany": true,
-			"width": 62
+			"inSearch": true,
+			"width": 62,
 		},
 		{
 			"id": "namePlural",
@@ -120,7 +118,7 @@ module.exports = {
 			"type": "image",
 			"column": "icon",
 			"maxLength": "50",
-			"width": 62,
+			"width": 35,
 			"help": "example='contact.gif'",
 			"readOnly": true,
 			"inMany": true
@@ -135,22 +133,14 @@ module.exports = {
 			"width": 38
 		},
 		{
-			"id": "searchFields",
-			"label": "Search fields",
-			"help": "Ids of the fields used in searches.",
-			"type": "textmultiline",
-			"column": "searchfields",
-			"width": 62,
-			"height": 2,
-		},
-		{
 			"id": "description",
 			"label": "Description",
 			"type": "textmultiline",
 			"column": "description",
 			"maxLength": 250,
 			"width": 100,
-			"height": 4
+			"height": 4,
+			"inSearch": true,
 		},/*
 		{
 			"id": "layout",
@@ -190,7 +180,6 @@ module.exports = {
 				"world",
 				"table",
 				"titleField",
-				"searchFields",
 				//"layout",
 				"groups",
 				"collections",
@@ -216,6 +205,7 @@ module.exports = {
 			"table": "evol_field",
 			"column": "object_id",
 			"object": "field",
+			"title": "Fields",
 			"orderBy": "position, t1.id",
 			"fields": [
 				{

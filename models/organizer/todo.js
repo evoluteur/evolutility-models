@@ -14,10 +14,6 @@ module.exports = {
 	"icon": "todo.gif",
 	"titleField": "title",
 	"table": "task",
-	"searchFields": [
-		"title",
-		"description"
-	],
 	noStats: true,
 	"fields": [
 		{
@@ -28,7 +24,8 @@ module.exports = {
 			"required": true,
 			"inMany": true,
 			"column": "title",
-			"maxLength": 255
+			"maxLength": 255,
+			"inSearch": true,
 		},
 		{
 			"id": "duedate",
@@ -117,7 +114,8 @@ module.exports = {
 			"height": 5,
 			"column": "description",
 			"maxLength": 1000,
-			"inMany": false
+			"inMany": false,
+			"inSearch": true,
 		}
 	],
 	"groups": [

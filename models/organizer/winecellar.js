@@ -15,12 +15,6 @@ module.exports = {
 	"icon": "wine-bottle.png",
 	"titleField": "name",
 	"defaultViewMany": 'cards',
-	"searchFields": [
-		"name",
-		"winery",
-		"appellation",
-		"notes"
-	],
 	"groups": [
 		{
 			"type": "panel",
@@ -101,7 +95,8 @@ module.exports = {
 			"maxLength": 150,
 			"inMany": true,
 			"width": 62,
-			"help": "Name of the wine as indicated on the label."
+			"help": "Name of the wine as indicated on the label.",
+			"inSearch": true,
 		},
 		{
 			"id": "vintage",
@@ -125,7 +120,8 @@ module.exports = {
 			"required": true,
 			"inMany": true,
 			"width": "62",
-			"help": "The establishment where this wine is made."
+			"help": "The establishment where this wine is made.",
+			"inSearch": true,
 		},
 		{
 			"id": "bsize",
@@ -532,7 +528,8 @@ module.exports = {
 			"type": "text",
 			"label": "Appellation",
 			"width": 100,
-			"help": "An appellation is a legally defined and protected geographical indication used to identify where the grapes for a wine were grown."
+			"help": "An appellation is a legally defined and protected geographical indication used to identify where the grapes for a wine were grown.",
+			"inSearch": true,
 		},
 		{
 			"id": "country",
@@ -641,7 +638,8 @@ module.exports = {
 			"type": "text",
 			"label": "Region",
 			"maxLength": 100,
-			"width": 30
+			"width": 30,
+			"inSearch": true,
 		},
 		{
 			"id": "area",
@@ -709,7 +707,8 @@ module.exports = {
 			"label": "Notes",
 			"maxLength": 150,
 			"width": 100,
-			"height": 2
+			"height": 2,
+			"inSearch": true,
 		},
 		{
 			"id": "drink_from",

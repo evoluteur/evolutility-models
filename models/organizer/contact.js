@@ -14,12 +14,6 @@ module.exports = {
 	"name": "contact",
 	"namePlural": "contacts",
 	"titleField": "fistname",
-	"searchFields": [
-		"lastname",
-		"firstname",
-		"jobtitle",
-		"company"
-	],
 	noStats: true,
 	"fields": [
 		{
@@ -30,7 +24,8 @@ module.exports = {
 			"required": true,
 			"width": 62,
 			"inMany": true,
-			"column": "lastname"
+			"column": "lastname",
+			"inSearch": true,
 		},
 		{
 			"type": "text",
@@ -40,7 +35,8 @@ module.exports = {
 			"required": true,
 			"width": 38,
 			"inMany": true,
-			"column": "firstname"
+			"column": "firstname",
+			"inSearch": true,
 		},
 		{
 			"type": "text",
@@ -48,7 +44,8 @@ module.exports = {
 			"label": "Title",
 			"maxLength": 50,
 			"width": 62,
-			"column": "jobtitle"
+			"column": "jobtitle",
+			"inSearch": true,
 		},
 		{
 			"type": "text",
@@ -57,7 +54,8 @@ module.exports = {
 			"maxLength": 50,
 			"width": 38,
 			"inMany": true,
-			"column": "company"
+			"column": "company",
+			"inSearch": true,
 		},
 		{
 			"type": "email",
@@ -66,7 +64,8 @@ module.exports = {
 			"maxLength": 100,
 			"width": 100,
 			"column": "email",
-			"inMany": true
+			"inMany": true,
+			"inSearch": true,
 		},
 		{
 			"type": "url",
@@ -103,7 +102,8 @@ module.exports = {
 			"maxLength": 20,
 			"width": 100,
 			"mini": "1",
-			"column": "phone"
+			"column": "phone",
+			"inSearch": true,
 		},
 		{
 			"type": "text",
@@ -120,7 +120,8 @@ module.exports = {
 			"maxLength": 20,
 			"width": 100,
 			"mini": "1",
-			"column": "phonecell"
+			"column": "phonecell",
+			"inSearch": true,
 		},
 		{
 			"type": "text",
@@ -144,7 +145,8 @@ module.exports = {
 			"label": "City",
 			"maxLength": 100,
 			"width": 62,
-			"column": "city"
+			"column": "city",
+			"inSearch": true,
 		},
 		{
 			"type": "text",

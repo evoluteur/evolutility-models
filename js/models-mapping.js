@@ -36,6 +36,7 @@ const uiField = f => {
 const dbField = f => {
     let fld = gField(f)
     fld.column = f.column || f.dbcolumn || f.id
+    fld.inSearch = f.inSearch
     if(f.type==='lov'){
         fld.lovTable = f.lovTable || f.dbtablelov
         fld.lovColumn = f.lovColumn || f.dbcolumnreadlov
@@ -101,7 +102,6 @@ module.exports = {
             table: m.table,
             active: m.active,
             titleField: m.titleField,
-            searchFields: m.searchFields,
             fields: m.fields.filter(f => !f.onlyUI).map(dbField),
             collections: m.collections ? m.collections.map(dbCollec) : [],
         }

@@ -15,7 +15,6 @@ module.exports = {
 	"label": "Wine Tasting",
 	"icon": "wine.gif",
 	"titleField": "drink_date",
-    "searchFields": ['robe', 'nose', 'taste', 'notes'],
 	noStats: true,
 	"fields": [
 		{
@@ -46,7 +45,8 @@ module.exports = {
 			"label": "Taste",
 			"maxLength": 100,
 			"inMany": true,
-			"width": 100
+			"width": 100,
+			"inSearch": true,
 		},
 		{
 			"id": "robe",
@@ -55,7 +55,8 @@ module.exports = {
 			"label": "Robe",
 			"maxLength": 100,
 			"inMany": true,
-			"width": 100
+			"width": 100,
+			"inSearch": true,
 		},
 		{
 			"id": "nose",
@@ -64,7 +65,8 @@ module.exports = {
 			"label": "Nose",
 			"maxLength": 100,
 			"inMany": true,
-			"width": 100
+			"width": 100,
+			"inSearch": true,
 		},
 		{
 			"id": "notes",
@@ -73,7 +75,8 @@ module.exports = {
 			"label": "Note",
 			"inMany": true,
 			"height": 5,
-			"width": 100
+			"width": 100,
+			"inSearch": true,
 		}
 	],
 	"groups": [

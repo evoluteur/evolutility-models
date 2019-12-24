@@ -15,11 +15,6 @@ module.exports = {
 	"titleField": "title",
 	"table": "comics",
 	"defaultViewMany": 'cards',
-	"searchFields": [
-		"title",
-		"authors",
-		"notes"
-	],
 	"fields": [
 		{
 			"id": "title",
@@ -29,7 +24,8 @@ module.exports = {
 			"maxLength": 255,
 			"width": 100,
 			"inMany": true,
-			"column": "title"
+			"column": "title",
+			"inSearch": true,
 		},
 		{
 			"id": "authors",
@@ -37,7 +33,8 @@ module.exports = {
 			"width": 62,
 			"inMany": true,
 			"label": "Authors",
-			"column": "authors"
+			"column": "authors",
+			"inSearch": true,
 		},
 		{
 			"id": "genre",
@@ -157,7 +154,8 @@ module.exports = {
 			"width": 100,
 			"height": 7,
 			"inMany": false,
-			"column": "notes"
+			"column": "notes",
+			"inSearch": true,
 		}
 	],
 	"groups": [

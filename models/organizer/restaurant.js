@@ -14,12 +14,6 @@ module.exports = {
 	"icon": "resto.gif",
 	"name": "restaurant",
 	"namePlural": "restaurants",
-	"searchFields": [
-		"name",
-		"web",
-		"notes",
-		"favorites"
-	],
 	noStats: true,
 	"fields": [
 		{
@@ -29,7 +23,8 @@ module.exports = {
 			"required": true,
 			"width": 62,
 			"inMany": true,
-			"column": "name"
+			"column": "name",
+			"inSearch": true,
 		},
 		{
 			"id": "cuisine",
@@ -150,7 +145,8 @@ module.exports = {
 			"maxLength": 2000,
 			"width": 32,
 			"height": 6,
-			"column": "notes"
+			"column": "notes",
+			"inSearch": true,
 		},
 		{
 			"id": "hours",
@@ -167,7 +163,8 @@ module.exports = {
 			"maxLength": 2000,
 			"width": 38,
 			"height": 6,
-			"column": "favorite"
+			"column": "favorite",
+			"inSearch": true,
 		},
 		{
 			"id": "phone",
@@ -184,7 +181,8 @@ module.exports = {
 			"maxLength": 150,
 			"width": 100,
 			"height": 2,
-			"column": "address"
+			"column": "address",
+			"inSearch": true,
 		},
 		{
 			"id": "city",
@@ -193,7 +191,8 @@ module.exports = {
 			"maxLength": 100,
 			"width": 50,
 			"inMany": true,
-			"column": "city"
+			"column": "city",
+			"inSearch": true,
 		},
 		{
 			"id": "state",

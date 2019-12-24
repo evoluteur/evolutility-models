@@ -21,7 +21,8 @@ module.exports = {
 			"required": true,
 			"height": 1,
 			"width": 62,
-			"inMany": true
+			"inMany": true,
+			"inSearch": true,
 		},
 		{
 			"id": "url",
@@ -50,7 +51,8 @@ module.exports = {
 			maxLength: 1000,
 			width: 100,
 			height: 5,
-			inMany: false
+			inMany: false,
+			"inSearch": true,
 		},
 		{
 			"id": "cover",
@@ -66,8 +68,6 @@ module.exports = {
 			"id": "p-album",
 			"type": "panel",
 			"label": "Album",
-			"table": 'music_album',
-			"column": 'album_id',
 			"width": 70,
 			"fields": [
 				"title",

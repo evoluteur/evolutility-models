@@ -15,6 +15,7 @@ const fields = [
         width: 100,
         required: true,
         inMany: true,
+        inSearch: true,
         help: 'Name of the object',
     },
     {
@@ -23,7 +24,8 @@ const fields = [
         label: "Text",
         type: "text",
         width: 50,
-        inMany: true
+        inMany: true,
+        inSearch: true,
     },
     {
         id: "textmultiline", 
@@ -32,6 +34,7 @@ const fields = [
         label: "Text multiline", 
         height: 3,
         width: 50,
+        inSearch: true,
     },
     {
         id: "lov", 
@@ -51,7 +54,7 @@ const fields = [
         label: "Parent", 
         width: 100,
         lovTable: 'z_test',
-        required: true,
+        required: false,
         inMany: true,
         help: 'LOV ',
         object: 'test',

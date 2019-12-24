@@ -13,10 +13,6 @@ module.exports = {
 	"name": "application",
 	"namePlural": "applications",
 	"titleField": "name",
-	"searchFields": [
-		"name",
-		"description",
-	],
 	"fields": [
 		{
 			"id": "name",
@@ -26,7 +22,8 @@ module.exports = {
 			"required": true,
 			"inMany": true,
 			"width": 85,
-			"column": "name"
+			"column": "name",
+			"inSearch": true
 		},
 		{
 			"id": "active",
@@ -43,7 +40,8 @@ module.exports = {
 			"type": "textmultiline",
 			"maxLength": 500,
 			"width": 85,
-			"height": 2
+			"height": 2,
+			"inSearch": true
 		},
 		{
 			"id": "position",

@@ -21,6 +21,7 @@ module.exports = {
 			"column": "name", 
 			"inMany": true,
 			"required": true,
+			"inSearch": true,
 		},
 		{
 			"id": "url",
@@ -51,6 +52,7 @@ module.exports = {
 			"type": 'textmultiline', 
 			"label": 'Description', 
 			"height": 4,
+			"inSearch": true,
 		}
 	],
 	"groups": [
