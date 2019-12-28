@@ -7,7 +7,7 @@ module.exports = {
 	"oid": 6,
 	"world": "organizer",
 	"active": true,
-	position: 55,
+	"position": 55,
 	"table": "wine_tasting",
 	"title": "Wine tastings",
 	"name": "wine tasting",
@@ -15,7 +15,7 @@ module.exports = {
 	"label": "Wine Tasting",
 	"icon": "wine.gif",
 	"titleField": "drink_date",
-	noStats: true,
+	"noStats": true,
 	"fields": [
 		{
 			"id": "drink_date",
@@ -36,7 +36,7 @@ module.exports = {
 			"width": 62,
 			"required": true,
 			"lovTable": "wine",
-			deleteTrigger: true,
+			"deleteTrigger": true,
 		},
 		{
 			"id": "taste",

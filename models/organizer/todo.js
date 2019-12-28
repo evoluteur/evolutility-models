@@ -7,14 +7,14 @@ module.exports = {
 	"oid": 1,
 	"world": "organizer",
 	"active": true,
-	position: 20,
+	"position": 20,
 	"label": "To-Do List",
 	"name": "task",
 	"namePlural": "tasks",
 	"icon": "todo.gif",
 	"titleField": "title",
 	"table": "task",
-	noStats: true,
+	"noStats": true,
 	"fields": [
 		{
 			"id": "title",

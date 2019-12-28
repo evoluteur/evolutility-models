@@ -7,7 +7,7 @@ module.exports = {
 	"oid": 5,
 	"world": "organizer",
 	"active": true,
-	position: 50,
+	"position": 50,
 	"table": "wine",
 	"name": "wine",
 	"namePlural": "wines",
@@ -834,7 +834,8 @@ module.exports = {
 			"table": "wine_tasting",
 			"column": "wine_id",
 			"object": "winetasting",
-			"orderBy": "drink_date desc",
+			"orderBy": "drink_date",
+			"order": "desc",
 			"fields": [
 				{
 					"id": "drink_date",

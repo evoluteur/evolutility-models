@@ -1,6 +1,7 @@
 /*
 	Evolutility Model for Fields
 	https://github.com/evoluteur/evolutility-models
+	(c) 2019 Olivier Giulieri
 */
 
 const fieldTypes = [
@@ -275,7 +276,7 @@ module.exports = {
 		},
 		{
 			id: "labelShort",
-			"label": "Label",
+			"label": "Short label",
 			"type": "text",
 			"help": "Optional shorter Field title to display in list header",
 			"width": 100,

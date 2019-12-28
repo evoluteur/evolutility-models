@@ -1,16 +1,21 @@
+/*
+	Evolutility Model for Music Artist
+	https://github.com/evoluteur/evolutility-models
+	(c) 2019 Olivier Giulieri
+*/
 module.exports = {
 	"id": "artist",
 	"oid": 8,
     "active": true,
 	"position": 10,
-	"world": 'music',
-	"icon": 'star.png',
-	"title": 'Artists',
+	"world": "music",
+	"icon": "star.png",
+	"title": "Artists",
 	"table": "music_artist",
 	"name": "artist",
 	"namePlural": "artists",
 	"titleField": "name",
-	"defaultViewMany": 'cards',
+	"defaultViewMany": "cards",
 	"noCharts": true,
 	"noStats": true,
 	"fields": [
@@ -25,7 +30,7 @@ module.exports = {
 		},
 		{
 			"id": "url",
-			"label": 'Web site',
+			"label": "Web site",
 			"type": "url",
 			"column": "url",
 			"width": 70,
@@ -33,7 +38,7 @@ module.exports = {
 		{
 			"id": "bdate",
 			"column": "bdate",
-			"label": 'Birth date',
+			"label": "Birth date",
 			"type": "date",
 			"column": "bdate",
 			"width": 30,
@@ -47,11 +52,11 @@ module.exports = {
 			"column": "photo"
 		},
 		{
-			"id": 'description', 
-			"column": 'description', 
-			"type": 'textmultiline', 
-			"label": 'Description', 
-			"height": 4,
+			"id": "description", 
+			"column": "description", 
+			"type": "textmultiline", 
+			"label": "Description", 
+			"height": 6,
 			"inSearch": true,
 		}
 	],
@@ -65,7 +70,7 @@ module.exports = {
 				"name",
 				"url",
 				"bdate",
-				'description'
+				"description"
 			]
 		},
 		{

@@ -1,17 +1,18 @@
 /*
-	Evolutility Model for Worlds (set of apps)
+	Evolutility Model for Worlds (set of objects)
 	https://github.com/evoluteur/evolutility-models
+	(c) 2019 Olivier Giulieri
 */
 
 module.exports = {
 	"id": "world",
 	"world": "designer",
-	"title": "Applications",
 	"icon": "",
+	"title": "Worlds",
 	"table": "evol_world",
 	"schema": "evolutility",
-	"name": "application",
-	"namePlural": "applications",
+	"name": "world",
+	"namePlural": "worlds",
 	"titleField": "name",
 	"fields": [
 		{

@@ -1,7 +1,8 @@
 
-# Evolutility-Models &middot; [![GitHub license](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/evoluteur/evolutility-models/blob/master/LICENSE.md)
+# Evolutility-Models &middot; [![GitHub license](https://img.shields.io/github/license/evoluteur/evolutility-models)](https://github.com/evoluteur/evolutility-models/blob/master/LICENSE.md)
 
-With Evolutility, models are DRY (Don't Repeat Yourself) descriptions of applications. These models contain all the information necessary for the backend (database tables and columns, validation...) and the UI (views, fields, validation...).
+
+Evolutility models are DRY (Don't Repeat Yourself) descriptions of applications. These models contain all the metadata necessary to describe the backend (database tables and columns, validation...) and the UI (views, fields, validation...).
 
 Cool things to do with Evolutility models:
 
@@ -174,8 +175,9 @@ Multiple Master-Details can be specified with collections.
 | title        | Collection title.                     |X||
 | table        | Table to query for the details list.  ||X|
 | column       | Column in the details table to match against object's id. ||X|
-| object       | Model id for the object to link to.   |X|X|
-| orderBy      | SQL where clause, e.g. { orderBy="id DESC" }.    ||X|
+| object       | Model id for the object to link to. When specified, "column" and "table" can be omitted.  |X|X|
+| order        | Direction to order by "asc" or "desc".      ||X|
+| orderBy      | SQL where clause, e.g. { orderBy="id" }.    ||X|
 | fields       | Array of fields. Collections are not editable so their fields do not need as many properties as the main object's fields.   |X|X|
 
 ## Scripts

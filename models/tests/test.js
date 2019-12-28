@@ -229,7 +229,6 @@ module.exports = {
 			"table": "z_test",
 			"column": "parent_id",
 			"object": "test",
-			"order": "desc",
 			"fields": fields.slice(0, 5)
 		}
 	],

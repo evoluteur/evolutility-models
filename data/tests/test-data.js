@@ -18,7 +18,8 @@ module.exports = [
         "email": "abc@abc.com",
         "url": "http://abc.com",
         "document": "",
-        "image": "test/bug.gif"
+        "image": "test/bug.gif",
+        "json": [{"a": 123, "b": "abc"},{"a": 5}],
     },
     {
         "id": 2,
@@ -38,6 +39,7 @@ module.exports = [
         "boolean": false,
         "email": "efghij@efghij.com",
         "url": "http://efghij.com",
+        "json": {"a": 1, "b": "zzzzzz"},
     },
     {
         "id": 3,
@@ -58,6 +60,7 @@ module.exports = [
         "email": "long_long_long_long_long_long_long_long_long_email@gmail.com",
         "url": "http://someUrlsAreTooStrangeToRememberITHINKAOEFDJIJDQFSKJRKDLFVJWDFKJJDFKLXDFG.com",
         "document": "",
-        "image": ""
+        "image": "",
+        "json": {"a": 10, "b": "This is another test."},
     } 
 ];

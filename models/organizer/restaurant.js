@@ -215,12 +215,12 @@ module.exports = {
         {
           id:"pResto", type:"panel", 
           label: "Restaurant", width: 62,
-          fields: ['name','cuisine','schedule','yelp','price','favorite','notes','hours']
+          fields: ["name","cuisine","schedule","yelp","price","favorite","notes","hours"]
         },
         {
           id:"pContact", type:"panel", 
           label: "Contact", width: 38,
-          fields: ['phone','web','address','city','state','zip',]
+          fields: ["phone","web","address","city","state","zip",]
         },
     ]
 }

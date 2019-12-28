@@ -1,16 +1,21 @@
+/*
+	Evolutility Model for Music Album
+	https://github.com/evoluteur/evolutility-models
+	(c) 2019 Olivier Giulieri
+*/
 module.exports = {
 	"id": "album",
 	"oid": 7,
 	"active": true,
 	"position": 20,
-	"world": 'music',
-	"icon": 'cd.png',
+	"world": "music",
+	"icon": "cd.png",
 	"title": "Albums",
 	"table": "music_album",
 	"name": "album",
 	"namePlural": "albums",
 	"titleField": "name",
-	"defaultViewMany": 'cards',
+	"defaultViewMany": "cards",
 	"noStats": true,
 	"fields": [
 		{
@@ -19,16 +24,9 @@ module.exports = {
 			"label": "Title",
 			"column": "title",
 			"required": true,
-			"height": 1,
 			"width": 62,
 			"inMany": true,
 			"inSearch": true,
-		},
-		{
-			"id": "url",
-			"label": "Amazon",
-			"type": "url",
-			"column": "url",
 		},
 		{
 			"id": "artist",
@@ -36,22 +34,36 @@ module.exports = {
 			"label": "Artist",
 			"column": "artist_id",
 			"required": true,
-			"height": 1,
 			"width": 38,
 			"inMany": true,
-			entity: 'artist',
+			"object": "artist",
 			"lovTable": "music_artist",
 			"lovColumn": "name"
 		},
 		{
-			id: 'description', 
-			column: 'description', 
-			type: 'textmultiline', 
-			label: 'Description', 
-			maxLength: 1000,
-			width: 100,
-			height: 5,
-			inMany: false,
+			"id": "url",
+			"label": "Amazon",
+			"type": "url",
+			"column": "url",
+			"width": 62,
+		},
+		{
+			"id": "length",
+			"type": "text",
+			"label": "Length",
+			"column": "length",
+			"width": 38,
+			"inMany": true,
+		},
+		{
+			"id": "description", 
+			"column": "description", 
+			"type": "textmultiline", 
+			"label": "Description", 
+			"maxLength": 1000,
+			"width": 100,
+			"height": 6,
+			"inMany": false,
 			"inSearch": true,
 		},
 		{
@@ -63,7 +75,7 @@ module.exports = {
 			"column": "cover"
 		},
 	],
-	groups: [
+	"groups": [
 		{
 			"id": "p-album",
 			"type": "panel",
@@ -73,7 +85,8 @@ module.exports = {
 				"title",
 				"artist",
 				"url",
-				'description'
+				"length",
+				"description"
 			]
 		},
 		{

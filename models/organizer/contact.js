@@ -81,15 +81,15 @@ module.exports = {
 			"label": "Category",
 			"width": 100,
 			"list": [
-				{id: 1, text: 'Friends'},
-				{id: 2, text: 'Family'},
-				{id: 3, text: 'Work'},
-				{id: 4, text: 'Meditation'},
-				{id: 5, text: 'Travel'},
-				{id: 6, text: 'Business'},
-				{id: 7, text: 'Sport'},
-				{id: 8, text: 'Restaurants'},
-				{id: 9, text: 'Misc.'}
+				{"id": 1, "text": "Friends"},
+				{"id": 2, "text": "Family"},
+				{"id": 3, "text": "Work"},
+				{"id": 4, "text": "Meditation"},
+				{"id": 5, "text": "Travel"},
+				{"id": 6, "text": "Business"},
+				{"id": 7, "text": "Sport"},
+				{"id": 8, "text": "Restaurants"},
+				{"id": 9, "text": "Misc."}
 			],
 			"inMany": true,
 			"column": "category_id",
@@ -97,21 +97,13 @@ module.exports = {
 		},
 		{
 			"type": "text",
-			"id": "phone",
+			"id": "phonework",
 			"label": "Work Phone",
 			"maxLength": 20,
 			"width": 100,
 			"mini": "1",
 			"column": "phone",
 			"inSearch": true,
-		},
-		{
-			"type": "text",
-			"id": "phonehome",
-			"label": "Home Phone",
-			"maxLength": 20,
-			"width": 100,
-			"column": "phonehome"
 		},
 		{
 			"type": "text",
@@ -122,6 +114,14 @@ module.exports = {
 			"mini": "1",
 			"column": "phonecell",
 			"inSearch": true,
+		},
+		{
+			"type": "text",
+			"id": "phonehome",
+			"label": "Home Phone",
+			"maxLength": 20,
+			"width": 100,
+			"column": "phonehome"
 		},
 		{
 			"type": "text",
@@ -201,8 +201,8 @@ module.exports = {
 			"width": 38,
 			"fields": [
 				"phone",
-				"phonehome",
 				"phonecell",
+				"phonehome",
 				"fax"
 			]
 		},

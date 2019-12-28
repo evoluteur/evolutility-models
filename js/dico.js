@@ -8,7 +8,7 @@ https://github.com/evoluteur/evolutility-ui-react
 
 // Helpers for models
 
-//import format from './format'
+import format from './format'
 
 
 // - Field Types
@@ -102,7 +102,7 @@ export function prepModel(m){
 				m.titleField = m.fields[0].id;
 			}
 			if(!m.label){
-				m.label = m.title || m.namePlural || m.name;
+				m.label = m.title || format.capitalize(m.namePlural || m.name);
 			}
 			if(!m.titleField){
 				m.titleField = m.fields[0];

@@ -1,6 +1,7 @@
 /*
 	Evolutility Model for Model/Object
 	https://github.com/evoluteur/evolutility-models
+	(c) 2019 Olivier Giulieri
 */
 
 module.exports = {
