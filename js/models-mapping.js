@@ -53,7 +53,7 @@ const uiCollec = collec => ({
     title: collec.title || collec.label,
     object: collec.object || collec.entity,
     icon: collec.icon,
-    fields: collec.fields.map(f => f.id),
+    fields: collec.fields,
 })
 const dbCollec = collec => ({
     id: collec.id,
@@ -61,7 +61,7 @@ const dbCollec = collec => ({
     column: collec.column,
     object: collec.object || collec.entity,
     orderBy: collec.orderBy,
-    fields: collec.fields.map(dbField)
+    fields: collec.fields,
 })
 
 module.exports = {

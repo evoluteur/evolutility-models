@@ -69,7 +69,7 @@ module.exports = {
 		{
 			"id": "cover",
 			"type": "image",
-			"label": "Album Cover",
+			"label": "Cover",
 			"width": 100,
 			"inMany": true,
 			"column": "cover"
@@ -109,27 +109,9 @@ module.exports = {
 			"orderBy": "name",
 			"object": "track",
 			"fields": [
-				{
-					"id": "name",
-					"type": "text",
-					"label": "Track",
-					"column": "name",
-					"inMany": true, 
-				},
-				{
-					"id": "genre",
-					"type": "lov",
-					"label": "Genre",
-					"column": "genre_id",
-					"lovTable": "music_genre",
-				},
-				{
-					"id": "length",
-					"type": "text",
-					"label": "Length",
-					"column": "length",
-					"inMany": true
-				},
+				"name",
+				"genre",
+				"length",
 			]
 		}
 	],

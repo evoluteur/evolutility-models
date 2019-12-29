@@ -93,18 +93,9 @@ module.exports = {
 			"column": "artist_id",
 			"orderBy": "title",
 			"fields": [
-				{
-					"id": "title",
-					"type": "text",
-					"label": "Title",
-					"column": "title",
-				},
-				{
-					"id": "cover", 
-					"column": "cover", 
-					"type": "image", 
-					"label": "Cover",
-				}
+				"title",
+				"cover",
+				"length"
 			]
 		}
 	],

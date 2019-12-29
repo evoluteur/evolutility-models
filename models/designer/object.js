@@ -209,53 +209,13 @@ module.exports = {
 			"title": "Fields",
 			"orderBy": "position, t1.id",
 			"fields": [
-				{
-					"id": "label",
-					"column": "label",
-					"label": "Label",
-					"type": "text",
-				},
-				{
-					"id": "column",
-					"column": "dbcolumn",
-					"label": "Column",
-				},
-				{
-					"id": "type",
-					"type": "lov",
-					"label": "Type",
-					//"list": fieldTypes,
-					"column": "type_id",
-					"lovTable": "evol_field_type",
-					"lovColumn": "name",
-					"lovIcon": true,
-				},
-				{
-					"id": "inMany",
-					"column": "inmany",
-					"label": "List",
-					"type": "boolean",
-				},
-				{
-					"id": "width",
-					"column": "width",
-					"label": "Width",
-					"defaultValue": 100,
-					"type": "integer",
-					"format": "0 '%'",
-				},
-				{
-					"id": "height",
-					"column": "height",
-					"label": "Height",
-					"type": "integer",
-				},
-				{
-					"id": "required",
-					"column": "required",
-					"label": "Required",
-					"type": "boolean",
-				}
+				"fid",
+				"label",
+				"column",
+				"type",
+				"inMany",
+				"inSearch",
+				"required",
 			]
 		}
 	],

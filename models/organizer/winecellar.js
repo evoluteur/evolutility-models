@@ -837,37 +837,11 @@ module.exports = {
 			"orderBy": "drink_date",
 			"order": "desc",
 			"fields": [
-				{
-					"id": "drink_date",
-					"column": "drink_date",
-					"type": "date",
-					"label": "Date",
-					"required": true
-				},
-				{
-					"id": "robe",
-					"column": "robe",
-					"type": "text",
-					"label": "Robe"
-				},
-				{
-					"id": "nose",
-					"column": "nose",
-					"type": "text",
-					"label": "Nose"
-				},
-				{
-					"id": "taste",
-					"column": "taste",
-					"type": "text",
-					"label": "Taste"
-				},
-				{
-					"id": "notes",
-					"column": "notes",
-					"type": "textmultiline",
-					"label": "Note"
-				}
+				"drink_date",
+				"robe",
+				"nose",
+				"taste",
+				"notes",
 			]
 		}
 	],

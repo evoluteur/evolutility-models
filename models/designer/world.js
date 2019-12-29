@@ -7,8 +7,8 @@
 module.exports = {
 	"id": "world",
 	"world": "designer",
-	"icon": "",
 	"title": "Worlds",
+	"icon": "/designer/world.png",
 	"table": "evol_world",
 	"schema": "evolutility",
 	"name": "world",
@@ -62,24 +62,9 @@ module.exports = {
 			"title": "Objects",
 			"object": "object",
 			"fields": [
-				{
-					"id": "title",
-					"column": "title",
-					"label": "Title",
-					"type": "text",
-				},
-				{
-					"label": "Icon",
-					"type": "image",
-					"id": "icon",
-					"column": "icon",
-				},
-				{
-					"label": "Active",
-					"type": "boolean",
-					"id": "active",
-					"column": "active",
-				},
+				"title",
+				"icon",
+				"active",
 			]
 		}
 	]
