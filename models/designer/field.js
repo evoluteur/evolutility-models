@@ -1,5 +1,5 @@
 /*
-	Evolutility Model for Fields
+	Evolutility Model for Object's fields
 	https://github.com/evoluteur/evolutility-models
 	(c) 2019 Olivier Giulieri
 */
@@ -57,7 +57,7 @@ const fieldTypes = [
 	},
 	{
 		id: 11,
-		"text": "LoV (dropdown)",
+		"text": "Dropdown (lov)",
 		"icon": "designer/ft-lov.gif"
 	},
 	{
@@ -72,7 +72,7 @@ const fieldTypes = [
 	},
 	{
 		id: 14,
-		"text": "List (multiselect)",
+		"text": "Multiselect (list)",
 		"icon": "designer/ft-list.gif"
 	},
 	{
@@ -87,7 +87,7 @@ module.exports = {
     "world": "designer",
 	"title": "Fields",
 	"schema": "evolutility",
-	"icon": "/designer/edi_fld.png",
+	"icon": "/designer/field.png",
 	"name": "field",
 	"namePlural": "fields",
 	"titleField": "label",

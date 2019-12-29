@@ -29,5 +29,6 @@ module.exports = {
     world: require('./designer/world'),
     object: require('./designer/object'),
     field: require('./designer/field'),
-    //fieldgroup: require('./designer/fieldgroup'),
+    group: require('./designer/group'),
+    collection: require('./designer/collection'),
 }

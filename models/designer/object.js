@@ -8,7 +8,7 @@ module.exports = {
 	"id": "object",
 	"world": "designer",
 	"title": "Objects",
-	"icon": "/designer/edi_frm.png",
+	"icon": "/designer/object.png",
 	"schema": "evolutility",
 	"name": "object",
 	"namePlural": "objects",
@@ -142,30 +142,7 @@ module.exports = {
 			"width": 100,
 			"height": 4,
 			"inSearch": true,
-		},/*
-		{
-			"id": "layout",
-			"label": "Layout",
-			"labelMany": "Layout",
-			"type": "json",
-			"column": "layout",
-			"height": 5
-		}*/,
-
-		{
-			"id": "groups",
-			"label": "Fields groups",
-			"type": "json",
-			"column": "groups",
-			"height": 5
 		},
-		{
-			"id": "collections",
-			"label": "Collections",
-			"type": "json",
-			"column": "collections",
-			"height": 5
-		}
 	],
 	"groups": [
 		{
@@ -181,9 +158,6 @@ module.exports = {
 				"world",
 				"table",
 				"titleField",
-				//"layout",
-				"groups",
-				"collections",
 			]
 		},
 		{
@@ -217,6 +191,35 @@ module.exports = {
 				"inSearch",
 				"required",
 			]
+		},
+		{
+			"id": "collec-groups",
+			"label": 'Field groups',
+			"table": "evol_object_group",
+			"column": "object_id",
+			"object": "group",
+			"orderBy": "position, t1.id",
+			"fields": [
+				"gid",
+				"label",
+				"type",
+				"fields",
+			]
+		},
+		{
+			"id": "collec-collecs",
+			"table": "evol_object_collec",
+			"title": "Collections",
+			"column": "object_id",
+			"object": "collection",
+			"orderBy": "position, t1.id",
+			"fields": [
+				"cid",
+				"label",
+				"column",
+				"object",
+				"fields",
+			]
 		}
-	],
+	]
 }

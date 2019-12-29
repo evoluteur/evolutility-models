@@ -1,5 +1,5 @@
 
-# Evolutility-Models &middot; [![GitHub license](https://img.shields.io/github/license/evoluteur/evolutility-models)](https://github.com/evoluteur/evolutility-models/blob/master/LICENSE.md)
+# Evolutility-Models &middot; [![GitHub license](https://img.shields.io/github/license/evoluteur/evolutility-models)](https://github.com/evoluteur/evolutility-models/blob/master/LICENSE.md) [![npm version](https://img.shields.io/npm/v/evolutility-models)](https://www.npmjs.com/package/evolutility-models) 
 
 
 Evolutility models are DRY (Don't Repeat Yourself) descriptions of applications. These models contain all the metadata necessary to describe the backend (database tables and columns, validation...) and the UI (views, fields, validation...).
@@ -13,7 +13,7 @@ Cool things to do with Evolutility models:
 
 ## Sample models
 
-Models are description of objects and their properties/fields. 
+Models are description of objects and their properties/fields, field groups, and sometimes nested-collections. 
 
 #### Organizer
 
@@ -33,14 +33,6 @@ Models are description of objects and their properties/fields.
 
 - [Test model](https://github.com/evoluteur/evolutility-models/blob/master/models/tests/test.js) with fields of all possible types.
 
-#### Models of models
-
-We can store models in the database (instead of JSON files), and manage them with apps similar to the demo apps.
-
-- [Objects](https://github.com/evoluteur/evolutility-models/blob/master/models/designer/object.js)
-- [Fields](https://github.com/evoluteur/evolutility-models/blob/master/models/designer/field.js)
-- [Worlds](https://github.com/evoluteur/evolutility-models/blob/master/models/designer/world.js)
-
 ## Metamodel
 
 The metamodel is the structure of the model (the model of models). 
@@ -53,32 +45,32 @@ All Fields are present in the Edit and Browse views. Fields can be flagged as "i
 
 ```javascript
 module.exports = {
-	"id": "todo",
-	"label": "To-Do List",
-	"name": "task",
-	"namePlural": "tasks",
-	"icon": "todo.gif",
-	"titleField": "title",
-	"table": "task",
-	"fields": [
+	id: "todo",
+	label: "To-Do List",
+	name: "task",
+	namePlural: "tasks",
+	icon: "todo.gif",
+	titleField: "title",
+	table: "task",
+	fields: [
 		{
-			"id": "title",
-			"label": "Title",
-			"type": "text",
-			"width": 100,
-			"required": true,
-			"inMany": true,
-			"inSearch": true,
-			"column": "title",
-			"maxLength": 255
+			id: "title",
+			label: "Title",
+			type: "text",
+			width: 100,
+			required: true,
+			inMany: true,
+			inSearch: true,
+			column: "title",
+			maxLength: 255
 		},
 		{
-			"id": "duedate",
-			"type": "date",
-			"label": "Due Date",
-			"width": 38,
-			"inMany": true,
-			"column": "due_date"
+			id: "duedate",
+			type: "date",
+			label: "Due Date",
+			width: 38,
+			inMany: true,
+			column: "due_date"
 		},
 		...
 	]
@@ -199,7 +191,18 @@ npm run models_db
 Generated models are saved in the directories "/dist/models-ui" and "/dist/models-db". The list of "full" models to generate from is specified in "/models/all_models.js".
 
 Note: The full models can be used as they are by both UI and back-end (which ignore what they do not need in the models).
- 
+
+
+#### Designer (Models of models)
+
+With models of models, we can store models in the database (instead of JSON files) and have an app to build other apps. 
+
+- [Objects](https://github.com/evoluteur/evolutility-models/blob/master/models/designer/object.js)
+- [Fields](https://github.com/evoluteur/evolutility-models/blob/master/models/designer/field.js)
+- [Field Groups](https://github.com/evoluteur/evolutility-models/blob/master/models/designer/group.js)
+- [Nested Collections](https://github.com/evoluteur/evolutility-models/blob/master/models/designer/collection.js)
+- [Worlds](https://github.com/evoluteur/evolutility-models/blob/master/models/designer/world.js)
+
 
 <a name="License"></a>
 ## License
