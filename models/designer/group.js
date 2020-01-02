@@ -1,7 +1,7 @@
 /*
 	Evolutility Model for Field groups
 	https://github.com/evoluteur/evolutility-models
-	(c) 2019 Olivier Giulieri
+	(c) 2020 Olivier Giulieri
 */
 
 module.exports = {

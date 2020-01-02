@@ -1,7 +1,7 @@
 /*
 	Evolutility Model for Object's fields
 	https://github.com/evoluteur/evolutility-models
-	(c) 2019 Olivier Giulieri
+	(c) 2020 Olivier Giulieri
 */
 
 const fieldTypes = [
@@ -168,7 +168,7 @@ module.exports = {
 			"lovColumn": "label",
 			"lovIcon": true,
 			"inMany": true,
-			object: 'fieldgroup',
+			object: "fieldgroup",
 		},*/
 		{
 			id: "lovTable",
@@ -359,7 +359,15 @@ module.exports = {
 			"label": "Exclude from Charts",
 			"type": "boolean",
 			"width": 50,
-			"help": "If chacked, the field's charts will not appear in the dashboard."
+			"help": "Determines if the field's charts appears in the dashboard."
+		},
+		{
+			id: "noStats",
+			"column": "nostats",
+			"label": "Exclude from Stats",
+			"type": "boolean",
+			"width": 50,
+			"help": "Determines if the field's stats appears in the Stats view."
 		},
 		{
 			id: "help",
@@ -400,38 +408,38 @@ module.exports = {
 	],
     "groups": [
         {
-            type: 'panel',
-            label: 'Definition',
+            type: "panel",
+            label: "Definition",
             width: 62,
             fields: [
-				'label',
-				'type',
-				'column',
-				'fid',
-				'object',
-				//'fieldgroup',
-				'lovTable','lovColumn','lovIcon'
+				"label",
+				"type",
+				"column",
+				"fid",
+				"object",
+				//"fieldgroup",
+				"lovTable","lovColumn","lovIcon"
 			]
         },
         {
-            type: 'panel',
-            label: 'Layout',
+            type: "panel",
+            label: "Layout",
             width: 38,
-			fields: ['position','inMany','width','height','css','format',
-				'labelShort']
+			fields: ["position","inMany","width","height","css","format",
+				"labelShort"]
         },
         {
-            type: 'panel',
-            label: 'Validation',
+            type: "panel",
+            label: "Validation",
             width: 62,
-            fields: ['defaultValue','required','readOnly','inSearch','inFilter','minValue','maxValue','minLength','maxLength','regExp','deleteTrigger','noCharts']
+            fields: ["defaultValue","required","readOnly","inSearch","inFilter","minValue","maxValue","minLength","maxLength","regExp","deleteTrigger","noCharts","noStats"]
         },
         {
-            id: 'p-help',
-            type: 'panel',
-            label: 'Field Help',
+            id: "p-help",
+            type: "panel",
+            label: "Field Help",
             width: 38,
-            fields: ['help','description']
+            fields: ["help","description"]
         }
     ]
 }

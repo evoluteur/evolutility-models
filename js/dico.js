@@ -1,7 +1,7 @@
 /*! 
 Evolutility-UI-React
 https://github.com/evoluteur/evolutility-ui-react
-(c) 2018 Olivier Giulieri
+(c) 2020 Olivier Giulieri
 */
 
 // evolutility :: utils/dico.js

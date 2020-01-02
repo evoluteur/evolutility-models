@@ -143,7 +143,7 @@ module.exports = {
 			"type": "image",
 			"width": 30,
 			"inMany": true,
-			"label": "Album Cover",
+			"label": "Cover",
 			"column": "pix"
 		},
 		{
@@ -182,7 +182,7 @@ module.exports = {
 		{
 			"id": "pix",
 			"type": "panel",
-			"label": "Album Cover",
+			"label": "Cover",
 			"width": 30,
 			"fields": [
 				"pix"
