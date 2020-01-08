@@ -72,7 +72,7 @@ module.exports = {
 			"column": "fields",
 			"required": true,
 			"width": 100,
-			"height": 3,
+			"height": 5,
 		},
 		{
 			"id": "position",
@@ -110,7 +110,7 @@ module.exports = {
 			"type": "textmultiline",
 			"maxLength": 500,
 			"width": 100,
-			"height": 3,
+			"height": 4,
 			"help": "Introduction text displayed at the top of the group."
 		},
 		{
@@ -120,7 +120,7 @@ module.exports = {
 			"type": "textmultiline",
 			"maxLength": 500,
 			"width": 100,
-			"height": 3,
+			"height": 4,
 			"help": "Footer text displayed below the group."
 		},
 		{

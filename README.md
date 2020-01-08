@@ -1,5 +1,5 @@
 
-# Evolutility-Models &middot; [![GitHub license](https://img.shields.io/github/license/evoluteur/evolutility-models)](https://github.com/evoluteur/evolutility-models/blob/master/LICENSE.md) [![npm version](https://img.shields.io/npm/v/evolutility-models)](https://www.npmjs.com/package/evolutility-models) 
+# Evolutility-Models &middot; [![GitHub license](https://img.shields.io/github/license/evoluteur/evolutility-models)](https://github.com/evoluteur/evolutility-models/blob/master/LICENSE.md)
 
 
 Evolutility models are DRY (Don't Repeat Yourself) descriptions of applications. These models contain all the metadata necessary to describe the backend (database tables and columns, validation...) and the UI (views, fields, validation...).
@@ -8,7 +8,7 @@ Cool things to do with Evolutility models:
 
 - Create a database and automatically provide REST or GraphQL endpoints using [Evolutility-Server-Node](https://github.com/evoluteur/evolutility-server-node).
 
-- Run a Web UI with [Evolutility-UI-React](https://github.com/evoluteur/evolutility-ui-react).
+- Run a Web UI with [Evolutility-UI-React](https://github.com/evoluteur/evolutility-ui-react) or [Evolutility-UI-jQuery](https://github.com/evoluteur/evolutility-ui-jquery).
 
 
 ## Sample models
@@ -29,9 +29,24 @@ Models are description of objects and their properties/fields, field groups, and
 - [Albums](https://github.com/evoluteur/evolutility-models/blob/master/models/music/album.js)
 - [Tracks](https://github.com/evoluteur/evolutility-models/blob/master/models/music/track.js)
 
+
+## Other models
+
 #### Test
 
 - [Test model](https://github.com/evoluteur/evolutility-models/blob/master/models/tests/test.js) with fields of all possible types.
+
+
+#### Designer (Models of models)
+
+With models of models, we can store models in the database (instead of JSON files) and have an app to build other apps. 
+
+- [Objects](https://github.com/evoluteur/evolutility-models/blob/master/models/designer/object.js)
+- [Fields](https://github.com/evoluteur/evolutility-models/blob/master/models/designer/field.js)
+- [Field Groups](https://github.com/evoluteur/evolutility-models/blob/master/models/designer/group.js)
+- [Nested Collections](https://github.com/evoluteur/evolutility-models/blob/master/models/designer/collection.js)
+- [Worlds](https://github.com/evoluteur/evolutility-models/blob/master/models/designer/world.js)
+
 
 ## Metamodel
 
@@ -193,20 +208,9 @@ Generated models are saved in the directories "/dist/models-ui" and "/dist/model
 Note: The full models can be used as they are by both UI and back-end (which ignore what they do not need in the models).
 
 
-#### Designer (Models of models)
-
-With models of models, we can store models in the database (instead of JSON files) and have an app to build other apps. 
-
-- [Objects](https://github.com/evoluteur/evolutility-models/blob/master/models/designer/object.js)
-- [Fields](https://github.com/evoluteur/evolutility-models/blob/master/models/designer/field.js)
-- [Field Groups](https://github.com/evoluteur/evolutility-models/blob/master/models/designer/group.js)
-- [Nested Collections](https://github.com/evoluteur/evolutility-models/blob/master/models/designer/collection.js)
-- [Worlds](https://github.com/evoluteur/evolutility-models/blob/master/models/designer/world.js)
-
-
 <a name="License"></a>
 ## License
 
-Copyright (c) 2019 [Olivier Giulieri](https://evoluteur.github.io/).
+Copyright (c) 2020 [Olivier Giulieri](https://evoluteur.github.io/).
 
 Evolutility-Models is released under the [MIT license](http://github.com/evoluteur/evolutility-models/blob/master/LICENSE.md).
