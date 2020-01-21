@@ -15,6 +15,7 @@ module.exports = {
 	"name": "group",
 	"namePlural": "groups",
 	"titleField": "label",
+	"position": 30,
 	"fields": [
 		{
 			id: "gid",

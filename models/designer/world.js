@@ -14,6 +14,7 @@ module.exports = {
 	"name": "world",
 	"namePlural": "worlds",
 	"titleField": "name",
+	"position": 50,
 	"fields": [
 		{
 			"id": "name",

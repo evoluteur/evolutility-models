@@ -92,6 +92,7 @@ module.exports = {
 	"namePlural": "fields",
 	"titleField": "label",
 	"table": "evol_field",
+	"position": 20,
 	"fields": [
 		{
 			id: "label",

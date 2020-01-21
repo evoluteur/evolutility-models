@@ -14,6 +14,7 @@ module.exports = {
 	"namePlural": "objects",
 	"titleField": "title",
 	"table": "evol_object",
+	"position": 10,
 	"fields": [
 		{
 			"id": "title",
