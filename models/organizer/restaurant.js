@@ -139,31 +139,31 @@ module.exports = {
 			"column": "yelp"
 		},
 		{
-			"id": "notes",
+			"id": "favorite",
 			"type": "textmultiline",
-			"label": "Notes",
+			"label": "Favorite dish",
 			"maxLength": 2000,
-			"width": 32,
-			"height": 6,
-			"column": "notes",
+			"width": 62,
+			"height": 2,
+			"column": "favorite",
 			"inSearch": true,
 		},
 		{
 			"id": "hours",
 			"type": "textmultiline",
 			"label": "Hours",
-			"width": 30,
-			"height": 6,
+			"width": 38,
+			"height": 2,
 			"column": "hours"
 		},
 		{
-			"id": "favorite",
+			"id": "notes",
 			"type": "textmultiline",
-			"label": "Favorite dish",
+			"label": "Notes",
 			"maxLength": 2000,
-			"width": 38,
-			"height": 6,
-			"column": "favorite",
+			"width": 100,
+			"height": 3,
+			"column": "notes",
 			"inSearch": true,
 		},
 		{
@@ -215,7 +215,7 @@ module.exports = {
         {
           id:"pResto", type:"panel", 
           label: "Restaurant", width: 62,
-          fields: ["name","cuisine","schedule","yelp","price","notes","hours","favorite"]
+          fields: ["name","cuisine","schedule","yelp","price","favorite","hours","notes"]
         },
         {
           id:"pContact", type:"panel", 
