@@ -684,7 +684,8 @@ module.exports = {
 		{
 			"id": "purchased",
 			"column": "purchased",
-			"type": "integer",
+            "type": "integer",
+            min: 0,
 			"label": "Bottles Purchased",
 			"labelShort": "Purchased",
 			"maxLength": 10,
@@ -829,7 +830,7 @@ module.exports = {
 	],
 	"collections": [
 		{
-			"id": "wine_tasting",
+			"id": "wine_tastings",
             "title": "Degustations",
 			"table": "wine_tasting",
 			"column": "wine_id",

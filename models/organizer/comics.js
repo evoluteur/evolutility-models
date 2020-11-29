@@ -63,7 +63,8 @@ module.exports = {
 		},
 		{
 			"id": "serie_nb",
-			"type": "integer",
+            "type": "integer",
+            min:0,
 			"width": 15,
 			"inMany": true,
 			"label": "Albums",
@@ -73,7 +74,8 @@ module.exports = {
 		},
 		{
 			"id": "have_nb",
-			"type": "integer",
+            "type": "integer",
+            min:0,
 			"width": 15,
 			"inMany": true,
 			"label": "Owned",
