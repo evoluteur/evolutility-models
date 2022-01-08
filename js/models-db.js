@@ -18,7 +18,7 @@ helpers.clearDirectory(dir);
 
 // - Generate DB models
 dir = dir + "/";
-for (let mid in models) {
+Object.keys(models).forEach((mid) => {
   const m = models[mid];
   const newm = mfn.dbModel(m);
   let filename = dir + m.id + ".js";
@@ -33,7 +33,7 @@ for (let mid in models) {
   }
   allModels.push({ mid: newm.id, path: m.world });
   helpers.writeFile(filename, helpers.txtExportModel("DB", newm));
-}
+});
 
 // - Generate "all_models.js" with list of models
 if (!dir.startsWith("../")) {

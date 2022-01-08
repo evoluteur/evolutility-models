@@ -16,12 +16,12 @@ const github = {
   DB: "https://github.com/evoluteur/evolutility-server-node",
 };
 
-function fnError(err) {
+const fnError = (err) => {
   if (err) {
     throw err;
   }
-}
-function removeDirectory(nDir) {
+};
+const removeDirectory = (nDir) => {
   // - https://stackoverflow.com/a/42505874/3027390
   if (fs.existsSync(nDir)) {
     fs.readdirSync(nDir).forEach(function (entry) {
@@ -34,21 +34,21 @@ function removeDirectory(nDir) {
     });
     fs.rmdirSync(nDir);
   }
-}
-function clearDirectory(nDir) {
+};
+const clearDirectory = (nDir) => {
   removeDirectory(nDir);
   fs.mkdirSync(nDir);
-}
-function writeFile(filename, txt) {
+};
+const writeFile = (filename, txt) => {
   console.log(filename);
   fs.writeFile(filename, txt, fnError);
-}
-function makeDirectory(nDir) {
+};
+const makeDirectory = (nDir) => {
   if (!fs.existsSync(nDir)) {
     fs.mkdirSync(nDir);
   }
-}
-function logTask(modelType, models) {
+};
+const logTask = (modelType, models) => {
   const nbModels = Object.keys(models).length;
   console.log(
     "Evolutility-models v." +
@@ -59,7 +59,7 @@ function logTask(modelType, models) {
       modelType +
       " models:"
   );
-}
+};
 const headComment = (modelType, m) =>
   "/*\n  " +
   headEvol(modelType) +
