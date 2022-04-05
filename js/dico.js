@@ -1,17 +1,15 @@
 /*!
-Evolutility-UI-React
-https://github.com/evoluteur/evolutility-ui-react
-(c) 2022 Olivier Giulieri
-*/
+ * evolutility :: utils/dico.js
+ * Helper functions for metadata
+ *
+ * https://github.com/evoluteur/evolutility
+ * (c) 2022 Olivier Giulieri
+ */
 
-// evolutility :: utils/dico.js
-
-// Helpers for models
-
-import format from "./format";
+const config = require("./config.js");
 
 // - Field Types
-var ft = {
+const ft = {
   text: "text",
   textml: "textmultiline",
   bool: "boolean",
@@ -22,13 +20,13 @@ var ft = {
   datetime: "datetime",
   time: "time",
   lov: "lov",
-  list: "list", // many values for one field (behave like tags - return an array of strings)
+  list: "list", // multiple values for one field (behave like tags - return an array of strings)
   html: "html",
   formula: "formula", // soon to be a field attribute rather than a field type
   email: "email",
   image: "image",
-  doc: "document",
   //geoloc: 'geolocation',
+  //doc:'document',
   url: "url",
   color: "color",
   hidden: "hidden",
@@ -37,114 +35,84 @@ var ft = {
   //widget: 'widget'
 };
 
-export const fieldTypes = ft;
+// - fields for comments, ratings...
+let systemFields = []; // system fields to track records creation date, comments...
+let f;
 
-export const fieldIsNumber = (f) =>
+if (config.wTimestamp) {
+  systemFields.push(
+    {
+      // - record creation date
+      type: "datetime",
+      column: config.createdDateColumn,
+    },
+    {
+      // - record last update date
+      type: "datetime",
+      column: config.updatedDateColumn,
+    }
+  );
+}
+if (config.wWhoIs) {
+  systemFields.push(
+    {
+      // - record creator (user.id)
+      type: "integer",
+      column: "c_uid",
+    },
+    {
+      // - record last editor (user.id)
+      type: "integer",
+      column: "u_uid",
+    }
+  );
+}
+if (config.wComments) {
+  f = {
+    // - number of comments about the record
+    type: "integer",
+    column: "nb_comments",
+  };
+  systemFields.push(f);
+}
+// - tracking ratings.
+if (config.wRating) {
+  f = {
+    type: "integer",
+    column: "nb_ratings",
+  };
+  systemFields.push(f);
+  f = {
+    type: "integer",
+    column: "avg_ratings",
+  };
+  systemFields.push(f);
+}
+
+const fieldIsNumber = (f) =>
   f.type === ft.int || f.type === ft.dec || f.type === ft.money;
-
-export const fieldIsDateOrTime = (f) =>
-  f.type === ft.date || f.type === ft.datetime || f.type === ft.time;
-
-export const fieldIsNumeric = (f) => fieldIsNumber(f) || fieldIsDateOrTime(f);
-
-export const fieldInCharts = (f) => fieldChartable(f) && !f.noCharts;
-
-export const fieldChartable = (f) =>
-  f.type === ft.lov ||
-  f.type === ft.list ||
-  f.type === ft.bool ||
-  fieldIsNumber(f);
-
-export function hById(arr) {
-  var objH = {};
-  if (arr) {
-    arr.forEach(function (o) {
-      objH[o.id] = o;
-    });
-  }
-  return objH;
-}
-
-function getFields(model) {
-  const fs = [];
-
-  function collateFields(te) {
-    if (te && te.elements && te.elements.length > 0) {
-      te.elements.forEach(function (te) {
-        if (te.type !== "panel-list") {
-          collateFields(te);
-        }
-      });
-    } else {
-      if (te.type && te.type !== "formula") {
-        fs.push(te);
-      }
-    }
-  }
-
-  if (model) {
-    if (model.fields) {
-      return model.fields;
-    } else {
-      collateFields(model);
-      model.fields = fs;
-      return fs;
-    }
-  }
-  return [];
-}
-
-export function prepModel(m) {
-  if (m) {
-    if (!m._prepared) {
-      if (!m.fields) {
-        m.fields = getFields(m);
-      }
-      if (!m.fieldsH) {
-        m.fieldsH = hById(m.fields);
-      }
-      if (!m.titleField) {
-        m.titleField = m.fields[0].id;
-      }
-      if (!m.label) {
-        m.label = m.title || format.capitalize(m.namePlural || m.name);
-      }
-      if (!m.titleField) {
-        m.titleField = m.fields[0];
-      }
-      m._prepared = true;
-    }
-    return m;
-  }
-  return null;
-}
-
-export function prepModelCollecs(models, m) {
-  if (m) {
-    if (!m.fields) {
-      m.fields = getFields(m);
-    }
-    if (!m.fieldsH) {
-      m.fieldsH = hById(m.fields);
-    }
-    if (!m.titleField) {
-      m.titleField = m.fields[0].id;
-    }
-    if (!m.label) {
-      m.label = m.title || m.namePlural || m.name;
-    }
-    if (!m.titleField) {
-      m.titleField = m.fields[0];
-    }
-    return m;
-  }
-  return null;
-}
-
-export const isFieldMany = (f) => f.inList || f.inMany;
-
-export const fieldIsText = (f) =>
+const fieldIsText = (f) =>
   [ft.text, ft.textml, ft.url, ft.html, ft.email].indexOf(f.type) > -1;
+const fieldIsDateOrTime = (f) =>
+  f.type === ft.date || f.type === ft.datetime || f.type === ft.time;
+const fieldIsNumeric = (f) => fieldIsNumber(f) || fieldIsDateOrTime(f);
 
-export const fieldId2Field = (fieldIds, fieldsH) =>
-  fieldIds ? fieldIds.map((id) => fieldsH[id] || null) : null;
+const fieldChartable = (f) =>
+  f.type === ft.lov || f.type === ft.bool || fieldIsNumber(f);
+const fieldInCharts = (f) => fieldChartable(f) && !f.noCharts;
+
+module.exports = {
+  fieldTypes: ft,
+
+  fieldInMany: (f) => f.inList || f.inMany,
+
+  fieldIsText: fieldIsText,
+  fieldIsNumber: fieldIsNumber,
+  fieldIsNumeric: fieldIsNumeric,
+  fieldIsDateOrTime: fieldIsDateOrTime,
+
+  fieldInCharts: fieldInCharts,
+  fieldChartable: fieldChartable,
+
+  systemFields: systemFields,
+};

@@ -9,6 +9,7 @@
 
 const path = require("path");
 const fs = require("fs");
+const prettier = require("prettier");
 const pkg = require("../package.json");
 const github = {
   model: "https://github.com/evoluteur/evolutility-models",
@@ -40,8 +41,11 @@ const clearDirectory = (nDir) => {
   fs.mkdirSync(nDir);
 };
 const writeFile = (filename, txt) => {
+  const formattedTxt = prettier.format(txt, {
+    parser: "babel",
+  });
   console.log(filename);
-  fs.writeFile(filename, txt, fnError);
+  fs.writeFile(filename, formattedTxt, fnError);
 };
 const makeDirectory = (nDir) => {
   if (!fs.existsSync(nDir)) {

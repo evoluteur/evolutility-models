@@ -5,14 +5,16 @@
     "license": "MIT",
     "homepage": "https://github.com/evoluteur/evolutility-models",
     "author": "Olivier Giulieri (https://evoluteur.github.io/)",
+    "copyright": "(c) 2022 Olivier Giulieri",
     "repository": {
       "type": "git",
       "url": "git://github.com/evoluteur/evolutility-models.git"
     },
     "scripts": {
-      "models_db": "node js/ascii-art.js && node js/models-db.js",
-      "models_ui": "node js/ascii-art.js && node js/models-ui.js",
-      "models": "node js/ascii-art.js && node js/models-db.js && node js/models-ui.js"
+        "db": "node js/build-db.js",
+        "models_ui": "node js/ascii-art.js && node js/build-models-ui.js",
+        "models_db": "node js/ascii-art.js && node js/build-models-db.js",
+        "models": "npm run models_db && node js/build-models-ui.js"
     },
     "bugs": "https://github.com/evoluteur/evolutility-models/issues",
     "keywords": [
@@ -21,10 +23,12 @@
         "low-code",
         "platform",
         "MDA",
-        "model",
         "metadata",
         "metamodel",
         "generator",
         "evolutility"
-    ]
+    ],
+    "dependencies": {
+        "prettier": "^2.5.1"
+    }
 }
