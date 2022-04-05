@@ -2,50 +2,43 @@
 
 Evolutility models are DRY (Don't Repeat Yourself) descriptions of applications. These models contain all the metadata necessary to describe the backend (database tables and columns, validation...) and the UI (views, fields, validation...).
 
+### Contents
+
+[Metamodel](#MetaModel)
+
+- [Objects](#Object)
+- [Fields](#Field)
+- [Field Groups](#Group)
+- [Nested Collections](#Collection)
+
+[Sample models](#SampleModels)
+
+[Scripts](#Scripts)
+
+- [Database](#ScriptsDatabase)
+- [Models](#ScriptsModels)
+
+[License](#License)
+
 Cool things to do with Evolutility models:
 
-- Create a database and automatically provide REST or GraphQL endpoints using [Evolutility-Server-Node](https://github.com/evoluteur/evolutility-server-node).
+- Create a database - [generate SQL for Postgres](#ScriptsDB).
+
+- Automatically provide REST or GraphQL endpoints using [Evolutility-Server-Node](https://github.com/evoluteur/evolutility-server-node) or [Hasura](https://hasura.io/).
 
 - Run a Web UI with [Evolutility-UI-React](https://github.com/evoluteur/evolutility-ui-react) or [Evolutility-UI-jQuery](https://github.com/evoluteur/evolutility-ui-jquery).
 
-## Sample models
-
-Models are description of objects and their properties/fields, field groups, and sometimes nested-collections.
-
-#### Organizer
-
-- [To-do list](https://github.com/evoluteur/evolutility-models/blob/master/models/organizer/todo.js)
-- [Address book](https://github.com/evoluteur/evolutility-models/blob/master/models/organizer/contact.js)
-- [Restaurants list](https://github.com/evoluteur/evolutility-models/blob/master/models/organizer/restaurant.js)
-- [Graphic novels](https://github.com/evoluteur/evolutility-models/blob/master/models/organizer/comics.js)
-- [Wine cellar](https://github.com/evoluteur/evolutility-models/blob/master/models/organizer/winecellar.js)
-
-#### Music
-
-- [Artists](https://github.com/evoluteur/evolutility-models/blob/master/models/music/artist.js)
-- [Albums](https://github.com/evoluteur/evolutility-models/blob/master/models/music/album.js)
-- [Tracks](https://github.com/evoluteur/evolutility-models/blob/master/models/music/track.js)
-
-## Other models
-
-#### Test
-
-- [Test model](https://github.com/evoluteur/evolutility-models/blob/master/models/tests/test.js) with fields of all possible types.
-
-#### Designer (Models of models)
-
-With models of models, we can store models in the database (instead of JSON files) and have an app to build other apps.
-
-- [Objects](https://github.com/evoluteur/evolutility-models/blob/master/models/designer/object.js)
-- [Fields](https://github.com/evoluteur/evolutility-models/blob/master/models/designer/field.js)
-- [Field Groups](https://github.com/evoluteur/evolutility-models/blob/master/models/designer/group.js)
-- [Nested Collections](https://github.com/evoluteur/evolutility-models/blob/master/models/designer/collection.js)
-- [Worlds](https://github.com/evoluteur/evolutility-models/blob/master/models/designer/world.js)
+<a name="MetaModel"></a>
 
 ## Metamodel
 
 The metamodel is the structure of the model (the model of models).
 I think about it as the vocabulary for making models.
+
+- [Objects](#Object)
+- [Fields](#Field)
+- [Field Groups](#Group)
+- [Nested Collections](#Collection)
 
 Models describe [objects](#Object) with [fields](#Field), [groups](#Group) of fields, and [collections](#Collection) (nested lists of objects).
 For any object, all UI views (List, Cards, Edit, Charts...) share the same model.
@@ -182,7 +175,64 @@ Multiple Master-Details can be specified with collections.
 | orderBy  | SQL where clause, e.g. { orderBy="id" }.                                                                                  |     | X   |
 | fields   | Array of fields. Collections are not editable so their fields do not need as many properties as the main object's fields. | X   | X   |
 
+<a name="SampleModels"></a>
+
+## Sample models
+
+Models are description of objects and their properties/fields, field groups, and sometimes nested-collections.
+
+#### Organizer
+
+- [To-do list](https://github.com/evoluteur/evolutility-models/blob/master/models/organizer/todo.js)
+- [Address book](https://github.com/evoluteur/evolutility-models/blob/master/models/organizer/contact.js)
+- [Restaurants list](https://github.com/evoluteur/evolutility-models/blob/master/models/organizer/restaurant.js)
+- [Graphic novels](https://github.com/evoluteur/evolutility-models/blob/master/models/organizer/comics.js)
+- [Wine cellar](https://github.com/evoluteur/evolutility-models/blob/master/models/organizer/winecellar.js)
+
+#### Music
+
+- [Artists](https://github.com/evoluteur/evolutility-models/blob/master/models/music/artist.js)
+- [Albums](https://github.com/evoluteur/evolutility-models/blob/master/models/music/album.js)
+- [Tracks](https://github.com/evoluteur/evolutility-models/blob/master/models/music/track.js)
+
+## Other models
+
+#### Test
+
+- [Test model](https://github.com/evoluteur/evolutility-models/blob/master/models/tests/test.js) with fields of all possible types.
+
+#### Designer (Models of models)
+
+With models of models, we can store models in the database (instead of JSON files) and have an app to build other apps.
+
+[Models for Designer](https://github.com/evoluteur/evolutility-models/tree/master/models/designer)
+
+<a name="Scripts"></a>
+
 ## Scripts
+
+<a name="ScriptsDB"></a>
+
+### Database
+
+Generate SQL script to create a Postgres DB with tables for all models.
+
+In the command line type the following:
+
+```bash
+# Install dependencies
+npm install
+
+# Create SQL for sample database w/ demo tables
+npm run db
+
+```
+
+**Note**: The database creation and population scripts are logged in the files "/dist/sql/evol-db-schema-{datetime}.sql" and "/dist/sql/evol-db-data-{datetime}.sql".
+
+<a name="ScriptsModels"></a>
+
+### Models
 
 This project provides scripts to make UI-models for [Evolutility-UI-React](https://github.com/evoluteur/evolutility-ui-react) and DB-models for [Evolutility-Server-Node](https://github.com/evoluteur/evolutility-server-node) from models.
 
