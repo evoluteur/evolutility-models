@@ -237,6 +237,9 @@ npm run db
 This project provides scripts to make UI-models for [Evolutility-UI-React](https://github.com/evoluteur/evolutility-ui-react) and DB-models for [Evolutility-Server-Node](https://github.com/evoluteur/evolutility-server-node) from models.
 
 ```bash
+# Install dependencies
+npm install
+
 # Generate DB and UI models
 npm run models
 
