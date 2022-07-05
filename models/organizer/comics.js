@@ -8,7 +8,7 @@ module.exports = {
   world: "organizer",
   active: true,
   position: 40,
-  label: "Graphic Novels",
+  label: "Graphic novels",
   name: "serie",
   namePlural: "series",
   icon: "comics.png",

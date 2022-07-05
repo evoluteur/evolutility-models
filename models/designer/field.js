@@ -57,7 +57,7 @@ const fieldTypes = [
   },
   {
     id: 11,
-    text: "Dropdown (lov)",
+    text: "Dropdown",
     icon: "designer/ft-lov.gif",
   },
   {

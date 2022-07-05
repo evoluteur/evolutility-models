@@ -35,7 +35,7 @@ module.exports = {
     },
     {
       type: "panel",
-      label: "Bottle Label",
+      label: "Bottle label",
       width: 20,
       fields: ["label_img"],
     },
@@ -113,7 +113,7 @@ module.exports = {
       id: "bsize",
       column: "bottle_size",
       type: "lov",
-      label: "Bottle Size",
+      label: "Bottle size",
       labelShort: "Bottle",
       width: 38,
       list: [
@@ -649,7 +649,7 @@ module.exports = {
       id: "buying_date",
       column: "buying_date",
       type: "date",
-      label: "Buying Date",
+      label: "Buying date",
       width: 40,
     },
     {
@@ -672,7 +672,7 @@ module.exports = {
       column: "purchased",
       type: "integer",
       min: 0,
-      label: "Bottles Purchased",
+      label: "Bottles purchased",
       labelShort: "Purchased",
       maxLength: 10,
       width: 40,
@@ -682,7 +682,7 @@ module.exports = {
       column: "remaining",
       type: "integer",
       label: "Remaining",
-      labeledit: "Bottles Remaining",
+      labeledit: "Bottles remaining",
       maxLength: 10,
       width: 60,
       inCharts: false,
@@ -756,7 +756,7 @@ module.exports = {
       id: "score",
       column: "score",
       type: "lov",
-      label: "My Score",
+      label: "My score",
       labelShort: "Score",
       list: [
         {

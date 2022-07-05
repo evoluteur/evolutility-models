@@ -19,7 +19,7 @@ module.exports = {
     {
       type: "text",
       id: "lastname",
-      label: "Lastname",
+      label: "Last name",
       maxLength: 50,
       required: true,
       width: 62,
@@ -30,7 +30,7 @@ module.exports = {
     {
       type: "text",
       id: "firstname",
-      label: "Firstname",
+      label: "First name",
       maxLength: 50,
       required: true,
       width: 38,

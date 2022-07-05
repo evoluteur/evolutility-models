@@ -12,7 +12,7 @@ module.exports = {
   title: "Wine tastings",
   name: "wine tasting",
   namePlural: "wine tastings",
-  label: "Wine Tasting",
+  label: "Wine tasting",
   icon: "wine.gif",
   titleField: "drink_date",
   noStats: true,

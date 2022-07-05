@@ -30,7 +30,7 @@ module.exports = {
     {
       id: "duedate",
       type: "date",
-      label: "Due Date",
+      label: "Due date",
       width: 38,
       inMany: true,
       column: "duedate",
@@ -136,7 +136,7 @@ module.exports = {
     {
       id: "p3",
       type: "panel",
-      label: "Task Description",
+      label: "Task description",
       width: 100,
       fields: ["description"],
     },
