@@ -11,11 +11,15 @@ Evolutility models are DRY (Don't Repeat Yourself) descriptions of applications.
 - [Field Groups](#Group)
 - [Nested Collections](#Collection)
 
-[Sample models](#SampleModels)
+[Models](#Models)
+
+- [Demo Apps](#Demos)
+- [Designer](#Designer)
+- [Test](#Test)
 
 [Scripts](#Scripts)
 
-- [Database](#ScriptsDatabase)
+- [Generate SQL script for Database](#ScriptsDatabase)
 - [Models](#ScriptsModels)
 
 [License](#License)
@@ -175,9 +179,12 @@ Multiple Master-Details can be specified with collections.
 | orderBy  | SQL where clause, e.g. { orderBy="id" }.                                                                                  |     | X   |
 | fields   | Array of fields. Collections are not editable so their fields do not need as many properties as the main object's fields. | X   | X   |
 
-<a name="SampleModels"></a>
+<a name="Models"></a>
 
 ## Sample models
+
+<a name="Demos"></a>
+### Demo Apps
 
 Models are description of objects and their properties/fields, field groups, and sometimes nested-collections.
 
@@ -195,17 +202,21 @@ Models are description of objects and their properties/fields, field groups, and
 - [Albums](https://github.com/evoluteur/evolutility-models/blob/master/models/music/album.js)
 - [Tracks](https://github.com/evoluteur/evolutility-models/blob/master/models/music/track.js)
 
-## Other models
-
-#### Test
-
-- [Test model](https://github.com/evoluteur/evolutility-models/blob/master/models/tests/test.js) with fields of all possible types.
-
+<a name="Designer"></a>
 #### Designer (Models of models)
 
 With models of models, we can store models in the database (instead of JSON files) and have an app to build other apps.
 
-[Models for Designer](https://github.com/evoluteur/evolutility-models/tree/master/models/designer)
+- [Objects](https://github.com/evoluteur/evolutility-models/blob/master/models/designer/object.js)
+- [Fields](https://github.com/evoluteur/evolutility-models/blob/master/models/designer/field.js)
+- [Field Groups](https://github.com/evoluteur/evolutility-models/blob/master/models/designer/group.js)
+- [Nested Collections](https://github.com/evoluteur/evolutility-models/blob/master/models/designer/collection.js)
+
+<a name="Test"></a>
+#### Test
+
+- [Test model](https://github.com/evoluteur/evolutility-models/blob/master/models/tests/test.js) with fields of all possible types.
+
 
 <a name="Scripts"></a>
 
