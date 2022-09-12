@@ -74,6 +74,7 @@ module.exports = {
       type: "textmultiline",
       label: "Note",
       inMany: true,
+      inSearch: true,
       height: 5,
       width: 100,
       inSearch: true,

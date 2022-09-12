@@ -24,6 +24,7 @@ module.exports = {
       maxLength: 255,
       width: 100,
       inMany: true,
+      inSearch: true,
       column: "title",
       inSearch: true,
     },

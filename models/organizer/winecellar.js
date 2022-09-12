@@ -80,6 +80,7 @@ module.exports = {
       required: true,
       maxLength: 150,
       inMany: true,
+      inSearch: true,
       width: 62,
       help: "Name of the wine as indicated on the label.",
       inSearch: true,
@@ -93,8 +94,8 @@ module.exports = {
       maxLength: 4,
       inMany: true,
       width: 38,
-      min: 1900,
-      max: 2020,
+      min: 1950,
+      max: 2022,
       help: "Year the wine was produced.",
     },
     {
