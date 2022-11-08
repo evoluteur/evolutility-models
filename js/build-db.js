@@ -19,8 +19,8 @@ const data = require("../data/all_data.js");
 prepModels();
 
 // - options; mostly from in config.js
-const config = require("./config"),
   schema = '"' + config.schema + '"',
+const config = require("../config"),
   //dbuser = 'evol',
   dbuser = "postgres", // DB user
   sqlFile = true; // log SQL to file

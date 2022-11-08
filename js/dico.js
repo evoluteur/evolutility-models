@@ -6,7 +6,7 @@
  * (c) 2022 Olivier Giulieri
  */
 
-const config = require("./config.js");
+const config = require("../config.js");
 
 // - Field Types
 const ft = {

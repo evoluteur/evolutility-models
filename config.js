@@ -1,5 +1,5 @@
 module.exports = {
-  schema: "evolutility",
+  schema: "",
 
   // - Optional fields
   // - Timestamp columns u_date and c_date w/ date of record creation and last update
@@ -19,10 +19,4 @@ module.exports = {
 
   // - Custom Fields in a JSON column
   customFields: true,
-
-  // - Designer
-  // - Enables storing models in the database (in tables "evol_%")
-  apiDesigner: true,
-  // - Query DB schema for list of tables and columns
-  schemaQueries: false,
 };

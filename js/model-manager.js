@@ -7,7 +7,7 @@
  */
 
 const models = require("../models/all_models"),
-  config = require("./config.js"),
+  config = require("../config.js"),
   dico = require("./dico"),
   schema = '"' + (config.schema || "evolutility") + '"';
 let modelIds = Object.keys(models);
