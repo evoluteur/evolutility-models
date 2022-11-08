@@ -19,8 +19,8 @@ const data = require("../data/all_data.js");
 prepModels();
 
 // - options; mostly from in config.js
-  schema = '"' + config.schema + '"',
 const config = require("../config"),
+  schema = config.schema ? '"' + config.schema + '"' : "",
   //dbuser = 'evol',
   dbuser = "postgres", // DB user
   sqlFile = true; // log SQL to file
@@ -58,12 +58,15 @@ const sysColumns = {
   avg_ratings: true,
 };
 
+const schemaDot = schema ? schema + "." : "";
+
 const stringValue = (v) => (v ? "'" + v.replace(/'/g, "''") + "'" : "NULL");
 
 const lovTable = (f, tableName) =>
   f.lovTable ? f.lovTable : tableName + "_" + f.id;
+
 const lovTableWithSchema = (f, tableName) =>
-  schema + '."' + lovTable(f, tableName) + '"';
+  schemaDot + '"' + lovTable(f, tableName) + '"';
 
 function sqlInsert(tableNameSchema, m, data) {
   const { pKey, fieldsH } = m;
@@ -99,7 +102,7 @@ function sqlInsert(tableNameSchema, m, data) {
               }
             } else if (f.type === ft.json) {
               if (typeof v === "string") {
-                v = "'" + v + "'";
+                v = `'${v}'`;
               } else {
                 v = "'" + JSON.stringify(v) + "'";
               }
@@ -129,16 +132,7 @@ function sqlInsert(tableNameSchema, m, data) {
 
     if (maxId > 0) {
       maxId++;
-      sqlData +=
-        "\nALTER SEQUENCE " +
-        schema +
-        '."' +
-        m.table +
-        "_" +
-        pKey +
-        '_seq" RESTART WITH ' +
-        maxId +
-        ";\n";
+      sqlData += `\nALTER SEQUENCE ${schemaDot}"${m.table}_${pKey}_seq" RESTART WITH ${maxId};\n`;
     }
   }
   return sqlData;
@@ -180,14 +174,7 @@ function sqlCreatePopulateLOV(f, tableName, lovIncluded) {
       const t = lovTable(f, tableName);
       if (maxId) {
         maxId++;
-        sql +=
-          "ALTER SEQUENCE " +
-          schema +
-          '."' +
-          t +
-          '_id_seq" RESTART WITH ' +
-          maxId +
-          ";\n\n";
+        sql += `ALTER SEQUENCE ${schema}${t}_id_seq" RESTART WITH ${maxId};\n\n`;
       }
     }
     lovIncluded.push(t);
@@ -196,24 +183,23 @@ function sqlCreatePopulateLOV(f, tableName, lovIncluded) {
 }
 
 function sqlSchemaWithData() {
-  let sql =
-    "SET TIMEZONE='America/Los_angeles';\n\n" +
-    "CREATE SCHEMA " +
-    schema +
-    " AUTHORIZATION " +
-    dbuser +
-    ";\n\n";
+  let sql = "SET TIMEZONE='America/Los_angeles';\n\n";
+  if (schema) {
+    sql += `CREATE SCHEMA ${schema} AUTHORIZATION ${dbuser};\n\n`;
+  }
   let sqlData = "";
   if (config.wTimestamp) {
-    sql +=
-      "CREATE OR REPLACE FUNCTION " +
-      schema +
-      ".u_date() RETURNS trigger\n" +
-      "    LANGUAGE plpgsql\n" +
-      "    AS $$\n" +
-      "  BEGIN\n    NEW." +
-      config.updatedDateColumn +
-      " = now();\n    RETURN NEW;\n  END;\n$$;\n\n";
+    sql += `CREATE OR REPLACE FUNCTION ${schemaDot}u_date() RETURNS trigger
+    LANGUAGE plpgsql
+    AS $$
+    BEGIN
+    NEW.${config.updatedDateColumn} = now();
+RETURN NEW;
+  END;
+
+$$;
+
+`;
   }
   for (let mid in models) {
     const sqls = sqlModel(mid);
@@ -227,22 +213,13 @@ function sqlSchemaWithData() {
 }
 
 const sqlComment = (target, targetName, targetId) =>
-  "COMMENT ON " +
-  target +
-  " " +
-  targetName +
-  " IS '" +
+  `COMMENT ON ${target} ${targetName} IS '` +
   (targetId ? targetId.replace(/'/g, "") : "") +
   "';\n";
 
 const sqlIndex = (index, table, column) =>
-  "CREATE INDEX idx_" +
-  index +
-  " ON " +
-  table +
-  " USING btree (" +
-  column +
-  ");\n";
+  `CREATE INDEX idx_${index} ON ${table} USING btree (${column});\n`;
+
 /*
 function sqlSearch(m){
     const table = m.table||m.id
@@ -267,7 +244,7 @@ function sqlModel(mid) {
   const m = models[mid];
   let { pKey, fields } = m;
   let tableName = m.table || m.id,
-    tableNameSchema = schema + '."' + tableName + '"',
+    tableNameSchema = schemaDot + '"' + tableName + '"',
     fieldsAttr = {},
     //subCollecs = m.collections,
     fs = [pKey + " serial primary key"],
