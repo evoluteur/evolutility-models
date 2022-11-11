@@ -68,7 +68,7 @@ const lovTable = (f, tableName) =>
 const lovTableWithSchema = (f, tableName) =>
   schemaDot + '"' + lovTable(f, tableName) + '"';
 
-function sqlInsert(tableNameSchema, m, data) {
+const sqlInsert = (tableNameSchema, m, data) => {
   const { pKey, fieldsH } = m;
   let sqlData = "";
   let maxId = -1;
@@ -136,9 +136,9 @@ function sqlInsert(tableNameSchema, m, data) {
     }
   }
   return sqlData;
-}
+};
 
-function sqlCreatePopulateLOV(f, tableName, lovIncluded) {
+const sqlCreatePopulateLOV = (f, tableName, lovIncluded) => {
   const t = lovTableWithSchema(f, tableName);
   const icons = f.lovIcon || false;
   let sql = "";
@@ -180,9 +180,9 @@ function sqlCreatePopulateLOV(f, tableName, lovIncluded) {
     lovIncluded.push(t);
   }
   return sql;
-}
+};
 
-function sqlSchemaWithData() {
+const sqlSchemaWithData = () => {
   let sql = "SET TIMEZONE='America/Los_angeles';\n\n";
   if (schema) {
     sql += `CREATE SCHEMA ${schema} AUTHORIZATION ${dbuser};\n\n`;
@@ -210,7 +210,7 @@ $$;
     sql: sql,
     sqlData: sqlData,
   };
-}
+};
 
 const sqlComment = (target, targetName, targetId) =>
   `COMMENT ON ${target} ${targetName} IS '` +
@@ -239,7 +239,7 @@ comment on function ${fn}(text) is 'Returns ${m.namePlural} containing a given s
 `
 }
 */
-function sqlModel(mid) {
+const sqlModel = (mid) => {
   // -- generates SQL script to create a Postgres DB table for the ui model
   const m = models[mid];
   let { pKey, fields } = m;
@@ -374,9 +374,9 @@ function sqlModel(mid) {
   console.log(sql);
 
   return [sql, sqlData];
-}
+};
 
-function logToFile(sql, isData) {
+const logToFile = (sql, isData) => {
   if (sqlFile) {
     const d = new Date(),
       fId = d.toISOString().replace(/:/g, ""),
@@ -395,13 +395,13 @@ function logToFile(sql, isData) {
       }
     });
   }
-}
+};
 
-function createSchema() {
+const createSchema = () => {
   let { sql, sqlData } = sqlSchemaWithData();
 
   logToFile(sql, false);
   logToFile(sqlData, true);
-}
+};
 
 createSchema();

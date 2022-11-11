@@ -72,14 +72,14 @@ module.exports = {
       inMany: true,
       inSearch: true,
     },
-    {
-      id: "pKey",
-      column: "pkey",
-      label: "Primary key column",
-      help: 'By default the primary key is called "id". This property let\'s you use another column name.',
-      type: "text",
-      width: 38,
-    },
+    // {
+    //   id: pkey, // "qid",
+    //   column: "pkey",
+    //   label: "GraphQL Node ID",
+    //   help: "",
+    //   type: "text",
+    //   width: 38,
+    // },
     {
       id: "entity",
       column: "entity",

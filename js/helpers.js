@@ -40,10 +40,12 @@ const clearDirectory = (nDir) => {
   removeDirectory(nDir);
   fs.mkdirSync(nDir);
 };
-const writeFile = (filename, txt) => {
-  const formattedTxt = prettier.format(txt, {
-    parser: "babel",
-  });
+const writeFile = (filename, txt, noPrettier) => {
+  const formattedTxt = noPrettier
+    ? txt
+    : prettier.format(txt, {
+        parser: "babel",
+      });
   console.log(filename);
   fs.writeFile(filename, formattedTxt, fnError);
 };
