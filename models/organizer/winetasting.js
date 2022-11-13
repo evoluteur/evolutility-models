@@ -15,6 +15,9 @@ module.exports = {
   label: "Wine tasting",
   icon: "wine.gif",
   titleField: "drink_date",
+  titleFunction: (d) => {
+    return d ? d.wine_txt + " " + d.drink_date : "";
+  },
   noStats: true,
   fields: [
     {

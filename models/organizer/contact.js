@@ -14,6 +14,7 @@ module.exports = {
   name: "contact",
   namePlural: "contacts",
   titleField: "firstname",
+  titleFunction: (d) => d.firstname + " " + d.lastname,
   noStats: true,
   fields: [
     {

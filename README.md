@@ -100,6 +100,7 @@ module.exports = {
 | groups          | Array of [groups](#Group). If not provided a single group will be used.                                                    | X   |     |
 | collections     | Array of [collections](#Collection) (displayed as Lists).                                                                  | X   | X   |
 | titleField      | Id of the field which value is used as record title. titleField can also be a function.                                    | X   | X   |
+| titleFunction   | Function to calculate the record title based it's data. Example: titleFunction = (d) => d.firstname + " " + d.lastname;       | X   | X   |
 | table           | Driving database table name (there are secondary tables for fields of type "lov").                                         |     | X   |
 | pKey            | Name of the Primary key column (single column of type serial). Default to "id". In the data the key is always called "id". |     | X   |
 | defaultViewMany | Default view for Many records (possible values: list, cards, charts).                                                      | X   |     |
@@ -146,26 +147,27 @@ For the frontend, fields are textboxes, checkboxes, datepickers... in Edit view,
 | object               | Model id for the object to link to (only for fields of "lov" type).                                                                                                                                                                                                                                                                              | X   | X   |
 | unique               | Field value must be unique.                                                                                                                                                                                                                                                                              | X   | X   |
 
-UI: The field will only be present in the UI model.                                                                                                                                                                                                                                                                                                   
-DB: The field will only be present in the DB model.                                                                                                                                                                                                                                                                                                   
+UI: The field will only be present in the UI model.
+DB: The field will only be present in the DB model.
 
 <a name="Group"></a>
 
-### Group
+### Field Group
 
-Groups are used to visually group fields on the page for browsing or editing.
+Field Groups are used to visually group fields on the page for browsing or editing.
 
-Groups are only used in UI models and are optional. By default a single group holds all fields.
+Field Groups are only used in UI models and are optional. By default a single group holds all fields.
 
 | Property | Meaning                                                                                           | UI  | DB  |
 | -------- | ------------------------------------------------------------------------------------------------- | --- | --- |
-| id       | Unique key for the group. It is optional.                                                         | X   |     |
+| id       | Unique key for the group. It is optional.     | X   |     |
 | type     | Type of group. Only "panel" is currently implemented ("tab" and "accordeon" will be added later). | X   |     |
-| label    | Group title as displayed to the user.                                                             | X   |     |
-| fields   | Array of [field](#Field) ids.                                                                     | X   |     |
-| width    | Width (in % of the container total width).                                                        | X   |     |
-| header   | Text to be displayed at the top of the group (just below the group title).                        | X   |     |
-| footer   | Text to be displayed at the bottom of the group.                                                  | X   |     |
+| label    | Group title as displayed to the user.   | X   |     |
+| fields   | Array of [field](#Field) ids.     | X   |     |
+| width    | Width (in % of the container total width).   | X   |     |
+| help     | Optional help tooltip text.| X  ||
+| header   | Text to be displayed at the top of the group (just below the group title).      | X   |     |
+| footer   | Text to be displayed below the group.      | X   |     |
 
 <a name="Collection"></a>
 
@@ -175,14 +177,17 @@ Multiple Master-Details can be specified with collections.
 
 | Property | Meaning                                                                                                                   | UI  | DB  |
 | -------- | ------------------------------------------------------------------------------------------------------------------------- | --- | --- |
-| id       | Unique key for the collection.                                                                                            | X   | X   |
-| title    | Collection title.                                                                                                         | X   |     |
-| table    | Table to query for the details list.                                                                                      |     | X   |
+| id       | Unique key for the collection.      | X   | X   |
+| title    | Collection title.       | X   |     |
+| table    | Table to query for the details list.       |     | X   |
 | column   | Column in the details table to match against object's id.                                                                 |     | X   |
 | object   | Model id for the object to link to. When specified, "column" and "table" can be omitted.                                  | X   | X   |
-| order    | Direction to order by "asc" or "desc".                                                                                    |     | X   |
-| orderBy  | SQL where clause, e.g. { orderBy="id" }.                                                                                  |     | X   |
+| order    | Direction to order by "asc" or "desc".      |  | X   |
+| orderBy  | SQL where clause, e.g. { orderBy="id" }.      |     | X   |
 | fields   | Array of fields. Collections are not editable so their fields do not need as many properties as the main object's fields. | X   | X   |
+| help     | Optional help tooltip text.| X  ||
+| header   | Text to be displayed at the top of the collection.     | X   |     |
+| footer   | Text to be displayed below the collection.     | X   |     |
 
 <a name="Models"></a>
 
