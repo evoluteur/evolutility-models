@@ -26,6 +26,7 @@ module.exports = {
       width: 85,
       column: "name",
       inSearch: true,
+      unique: true,
     },
     {
       id: "active",

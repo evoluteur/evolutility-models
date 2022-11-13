@@ -46,7 +46,7 @@ const writeFile = (filename, txt, noPrettier) => {
     : prettier.format(txt, {
         parser: "babel",
       });
-  console.log(filename);
+  console.log("=> " + filename);
   fs.writeFile(filename, formattedTxt, fnError);
 };
 const makeDirectory = (nDir) => {
@@ -59,10 +59,8 @@ const logTask = (modelType, models) => {
   console.log(
     "Evolutility-models v." +
       pkg.version +
-      " -> Generating " +
+      "\nGenerating SQL for " +
       nbModels +
-      " " +
-      modelType +
       " models:"
   );
 };

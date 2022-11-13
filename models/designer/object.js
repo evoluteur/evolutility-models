@@ -91,6 +91,7 @@ module.exports = {
       inMany: true,
       inSearch: true,
       width: 75,
+      unique: true,
     },
     {
       id: "name",
@@ -166,7 +167,7 @@ module.exports = {
       type: "panel",
       label: "Info",
       width: 38,
-      fields: ["entity", "icon", "noCharts", "noStats", "description"],
+      fields: ["entity", "icon", "noStats", "description"],
     },
   ],
   collections: [
