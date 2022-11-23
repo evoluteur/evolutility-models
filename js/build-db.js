@@ -90,7 +90,7 @@ const sqlInsert = (tableNameSchema, m, data) => {
         if (f && fid !== pKey) {
           let v = row[fid];
           if (v !== null) {
-            ns.push('"' + (f.column || f.id) + '"');
+            ns.push(`"${f.column || f.id}"`);
             if (f.type === ft.lov) {
               //TODO: parseint?
               v = v || null; //"['error']";
