@@ -80,6 +80,7 @@ module.exports = {
       defaultViewMany: m.defaultViewMany || "list",
       defaultViewOne: m.defaultViewOne || "browse",
       titleField: m.titleField,
+      titleFunction: m.titleFunction || null,
       fields: m.fields.filter((f) => !f.onlyDB).map(uiField),
       groups: m.groups,
       collections: m.collections ? m.collections.map(uiCollec) : [],

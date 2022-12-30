@@ -22,6 +22,7 @@ const fnError = (err) => {
     throw err;
   }
 };
+
 const removeDirectory = (nDir) => {
   // - https://stackoverflow.com/a/42505874/3027390
   if (fs.existsSync(nDir)) {
@@ -36,10 +37,12 @@ const removeDirectory = (nDir) => {
     fs.rmdirSync(nDir);
   }
 };
+
 const clearDirectory = (nDir) => {
   removeDirectory(nDir);
   fs.mkdirSync(nDir);
 };
+
 const writeFile = (filename, txt, noPrettier) => {
   const formattedTxt = noPrettier
     ? txt
@@ -49,11 +52,13 @@ const writeFile = (filename, txt, noPrettier) => {
   console.log("=> " + filename);
   fs.writeFile(filename, formattedTxt, fnError);
 };
+
 const makeDirectory = (nDir) => {
   if (!fs.existsSync(nDir)) {
     fs.mkdirSync(nDir);
   }
 };
+
 const logTask = (modelType, models) => {
   const nbModels = Object.keys(models).length;
   console.log(
@@ -64,6 +69,7 @@ const logTask = (modelType, models) => {
       " models:"
   );
 };
+
 const headComment = (modelType, m) =>
   "/*\n  " +
   headEvol(modelType) +
@@ -71,20 +77,23 @@ const headComment = (modelType, m) =>
   " " +
   github[modelType] +
   "\n*/\n\n";
+
 const headSubject = (m) =>
   (m ? " model for " + (m.label || m.title || m.id) : " Models") + "\n ";
+
 const headEvol = (modelType) => "Evolutility " + modelType;
+
 const txtExportModel = (modelType, model) =>
   headComment(modelType, model) +
   "module.exports = " +
   JSON.stringify(model, null, "\t");
 
 module.exports = {
-  clearDirectory: clearDirectory,
-  removeDirectory: removeDirectory,
-  makeDirectory: makeDirectory,
-  writeFile: writeFile,
-  logTask: logTask,
-  headComment: headComment,
-  txtExportModel: txtExportModel,
+  clearDirectory,
+  removeDirectory,
+  makeDirectory,
+  writeFile,
+  logTask,
+  headComment,
+  txtExportModel,
 };

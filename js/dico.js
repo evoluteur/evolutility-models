@@ -96,7 +96,6 @@ const fieldIsText = (f) =>
 const fieldIsDateOrTime = (f) =>
   f.type === ft.date || f.type === ft.datetime || f.type === ft.time;
 const fieldIsNumeric = (f) => fieldIsNumber(f) || fieldIsDateOrTime(f);
-
 const fieldChartable = (f) =>
   f.type === ft.lov || f.type === ft.bool || fieldIsNumber(f);
 const fieldInCharts = (f) => fieldChartable(f) && !f.noCharts;
@@ -106,13 +105,13 @@ module.exports = {
 
   fieldInMany: (f) => f.inList || f.inMany,
 
-  fieldIsText: fieldIsText,
-  fieldIsNumber: fieldIsNumber,
-  fieldIsNumeric: fieldIsNumeric,
-  fieldIsDateOrTime: fieldIsDateOrTime,
+  fieldIsText,
+  fieldIsNumber,
+  fieldIsNumeric,
+  fieldIsDateOrTime,
 
-  fieldInCharts: fieldInCharts,
-  fieldChartable: fieldChartable,
+  fieldInCharts,
+  fieldChartable,
 
-  systemFields: systemFields,
+  systemFields,
 };
