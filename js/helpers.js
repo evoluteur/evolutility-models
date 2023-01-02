@@ -85,8 +85,9 @@ const headEvol = (modelType) => "Evolutility " + modelType;
 
 const txtExportModel = (modelType, model) =>
   headComment(modelType, model) +
-  "module.exports = " +
-  JSON.stringify(model, null, "\t");
+  "const model = " +
+  JSON.stringify(model, null, "\t") +
+  "\n\nexport default model;\n";
 
 module.exports = {
   clearDirectory,
