@@ -19,7 +19,7 @@ Evolutility models are DRY (Don't Repeat Yourself) descriptions of applications.
 
 [Scripts](#Scripts)
 
-- [Generate SQL script for Database](#ScriptsDatabase)
+- [Generate SQL script for Database](#ScriptsDB)
 - [Models](#ScriptsModels)
 
 [License](#License)
