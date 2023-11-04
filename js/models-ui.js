@@ -29,7 +29,7 @@ for (let mid in models) {
       helpers.makeDirectory(nDir);
       worlds[m.world] = true;
     }
-    filename = dir + m.world + "/" + m.id + ".js";
+    filename = `${dir}${m.world}/${m.id}.js`;
   }
   allModels.push({ mid: m.id, path: m.world });
   helpers.writeFile(filename, helpers.txtExportModel("UI", newm));

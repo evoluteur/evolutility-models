@@ -29,7 +29,7 @@ Object.keys(models).forEach((mid) => {
       helpers.makeDirectory(nDir);
       worlds[m.world] = true;
     }
-    filename = dir + m.world + "/" + m.id + ".js";
+    filename = `${dir}${m.world}/${m.id}.js`;
   }
   allModels.push({ mid: newm.id, path: m.world });
   helpers.writeFile(filename, helpers.txtExportModel("DB", newm));

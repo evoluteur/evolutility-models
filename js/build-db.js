@@ -3,7 +3,7 @@
  * Methods to create postgres schema and tables from models.
  *
  * https://github.com/evoluteur/evolutility-server-node
- * (c) 2022 Olivier Giulieri
+ * (c) 2023 Olivier Giulieri
  */
 
 const path = require("path"),
@@ -32,7 +32,7 @@ const ft_postgreSQL = {
   boolean: "boolean",
   integer: "integer",
   decimal: "double precision",
-  money: "money",
+  money: "double precision", // "money",
   date: "date",
   datetime: "timestamp" + noTZ,
   time: "time" + noTZ,
@@ -51,8 +51,8 @@ const ft_postgreSQL = {
 const sysColumns = {
   created_at: true,
   updated_at: true,
-  c_uid: true,
-  u_uid: true,
+  created_by: true,
+  updated_by: true,
   nb_comments: true,
   nb_ratings: true,
   avg_ratings: true,
@@ -66,7 +66,7 @@ const lovTable = (f, tableName) =>
   f.lovTable ? f.lovTable : tableName + "_" + f.id;
 
 const lovTableWithSchema = (f, tableName) =>
-  schemaDot + '"' + lovTable(f, tableName) + '"';
+  `${schemaDot}"${lovTable(f, tableName)}"`;
 
 const sqlInsert = (tableNameSchema, m, data) => {
   const { pKey, fieldsH } = m;
@@ -119,11 +119,7 @@ const sqlInsert = (tableNameSchema, m, data) => {
       } else {
         sqlData +=
           (prevCols ? ";\n" : "\n") +
-          "INSERT INTO " +
-          tableNameSchema +
-          "(" +
-          curCols +
-          ") VALUES";
+          `INSERT INTO ${tableNameSchema}(${curCols}) VALUES`;
         prevCols = curCols;
       }
       sqlData += "\n(" + vs.join(",") + ")";
@@ -156,8 +152,9 @@ const sqlCreatePopulateLOV = (f, tableName, lovIncluded) => {
       "\n);\n\n";
 
     // - populate lov table
-    const insertSQL =
-      "INSERT INTO " + t + "(id, name" + (icons ? ", icon" : "") + ") VALUES ";
+    const insertSQL = `INSERT INTO ${t}(id, name${
+      icons ? ", icon" : ""
+    }) VALUES `;
     if (f.list) {
       sql += insertSQL;
       sql +=
@@ -174,7 +171,7 @@ const sqlCreatePopulateLOV = (f, tableName, lovIncluded) => {
       const t = lovTable(f, tableName);
       if (maxId) {
         maxId++;
-        sql += `ALTER SEQUENCE ${schema}${t}_id_seq" RESTART WITH ${maxId};\n\n`;
+        sql += `ALTER SEQUENCE ${schemaDot}"${t}_id_seq" RESTART WITH ${maxId};\n\n`;
       }
     }
     lovIncluded.push(t);
@@ -183,7 +180,7 @@ const sqlCreatePopulateLOV = (f, tableName, lovIncluded) => {
 };
 
 const sqlSchemaWithData = () => {
-  let sql = "SET TIMEZONE='America/Los_angeles';\n\n";
+  let sql = "\nSET TIMEZONE='America/Los_angeles';\n\n";
   if (schema) {
     sql += `CREATE SCHEMA ${schema} AUTHORIZATION ${dbuser};\n\n`;
   }
@@ -244,7 +241,7 @@ const sqlModel = (mid) => {
   const m = models[mid];
   let { pKey, fields } = m;
   let tableName = m.table || m.id,
-    tableNameSchema = schemaDot + '"' + tableName + '"',
+    tableNameSchema = `${schemaDot}"${tableName}"`,
     fieldsAttr = {},
     //subCollecs = m.collections,
     fs = [pKey + " serial primary key"],
@@ -265,14 +262,14 @@ const sqlModel = (mid) => {
       fieldsAttr[f.column] = true;
       // skip fields specified in config
       if (!sysColumns[f.column]) {
-        const fcolumn = '"' + f.column + '"';
+        const fcolumn = `"${f.column}"`;
         sql0 = " " + fcolumn + " " + (ft_postgreSQL[f.type] || "text");
         if (f.type === ft.lov) {
           if (f.deleteTrigger) {
             sql0 +=
               " NOT NULL REFERENCES " +
-              schema +
-              '."' +
+              schemaDot +
+              '"' +
               f.lovTable +
               '"(id) ON DELETE CASCADE';
           }
@@ -299,22 +296,13 @@ const sqlModel = (mid) => {
   // - "timestamp" columns to track creation and last modification.
   if (config.wTimestamp) {
     fs.push(
-      config.createdDateColumn +
-        " timestamp" +
-        noTZ +
-        " DEFAULT timezone('utc'::text, now())"
-    );
-    fs.push(
-      config.updatedDateColumn +
-        " timestamp" +
-        noTZ +
-        " DEFAULT timezone('utc'::text, now())"
+      ` ${config.createdDateColumn} timestamp ${noTZ} DEFAULT timezone('utc'::text, now())`,
+      ` ${config.updatedDateColumn} timestamp ${noTZ} DEFAULT timezone('utc'::text, now())`
     );
   }
   // - "who-is" columns to track user who created and last modified the record.
   if (config.wWhoIs) {
-    fs.push(" c_uid integer");
-    fs.push(" u_uid integer");
+    fs.push(" created_by integer", " updated_by integer");
   }
 
   // - tracking number of comments.
@@ -324,8 +312,10 @@ const sqlModel = (mid) => {
 
   // - tracking ratings.
   if (config.wRating) {
-    fs.push(" nb_ratings integer DEFAULT 0");
-    fs.push(" avg_ratings integer DEFAULT NULL"); // smallint ?
+    fs.push(
+      " nb_ratings integer DEFAULT 0",
+      " avg_ratings integer DEFAULT NULL"
+    ); // smallint ?
   }
   /*
     // subCollecs - as json columns
@@ -344,12 +334,10 @@ const sqlModel = (mid) => {
       "\nCREATE TRIGGER tr_u_" +
       tableName +
       " BEFORE UPDATE ON " +
-      schema +
-      "." +
-      tableName +
+      `${schemaDot}${tableName}` +
       " FOR EACH ROW EXECUTE PROCEDURE " +
-      schema +
-      ".updated_at();\n";
+      schemaDot +
+      "updated_at();\n";
   }
 
   // Comments on table and columns with description
