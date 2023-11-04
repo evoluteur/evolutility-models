@@ -49,8 +49,8 @@ const ft_postgreSQL = {
 };
 
 const sysColumns = {
-  c_date: true,
-  u_date: true,
+  created_at: true,
+  updated_at: true,
   c_uid: true,
   u_uid: true,
   nb_comments: true,
@@ -189,7 +189,7 @@ const sqlSchemaWithData = () => {
   }
   let sqlData = "";
   if (config.wTimestamp) {
-    sql += `CREATE OR REPLACE FUNCTION ${schemaDot}u_date() RETURNS trigger
+    sql += `CREATE OR REPLACE FUNCTION ${schemaDot}updated_at() RETURNS trigger
     LANGUAGE plpgsql
     AS $$
     BEGIN
@@ -349,7 +349,7 @@ const sqlModel = (mid) => {
       tableName +
       " FOR EACH ROW EXECUTE PROCEDURE " +
       schema +
-      ".u_date();\n";
+      ".updated_at();\n";
   }
 
   // Comments on table and columns with description

@@ -2,7 +2,7 @@ module.exports = {
   schema: "",
 
   // - Optional fields
-  // - Timestamp columns u_date and c_date w/ date of record creation and last update
+  // - Timestamp columns updated_at and created_at w/ date of record creation and last update
   wTimestamp: true,
   // - "WhoIs" columns u_uid and c_uid w/ userid of creator and last modifier
   wWhoIs: true,
@@ -10,8 +10,8 @@ module.exports = {
   wComments: true,
   wRating: false,
   // - Columns containing created and last updated dates
-  createdDateColumn: "c_date",
-  updatedDateColumn: "u_date",
+  createdDateColumn: "created_at",
+  updatedDateColumn: "updated_at",
 
   // - Logs (to file and console)
   logToConsole: true,
