@@ -112,7 +112,7 @@ module.exports = {
     },
     {
       id: "bsize",
-      column: "bottle_size",
+      column: "bsize_id",
       type: "lov",
       label: "Bottle size",
       labelShort: "Bottle",
@@ -151,7 +151,7 @@ module.exports = {
     },
     {
       id: "grape",
-      column: "grape",
+      column: "grape_id",
       type: "lov",
       label: "Grape",
       inMany: false,
@@ -474,7 +474,7 @@ module.exports = {
     },
     {
       id: "type",
-      column: "type",
+      column: "type_id",
       type: "lov",
       label: "Type",
       inMany: true,
@@ -520,7 +520,7 @@ module.exports = {
     },
     {
       id: "country",
-      column: "country",
+      column: "country_id",
       type: "lov",
       label: "Country",
       width: 32,
@@ -755,7 +755,7 @@ module.exports = {
     },
     {
       id: "score",
-      column: "score",
+      column: "score_id",
       type: "lov",
       label: "My score",
       labelShort: "Score",

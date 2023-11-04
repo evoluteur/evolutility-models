@@ -17,7 +17,7 @@ module.exports = [
   },
   {
     wine: 1,
-    drink_date: "2020-01-10",
+    drink_date: "2022-01-10",
     robe: "light",
     nose: "light fruit",
     taste: "fruity",
@@ -25,7 +25,7 @@ module.exports = [
   },
   {
     wine: 1,
-    drink_date: "2020-12-12",
+    drink_date: "2023-04-23",
     robe: "light",
     nose: "light fruit",
     taste: "",
@@ -46,6 +46,13 @@ module.exports = [
     taste: "outstanding",
   },
   {
+    wine: 2,
+    drink_date: "2023-07-02",
+    robe: "clear",
+    nose: "strong and sweet",
+    taste: "outstanding",
+  },
+  {
     wine: 3,
     drink_date: "2022-01-12",
     robe: "thick",
@@ -55,14 +62,14 @@ module.exports = [
   },
   {
     wine: 4,
-    drink_date: "2022-05-05",
+    drink_date: "2021-05-05",
     robe: "light",
     nose: "strong",
     taste: "good",
   },
   {
     wine: 4,
-    drink_date: "2021-08-05",
+    drink_date: "2022-08-05",
     robe: "light",
     nose: "strong",
     taste: "good",
@@ -70,6 +77,13 @@ module.exports = [
   {
     wine: 4,
     drink_date: "2022-08-18",
+    robe: "light",
+    nose: "strong",
+    taste: "ok",
+  },
+  {
+    wine: 4,
+    drink_date: "2023-05-15",
     robe: "light",
     nose: "strong",
     taste: "ok",
@@ -89,7 +103,7 @@ module.exports = [
   },
   {
     wine: 5,
-    drink_date: "2021-02-02",
+    drink_date: "2023-02-02",
     robe: "rich",
     nose: "strong",
     taste: "very good",
