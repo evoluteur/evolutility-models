@@ -383,10 +383,10 @@ const logToFile = (sql, isData) => {
       action = isData ? "populate" : "create";
     const fileName =
       "evol-db-" + (isData ? "data" : "schema") + "-" + fId + ".sql";
-    const header = `-- Evolutility v${version}
--- SQL Script to ${action} Evolutility demo DB on PostgreSQL.
--- ${homepage}
--- ${d}\n\n`;
+    const header = `/*\n Evolutility v${version}
+ SQL Script to ${action} Evolutility demo DB on PostgreSQL.
+ ${homepage}
+ ${d}\n*/\n`;
     makeDirectory("dist");
     makeDirectory("dist/sql");
     fs.writeFile("dist/sql/" + fileName, header + sql, function (err) {
