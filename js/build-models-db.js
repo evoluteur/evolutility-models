@@ -1,7 +1,7 @@
 /*
     Create DB models from full models
     https://github.com/evoluteur/evolutility-models
-    (c) 2022 Olivier Giulieri
+    (c) 2024 Olivier Giulieri
 */
 const helpers = require("./helpers.js");
 const mfn = require("./models-mapping.js");
@@ -46,7 +46,7 @@ if (!dir.startsWith("../")) {
           `    ${m.mid}: require('./${m.path ? m.path + "/" : ""}${m.mid}')`
       )
       .join(",\n") +
-    "\n}";
+    "\n}\n";
 
   helpers.writeFile(dir + "all_models.js", txt);
 }

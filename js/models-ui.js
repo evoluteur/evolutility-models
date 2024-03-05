@@ -45,9 +45,9 @@ if (!dir.startsWith("../")) {
         (m) => `import ${m.mid} from './${m.path ? m.path + "/" : ""}${m.mid}'`
       )
       .join("\n") +
-    "\n\nexport default {\n" +
+    "\n\nconst uiModel={\n" +
     allModels.map((m) => `    ${m.mid}: prepModel(${m.mid}),`).join("\n") +
-    "\n}\n";
+    "\n}\n\nexport default \n";
 
   helpers.writeFile(dir + "all_models.js", txt);
 }

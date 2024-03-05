@@ -208,7 +208,6 @@ module.exports = {
       maxLength: 50,
       inMany: true,
       width: 62,
-      required: true,
       inSearch: true,
     },
     {

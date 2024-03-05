@@ -68,25 +68,24 @@ if (config.wWhoIs) {
   );
 }
 if (config.wComments) {
-  f = {
+  systemFields.push({
     // - number of comments about the record
     type: "integer",
     column: "nb_comments",
-  };
-  systemFields.push(f);
+  });
 }
 // - tracking ratings.
 if (config.wRating) {
-  f = {
-    type: "integer",
-    column: "nb_ratings",
-  };
-  systemFields.push(f);
-  f = {
-    type: "integer",
-    column: "avg_ratings",
-  };
-  systemFields.push(f);
+  systemFields.push(
+    {
+      type: "integer",
+      column: "nb_ratings",
+    },
+    {
+      type: "integer",
+      column: "avg_ratings",
+    }
+  );
 }
 
 const fieldIsNumber = (f) =>
