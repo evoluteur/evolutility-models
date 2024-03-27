@@ -11,7 +11,7 @@ module.exports = {
   label: "To-Do List",
   name: "task",
   namePlural: "tasks",
-  icon: "todo.gif",
+  icon: "todo.png",
   titleField: "title",
   table: "task",
   noStats: true,

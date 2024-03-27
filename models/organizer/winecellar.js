@@ -483,27 +483,27 @@ module.exports = {
         {
           id: 1,
           text: "Red",
-          icon: "wine/winered.gif",
+          icon: "wine/winered.png",
         },
         {
           id: 2,
           text: "White",
-          icon: "wine/winewhite.gif",
+          icon: "wine/winewhite.png",
         },
         {
           id: 3,
           text: "Sweet",
-          icon: "wine/winesweet.gif",
+          icon: "wine/winesweet.png",
         },
         {
           id: 4,
           text: "Sparkling",
-          icon: "wine/winespark.gif",
+          icon: "wine/winespark.png",
         },
         {
           id: 5,
           text: "Rose",
-          icon: "wine/winerose.gif",
+          icon: "wine/winerose.png",
         },
       ],
       lovTable: "wine_type",

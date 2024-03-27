@@ -9,7 +9,7 @@ module.exports = {
   active: true,
   position: 10,
   label: "Address book",
-  icon: "contact.gif",
+  icon: "contact.png",
   table: "contact",
   name: "contact",
   namePlural: "contacts",

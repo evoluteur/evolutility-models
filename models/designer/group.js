@@ -138,7 +138,7 @@ module.exports = {
     {
       label: "Identity",
       width: 62,
-      fields: ["gid", "label", "type", "object", "fields", "description"],
+      fields: ["label", "gid", "type", "object", "fields", "description"],
     },
     {
       label: "Layout",

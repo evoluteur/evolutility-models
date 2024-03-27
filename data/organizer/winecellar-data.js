@@ -2,7 +2,7 @@ module.exports = [
   {
     id: 1,
     name: "Macrostie",
-    label_img: "wine/macrostie.gif",
+    label_img: "wine/macrostie.png",
     vintage: 2008,
     winery: "Mc Williams",
     bsize: 1,
@@ -23,7 +23,7 @@ module.exports = [
   {
     id: 2,
     name: "Château d'Yquem",
-    label_img: "wine/yquem.gif",
+    label_img: "wine/yquem.png",
     vintage: 2016,
     winery: "Lur Saluces",
     bsize: 1,
@@ -45,7 +45,7 @@ module.exports = [
   {
     id: 3,
     name: "Château St Jean",
-    label_img: "wine/stjean.gif",
+    label_img: "wine/stjean.png",
     vintage: 2015,
     winery: "Ch St Jean",
     bsize: 1,
@@ -64,7 +64,7 @@ module.exports = [
   {
     id: 4,
     name: "Vine Cliff",
-    label_img: "wine/vinecliff.gif",
+    label_img: "wine/vinecliff.png",
     vintage: 2016,
     winery: "Vine Cliff",
     bsize: 1,
@@ -81,7 +81,7 @@ module.exports = [
   {
     id: 5,
     name: "Château Montelena",
-    label_img: "wine/montelena.gif",
+    label_img: "wine/montelena.png",
     vintage: 2020,
     winery: "Château Montelena",
     bsize: 4,

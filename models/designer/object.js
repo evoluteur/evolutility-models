@@ -122,7 +122,7 @@ module.exports = {
       column: "icon",
       maxLength: "50",
       width: 35,
-      help: "example='contact.gif'",
+      help: "example='contact.png'",
       readOnly: true,
       inMany: true,
     },

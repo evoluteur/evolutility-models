@@ -11,7 +11,7 @@ module.exports = {
   table: "restaurant",
   titleField: "name",
   label: "Restaurants",
-  icon: "resto.gif",
+  icon: "resto.png",
   name: "restaurant",
   namePlural: "restaurants",
   noStats: true,

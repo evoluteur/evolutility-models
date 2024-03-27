@@ -55,7 +55,7 @@ module.exports = {
 	label: "To-Do List",
 	name: "task",
 	namePlural: "tasks",
-	icon: "todo.gif",
+	icon: "todo.png",
 	titleField: "title",
 	table: "task",
 	fields: [
@@ -91,7 +91,7 @@ module.exports = {
 | Property        | Meaning                                                      | UI  | DB  |
 | --------------- | -------------------------------------------------------------------------------------------------------------------------- | --- | --- |
 | id              | Unique key to identify the entity (used as API parameter).   | X   | X   |
-| icon            | Icon file name for the entity (example: "cube.gif").         | X   |     |
+| icon            | Icon file name for the entity (example: "cube.png").         | X   |     |
 | world           | Application the object belongs to (e.g. "organizer").        | X   | X   |
 | name            | Object name (singular) (e.g.: "contact").                    | X   |     |
 | namePlural      | Object name (plural) (e.g.: "contacts").                     | X   |     |
@@ -282,6 +282,6 @@ Note: The full models can be used as they are by both UI and back-end (which ign
 
 ## License
 
-Copyright (c) 2022 [Olivier Giulieri](https://evoluteur.github.io/).
+Copyright (c) 2024 [Olivier Giulieri](https://evoluteur.github.io/).
 
 Evolutility-Models is released under the [MIT license](http://github.com/evoluteur/evolutility-models/blob/master/LICENSE.md).

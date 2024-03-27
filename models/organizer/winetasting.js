@@ -13,7 +13,7 @@ module.exports = {
   name: "wine tasting",
   namePlural: "wine tastings",
   label: "Wine tasting",
-  icon: "wine.gif",
+  icon: "wine-glass.png",
   titleField: "drink_date",
   titleFunction: (d) => {
     return d ? d.wine_txt + " " + d.drink_date : "";

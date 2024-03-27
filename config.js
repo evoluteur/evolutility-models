@@ -1,5 +1,5 @@
 module.exports = {
-  schema: "",
+  schema: "evolutility",
 
   // - Optional fields
   // - Timestamp columns updated_at and created_at w/ date of record creation and last update
