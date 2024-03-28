@@ -91,6 +91,7 @@ module.exports = {
       type: "integer",
       label: "Vintage",
       required: true,
+      format: "0000",
       maxLength: 4,
       inMany: true,
       width: 38,
