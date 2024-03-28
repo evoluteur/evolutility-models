@@ -22,7 +22,7 @@ function prepModel(m) {
       }
       // - Fields
       m.fieldsH = {};
-      m.fields.forEach(function (f, idx) {
+      m?.fields.forEach((f, idx) => {
         if (f.type === "lov") {
           f.t2 = "t_" + idx;
         }

@@ -172,7 +172,7 @@ module.exports = {
   ],
   collections: [
     {
-      id: "collec-fields",
+      id: "fields",
       table: "evol_field",
       column: "object_id",
       object: "field",
@@ -189,7 +189,7 @@ module.exports = {
       ],
     },
     {
-      id: "collec-groups",
+      id: "groups",
       label: "Field groups",
       table: "evol_object_group",
       column: "object_id",
@@ -198,7 +198,7 @@ module.exports = {
       fields: ["gid", "label", "type", "fields"],
     },
     {
-      id: "collec-collecs",
+      id: "collections",
       table: "evol_object_collec",
       title: "Collections",
       column: "object_id",

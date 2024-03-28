@@ -3,14 +3,14 @@
  * Methods to create postgres schema and tables from models.
  *
  * https://github.com/evoluteur/evolutility-server-node
- * (c) 2023 Olivier Giulieri
+ * (c) 2024 Olivier Giulieri
  */
 
 const path = require("path"),
   fs = require("fs"),
   { version, homepage } = require("../package.json"),
   { prepModels } = require("./model-manager"),
-  { makeDirectory } = require("./helpers"),
+  helper = require("./helpers"),
   { fieldTypes } = require("./dico");
 
 const ft = fieldTypes;
@@ -69,13 +69,13 @@ const lovTableWithSchema = (f, tableName) =>
   `${schemaDot}"${lovTable(f, tableName)}"`;
 
 const sqlInsert = (tableNameSchema, m, data) => {
-  const { pKey, fieldsH } = m;
+  const { pKey = "id", fieldsH } = m;
   let sqlData = "";
   let maxId = -1;
   // -- insert sample data
-  if (data) {
+  if (data?.length) {
     let prevCols = "";
-    data.forEach(function (row) {
+    data.forEach((row) => {
       var ns = [],
         vs = [];
       if (row[pKey]) {
@@ -285,7 +285,7 @@ const sqlModel = (mid) => {
         if (f.label) {
           sqlComments += sqlComment(
             "COLUMN",
-            tableNameSchema + "." + fcolumn,
+            `${tableNameSchema}.${fcolumn}`,
             f.label
           );
         }
@@ -375,8 +375,6 @@ const logToFile = (sql, isData) => {
  SQL Script to ${action} Evolutility demo DB on PostgreSQL.
  ${homepage}
  ${d}\n*/\n`;
-    makeDirectory("dist");
-    makeDirectory("dist/sql");
     fs.writeFile("dist/sql/" + fileName, header + sql, function (err) {
       if (err) {
         throw err;
@@ -388,6 +386,8 @@ const logToFile = (sql, isData) => {
 const createSchema = () => {
   let { sql, sqlData } = sqlSchemaWithData();
 
+  helper.makeDirectory("dist");
+  helper.makeDirectory("dist/sql");
   logToFile(sql, false);
   logToFile(sqlData, true);
 };

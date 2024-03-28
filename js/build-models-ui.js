@@ -21,7 +21,7 @@ dir = dir + "/";
 for (let mid in models) {
   const m = models[mid];
   const newm = mfn.uiModel(m);
-  let filename = dir + m.id + ".js";
+  let filename = `${dir}${m.id}.js`;
 
   if (m.world) {
     if (!worlds[m.world]) {

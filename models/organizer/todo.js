@@ -43,7 +43,7 @@ module.exports = {
       list: [
         {
           id: 1,
-          text: "Home",
+          text: "Personal",
         },
         {
           id: 2,
@@ -51,14 +51,22 @@ module.exports = {
         },
         {
           id: 3,
-          text: "Fun",
+          text: "Projects",
         },
         {
           id: 4,
-          text: "Others",
+          text: "Goals",
         },
         {
           id: 5,
+          text: "Fun",
+        },
+        {
+          id: 6,
+          text: "Others",
+        },
+        {
+          id: 7,
           text: "Misc.",
         },
       ],
