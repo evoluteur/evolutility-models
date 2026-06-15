@@ -1,7 +1,7 @@
 /*
 	Evolutility Model for Object's fields
 	https://github.com/evoluteur/evolutility-models
-	(c) 2022 Olivier Giulieri
+	(c) 2026 Olivier Giulieri
 */
 
 const fieldTypes = [

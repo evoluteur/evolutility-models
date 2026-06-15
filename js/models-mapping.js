@@ -4,7 +4,7 @@
     Functions to transform full models into ui/db models.
 
     https://github.com/evoluteur/evolutility-models
-    (c) 2022 Olivier Giulieri
+    (c) 2026 Olivier Giulieri
 */
 
 const gField = (f) => ({

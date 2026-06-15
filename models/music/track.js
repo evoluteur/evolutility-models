@@ -1,7 +1,7 @@
 /*
 	Evolutility Model for Music Track
 	https://github.com/evoluteur/evolutility-models
-	(c) 2022 Olivier Giulieri
+	(c) 2026 Olivier Giulieri
 */
 module.exports = {
   id: "track",

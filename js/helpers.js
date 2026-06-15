@@ -4,7 +4,7 @@
     Helper functions mostly for writing to files and console.
 
     https://github.com/evoluteur/evolutility-models
-    (c) 2022 Olivier Giulieri
+    (c) 2026 Olivier Giulieri
 */
 
 const path = require("path");

@@ -1,7 +1,7 @@
 /*
     Create UI models from full models
     https://github.com/evoluteur/evolutility-models
-    (c) 2024 Olivier Giulieri
+    (c) 2026 Olivier Giulieri
 */
 const helpers = require("./helpers.js");
 const mfn = require("./models-mapping.js");

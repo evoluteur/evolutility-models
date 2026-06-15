@@ -3,19 +3,18 @@
  * Methods to create postgres schema and tables from models.
  *
  * https://github.com/evoluteur/evolutility-server-node
- * (c) 2024 Olivier Giulieri
+ * (c) 2026 Olivier Giulieri
  */
 
-const path = require("path"),
-  fs = require("fs"),
-  { version, homepage } = require("../package.json"),
-  { prepModels } = require("./model-manager"),
-  helper = require("./helpers"),
-  { fieldTypes } = require("./dico");
-
+const path = require("path");
+const fs = require("fs");
+const { version, homepage } = require("../package.json");
+const { models, prepModels } = require("./model-manager");
+const helper = require("./helpers");
+const { fieldTypes } = require("./dico");
 const ft = fieldTypes;
-const { models } = require("./model-manager");
 const data = require("../data/all_data.js");
+
 prepModels();
 
 // - options; mostly from in config.js
@@ -375,7 +374,7 @@ const logToFile = (sql, isData) => {
  SQL Script to ${action} Evolutility demo DB on PostgreSQL.
  ${homepage}
  ${d}\n*/\n`;
-    fs.writeFile("dist/sql/" + fileName, header + sql, function (err) {
+    fs.writeFileSync("dist/sql/" + fileName, header + sql, (err) => {
       if (err) {
         throw err;
       }

@@ -282,6 +282,6 @@ Note: The full models can be used as they are by both UI and back-end (which ign
 
 ## License
 
-Copyright (c) 2024 [Olivier Giulieri](https://evoluteur.github.io/).
+Copyright (c) 2026 [Olivier Giulieri](https://evoluteur.github.io/).
 
 Evolutility-Models is released under the [MIT license](http://github.com/evoluteur/evolutility-models/blob/master/LICENSE.md).
