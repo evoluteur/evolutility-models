@@ -8,8 +8,8 @@ const mfn = require("./models-mapping.js");
 const models = require("../models/all_models.js");
 
 helpers.makeDirectory("dist");
-let dir = "dist/models-db";
-//let dir = '../evolutility-server-node/models'
+helpers.makeDirectory("dist/db");
+let dir = "dist/db/models";
 let allModels = [];
 let worlds = {};
 

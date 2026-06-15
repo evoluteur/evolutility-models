@@ -10,7 +10,6 @@
 const path = require("path");
 const fs = require("fs");
 const prettier = require("prettier");
-const pkg = require("../package.json");
 const github = {
   model: "https://github.com/evoluteur/evolutility-models",
   UI: "https://github.com/evoluteur/evolutility-ui-react",
@@ -43,16 +42,6 @@ const clearDirectory = (nDir) => {
   fs.mkdirSync(nDir);
 };
 
-const writeFile = (filename, txt, noPrettier) => {
-  const formattedTxt = noPrettier
-    ? txt
-    : prettier.format(txt, {
-        parser: "babel",
-      });
-  console.log("=> " + filename);
-  fs.writeFile(filename, formattedTxt, fnError);
-};
-
 const makeDirectory = (nDir) => {
   if (!fs.existsSync(nDir)) {
     fs.mkdirSync(nDir);
@@ -61,13 +50,7 @@ const makeDirectory = (nDir) => {
 
 const logTask = (modelType, models) => {
   const nbModels = Object.keys(models).length;
-  console.log(
-    "Evolutility-models v." +
-      pkg.version +
-      "\nGenerating SQL for " +
-      nbModels +
-      " models:"
-  );
+  console.log(`Generating ${nbModels} ${modelType}-models:`);
 };
 
 const headComment = (modelType, m) =>
@@ -89,7 +72,19 @@ const txtExportModel = (modelType, model) =>
   JSON.stringify(model, null, "\t") +
   "\n\nexport default model;\n";
 
-module.exports = {
+//TODO: move to shared library
+const writeFile = (filename, txt, noPrettier) => {
+  // const formattedTxt = noPrettier
+  //   ? txt
+  //   : prettier.format(txt, {
+  //       parser: "babel",
+  //     });
+  console.log("=> " + filename);
+  // fs.writeFile(filename, formattedTxt, fnError);
+  fs.writeFile(filename, txt, fnError);
+};
+
+const h = {
   clearDirectory,
   removeDirectory,
   makeDirectory,
@@ -98,3 +93,6 @@ module.exports = {
   headComment,
   txtExportModel,
 };
+
+// export default h;
+module.exports = h;

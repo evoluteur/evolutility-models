@@ -374,7 +374,7 @@ const logToFile = (sql, isData) => {
  SQL Script to ${action} Evolutility demo DB on PostgreSQL.
  ${homepage}
  ${d}\n*/\n`;
-    fs.writeFileSync("dist/sql/" + fileName, header + sql, (err) => {
+    fs.writeFileSync("dist/db/sql/" + fileName, header + sql, (err) => {
       if (err) {
         throw err;
       }
@@ -386,7 +386,8 @@ const createSchema = () => {
   let { sql, sqlData } = sqlSchemaWithData();
 
   helper.makeDirectory("dist");
-  helper.makeDirectory("dist/sql");
+  helper.makeDirectory("dist/db/");
+  helper.makeDirectory("dist/db/sql");
   logToFile(sql, false);
   logToFile(sqlData, true);
 };

@@ -14,7 +14,7 @@
     "db": "node js/build-db.js",
     "models:ui": "node js/ascii-art.js && node js/build-models-ui.js",
     "models:db": "node js/ascii-art.js && node js/build-models-db.js",
-    "models": "npm run models:db && npm run models:ui",
+    "models": "npm run models:db && npm run models:ui"
   },
   "bugs": "https://github.com/evoluteur/evolutility-models/issues",
   "keywords": [

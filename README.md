@@ -251,7 +251,7 @@ npm run db
 
 ```
 
-**Note**: The database creation and population scripts are logged in the files "/dist/sql/evol-db-schema-{datetime}.sql" and "/dist/sql/evol-db-data-{datetime}.sql".
+**Note**: The SQL scripts for creating the database creation and populating it are generated in the  "/dist/db/sql/" directory with the file names "evol-db-schema-{datetime}.sql" and "evol-db-data-{datetime}.sql".
 
 <a name="ScriptsModels"></a>
 
@@ -274,7 +274,7 @@ npm run models:db
 
 ```
 
-Generated models are saved in the directories "/dist/models-ui" and "/dist/models-db". The list of "full" models to generate from is specified in "/models/all_models.js".
+Generated models are saved in the directories "/dist/ui/models" and "/dist/db/models".
 
 Note: The full models can be used as they are by both UI and back-end (which ignore what they do not need in the models).
 
