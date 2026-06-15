@@ -5,16 +5,16 @@
   "license": "MIT",
   "homepage": "https://github.com/evoluteur/evolutility-models",
   "author": "Olivier Giulieri (https://evoluteur.github.io/)",
-  "copyright": "(c) 2024 Olivier Giulieri",
+  "copyright": "(c) 2026 Olivier Giulieri",
   "repository": {
     "type": "git",
     "url": "git://github.com/evoluteur/evolutility-models.git"
   },
   "scripts": {
     "db": "node js/build-db.js",
-    "models_ui": "node js/ascii-art.js && node js/build-models-ui.js",
-    "models_db": "node js/ascii-art.js && node js/build-models-db.js",
-    "models": "npm run models_db && node js/build-models-ui.js"
+    "models:ui": "node js/ascii-art.js && node js/build-models-ui.js",
+    "models:db": "node js/ascii-art.js && node js/build-models-db.js",
+    "models": "npm run models:db && npm run models:ui",
   },
   "bugs": "https://github.com/evoluteur/evolutility-models/issues",
   "keywords": [

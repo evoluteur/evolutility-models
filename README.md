@@ -1,6 +1,6 @@
 # Evolutility-Models &middot; [![GitHub license](https://img.shields.io/github/license/evoluteur/evolutility-models)](https://github.com/evoluteur/evolutility-models/blob/master/LICENSE.md) [![npm version](https://img.shields.io/npm/v/evolutility-models)](https://www.npmjs.com/package/evolutility-models)
 
-Evolutility models are DRY (Don't Repeat Yourself) descriptions of applications. These models contain all the metadata necessary to describe the backend (database tables and columns, validation...) and the UI (views, fields, validation...).
+Evolutility models are DRY (Don't Repeat Yourself) descriptions of applications. These models contain all the metadata necessary to describe the backend (database tables and columns, validation...) and the UI (views, fields, validation...) in a short but precise way.
 
 ### Contents
 
@@ -267,10 +267,10 @@ npm install
 npm run models
 
 ## Generate UI models
-npm run models_ui
+npm run models:ui
 
 ## Generate DB models
-npm run models_db
+npm run models:db
 
 ```
 
