@@ -32,6 +32,6 @@
     "evolutility"
   ],
   "dependencies": {
-    "prettier": "^2.5.1"
+    "prettier": "^3.8.4"
   }
 }
