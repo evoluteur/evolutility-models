@@ -5,9 +5,9 @@ module.exports = {
   // - Timestamp columns updated_at and created_at w/ date of record creation and last update
   wTimestamp: true,
   // - "WhoIs" columns updated_by and created_by w/ userid of creator and last modifier
-  wWhoIs: false,
+  wWhoIs: true,
   // - Comments & Ratings (community feature)
-  wComments: false,
+  wComments: true,
   wRating: false,
   // - Columns containing created and last updated dates
   createdDateColumn: "created_at",
