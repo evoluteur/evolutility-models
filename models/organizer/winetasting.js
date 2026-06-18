@@ -2,7 +2,7 @@
   Evolutility Model for Wine Tasting
 */
 
-module.exports = {
+export const winetasting = {
   id: "winetasting",
   oid: 6,
   world: "organizer",

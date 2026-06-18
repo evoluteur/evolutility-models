@@ -4,7 +4,7 @@
 	(c) 2026 Olivier Giulieri
 */
 
-module.exports = {
+export const group = {
   id: "group",
   world: "designer",
   schema: "evolutility",

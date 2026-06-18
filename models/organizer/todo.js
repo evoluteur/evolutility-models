@@ -2,7 +2,7 @@
   Evolutility Model for To-Do List
 */
 
-module.exports = {
+export const todo = {
   id: "todo",
   oid: 1,
   world: "organizer",

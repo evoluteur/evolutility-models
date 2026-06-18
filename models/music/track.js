@@ -3,7 +3,7 @@
 	https://github.com/evoluteur/evolutility-models
 	(c) 2026 Olivier Giulieri
 */
-module.exports = {
+export const track = {
   id: "track",
   oid: 9,
   active: true,

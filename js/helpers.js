@@ -7,9 +7,9 @@
     (c) 2026 Olivier Giulieri
 */
 
-const path = require("path");
-const fs = require("fs");
-const prettier = require("prettier");
+import path from "path";
+import fs from "fs";
+import prettier from "prettier";
 const github = {
   model: "https://github.com/evoluteur/evolutility-models",
   UI: "https://github.com/evoluteur/evolutility-ui-react",
@@ -84,7 +84,7 @@ const writeFile = (filename, txt, noPrettier) => {
   fs.writeFile(filename, txt, fnError);
 };
 
-const h = {
+export {
   clearDirectory,
   removeDirectory,
   makeDirectory,
@@ -93,6 +93,3 @@ const h = {
   headComment,
   txtExportModel,
 };
-
-// export default h;
-module.exports = h;

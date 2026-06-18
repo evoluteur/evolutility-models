@@ -7,28 +7,33 @@
 https://github.com/evoluteur/evolutility-models
 */
 
-module.exports = {
-  // - Personal Organizer
-  todo: require("./organizer/todo"),
-  contact: require("./organizer/contact"),
-  comics: require("./organizer/comics"),
-  restaurant: require("./organizer/restaurant"),
-  winecellar: require("./organizer/winecellar"),
-  winetasting: require("./organizer/winetasting"),
+// - Personal Organizer
+export { todo } from "./organizer/todo.js";
+export { contact } from "./organizer/contact.js";
+export { comics } from "./organizer/comics.js";
+export { restaurant } from "./organizer/restaurant.js";
+export { winecellar } from "./organizer/winecellar.js";
+export { winetasting } from "./organizer/winetasting.js";
 
-  // - Music
-  album: require("./music/album"),
-  artist: require("./music/artist"),
-  track: require("./music/track"),
-  //playlist: require('./music/playlist'),
+// - Music
+export { album } from "./music/album.js";
+export { artist } from "./music/artist.js";
+export { track } from "./music/track.js";
+// export { playlist } from "./music/playlist.js";
 
-  // - Tests
-  test: require("./tests/test"),
+// - Tests
+export { test } from "./tests/test.js";
 
-  // - Application Designer
-  world: require("./designer/world"),
-  object: require("./designer/object"),
-  field: require("./designer/field"),
-  group: require("./designer/group"),
-  collection: require("./designer/collection"),
-};
+// - Application Designer
+export { world } from "./designer/world.js";
+export { object } from "./designer/object.js";
+export { field } from "./designer/field.js";
+export { group } from "./designer/group.js";
+export { collection } from "./designer/collection.js";
+
+// // - Collaboration features
+// export { user } from "./social/user-data.js";
+// export { comment } from "./social/comment-data.js";
+// export { badge } from "./social/badge-data.js";
+// export { forum } from "./social/forum-data.js";
+// export { forumPost } from "./social/forum-post-data.js";

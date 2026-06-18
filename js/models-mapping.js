@@ -65,8 +65,7 @@ const dbCollec = (collec) => ({
   fields: collec.fields,
 });
 
-module.exports = {
-  uiModel: (m) => {
+export const uiModel = (m) => {
     const m1 = {
       id: m.id,
       oid: m.oid,
@@ -92,26 +91,25 @@ module.exports = {
       m1.noStats = true;
     }
     return m1;
-  },
+};
 
-  dbModel: (m) => {
-    const m1 = {
-      id: m.id,
-      title: m.title || m.label,
-      world: m.world,
-      pKey: m.pKey || "id",
-      table: m.table,
-      active: m.active,
-      titleField: m.titleField,
-      fields: m.fields.filter((f) => !f.onlyUI).map(dbField),
-      collections: m.collections ? m.collections.map(dbCollec) : [],
-    };
-    if (m.noCharts) {
-      m1.noCharts = true;
-    }
-    if (m.noStats) {
-      m1.noStats = true;
-    }
-    return m1;
-  },
+export const dbModel = (m) => {
+  const m1 = {
+    id: m.id,
+    title: m.title || m.label,
+    world: m.world,
+    pKey: m.pKey || "id",
+    table: m.table,
+    active: m.active,
+    titleField: m.titleField,
+    fields: m.fields.filter((f) => !f.onlyUI).map(dbField),
+    collections: m.collections ? m.collections.map(dbCollec) : [],
+  };
+  if (m.noCharts) {
+    m1.noCharts = true;
+  }
+  if (m.noStats) {
+    m1.noStats = true;
+  }
+  return m1;
 };

@@ -1,4 +1,4 @@
-module.exports = [
+export const winetasting = [
   {
     wine: 1,
     drink_date: "2021-05-08",

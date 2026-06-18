@@ -1,4 +1,4 @@
-module.exports = [
+export const group = [
 	{
 		object: 1,
 		"gid": "title",

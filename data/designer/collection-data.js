@@ -1,4 +1,4 @@
-module.exports = [ 
+export const collection = [
     {
         "object": 5,
         "cid": "wine_tasting",

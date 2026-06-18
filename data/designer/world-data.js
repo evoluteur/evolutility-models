@@ -1,4 +1,4 @@
-module.exports = [
+export const world = [
   {
     "id": 1,
     "name": "Organizer",

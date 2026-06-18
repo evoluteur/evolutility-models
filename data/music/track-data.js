@@ -1,4 +1,4 @@
-module.exports = [
+export const track = [
     {
         name: "Jap Man Sat Nam",
         length: "11:08",

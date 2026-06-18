@@ -3,9 +3,9 @@
     https://github.com/evoluteur/evolutility-models
     (c) 2026 Olivier Giulieri
 */
-const helpers = require("./helpers.js");
-const mfn = require("./models-mapping.js");
-const models = require("../models/all_models.js");
+import * as helpers from "./helpers.js";
+import { uiModel } from "./models-mapping.js";
+import * as models from "../models/all_models.js";
 
 helpers.makeDirectory("dist");
 helpers.makeDirectory("dist/ui");
@@ -20,7 +20,7 @@ helpers.clearDirectory(dir);
 dir = dir + "/";
 for (let mid in models) {
   const m = models[mid];
-  const newm = mfn.uiModel(m);
+  const newm = uiModel(m);
   let filename = `${dir}${m.id}.js`;
 
   if (m.world) {
@@ -39,14 +39,15 @@ for (let mid in models) {
 if (!dir.startsWith("../")) {
   const txt =
     helpers.headComment("UI") +
-    "import {prepModel} from '../utils/dico'\n\n" +
+    // "import {prepModel} from '../utils/dico'\n\n" +
     allModels
       .map(
-        (m) => `import ${m.mid} from './${m.path ? m.path + "/" : ""}${m.mid}'`
+        (m) => `import ${m.mid} from './${m.path ? m.path + "/" : ""}${m.mid}'`,
       )
       .join("\n") +
     "\n\nconst uiModels = {\n" +
-    allModels.map((m) => `    ${m.mid}: prepModel(${m.mid}),`).join("\n") +
+    // allModels.map((m) => `    ${m.mid}: prepModel(${m.mid}),`).join("\n") +
+    allModels.map((m) => `    ${m.mid},`).join("\n") +
     "\n};\n\nexport default uiModels;";
 
   helpers.writeFile(dir + "all_models.js", txt);

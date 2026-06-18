@@ -2,7 +2,7 @@
   Evolutility Model for Wine Cellar
 */
 
-module.exports = {
+export const winecellar = {
   id: "winecellar",
   oid: 5,
   world: "organizer",

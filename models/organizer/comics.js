@@ -2,7 +2,7 @@
   Evolutility Model for Graphic Novels
 */
 
-module.exports = {
+export const comics = {
   id: "comics",
   oid: 3,
   world: "organizer",

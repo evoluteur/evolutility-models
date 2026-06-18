@@ -6,10 +6,12 @@
  * (c) 2026 Olivier Giulieri
  */
 
-const models = require("../models/all_models"),
-  config = require("../config.js"),
-  dico = require("./dico"),
-  schema = '"' + (config.schema || "evolutility") + '"';
+import * as modelsNS from "../models/all_models.js";
+import { config } from "../config.js";
+import { fieldIsText } from "./dico.js";
+
+const models = { ...modelsNS };
+const schema = '"' + (config.schema || "evolutility") + '"';
 let modelIds = Object.keys(models);
 
 function prepModel(m) {
@@ -110,13 +112,5 @@ const prepModels = () => {
 
 prepModels();
 
-module.exports = {
-  modelIds: modelIds,
-
-  getModel: (mId) => prepModel(models[mId]),
-
-  prepModel: prepModel,
-  prepModels: prepModels,
-
-  models: models,
-};
+export const getModel = (mId) => prepModel(models[mId]);
+export { modelIds, models, prepModel, prepModels };

@@ -1,4 +1,4 @@
-module.exports = [
+export const field = [
 	{
 		"id": 1,
 		"label": "Title",

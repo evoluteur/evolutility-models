@@ -2,7 +2,7 @@
   Evolutility Model for Restaurants
 */
 
-module.exports = {
+export const restaurant = {
   id: "restaurant",
   oid: 4,
   world: "organizer",

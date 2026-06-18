@@ -6,7 +6,7 @@
  * (c) 2026 Olivier Giulieri
  */
 
-const config = require("../config.js");
+import { config } from "../config.js";
 
 // - Field Types
 const ft = {
@@ -99,18 +99,14 @@ const fieldChartable = (f) =>
   f.type === ft.lov || f.type === ft.bool || fieldIsNumber(f);
 const fieldInCharts = (f) => fieldChartable(f) && !f.noCharts;
 
-module.exports = {
-  fieldTypes: ft,
-
-  fieldInMany: (f) => f.inList || f.inMany,
-
+export const fieldTypes = ft;
+export const fieldInMany = (f) => f.inList || f.inMany;
+export {
   fieldIsText,
   fieldIsNumber,
   fieldIsNumeric,
   fieldIsDateOrTime,
-
   fieldInCharts,
   fieldChartable,
-
   systemFields,
 };

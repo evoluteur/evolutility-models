@@ -3,9 +3,9 @@
     https://github.com/evoluteur/evolutility-models
     (c) 2026 Olivier Giulieri
 */
-const helpers = require("./helpers.js");
-const mfn = require("./models-mapping.js");
-const models = require("../models/all_models.js");
+import * as helpers from "./helpers.js";
+import { dbModel } from "./models-mapping.js";
+import * as models from "../models/all_models.js";
 
 helpers.makeDirectory("dist");
 helpers.makeDirectory("dist/db");
@@ -20,7 +20,7 @@ helpers.clearDirectory(dir);
 dir = dir + "/";
 Object.keys(models).forEach((mid) => {
   const m = models[mid];
-  const newm = mfn.dbModel(m);
+  const newm = dbModel(m);
   let filename = dir + m.id + ".js";
 
   if (m.world) {
@@ -39,14 +39,13 @@ Object.keys(models).forEach((mid) => {
 if (!dir.startsWith("../")) {
   const txt =
     helpers.headComment("DB") +
-    "module.exports = {\n" +
     allModels
       .map(
         (m) =>
-          `    ${m.mid}: require('./${m.path ? m.path + "/" : ""}${m.mid}')`
+          `export { ${m.mid} } from './${m.path ? m.path + "/" : ""}${m.mid}.js';`
       )
-      .join(",\n") +
-    "\n}\n";
+      .join("\n") +
+    "\n";
 
   helpers.writeFile(dir + "all_models.js", txt);
 }

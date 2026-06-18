@@ -3,7 +3,7 @@
 	https://github.com/evoluteur/evolutility-models
 	(c) 2026 Olivier Giulieri
 */
-module.exports = {
+export const artist = {
   id: "artist",
   oid: 8,
   active: true,

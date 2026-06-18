@@ -1,4 +1,4 @@
-module.exports = [
+export const artist = [
     {
         id: 1,
         name: "Snatam Kaur",

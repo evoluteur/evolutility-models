@@ -6,23 +6,24 @@
  * (c) 2026 Olivier Giulieri
  */
 
-const path = require("path");
-const fs = require("fs");
+import path from "path";
+import fs from "fs";
+import { createRequire } from "module";
+import { models, prepModels } from "./model-manager.js";
+import * as helper from "./helpers.js";
+import { fieldTypes } from "./dico.js";
+import * as data from "../data/all_data.js";
+import { config } from "../config.js";
+
+const require = createRequire(import.meta.url);
 const { version, homepage } = require("../package.json");
-const { models, prepModels } = require("./model-manager");
-const helper = require("./helpers");
-const { fieldTypes } = require("./dico");
 const ft = fieldTypes;
-const data = require("../data/all_data.js");
 
 prepModels();
 
-// - options; mostly from in config.js
-const config = require("../config"),
-  schema = config.schema ? '"' + config.schema + '"' : "",
-  //dbuser = 'evol',
-  dbuser = "postgres", // DB user
-  sqlFile = true; // log SQL to file
+const schema = config.schema ? '"' + config.schema + '"' : "";
+const dbuser = "postgres"; // DB user
+const sqlFile = true;
 
 const noTZ = " without time zone";
 const ft_postgreSQL = {
@@ -275,7 +276,7 @@ const sqlModel = (mid) => {
           sqlIdx += sqlIndex(
             tableName + "_" + f.column.toLowerCase(),
             tableNameSchema,
-            fcolumn
+            fcolumn,
           );
         } else if (f.required) {
           sql0 += " not null";
@@ -285,7 +286,7 @@ const sqlModel = (mid) => {
           sqlComments += sqlComment(
             "COLUMN",
             `${tableNameSchema}.${fcolumn}`,
-            f.label
+            f.label,
           );
         }
       }
@@ -296,7 +297,7 @@ const sqlModel = (mid) => {
   if (config.wTimestamp) {
     fs.push(
       ` ${config.createdDateColumn} timestamp ${noTZ} DEFAULT timezone('utc'::text, now())`,
-      ` ${config.updatedDateColumn} timestamp ${noTZ} DEFAULT timezone('utc'::text, now())`
+      ` ${config.updatedDateColumn} timestamp ${noTZ} DEFAULT timezone('utc'::text, now())`,
     );
   }
   // - "who-is" columns to track user who created and last modified the record.
@@ -313,7 +314,7 @@ const sqlModel = (mid) => {
   if (config.wRating) {
     fs.push(
       " nb_ratings integer DEFAULT 0",
-      " avg_ratings integer DEFAULT NULL"
+      " avg_ratings integer DEFAULT NULL",
     ); // smallint ?
   }
   /*

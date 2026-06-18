@@ -82,7 +82,7 @@ const fieldTypes = [
   },
 ];
 
-module.exports = {
+export const field = {
   id: "field",
   world: "designer",
   title: "Fields",
@@ -129,7 +129,19 @@ module.exports = {
       required: true,
       type: "text",
       maxLength: 63,
-      width: 42,
+      width: 22,
+      inSearch: true,
+      // inMany: true,
+    },
+    {
+      id: "cf",
+      column: "iscustom",
+      label: "Custom field",
+      help: "Custom field values do not have a column in the DB table, their values are stored together in one JSON field.",
+      required: true,
+      defaultValue: false,
+      type: "boolean",
+      width: 20,
       inSearch: true,
     },
     {

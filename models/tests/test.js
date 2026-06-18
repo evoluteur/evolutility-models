@@ -179,7 +179,7 @@ const fields = [
   },
 ];
 
-module.exports = {
+export const test = {
   id: "test",
   world: "tests",
   table: "z_test",

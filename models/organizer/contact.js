@@ -2,7 +2,7 @@
   Evolutility Model for Address Book
 */
 
-module.exports = {
+export const contact = {
   id: "contact",
   oid: 2,
   world: "organizer",

@@ -1,4 +1,4 @@
-module.exports = [
+export const album = [
     {
         id: 1, 
         title: "The Essential Snatam Kaur: Sacred Chants For Healing", 

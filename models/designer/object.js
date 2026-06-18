@@ -4,7 +4,7 @@
 	(c) 2026 Olivier Giulieri
 */
 
-module.exports = {
+export const object = {
   id: "object",
   world: "designer",
   title: "Objects",
@@ -72,14 +72,14 @@ module.exports = {
       inMany: true,
       inSearch: true,
     },
-    // {
-    //   id: pkey, // "qid",
-    //   column: "pkey",
-    //   label: "GraphQL Node ID",
-    //   help: "",
-    //   type: "text",
-    //   width: 38,
-    // },
+    {
+      id: "pkey",
+      column: "pkey",
+      label: "Model ID",
+      help: "",
+      type: "text",
+      width: 38,
+    },
     {
       id: "entity",
       column: "entity",
@@ -107,7 +107,7 @@ module.exports = {
     },
     {
       id: "namePlural",
-      label: "name (plural)",
+      label: "Object name (plural)",
       help: "example: 'contacts'",
       type: "text",
       column: "nameplural",

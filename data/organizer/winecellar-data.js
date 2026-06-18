@@ -1,4 +1,4 @@
-module.exports = [
+export const winecellar = [
   {
     id: 1,
     name: "Macrostie",
