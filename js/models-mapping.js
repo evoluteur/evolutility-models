@@ -66,31 +66,31 @@ const dbCollec = (collec) => ({
 });
 
 export const uiModel = (m) => {
-    const m1 = {
-      id: m.id,
-      oid: m.oid,
-      title: m.title || m.label,
-      world: m.world,
-      name: m.name,
-      namePlural: m.namePlural,
-      icon: m.icon,
-      active: m.active,
-      position: m.position,
-      defaultViewMany: m.defaultViewMany || "list",
-      defaultViewOne: m.defaultViewOne || "browse",
-      titleField: m.titleField,
-      titleFunction: m.titleFunction || null,
-      fields: m.fields.filter((f) => !f.onlyDB).map(uiField),
-      groups: m.groups,
-      collections: m.collections ? m.collections.map(uiCollec) : [],
-    };
-    if (m.noCharts) {
-      m1.noCharts = true;
-    }
-    if (m.noStats) {
-      m1.noStats = true;
-    }
-    return m1;
+  const m1 = {
+    id: m.id,
+    oid: m.oid,
+    title: m.title || m.label,
+    world: m.world,
+    name: m.name,
+    namePlural: m.namePlural,
+    icon: m.icon,
+    active: m.active,
+    position: m.position,
+    defaultViewMany: m.defaultViewMany || "list",
+    defaultViewOne: m.defaultViewOne || "browse",
+    titleField: m.titleField,
+    titleFunction: m.titleFunction || null,
+    fields: m.fields.filter((f) => !f.onlyDB).map(uiField),
+    groups: m.groups,
+    collections: m.collections ? m.collections.map(uiCollec) : [],
+  };
+  if (m.noCharts) {
+    m1.noCharts = true;
+  }
+  if (m.noStats) {
+    m1.noStats = true;
+  }
+  return m1;
 };
 
 export const dbModel = (m) => {
@@ -98,6 +98,8 @@ export const dbModel = (m) => {
     id: m.id,
     title: m.title || m.label,
     world: m.world,
+    name: m.name,
+    namePlural: m.namePlural,
     pKey: m.pKey || "id",
     table: m.table,
     active: m.active,
