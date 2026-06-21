@@ -8,7 +8,7 @@
     "skipLibCheck": true,
     "resolveJsonModule": true,
     "allowImportingTsExtensions": true,
-    "outDir": "dist/ts",
+    "noEmit": true,
     "types": ["node"]
   },
   "include": ["scripts/**/*.ts", "config.ts"]
