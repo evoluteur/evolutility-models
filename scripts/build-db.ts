@@ -1,8 +1,8 @@
 /*!
- * evolutility-server-node :: utils/database.ts
+ * evolutility-models :: utils/database.ts
  * Methods to create postgres schema and tables from models.
  *
- * https://github.com/evoluteur/evolutility-server-node
+ * https://github.com/evoluteur/evolutility-models
  * (c) 2026 Olivier Giulieri
  */
 
@@ -246,15 +246,10 @@ const sqlModel = (mid: string): [string, string] => {
       fieldsAttr[f.column] = true;
       if (!sysColumns[f.column]) {
         const fcolumn = `"${f.column}"`;
-        sql0 = " " + fcolumn + " " + (ft_postgreSQL[f.type] || "text");
+        sql0 = ` ${fcolumn} ${ft_postgreSQL[f.type] || "text"}`;
         if (f.type === ft.lov) {
           if (f.deleteTrigger) {
-            sql0 +=
-              " NOT NULL REFERENCES " +
-              schemaDot +
-              '"' +
-              f.lovTable +
-              '"(id) ON DELETE CASCADE';
+            sql0 += ` NOT NULL REFERENCES ${schemaDot}"${f.lovTable}"(id) ON DELETE CASCADE`;
           }
           sqlIdx += sqlIndex(
             tableName + "_" + f.column.toLowerCase(),
