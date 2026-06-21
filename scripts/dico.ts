@@ -6,8 +6,8 @@
  * (c) 2026 Olivier Giulieri
  */
 
-import { config } from "../config.js";
-import type { Field } from "./types.js";
+import { config } from "../config.ts";
+import type { Field } from "./types.ts";
 
 export const fieldTypes = {
   text: "text",

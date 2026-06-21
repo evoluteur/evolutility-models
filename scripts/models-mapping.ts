@@ -7,7 +7,7 @@
     (c) 2026 Olivier Giulieri
 */
 
-import type { Field, Model, Collection } from "./types.js";
+import type { Field, Model, Collection } from "./types.ts";
 
 const gField = (f: Field): Partial<Field> => ({
   id: f.id,

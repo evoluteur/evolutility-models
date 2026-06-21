@@ -7,9 +7,9 @@
  */
 
 import * as modelsNS from "../models/all_models.js";
-import { config } from "../config.js";
-import { fieldIsText } from "./dico.js";
-import type { Model, Field, Collection } from "./types.js";
+import { config } from "../config.ts";
+import { fieldIsText } from "./dico.ts";
+import type { Model, Field, Collection } from "./types.ts";
 
 const models: Record<string, Model> = { ...(modelsNS as Record<string, Model>) };
 const schema = '"' + (config.schema || "evolutility") + '"';

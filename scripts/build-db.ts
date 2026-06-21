@@ -8,12 +8,12 @@
 
 import fs from "fs";
 import { createRequire } from "module";
-import { models, prepModels } from "./model-manager.js";
-import * as helper from "./helpers.js";
-import { fieldTypes } from "./dico.js";
+import { models, prepModels } from "./model-manager.ts";
+import * as helper from "./helpers.ts";
+import { fieldTypes } from "./dico.ts";
 import * as data from "../data/all_data.js";
-import { config } from "../config.js";
-import type { Field, Model } from "./types.js";
+import { config } from "../config.ts";
+import type { Field, Model } from "./types.ts";
 
 const require = createRequire(import.meta.url);
 const { version, homepage } = require("../package.json") as {

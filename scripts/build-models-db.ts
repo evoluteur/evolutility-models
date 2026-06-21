@@ -3,10 +3,10 @@
     https://github.com/evoluteur/evolutility-models
     (c) 2026 Olivier Giulieri
 */
-import * as helpers from "./helpers.js";
-import { dbModel } from "./models-mapping.js";
+import * as helpers from "./helpers.ts";
+import { dbModel } from "./models-mapping.ts";
 import * as models from "../models/all_models.js";
-import type { Model } from "./types.js";
+import type { Model } from "./types.ts";
 
 helpers.makeDirectory("dist");
 helpers.makeDirectory("dist/db");

@@ -9,7 +9,7 @@
 
 import path from "path";
 import fs from "fs";
-import type { Model } from "./types.js";
+import type { Model } from "./types.ts";
 import pkg from "../package.json" with { type: "json" };
 const { version } = pkg;
 
