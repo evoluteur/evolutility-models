@@ -6,47 +6,43 @@
 import * as helpers from "./helpers.js";
 import { uiModel } from "./models-mapping.js";
 import * as models from "../models/all_models.js";
+import type { Model } from "./types.js";
 
 helpers.makeDirectory("dist");
 helpers.makeDirectory("dist/ui");
 let dir = "dist/ui/models";
-let allModels = [];
-let worlds = {};
+const allModels: { mid: string; path: string | null | undefined }[] = [];
+const worlds: Record<string, boolean> = {};
 
-helpers.logTask("UI", models);
+helpers.logTask("UI", models as Record<string, unknown>);
 helpers.clearDirectory(dir);
 
-// - Generate UI models
 dir = dir + "/";
-for (let mid in models) {
-  const m = models[mid];
+for (const mid in models) {
+  const m = (models as Record<string, Model>)[mid];
   const newm = uiModel(m);
   let filename = `${dir}${m.id}.js`;
 
   if (m.world) {
     if (!worlds[m.world]) {
-      const nDir = dir + "/" + m.world;
-      helpers.makeDirectory(nDir);
+      helpers.makeDirectory(dir + m.world);
       worlds[m.world] = true;
     }
     filename = `${dir}${m.world}/${m.id}.js`;
   }
   allModels.push({ mid: m.id, path: m.world });
-  helpers.writeFile(filename, helpers.txtExportModel("UI", newm));
+  helpers.writeFile(filename, helpers.txtExportModel("UI", newm as Model));
 }
 
-// - Generate "all_models.js" with list of models
 if (!dir.startsWith("../")) {
   const txt =
     helpers.headComment("UI") +
-    // "import {prepModel} from '../utils/dico'\n\n" +
     allModels
       .map(
         (m) => `import ${m.mid} from './${m.path ? m.path + "/" : ""}${m.mid}'`,
       )
       .join("\n") +
     "\n\nconst uiModels = {\n" +
-    // allModels.map((m) => `    ${m.mid}: prepModel(${m.mid}),`).join("\n") +
     allModels.map((m) => `    ${m.mid},`).join("\n") +
     "\n};\n\nexport default uiModels;";
 

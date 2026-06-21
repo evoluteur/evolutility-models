@@ -12,10 +12,11 @@
     "url": "git://github.com/evoluteur/evolutility-models.git"
   },
   "scripts": {
-    "db": "node js/build-db.js",
-    "models:ui": "node js/ascii-art.js && node js/build-models-ui.js",
-    "models:db": "node js/ascii-art.js && node js/build-models-db.js",
-    "models": "npm run models:db && npm run models:ui"
+    "db": "tsx js/build-db.ts",
+    "models:ui": "tsx js/ascii-art.ts && tsx js/build-models-ui.ts",
+    "models:db": "tsx js/ascii-art.ts && tsx js/build-models-db.ts",
+    "models": "npm run models:db && npm run models:ui",
+    "typecheck": "tsc --noEmit"
   },
   "bugs": "https://github.com/evoluteur/evolutility-models/issues",
   "keywords": [
@@ -29,10 +30,17 @@
     "ORM",
     "metadata",
     "metamodel",
+    "codegen",
     "generator",
+    "typescript",
     "evolutility"
   ],
   "dependencies": {
     "prettier": "^3.8.4"
+  },
+  "devDependencies": {
+    "@types/node": "^26.0.0",
+    "tsx": "^4.22.4",
+    "typescript": "^6.0.3"
   }
 }

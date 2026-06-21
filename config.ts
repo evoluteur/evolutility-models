@@ -1,4 +1,17 @@
-export const config = {
+export interface Config {
+  schema: string;
+  wTimestamp: boolean;
+  wWhoIs: boolean;
+  wComments: boolean;
+  wRating: boolean;
+  createdDateColumn: string;
+  updatedDateColumn: string;
+  logToConsole: boolean;
+  logToFile: boolean;
+  customFields: boolean;
+}
+
+export const config: Config = {
   schema: "evolutility",
 
   // - Optional fields

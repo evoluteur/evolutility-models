@@ -1,12 +1,11 @@
 /*!
- * evolutility-server-node :: utils/database.js
+ * evolutility-server-node :: utils/database.ts
  * Methods to create postgres schema and tables from models.
  *
  * https://github.com/evoluteur/evolutility-server-node
  * (c) 2026 Olivier Giulieri
  */
 
-import path from "path";
 import fs from "fs";
 import { createRequire } from "module";
 import { models, prepModels } from "./model-manager.js";
@@ -14,9 +13,13 @@ import * as helper from "./helpers.js";
 import { fieldTypes } from "./dico.js";
 import * as data from "../data/all_data.js";
 import { config } from "../config.js";
+import type { Field, Model } from "./types.js";
 
 const require = createRequire(import.meta.url);
-const { version, homepage } = require("../package.json");
+const { version, homepage } = require("../package.json") as {
+  version: string;
+  homepage: string;
+};
 const ft = fieldTypes;
 
 prepModels();
@@ -26,7 +29,7 @@ const dbuser = "postgres"; // DB user
 const sqlFile = true;
 
 const noTZ = " without time zone";
-const ft_postgreSQL = {
+const ft_postgreSQL: Record<string, string> = {
   text: "text",
   textmultiline: "text",
   boolean: "boolean",
@@ -37,18 +40,17 @@ const ft_postgreSQL = {
   datetime: "timestamp" + noTZ,
   time: "time" + noTZ,
   lov: "integer",
-  list: "integer[]", // many values for one field (array of integer for ids in lovTable)
+  list: "integer[]",
   html: "text",
   email: "text",
   pix: "text",
-  //geoloc: 'geolocation',
   doc: "text",
   url: "text",
   color: "text",
   json: "json",
 };
 
-const sysColumns = {
+const sysColumns: Record<string, boolean> = {
   created_at: true,
   updated_at: true,
   created_by: true,
@@ -60,40 +62,47 @@ const sysColumns = {
 
 const schemaDot = schema ? schema + "." : "";
 
-const stringValue = (v) => (v ? "'" + v.replace(/'/g, "''") + "'" : "NULL");
+type DataRow = Record<string, unknown>;
 
-const lovTable = (f, tableName) =>
+const stringValue = (v: string | null | undefined): string =>
+  v ? "'" + v.replace(/'/g, "''") + "'" : "NULL";
+
+const lovTable = (f: Field, tableName: string): string =>
   f.lovTable ? f.lovTable : tableName + "_" + f.id;
 
-const lovTableWithSchema = (f, tableName) =>
+const lovTableWithSchema = (f: Field, tableName: string): string =>
   `${schemaDot}"${lovTable(f, tableName)}"`;
 
-const sqlInsert = (tableNameSchema, m, data) => {
-  const { pKey = "id", fieldsH } = m;
+const sqlInsert = (
+  tableNameSchema: string,
+  m: Model,
+  rows: DataRow[],
+): string => {
+  const pKey = m.pKey ?? "id";
+  const fieldsH = m.fieldsH ?? {};
   let sqlData = "";
   let maxId = -1;
-  // -- insert sample data
-  if (data?.length) {
+
+  if (rows?.length) {
     let prevCols = "";
-    data.forEach((row) => {
-      var ns = [],
-        vs = [];
+    rows.forEach((row) => {
+      const ns: string[] = [];
+      const vs: unknown[] = [];
       if (row[pKey]) {
         ns.push(pKey);
         vs.push(row[pKey]);
-        if (row[pKey] > maxId) {
-          maxId = row[pKey];
+        if ((row[pKey] as number) > maxId) {
+          maxId = row[pKey] as number;
         }
       }
-      for (let fid in row) {
+      for (const fid in row) {
         const f = fieldsH[fid];
         if (f && fid !== pKey) {
           let v = row[fid];
           if (v !== null) {
             ns.push(`"${f.column || f.id}"`);
             if (f.type === ft.lov) {
-              //TODO: parseint?
-              v = v || null; //"['error']";
+              v = v || null;
             } else if (f.type === ft.list) {
               if (Array.isArray(v)) {
                 v = "'{" + v.join(",") + "}'";
@@ -134,15 +143,17 @@ const sqlInsert = (tableNameSchema, m, data) => {
   return sqlData;
 };
 
-const sqlCreatePopulateLOV = (f, tableName, lovIncluded) => {
+const sqlCreatePopulateLOV = (
+  f: Field,
+  tableName: string,
+  lovIncluded: string[],
+): string => {
   const t = lovTableWithSchema(f, tableName);
   const icons = f.lovIcon || false;
   let sql = "";
   let maxId = -1;
 
   if (lovIncluded.indexOf(t) < 0) {
-    // - create lov table
-    // TODO: icon font
     sql =
       "\nCREATE TABLE IF NOT EXISTS " +
       t +
@@ -151,27 +162,24 @@ const sqlCreatePopulateLOV = (f, tableName, lovIncluded) => {
       (icons ? ",\n icon text" : "") +
       "\n);\n\n";
 
-    // - populate lov table
-    const insertSQL = `INSERT INTO ${t}(id, name${
-      icons ? ", icon" : ""
-    }) VALUES `;
+    const insertSQL = `INSERT INTO ${t}(id, name${icons ? ", icon" : ""}) VALUES `;
     if (f.list) {
       sql += insertSQL;
       sql +=
-        f.list
+        (f.list as DataRow[])
           .map((item) => {
-            if (item.id && item.id > maxId) {
-              maxId = item.id;
+            if (item.id && (item.id as number) > maxId) {
+              maxId = item.id as number;
             }
-            let txt = "(" + item.id + "," + stringValue(item.text);
+            let txt = "(" + item.id + "," + stringValue(item.text as string);
             txt += icons ? ",'" + (item.icon || "") + "')" : ")";
             return txt;
           })
           .join(",\n") + ";\n\n";
-      const t = lovTable(f, tableName);
+      const tBase = lovTable(f, tableName);
       if (maxId) {
         maxId++;
-        sql += `ALTER SEQUENCE ${schemaDot}"${t}_id_seq" RESTART WITH ${maxId};\n\n`;
+        sql += `ALTER SEQUENCE ${schemaDot}"${tBase}_id_seq" RESTART WITH ${maxId};\n\n`;
       }
     }
     lovIncluded.push(t);
@@ -179,7 +187,7 @@ const sqlCreatePopulateLOV = (f, tableName, lovIncluded) => {
   return sql;
 };
 
-const sqlSchemaWithData = () => {
+const sqlSchemaWithData = (): { sql: string; sqlData: string } => {
   let sql = "\nSET TIMEZONE='America/Los_angeles';\n\n";
   if (schema) {
     sql += `CREATE SCHEMA ${schema} AUTHORIZATION ${dbuser};\n\n`;
@@ -198,61 +206,41 @@ $$;
 
 `;
   }
-  for (let mid in models) {
+  for (const mid in models) {
     const sqls = sqlModel(mid);
     sql += sqls[0];
     sqlData += sqls[1];
   }
-  return {
-    sql: sql,
-    sqlData: sqlData,
-  };
+  return { sql, sqlData };
 };
 
-const sqlComment = (target, targetName, targetId) =>
+const sqlComment = (
+  target: string,
+  targetName: string,
+  targetId: string | undefined,
+): string =>
   `COMMENT ON ${target} ${targetName} IS '` +
   (targetId ? targetId.replace(/'/g, "") : "") +
   "';\n";
 
-const sqlIndex = (index, table, column) =>
+const sqlIndex = (index: string, table: string, column: string): string =>
   `CREATE INDEX idx_${index} ON ${table} USING btree (${column});\n`;
 
-/*
-function sqlSearch(m){
-    const table = m.table||m.id
-    const schemaTable = schema+'."'+table+'"'
-    const fn = schema + '.search_' + table
-    const searchColumn = f => 't1.'+f.column+' ilike (\'%\' || search || \'%\') '
-    let searchColumns = m.searchFields
-
-return `
-create function ${fn}(search text) returns setof ${schemaTable} as $$
-select t1.*
-from ${schemaTable} as t1
-where t1.headline ilike ('%' || search || '%') or t1.body ilike ('%' || search || '%')
-$$ language sql stable;
-
-comment on function ${fn}(text) is 'Returns ${m.namePlural} containing a given search term.';
-`
-}
-*/
-const sqlModel = (mid) => {
-  // -- generates SQL script to create a Postgres DB table for the ui model
+const sqlModel = (mid: string): [string, string] => {
   const m = models[mid];
-  let { pKey, fields } = m;
-  let tableName = m.table || m.id,
-    tableNameSchema = `${schemaDot}"${tableName}"`,
-    fieldsAttr = {},
-    //subCollecs = m.collections,
-    fs = [pKey + " serial primary key"],
-    sql,
-    sql0,
-    sqlIdx = "",
-    sqlData = "",
-    sqlComments = "";
+  const pKey = m.pKey ?? "id";
+  const { fields } = m;
+  const tableName = m.table || m.id;
+  const tableNameSchema = `${schemaDot}"${tableName}"`;
+  const fieldsAttr: Record<string, boolean> = {};
+  const colDefs: string[] = [pKey + " serial primary key"];
+  let sql: string;
+  let sql0: string;
+  let sqlIdx = "";
+  let sqlData = "";
+  let sqlComments = "";
 
-  // fields
-  fields.forEach(function (f) {
+  fields.forEach((f) => {
     if (
       f.column &&
       f.column !== pKey &&
@@ -260,7 +248,6 @@ const sqlModel = (mid) => {
       !fieldsAttr[f.column]
     ) {
       fieldsAttr[f.column] = true;
-      // skip fields specified in config
       if (!sysColumns[f.column]) {
         const fcolumn = `"${f.column}"`;
         sql0 = " " + fcolumn + " " + (ft_postgreSQL[f.type] || "text");
@@ -281,7 +268,7 @@ const sqlModel = (mid) => {
         } else if (f.required) {
           sql0 += " not null";
         }
-        fs.push(sql0);
+        colDefs.push(sql0);
         if (f.label) {
           sqlComments += sqlComment(
             "COLUMN",
@@ -293,42 +280,33 @@ const sqlModel = (mid) => {
     }
   });
 
-  // - "timestamp" columns to track creation and last modification.
   if (config.wTimestamp) {
-    fs.push(
+    colDefs.push(
       ` ${config.createdDateColumn} timestamp ${noTZ} DEFAULT timezone('utc'::text, now())`,
       ` ${config.updatedDateColumn} timestamp ${noTZ} DEFAULT timezone('utc'::text, now())`,
     );
   }
-  // - "who-is" columns to track user who created and last modified the record.
   if (config.wWhoIs) {
-    fs.push(" created_by integer", " updated_by integer");
+    colDefs.push(" created_by integer", " updated_by integer");
   }
-
-  // - tracking number of comments.
   if (config.wComments) {
-    fs.push(" nb_comments integer DEFAULT 0");
+    colDefs.push(" nb_comments integer DEFAULT 0");
   }
-
-  // - tracking ratings.
   if (config.wRating) {
-    fs.push(
+    colDefs.push(
       " nb_ratings integer DEFAULT 0",
       " avg_ratings integer DEFAULT NULL",
-    ); // smallint ?
+    );
   }
-  /*
-    // subCollecs - as json columns
-    if(subCollecs){
-        subCollecs.forEach(function(c, idx){
-            fs.push('  "'+(c.column || c.id)+'" json');
-        });
-    }
-*/
-  sql = "\nCREATE TABLE " + tableNameSchema + "(\n" + fs.join(",\n") + "\n);\n";
+
+  sql =
+    "\nCREATE TABLE " +
+    tableNameSchema +
+    "(\n" +
+    colDefs.join(",\n") +
+    "\n);\n";
   sql += sqlIdx;
 
-  // - track updates
   if (config.wTimestamp) {
     sql +=
       "\nCREATE TRIGGER tr_u_" +
@@ -340,52 +318,43 @@ const sqlModel = (mid) => {
       "updated_at();\n";
   }
 
-  // Comments on table and columns with description
   sql += sqlComment("TABLE", tableNameSchema, m.title || m.label || m.table);
   sql += sqlComments;
 
-  // -- insert sample data
-  if (data[mid]) {
-    sqlData += sqlInsert(tableNameSchema, m, data[mid]);
+  const allData = data as Record<string, DataRow[]>;
+  if (allData[mid]) {
+    sqlData += sqlInsert(tableNameSchema, m, allData[mid]);
   }
 
-  // - add lov tables
-  var lovFields = fields.filter(function (f) {
-    return (f.type === ft.lov || f.type === ft.list) && !f.object;
+  const lovFields = fields.filter(
+    (f) => (f.type === ft.lov || f.type === ft.list) && !f.object,
+  );
+  const lovIncluded: string[] = [];
+  lovFields.forEach((f) => {
+    sql += sqlCreatePopulateLOV(f, tableName, lovIncluded);
   });
-  var lovIncluded = [];
-  if (lovFields) {
-    lovFields.forEach((f) => {
-      sql += sqlCreatePopulateLOV(f, tableName, lovIncluded);
-    });
-  }
   console.log(sql);
 
   return [sql, sqlData];
 };
 
-const logToFile = (sql, isData) => {
+const logToFile = (sql: string, isData: boolean): void => {
   if (sqlFile) {
-    const d = new Date(),
-      fId = d.toISOString().replace(/:/g, ""),
-      action = isData ? "populate" : "create";
+    const d = new Date();
+    const fId = d.toISOString().replace(/:/g, "");
+    const action = isData ? "populate" : "create";
     const fileName =
       "evol-db-" + (isData ? "data" : "schema") + "-" + fId + ".sql";
     const header = `/*\n Evolutility v${version}
  SQL Script to ${action} Evolutility demo DB on PostgreSQL.
  ${homepage}
  ${d}\n*/\n`;
-    fs.writeFileSync("dist/db/sql/" + fileName, header + sql, (err) => {
-      if (err) {
-        throw err;
-      }
-    });
+    fs.writeFileSync("dist/db/sql/" + fileName, header + sql);
   }
 };
 
-const createSchema = () => {
-  let { sql, sqlData } = sqlSchemaWithData();
-
+const createSchema = (): void => {
+  const { sql, sqlData } = sqlSchemaWithData();
   helper.makeDirectory("dist");
   helper.makeDirectory("dist/db/");
   helper.makeDirectory("dist/db/sql");

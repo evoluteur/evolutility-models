@@ -7,7 +7,9 @@
     (c) 2026 Olivier Giulieri
 */
 
-const gField = (f) => ({
+import type { Field, Model, Collection } from "./types.js";
+
+const gField = (f: Field): Partial<Field> => ({
   id: f.id,
   type: f.type,
   label: f.label,
@@ -26,47 +28,49 @@ const gField = (f) => ({
   inMany: f.inMany,
 });
 
-const uiProps = ["labelShort", "width", "height", "chartType", "help"];
-const uiField = (f) => {
-  let fld = gField(f);
-  uiProps.forEach(function (prop) {
-    fld[prop] = f[prop];
+const uiProps = ["labelShort", "width", "height", "chartType", "help"] as const;
+const uiField = (f: Field): Partial<Field> => {
+  const fld = gField(f);
+  uiProps.forEach((prop) => {
+    (fld as unknown as Record<string, unknown>)[prop] = (
+      f as unknown as Record<string, unknown>
+    )[prop];
   });
   return fld;
 };
-const dbField = (f) => {
-  let fld = gField(f);
+
+const dbField = (f: Field): Partial<Field> => {
+  const fld = gField(f);
   fld.column = f.column || f.dbcolumn || f.id;
   fld.inSearch = f.inSearch;
   if (f.type === "lov") {
     fld.lovTable = f.lovTable || f.dbtablelov;
     fld.lovColumn = f.lovColumn || f.dbcolumnreadlov;
-    fld.lovIcon = f.lovIcon || false;
+    fld.lovIcon = f.lovIcon ?? false;
   }
-  if (f.deleteTrigger) {
-    fld.deleteTrigger = true;
-  }
+  if (f.deleteTrigger) fld.deleteTrigger = true;
   return fld;
 };
 
-const uiCollec = (collec) => ({
+const uiCollec = (collec: Collection): Partial<Collection> => ({
   id: collec.id,
   title: collec.title || collec.label,
   object: collec.object || collec.entity,
   icon: collec.icon,
-  fields: collec.fields,
+  fields: collec.fields as Field[],
 });
-const dbCollec = (collec) => ({
+
+const dbCollec = (collec: Collection): Partial<Collection> => ({
   id: collec.id,
   table: collec.table,
   column: collec.column,
   object: collec.object || collec.entity,
   orderBy: collec.orderBy,
-  fields: collec.fields,
+  fields: collec.fields as Field[],
 });
 
-export const uiModel = (m) => {
-  const m1 = {
+export const uiModel = (m: Model): Partial<Model> => {
+  const m1: Partial<Model> = {
     id: m.id,
     oid: m.oid,
     title: m.title || m.label,
@@ -80,21 +84,19 @@ export const uiModel = (m) => {
     defaultViewOne: m.defaultViewOne || "browse",
     titleField: m.titleField,
     titleFunction: m.titleFunction || null,
-    fields: m.fields.filter((f) => !f.onlyDB).map(uiField),
+    fields: m.fields.filter((f) => !f.onlyDB).map(uiField) as Field[],
     groups: m.groups,
-    collections: m.collections ? m.collections.map(uiCollec) : [],
+    collections: m.collections
+      ? (m.collections.map(uiCollec) as Collection[])
+      : [],
   };
-  if (m.noCharts) {
-    m1.noCharts = true;
-  }
-  if (m.noStats) {
-    m1.noStats = true;
-  }
+  if (m.noCharts) m1.noCharts = true;
+  if (m.noStats) m1.noStats = true;
   return m1;
 };
 
-export const dbModel = (m) => {
-  const m1 = {
+export const dbModel = (m: Model): Partial<Model> => {
+  const m1: Partial<Model> = {
     id: m.id,
     title: m.title || m.label,
     world: m.world,
@@ -104,14 +106,12 @@ export const dbModel = (m) => {
     table: m.table,
     active: m.active,
     titleField: m.titleField,
-    fields: m.fields.filter((f) => !f.onlyUI).map(dbField),
-    collections: m.collections ? m.collections.map(dbCollec) : [],
+    fields: m.fields.filter((f) => !f.onlyUI).map(dbField) as Field[],
+    collections: m.collections
+      ? (m.collections.map(dbCollec) as Collection[])
+      : [],
   };
-  if (m.noCharts) {
-    m1.noCharts = true;
-  }
-  if (m.noStats) {
-    m1.noStats = true;
-  }
+  if (m.noCharts) m1.noCharts = true;
+  if (m.noStats) m1.noStats = true;
   return m1;
 };

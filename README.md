@@ -1,6 +1,8 @@
 # Evolutility-Models &middot; [![GitHub license](https://img.shields.io/github/license/evoluteur/evolutility-models)](https://github.com/evoluteur/evolutility-models/blob/master/LICENSE.md) [![npm version](https://img.shields.io/npm/v/evolutility-models)](https://www.npmjs.com/package/evolutility-models)
 
-Evolutility models are DRY (Don't Repeat Yourself) descriptions of applications. These models contain all the metadata necessary to describe the backend (database tables and columns, validation...) and the UI (views, fields, validation...) in a short but precise way.
+Evolutility-Models provides a metamodel, some scripts, and a process, to build applications with models rather than code.
+
+Write simple models, and use them to generate your Database, your REST endpoints, and your Web UI automatically.
 
 ### Contents
 
@@ -20,7 +22,8 @@ Evolutility models are DRY (Don't Repeat Yourself) descriptions of applications.
 [Scripts](#Scripts)
 
 - [Generate SQL script for Database](#ScriptsDB)
-- [Models](#ScriptsModels)
+- [Generate backend models](#ScriptsModels)
+- [Generate UI models](#ScriptsModels)
 
 [License](#License)
 
@@ -30,14 +33,13 @@ Cool things to do with Evolutility models:
 
 - Automatically provide REST or GraphQL endpoints using [Evolutility-Server-Node](https://github.com/evoluteur/evolutility-server-node) or [Hasura](https://hasura.io/).
 
-- Run a Web UI with [Evolutility-UI-React](https://github.com/evoluteur/evolutility-ui-react) or [Evolutility-UI-jQuery](https://github.com/evoluteur/evolutility-ui-jquery).
+- Run a Web UI with [Evolutility-UI-React](https://github.com/evoluteur/evolutility-ui-react).
 
 <a name="MetaModel"></a>
 
 ## Metamodel
 
-The metamodel is the structure of the model (the model of models).
-I think about it as the vocabulary for making models.
+The metamodel is the structure of the model (the model of models). I think about it as the language for making models.
 
 - [Objects](#Object)
 - [Fields](#Field)
@@ -46,7 +48,8 @@ I think about it as the vocabulary for making models.
 
 Models describe [objects](#Object) with [fields](#Field), [Field groups](#Group), and [collections](#Collection) (nested lists of objects).
 
-For any object, all UI views (List, Cards, Edit, Charts...) share the same model.
+For every object, all UI views (List, Cards, Edit, Charts...) use the same model as the single source of thuth.
+
 All Fields are present in the Edit and Browse views. Fields can be flagged as "inMany" to be included in List, Cards, and Charts views.
 
 ```javascript
@@ -236,6 +239,12 @@ With models of models, we can store models in the database (instead of JSON file
 
 <a name="ScriptsDB"></a>
 
+Evolutility-Models provides scripts (TypeScript in NodeJS) to transform your models.
+
+- generate SQL for the database creation
+- generate backend models for [Evolutility-Server-Node](https://github.com/evoluteur/evolutility-server-node)
+- generate UI models for [Evolutility-UI-React](https://github.com/evoluteur/evolutility-ui-react)
+
 ### Database
 
 Generate SQL script to create a Postgres DB with tables for all models.
@@ -251,7 +260,7 @@ npm run db
 
 ```
 
-**Note**: The SQL scripts for creating the database creation and populating it are generated in the  "/dist/db/sql/" directory with the file names "evol-db-schema-{datetime}.sql" and "evol-db-data-{datetime}.sql".
+The SQL scripts for creating the database creation and populating it are generated in the  "/dist/db/sql/" directory with the file names "evol-db-schema-{datetime}.sql" and "evol-db-data-{datetime}.sql".
 
 <a name="ScriptsModels"></a>
 
