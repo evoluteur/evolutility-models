@@ -260,7 +260,10 @@ npm run db
 
 ```
 
-The SQL scripts for creating the database creation and populating it are generated in the  "/dist/db/sql/" directory with the file names "evol-db-schema-{datetime}.sql" and "evol-db-data-{datetime}.sql".
+The SQL scripts for creating the database creation and populating it are generated in the  "/dist/db/sql/" directory
+
+- `001_create_db_{datetime}.sql` to create the database
+- `002_seed_data_{datetime}.sql` to populate the database with seed data
 
 <a name="ScriptsModels"></a>
 
@@ -283,7 +286,7 @@ npm run models:db
 
 ```
 
-Generated models are saved in the directories "/dist/ui/models" and "/dist/db/models".
+Generated models are saved in the directories `/dist/ui/models` and `/dist/db/models`.
 
 Note: The full models can be used as they are by both UI and back-end (which ignore what they do not need in the models).
 
@@ -291,6 +294,6 @@ Note: The full models can be used as they are by both UI and back-end (which ign
 
 ## License
 
-Copyright (c) 2026 [Olivier Giulieri](https://evoluteur.github.io/).
-
 Evolutility-Models is released under the [MIT license](http://github.com/evoluteur/evolutility-models/blob/master/LICENSE.md).
+
+Copyright (c) 2026 [Olivier Giulieri](https://evoluteur.github.io/).

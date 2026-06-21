@@ -343,12 +343,12 @@ const logToFile = (sql: string, isData: boolean): void => {
     const d = new Date();
     const fId = d.toISOString().replace(/:/g, "");
     const action = isData ? "populate" : "create";
-    const fileName =
-      "evol-db-" + (isData ? "data" : "schema") + "-" + fId + ".sql";
-    const header = `/*\n Evolutility v${version}
- SQL Script to ${action} Evolutility demo DB on PostgreSQL.
- ${homepage}
- ${d}\n*/\n`;
+    const fileName = `${isData ? "002_seed_data" : "001_create_db"}_${fId}.sql`;
+    const header = `/*
+  SQL Script to ${action} database on PostgreSQL.
+  Generated on ${d.toLocaleString().replace(", ", " at ")}.
+  Powered by evolutility-models v${version} - ${homepage}
+*/\n`;
     fs.writeFileSync("dist/db/sql/" + fileName, header + sql);
   }
 };
