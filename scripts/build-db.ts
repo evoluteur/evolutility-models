@@ -105,16 +105,12 @@ const sqlInsert = (
               v = v || null;
             } else if (f.type === ft.list) {
               if (Array.isArray(v)) {
-                v = "'{" + v.join(",") + "}'";
+                v = `'{${v.join(",")}}'`;
               } else {
                 v = "null";
               }
             } else if (f.type === ft.json) {
-              if (typeof v === "string") {
-                v = `'${v}'`;
-              } else {
-                v = "'" + JSON.stringify(v) + "'";
-              }
+              v = typeof v === "string" ? `'${v}'` : `'${JSON.stringify(v)}'`;
             } else if (typeof v === "string") {
               v = stringValue(v);
             }
