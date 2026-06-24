@@ -12,10 +12,11 @@
     "url": "git://github.com/evoluteur/evolutility-models.git"
   },
   "scripts": {
-    "db": "tsx scripts/build-db.ts",
-    "models:ui": "tsx scripts/ascii-art.ts && tsx scripts/build-models-ui.ts",
-    "models:db": "tsx scripts/ascii-art.ts && tsx scripts/build-models-db.ts",
-    "models": "npm run models:db && npm run models:ui",
+    "codegen:db": "tsx scripts/build-db.ts",
+    "codegen:models:ui": "tsx scripts/build-models-ui.ts",
+    "codegen:models:db": "tsx scripts/build-models-db.ts",
+    "codegen:models": "npm run codegen:models:db && npm run codegen:models:ui",
+    "codegen": "npm run codegen:db && npm run codegen:models",
     "typecheck": "tsc --noEmit"
   },
   "bugs": "https://github.com/evoluteur/evolutility-models/issues",

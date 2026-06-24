@@ -1,17 +1,18 @@
 /*!
- * evolutility :: utils/model-manager.ts
- * Helper functions for metadata
+ *  Helper functions for metadata
  *
- * https://github.com/evoluteur/evolutility
- * (c) 2026 Olivier Giulieri
+ *  https://github.com/evoluteur/evolutility
+ *  (c) 2026 Olivier Giulieri
  */
 
-import * as modelsNS from "../models/all_models.js";
+import * as modelsNS from "../models/all_models.ts";
 import { config } from "../config.ts";
 import { fieldIsText } from "./dico.ts";
-import type { Model, Field, Collection } from "./types.ts";
+import { FieldType, type Model, type Field, type Collection } from "./types.ts";
 
-const models: Record<string, Model> = { ...(modelsNS as Record<string, Model>) };
+const models: Record<string, Model> = {
+  ...(modelsNS as Record<string, Model>),
+};
 const schema = '"' + (config.schema || "evolutility") + '"';
 let modelIds = Object.keys(models);
 
@@ -22,7 +23,7 @@ function prepModel(m: Model | null | undefined): Model | null {
       if (!m.pKey) m.pKey = "id";
       m.fieldsH = {};
       m.fields?.forEach((f, idx) => {
-        if (f.type === "lov") f.t2 = "t_" + idx;
+        if (f.type === FieldType.lov) f.t2 = "t_" + idx;
         if (f.id !== m.table + "_id") {
           m.fieldsH![f.id] = f;
         }
@@ -72,7 +73,7 @@ function prepModelCollecs(
                 );
               }
               const field = (c.fields as Field[])[idx];
-              if (field?.type === "lov") field.t2 = "t_" + idx;
+              if (field?.type === FieldType.lov) field.t2 = "t_" + idx;
             });
           } else {
             console.log(

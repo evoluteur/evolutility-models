@@ -1,3 +1,6 @@
+import type { FieldUI as Field, Model } from "../../scripts/types.js";
+import { FieldType } from "../../scripts/types.js";
+
 const flavors = [
   { id: 1, text: "Vanilla" },
   { id: 2, text: "Chocolate" },
@@ -6,12 +9,12 @@ const flavors = [
   { id: 5, text: "Lemon Cookie" },
 ];
 
-const fields = [
+const fields: Field[] = [
   {
     id: "name",
     column: "name",
     label: "Title",
-    type: "text",
+    type: FieldType.text,
     width: 100,
     required: true,
     inMany: true,
@@ -22,7 +25,7 @@ const fields = [
     id: "text",
     column: "f_text",
     label: "Text",
-    type: "text",
+    type: FieldType.text,
     width: 50,
     inMany: true,
     inSearch: true,
@@ -30,7 +33,7 @@ const fields = [
   {
     id: "textmultiline",
     column: "f_textmultiline",
-    type: "textmultiline",
+    type: FieldType.textmultiline,
     label: "Text multiline",
     height: 3,
     width: 50,
@@ -38,7 +41,7 @@ const fields = [
   },
   {
     id: "lov",
-    type: "lov",
+    type: FieldType.lov,
     column: "f_lov",
     label: "List of Values",
     width: 100,
@@ -49,7 +52,7 @@ const fields = [
   },
   {
     id: "parent",
-    type: "lov",
+    type: FieldType.lov,
     column: "parent_id",
     label: "Parent",
     width: 100,
@@ -62,7 +65,7 @@ const fields = [
   },
   {
     id: "lovlc",
-    type: "lov",
+    type: FieldType.lov,
     column: "f_lovlc",
     label: "Lemon Cookie",
     width: 100,
@@ -74,7 +77,7 @@ const fields = [
   {
     id: "list",
     column: "f_list",
-    type: "list",
+    type: FieldType.list,
     label: "Flavor(s)",
     list: flavors,
     defaultValue: 5,
@@ -82,7 +85,7 @@ const fields = [
   },
   {
     id: "date",
-    type: "date",
+    type: FieldType.date,
     column: "f_date",
     label: "Date",
     width: 100,
@@ -91,7 +94,7 @@ const fields = [
   },
   {
     id: "datetime",
-    type: "datetime",
+    type: FieldType.datetime,
     column: "f_datetime",
     label: "Date-Time",
     width: 100,
@@ -100,7 +103,7 @@ const fields = [
   },
   {
     id: "time",
-    type: "time",
+    type: FieldType.time,
     column: "f_time",
     label: "Time",
     help: "Time field (not implemented yet).",
@@ -109,7 +112,7 @@ const fields = [
   },
   {
     id: "integer",
-    type: "integer",
+    type: FieldType.integer,
     column: "f_integer",
     label: "Integer",
     width: 100,
@@ -118,21 +121,21 @@ const fields = [
   },
   {
     id: "decimal",
-    type: "decimal",
+    type: FieldType.decimal,
     column: "f_decimal",
     label: "Decimal",
     width: 100,
   },
   {
     id: "money",
-    type: "money",
+    type: FieldType.money,
     column: "f_money",
     label: "Money",
     width: 100,
   },
   {
     id: "boolean",
-    type: "boolean",
+    type: FieldType.boolean,
     column: "f_boolean",
     label: "Boolean",
     width: 100,
@@ -140,7 +143,7 @@ const fields = [
   },
   {
     id: "email",
-    type: "email",
+    type: FieldType.email,
     column: "f_email",
     label: "email",
     width: 50,
@@ -148,7 +151,7 @@ const fields = [
   },
   {
     id: "url",
-    type: "url",
+    type: FieldType.url,
     column: "f_url",
     label: "url",
     width: 50,
@@ -162,7 +165,7 @@ const fields = [
   },
   {
     id: "image",
-    type: "image",
+    type: FieldType.image,
     column: "f_image",
     label: "Image",
     width: 100,
@@ -170,7 +173,7 @@ const fields = [
   },
   {
     id: "json",
-    type: "json",
+    type: FieldType.json,
     column: "f_json",
     label: "JSON",
     width: 100,
@@ -243,4 +246,4 @@ export const test = {
       fields: fields.slice(0, 5),
     },
   ],
-};
+} satisfies Model;

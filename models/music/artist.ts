@@ -3,6 +3,9 @@
 	https://github.com/evoluteur/evolutility-models
 	(c) 2026 Olivier Giulieri
 */
+
+import { FieldType, type Model } from "../../scripts/types.js";
+
 export const artist = {
   id: "artist",
   oid: 8,
@@ -21,7 +24,7 @@ export const artist = {
   fields: [
     {
       id: "name",
-      type: "text",
+      type: FieldType.text,
       label: "Name",
       column: "name",
       inMany: true,
@@ -31,7 +34,7 @@ export const artist = {
     {
       id: "url",
       label: "Web site",
-      type: "url",
+      type: FieldType.url,
       column: "url",
       width: 70,
     },
@@ -39,13 +42,12 @@ export const artist = {
       id: "bdate",
       column: "bdate",
       label: "Birth date",
-      type: "date",
-      column: "bdate",
+      type: FieldType.date,
       width: 30,
     },
     {
       id: "photo",
-      type: "image",
+      type: FieldType.image,
       label: "Photo",
       width: 100,
       inMany: true,
@@ -54,7 +56,7 @@ export const artist = {
     {
       id: "description",
       column: "description",
-      type: "textmultiline",
+      type: FieldType.textmultiline,
       label: "Description",
       height: 9,
       inSearch: true,
@@ -88,4 +90,4 @@ export const artist = {
       fields: ["title", "cover", "length"],
     },
   ],
-};
+} satisfies Model;

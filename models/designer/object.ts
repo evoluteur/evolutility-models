@@ -4,6 +4,8 @@
 	(c) 2026 Olivier Giulieri
 */
 
+import { FieldType, type Model } from "../../scripts/types.js";
+
 export const object = {
   id: "object",
   world: "designer",
@@ -21,7 +23,7 @@ export const object = {
       column: "title",
       label: "Title",
       help: "example: 'Address book'",
-      type: "text",
+      type: FieldType.text,
       maxLength: 200,
       inMany: true,
       inSearch: true,
@@ -31,17 +33,16 @@ export const object = {
     {
       id: "active",
       label: "Active",
-      type: "boolean",
+      type: FieldType.boolean,
       column: "active",
       inMany: true,
       width: 18,
     },
     {
       id: "world",
-      type: "lov",
+      type: FieldType.lov,
       label: "World",
       width: 62,
-      table: "evol_world",
       inMany: true,
       column: "world_id",
       lovTable: "evol_world",
@@ -50,14 +51,14 @@ export const object = {
     {
       id: "noCharts",
       label: "No Charts",
-      type: "boolean",
+      type: FieldType.boolean,
       column: "nocharts",
       width: 35,
     },
     {
       id: "noStats",
       label: "No Stats",
-      type: "boolean",
+      type: FieldType.boolean,
       column: "nostats",
       width: 30,
     },
@@ -65,7 +66,7 @@ export const object = {
       id: "table",
       column: "table",
       label: "DB Table name",
-      type: "text",
+      type: FieldType.text,
       width: 62,
       maxLength: 63,
       required: true,
@@ -77,14 +78,14 @@ export const object = {
       column: "pkey",
       label: "Model ID",
       help: "",
-      type: "text",
+      type: FieldType.text,
       width: 38,
     },
     {
       id: "entity",
       column: "entity",
       label: "Object Id",
-      type: "text",
+      type: FieldType.text,
       help: "Unique identifier for the object",
       maxLength: 100,
       required: true,
@@ -97,7 +98,7 @@ export const object = {
       id: "name",
       label: "Object name (singular)",
       help: "example: 'contact'",
-      type: "text",
+      type: FieldType.text,
       column: "name",
       required: true,
       maxLength: 50,
@@ -109,7 +110,7 @@ export const object = {
       id: "namePlural",
       label: "Object name (plural)",
       help: "example: 'contacts'",
-      type: "text",
+      type: FieldType.text,
       column: "nameplural",
       required: true,
       maxLength: 50,
@@ -118,27 +119,26 @@ export const object = {
     {
       id: "icon",
       label: "Icon",
-      type: "image",
+      type: FieldType.image,
       column: "icon",
-      maxLength: "50",
+      maxLength: 50,
       width: 35,
       help: "example='contact.png'",
       readOnly: true,
       inMany: true,
     },
-
     {
       id: "titleField",
       label: "Title field",
       help: "Id of the field used as record title",
-      type: "text",
+      type: FieldType.text,
       column: "titlefield",
       width: 38,
     },
     {
       id: "description",
       label: "Description",
-      type: "textmultiline",
+      type: FieldType.textmultiline,
       column: "description",
       maxLength: 250,
       width: 100,
@@ -207,4 +207,4 @@ export const object = {
       fields: ["cid", "label", "column", "object", "fields"],
     },
   ],
-};
+} satisfies Model;

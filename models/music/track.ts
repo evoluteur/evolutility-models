@@ -3,6 +3,9 @@
 	https://github.com/evoluteur/evolutility-models
 	(c) 2026 Olivier Giulieri
 */
+
+import { FieldType, type Model } from "../../scripts/types.js";
+
 export const track = {
   id: "track",
   oid: 9,
@@ -19,7 +22,7 @@ export const track = {
   fields: [
     {
       id: "name",
-      type: "text",
+      type: FieldType.text,
       label: "Name",
       column: "name",
       required: true,
@@ -30,7 +33,7 @@ export const track = {
     },
     {
       id: "album",
-      type: "lov",
+      type: FieldType.lov,
       label: "Album",
       column: "album_id",
       object: "album",
@@ -42,7 +45,7 @@ export const track = {
     },
     {
       id: "length",
-      type: "text",
+      type: FieldType.text,
       label: "Length",
       column: "length",
       width: 38,
@@ -50,58 +53,31 @@ export const track = {
     },
     {
       id: "genre",
-      type: "lov",
+      type: FieldType.lov,
       label: "Genre",
       column: "genre_id",
       width: 62,
       inMany: true,
       lovTable: "music_genre",
       list: [
-        {
-          id: 1,
-          text: "Blues",
-        },
-        {
-          id: 2,
-          text: "Classical",
-        },
-        {
-          id: 3,
-          text: "Country",
-        },
-        {
-          id: 4,
-          text: "Electronic",
-        },
-        {
-          id: 5,
-          text: "Folk",
-        },
-        {
-          id: 6,
-          text: "Jazz",
-        },
-        {
-          id: 7,
-          text: "New age",
-        },
-        {
-          id: 8,
-          text: "Reggae",
-        },
-        {
-          id: 9,
-          text: "Soul",
-        },
+        { id: 1, text: "Blues" },
+        { id: 2, text: "Classical" },
+        { id: 3, text: "Country" },
+        { id: 4, text: "Electronic" },
+        { id: 5, text: "Folk" },
+        { id: 6, text: "Jazz" },
+        { id: 7, text: "New age" },
+        { id: 8, text: "Reggae" },
+        { id: 9, text: "Soul" },
       ],
     },
     {
       id: "description",
       column: "description",
-      type: "textmultiline",
+      type: FieldType.textmultiline,
       label: "Description",
       height: 3,
       inSearch: true,
     },
   ],
-};
+} satisfies Model;

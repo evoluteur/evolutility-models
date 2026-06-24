@@ -2,6 +2,8 @@
   Evolutility Model for Wine Tasting
 */
 
+import { FieldType, type Model } from "../../scripts/types.js";
+
 export const winetasting = {
   id: "winetasting",
   oid: 6,
@@ -15,15 +17,13 @@ export const winetasting = {
   label: "Wine tasting",
   icon: "wine-glass.png",
   titleField: "drink_date",
-  titleFunction: (d) => {
-    return d ? d.wine_txt + " " + d.drink_date : "";
-  },
+  titleFunction: (d: any) => (d ? d.wine_txt + " " + d.drink_date : ""),
   noStats: true,
   fields: [
     {
       id: "drink_date",
       column: "drink_date",
-      type: "date",
+      type: FieldType.date,
       label: "Date",
       inMany: true,
       width: 38,
@@ -33,7 +33,7 @@ export const winetasting = {
       id: "wine",
       object: "winecellar",
       column: "wine_id",
-      type: "lov",
+      type: FieldType.lov,
       label: "Wine",
       inMany: true,
       width: 62,
@@ -44,7 +44,7 @@ export const winetasting = {
     {
       id: "taste",
       column: "taste",
-      type: "text",
+      type: FieldType.text,
       label: "Taste",
       maxLength: 100,
       inMany: true,
@@ -54,7 +54,7 @@ export const winetasting = {
     {
       id: "robe",
       column: "robe",
-      type: "text",
+      type: FieldType.text,
       label: "Robe",
       maxLength: 100,
       inMany: true,
@@ -64,7 +64,7 @@ export const winetasting = {
     {
       id: "nose",
       column: "nose",
-      type: "text",
+      type: FieldType.text,
       label: "Nose",
       maxLength: 100,
       inMany: true,
@@ -74,13 +74,12 @@ export const winetasting = {
     {
       id: "notes",
       column: "notes",
-      type: "textmultiline",
+      type: FieldType.textmultiline,
       label: "Note",
       inMany: true,
       inSearch: true,
       height: 5,
       width: 100,
-      inSearch: true,
     },
   ],
   groups: [
@@ -99,4 +98,4 @@ export const winetasting = {
       fields: ["taste", "robe", "nose"],
     },
   ],
-};
+} satisfies Model;

@@ -4,6 +4,8 @@
 	(c) 2026 Olivier Giulieri
 */
 
+import { FieldType, type Model } from "../../scripts/types.js";
+
 export const group = {
   id: "group",
   world: "designer",
@@ -20,7 +22,7 @@ export const group = {
     {
       id: "gid",
       label: "Group ID",
-      type: "text",
+      type: FieldType.text,
       required: false,
       inMany: true,
       width: 38,
@@ -30,7 +32,7 @@ export const group = {
     {
       id: "label",
       label: "Label",
-      type: "text",
+      type: FieldType.text,
       help: "Group title",
       maxLength: 100,
       required: true,
@@ -41,7 +43,7 @@ export const group = {
     {
       id: "type",
       column: "type_id",
-      type: "lov",
+      type: FieldType.lov,
       label: "Type",
       lovTable: "evol_group_type",
       list: [
@@ -54,22 +56,21 @@ export const group = {
     {
       id: "object",
       label: "Object",
-      type: "lov",
+      type: FieldType.lov,
       object: "object",
       required: true,
       inMany: true,
       noCharts: true,
-      width: 32,
+      width: 62,
       column: "object_id",
       lovTable: "evol_object",
       lovColumn: "title",
-      width: 62,
       deleteTrigger: true,
     },
     {
       id: "fields",
       label: "Fields",
-      type: "json",
+      type: FieldType.json,
       column: "fields",
       required: true,
       width: 100,
@@ -80,7 +81,7 @@ export const group = {
       column: "position",
       label: "Position",
       help: "Order of the field",
-      type: "integer",
+      type: FieldType.integer,
       maxLength: 3,
       width: 50,
     },
@@ -90,7 +91,7 @@ export const group = {
       label: "Width",
       defaultValue: 100,
       help: "Relative width of the group (in percentage of the screen)",
-      type: "integer",
+      type: FieldType.integer,
       format: "0 '%'",
       maxLength: 3,
       width: 50,
@@ -100,7 +101,7 @@ export const group = {
       column: "css",
       label: "CSS",
       help: "Stylesheet class name for the group.",
-      type: "text",
+      type: FieldType.text,
       maxLength: 20,
       width: 100,
     },
@@ -108,7 +109,7 @@ export const group = {
       id: "header",
       column: "header",
       label: "Header",
-      type: "textmultiline",
+      type: FieldType.textmultiline,
       maxLength: 500,
       width: 100,
       height: 4,
@@ -118,7 +119,7 @@ export const group = {
       id: "footer",
       column: "footer",
       label: "Footer",
-      type: "textmultiline",
+      type: FieldType.textmultiline,
       maxLength: 500,
       width: 100,
       height: 4,
@@ -128,7 +129,7 @@ export const group = {
       id: "description",
       column: "description",
       label: "Description",
-      type: "textmultiline",
+      type: FieldType.textmultiline,
       maxLength: 500,
       width: 100,
       height: 3,
@@ -146,4 +147,4 @@ export const group = {
       fields: ["position", "width", "css", "header", "footer"],
     },
   ],
-};
+} satisfies Model;

@@ -3,6 +3,9 @@
 	https://github.com/evoluteur/evolutility-models
 	(c) 2026 Olivier Giulieri
 */
+
+import { FieldType, type Model } from "../../scripts/types.js";
+
 export const album = {
   id: "album",
   oid: 7,
@@ -20,7 +23,7 @@ export const album = {
   fields: [
     {
       id: "title",
-      type: "text",
+      type: FieldType.text,
       label: "Title",
       column: "title",
       required: true,
@@ -30,7 +33,7 @@ export const album = {
     },
     {
       id: "artist",
-      type: "lov",
+      type: FieldType.lov,
       label: "Artist",
       column: "artist_id",
       required: true,
@@ -43,13 +46,13 @@ export const album = {
     {
       id: "url",
       label: "Amazon",
-      type: "url",
+      type: FieldType.url,
       column: "url",
       width: 62,
     },
     {
       id: "length",
-      type: "text",
+      type: FieldType.text,
       label: "Length",
       column: "length",
       width: 38,
@@ -58,7 +61,7 @@ export const album = {
     {
       id: "description",
       column: "description",
-      type: "textmultiline",
+      type: FieldType.textmultiline,
       label: "Description",
       maxLength: 1000,
       width: 100,
@@ -68,7 +71,7 @@ export const album = {
     },
     {
       id: "cover",
-      type: "image",
+      type: FieldType.image,
       label: "Cover",
       width: 100,
       inMany: true,
@@ -103,4 +106,4 @@ export const album = {
       fields: ["name", "genre", "length"],
     },
   ],
-};
+} satisfies Model;

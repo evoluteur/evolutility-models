@@ -11,5 +11,5 @@
     "noEmit": true,
     "types": ["node"]
   },
-  "include": ["scripts/**/*.ts", "config.ts"]
+  "include": ["scripts/**/*.ts", "models/**/*.ts", "config.ts"]
 }

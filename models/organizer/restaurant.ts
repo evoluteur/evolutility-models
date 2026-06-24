@@ -2,6 +2,8 @@
   Evolutility Model for Restaurants
 */
 
+import { FieldType, type Model } from "../../scripts/types.js";
+
 export const restaurant = {
   id: "restaurant",
   oid: 4,
@@ -18,130 +20,72 @@ export const restaurant = {
   fields: [
     {
       id: "name",
-      type: "text",
+      type: FieldType.text,
       label: "Name",
       required: true,
       width: 62,
       inMany: true,
       inSearch: true,
       column: "name",
-      inSearch: true,
     },
     {
       id: "cuisine",
-      type: "lov",
+      type: FieldType.lov,
       column: "cuisine_id",
       label: "Cuisine",
       width: 38,
       list: [
-        {
-          id: "1",
-          text: "French",
-        },
-        {
-          id: "2",
-          text: "Vietnamese",
-        },
-        {
-          id: "3",
-          text: "Chinese",
-        },
-        {
-          id: "4",
-          text: "Fusion",
-        },
-        {
-          id: "5",
-          text: "Japanese",
-        },
-        {
-          id: "6",
-          text: "Thai",
-        },
-        {
-          id: "7",
-          text: "Mexican",
-        },
-        {
-          id: "8",
-          text: "Mediterranean",
-        },
-        {
-          id: "9",
-          text: "American",
-        },
-        {
-          id: "10",
-          text: "Indian",
-        },
-        {
-          id: "11",
-          text: "Korean",
-        },
-        {
-          id: "12",
-          text: "Italian",
-        },
-        {
-          id: "13",
-          text: "Spanish",
-        },
-        {
-          id: "14",
-          text: "Others",
-        },
+        { id: "1", text: "French" },
+        { id: "2", text: "Vietnamese" },
+        { id: "3", text: "Chinese" },
+        { id: "4", text: "Fusion" },
+        { id: "5", text: "Japanese" },
+        { id: "6", text: "Thai" },
+        { id: "7", text: "Mexican" },
+        { id: "8", text: "Mediterranean" },
+        { id: "9", text: "American" },
+        { id: "10", text: "Indian" },
+        { id: "11", text: "Korean" },
+        { id: "12", text: "Italian" },
+        { id: "13", text: "Spanish" },
+        { id: "14", text: "Others" },
       ],
       lovTable: "restaurant_cuisine",
       inMany: true,
     },
     {
       id: "price",
-      type: "lov",
+      type: FieldType.lov,
       column: "price_id",
       label: "Price",
       width: 38,
       list: [
-        {
-          id: "1",
-          text: "$",
-        },
-        {
-          id: "2",
-          text: "$$",
-        },
-        {
-          id: "3",
-          text: "$$$",
-        },
-        {
-          id: "4",
-          text: "$$$$",
-        },
-        {
-          id: "5",
-          text: "$$$$$",
-        },
+        { id: "1", text: "$" },
+        { id: "2", text: "$$" },
+        { id: "3", text: "$$$" },
+        { id: "4", text: "$$$$" },
+        { id: "5", text: "$$$$$" },
       ],
       lovTable: "restaurant_price",
       inMany: true,
     },
     {
       id: "web",
-      type: "url",
+      type: FieldType.url,
       label: "web",
       width: 100,
       column: "web",
     },
     {
       id: "yelp",
-      type: "url",
+      type: FieldType.url,
       label: "Yelp",
       width: 62,
       column: "yelp",
     },
     {
       id: "favorite",
-      type: "textmultiline",
+      type: FieldType.textmultiline,
       label: "Favorite dish",
       maxLength: 2000,
       width: 62,
@@ -151,7 +95,7 @@ export const restaurant = {
     },
     {
       id: "hours",
-      type: "textmultiline",
+      type: FieldType.textmultiline,
       label: "Hours",
       width: 38,
       height: 2,
@@ -159,7 +103,7 @@ export const restaurant = {
     },
     {
       id: "notes",
-      type: "textmultiline",
+      type: FieldType.textmultiline,
       label: "Notes",
       maxLength: 2000,
       width: 100,
@@ -169,7 +113,7 @@ export const restaurant = {
     },
     {
       id: "phone",
-      type: "text",
+      type: FieldType.text,
       label: "Phone",
       maxLength: 20,
       width: 100,
@@ -177,7 +121,7 @@ export const restaurant = {
     },
     {
       id: "address",
-      type: "textmultiline",
+      type: FieldType.textmultiline,
       label: "Address",
       maxLength: 150,
       width: 100,
@@ -187,32 +131,30 @@ export const restaurant = {
     },
     {
       id: "city",
-      type: "text",
+      type: FieldType.text,
       label: "City",
       maxLength: 100,
       width: 50,
       inMany: true,
       inSearch: true,
       column: "city",
-      inSearch: true,
     },
     {
       id: "state",
-      type: "text",
+      type: FieldType.text,
       label: "State",
       width: 15,
       column: "state",
     },
     {
       id: "zip",
-      type: "text",
+      type: FieldType.text,
       label: "Zip",
       maxLength: 12,
       width: 20,
       column: "zip",
     },
   ],
-
   groups: [
     {
       id: "pResto",
@@ -238,4 +180,4 @@ export const restaurant = {
       fields: ["phone", "web", "address", "city", "state", "zip"],
     },
   ],
-};
+} satisfies Model;

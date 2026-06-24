@@ -2,6 +2,8 @@
   Evolutility Model for Graphic Novels
 */
 
+import { FieldType, type Model } from "../../scripts/types.js";
+
 export const comics = {
   id: "comics",
   oid: 3,
@@ -18,7 +20,7 @@ export const comics = {
   fields: [
     {
       id: "title",
-      type: "text",
+      type: FieldType.text,
       label: "Title",
       required: true,
       maxLength: 255,
@@ -26,11 +28,10 @@ export const comics = {
       inMany: true,
       inSearch: true,
       column: "title",
-      inSearch: true,
     },
     {
       id: "authors",
-      type: "text",
+      type: FieldType.text,
       width: 62,
       inMany: true,
       label: "Authors",
@@ -39,7 +40,7 @@ export const comics = {
     },
     {
       id: "genre",
-      type: "lov",
+      type: FieldType.lov,
       label: "Genre",
       width: 38,
       inMany: true,
@@ -64,7 +65,7 @@ export const comics = {
     },
     {
       id: "serie_nb",
-      type: "integer",
+      type: FieldType.integer,
       min: 0,
       width: 15,
       inMany: true,
@@ -75,7 +76,7 @@ export const comics = {
     },
     {
       id: "have_nb",
-      type: "integer",
+      type: FieldType.integer,
       min: 0,
       width: 15,
       inMany: true,
@@ -86,7 +87,7 @@ export const comics = {
     },
     {
       id: "have",
-      type: "text",
+      type: FieldType.text,
       width: 15,
       inMany: false,
       label: "Have",
@@ -94,7 +95,7 @@ export const comics = {
     },
     {
       id: "language",
-      type: "lov",
+      type: FieldType.lov,
       label: "Language",
       width: 17,
       inMany: true,
@@ -108,7 +109,7 @@ export const comics = {
     },
     {
       id: "complete",
-      type: "boolean",
+      type: FieldType.boolean,
       width: 19,
       inMany: true,
       label: "Complete",
@@ -118,7 +119,7 @@ export const comics = {
     },
     {
       id: "finished",
-      type: "boolean",
+      type: FieldType.boolean,
       width: 19,
       inMany: true,
       label: "Finished",
@@ -129,21 +130,21 @@ export const comics = {
     },
     {
       id: "url_bdfugue",
-      type: "url",
+      type: FieldType.url,
       width: 62,
       label: "BDFugue",
       column: "url_bdfugue",
     },
     {
       id: "url_amazon",
-      type: "url",
+      type: FieldType.url,
       width: 38,
       label: "Amazon",
       column: "url_amazon",
     },
     {
       id: "pix",
-      type: "image",
+      type: FieldType.image,
       width: 30,
       inMany: true,
       label: "Cover",
@@ -151,7 +152,7 @@ export const comics = {
     },
     {
       id: "notes",
-      type: "textmultiline",
+      type: FieldType.textmultiline,
       label: "Notes",
       maxLength: 1000,
       width: 100,
@@ -190,4 +191,4 @@ export const comics = {
       fields: ["pix"],
     },
   ],
-};
+} satisfies Model;

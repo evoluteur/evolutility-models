@@ -4,6 +4,8 @@
 	(c) 2026 Olivier Giulieri
 */
 
+import { FieldType, type Model } from "../../scripts/types.js";
+
 export const collection = {
   id: "collection",
   world: "designer",
@@ -20,18 +22,17 @@ export const collection = {
       id: "label",
       column: "label",
       label: "Label",
-      type: "text",
+      type: FieldType.text,
       maxLength: 200,
       inMany: true,
       width: 62,
-      //"required": true,
       inSearch: true,
     },
     {
       id: "cid",
       column: "cid",
       label: "Collection Id",
-      type: "text",
+      type: FieldType.text,
       maxLength: 50,
       inMany: true,
       width: 20,
@@ -42,7 +43,7 @@ export const collection = {
       id: "position",
       column: "position",
       label: "Position",
-      type: "integer",
+      type: FieldType.integer,
       inMany: true,
       width: 18,
     },
@@ -50,7 +51,7 @@ export const collection = {
       id: "table",
       column: "table",
       label: "DB Table name",
-      type: "text",
+      type: FieldType.text,
       width: 32,
       maxLength: 63,
       required: true,
@@ -61,7 +62,7 @@ export const collection = {
       id: "column",
       column: "dbcolumn",
       label: "DB Column",
-      type: "text",
+      type: FieldType.text,
       help: "Column to filter by.",
       width: 30,
       maxLength: 63,
@@ -72,7 +73,7 @@ export const collection = {
     {
       id: "object",
       label: "Object",
-      type: "lov",
+      type: FieldType.lov,
       object: "object",
       required: true,
       inMany: true,
@@ -86,7 +87,7 @@ export const collection = {
     {
       id: "fields",
       label: "Fields",
-      type: "json",
+      type: FieldType.json,
       column: "fields",
       required: true,
       width: 100,
@@ -96,7 +97,7 @@ export const collection = {
       id: "help",
       column: "help",
       label: "help",
-      type: "textmultiline",
+      type: FieldType.textmultiline,
       maxLength: 500,
       width: 100,
       height: 4,
@@ -106,7 +107,7 @@ export const collection = {
       id: "header",
       column: "header",
       label: "Header",
-      type: "textmultiline",
+      type: FieldType.textmultiline,
       maxLength: 500,
       width: 100,
       height: 4,
@@ -116,7 +117,7 @@ export const collection = {
       id: "footer",
       column: "footer",
       label: "Footer",
-      type: "textmultiline",
+      type: FieldType.textmultiline,
       maxLength: 500,
       width: 100,
       height: 4,
@@ -125,7 +126,7 @@ export const collection = {
     {
       id: "description",
       label: "Description",
-      type: "textmultiline",
+      type: FieldType.textmultiline,
       column: "description",
       maxLength: 250,
       width: 100,
@@ -133,4 +134,4 @@ export const collection = {
       inSearch: true,
     },
   ],
-};
+} satisfies Model;

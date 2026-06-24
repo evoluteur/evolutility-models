@@ -1,15 +1,25 @@
 /*!
-    Evolutility-Models
+ *  Mappings for models, ui-models, and db-models.
+ *
+ *  https://github.com/evoluteur/evolutility-models
+ *  (c) 2026 Olivier Giulieri
+ */
 
-    Functions to transform full models into ui/db models.
+import {
+  FieldType,
+  type Field,
+  type FieldBase,
+  type FieldUI,
+  type FieldDB,
+  type Model,
+  type ModelUI,
+  type ModelDB,
+  type Collection,
+  type CollectionUI,
+  type CollectionDB,
+} from "./types.ts";
 
-    https://github.com/evoluteur/evolutility-models
-    (c) 2026 Olivier Giulieri
-*/
-
-import type { Field, Model, Collection } from "./types.ts";
-
-const gField = (f: Field): Partial<Field> => ({
+const gField = (f: Field): FieldBase => ({
   id: f.id,
   type: f.type,
   label: f.label,
@@ -28,22 +38,22 @@ const gField = (f: Field): Partial<Field> => ({
   inMany: f.inMany,
 });
 
-const uiProps = ["labelShort", "width", "height", "chartType", "help"] as const;
-const uiField = (f: Field): Partial<Field> => {
-  const fld = gField(f);
-  uiProps.forEach((prop) => {
-    (fld as unknown as Record<string, unknown>)[prop] = (
-      f as unknown as Record<string, unknown>
-    )[prop];
-  });
-  return fld;
-};
+const uiField = (f: Field): FieldUI => ({
+  ...gField(f),
+  labelShort: f.labelShort,
+  width: f.width,
+  height: f.height,
+  chartType: f.chartType,
+  help: f.help,
+});
 
-const dbField = (f: Field): Partial<Field> => {
-  const fld = gField(f);
-  fld.column = f.column || f.dbcolumn || f.id;
-  fld.inSearch = f.inSearch;
-  if (f.type === "lov") {
+const dbField = (f: Field): FieldDB => {
+  const fld: FieldDB = {
+    ...gField(f),
+    column: f.column || f.dbcolumn || f.id,
+    inSearch: f.inSearch,
+  };
+  if (f.type === FieldType.lov) {
     fld.lovTable = f.lovTable || f.dbtablelov;
     fld.lovColumn = f.lovColumn || f.dbcolumnreadlov;
     fld.lovIcon = f.lovIcon ?? false;
@@ -52,25 +62,25 @@ const dbField = (f: Field): Partial<Field> => {
   return fld;
 };
 
-const uiCollec = (collec: Collection): Partial<Collection> => ({
+const uiCollec = (collec: Collection): CollectionUI => ({
   id: collec.id,
   title: collec.title || collec.label,
   object: collec.object || collec.entity,
   icon: collec.icon,
-  fields: collec.fields as Field[],
+  fields: collec.fields as FieldUI[],
 });
 
-const dbCollec = (collec: Collection): Partial<Collection> => ({
+const dbCollec = (collec: Collection): CollectionDB => ({
   id: collec.id,
   table: collec.table,
   column: collec.column,
   object: collec.object || collec.entity,
   orderBy: collec.orderBy,
-  fields: collec.fields as Field[],
+  fields: collec.fields as FieldDB[],
 });
 
-export const uiModel = (m: Model): Partial<Model> => {
-  const m1: Partial<Model> = {
+export const uiModel = (m: Model): ModelUI => {
+  const m1: ModelUI = {
     id: m.id,
     oid: m.oid,
     title: m.title || m.label,
@@ -84,19 +94,17 @@ export const uiModel = (m: Model): Partial<Model> => {
     defaultViewOne: m.defaultViewOne || "browse",
     titleField: m.titleField,
     titleFunction: m.titleFunction || null,
-    fields: m.fields.filter((f) => !f.onlyDB).map(uiField) as Field[],
+    fields: m.fields.filter((f) => !f.onlyDB).map(uiField),
     groups: m.groups,
-    collections: m.collections
-      ? (m.collections.map(uiCollec) as Collection[])
-      : [],
+    collections: m.collections ? m.collections.map(uiCollec) : [],
   };
   if (m.noCharts) m1.noCharts = true;
   if (m.noStats) m1.noStats = true;
   return m1;
 };
 
-export const dbModel = (m: Model): Partial<Model> => {
-  const m1: Partial<Model> = {
+export const dbModel = (m: Model): ModelDB => {
+  const m1: ModelDB = {
     id: m.id,
     title: m.title || m.label,
     world: m.world,
@@ -106,10 +114,8 @@ export const dbModel = (m: Model): Partial<Model> => {
     table: m.table,
     active: m.active,
     titleField: m.titleField,
-    fields: m.fields.filter((f) => !f.onlyUI).map(dbField) as Field[],
-    collections: m.collections
-      ? (m.collections.map(dbCollec) as Collection[])
-      : [],
+    fields: m.fields.filter((f) => !f.onlyUI).map(dbField),
+    collections: m.collections ? m.collections.map(dbCollec) : [],
   };
   if (m.noCharts) m1.noCharts = true;
   if (m.noStats) m1.noStats = true;

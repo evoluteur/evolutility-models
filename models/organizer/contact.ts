@@ -2,6 +2,8 @@
   Evolutility Model for Address Book
 */
 
+import { FieldType, type Model } from "../../scripts/types.js";
+
 export const contact = {
   id: "contact",
   oid: 2,
@@ -14,11 +16,11 @@ export const contact = {
   name: "contact",
   namePlural: "contacts",
   titleField: "firstname",
-  titleFunction: (d) => d.firstname + " " + d.lastname,
+  titleFunction: (d: any) => d.firstname + " " + d.lastname,
   noStats: true,
   fields: [
     {
-      type: "text",
+      type: FieldType.text,
       id: "lastname",
       label: "Last name",
       maxLength: 50,
@@ -29,7 +31,7 @@ export const contact = {
       inSearch: true,
     },
     {
-      type: "text",
+      type: FieldType.text,
       id: "firstname",
       label: "First name",
       maxLength: 50,
@@ -40,7 +42,7 @@ export const contact = {
       inSearch: true,
     },
     {
-      type: "text",
+      type: FieldType.text,
       id: "jobtitle",
       label: "Title",
       maxLength: 50,
@@ -49,7 +51,7 @@ export const contact = {
       inSearch: true,
     },
     {
-      type: "text",
+      type: FieldType.text,
       id: "company",
       label: "Company",
       maxLength: 50,
@@ -59,7 +61,7 @@ export const contact = {
       inSearch: true,
     },
     {
-      type: "email",
+      type: FieldType.email,
       id: "email",
       label: "email",
       maxLength: 100,
@@ -69,7 +71,7 @@ export const contact = {
       inSearch: true,
     },
     {
-      type: "url",
+      type: FieldType.url,
       id: "web",
       label: "web",
       maxLength: 255,
@@ -77,7 +79,7 @@ export const contact = {
       column: "web",
     },
     {
-      type: "lov",
+      type: FieldType.lov,
       id: "category",
       label: "Category",
       width: 100,
@@ -97,7 +99,7 @@ export const contact = {
       lovTable: "contact_category",
     },
     {
-      type: "text",
+      type: FieldType.text,
       id: "phonework",
       label: "Work Phone",
       maxLength: 20,
@@ -107,7 +109,7 @@ export const contact = {
       inSearch: true,
     },
     {
-      type: "text",
+      type: FieldType.text,
       id: "phonecell",
       label: "Cell.",
       maxLength: 20,
@@ -117,7 +119,7 @@ export const contact = {
       inSearch: true,
     },
     {
-      type: "text",
+      type: FieldType.text,
       id: "phonehome",
       label: "Home Phone",
       maxLength: 20,
@@ -125,7 +127,7 @@ export const contact = {
       column: "phonehome",
     },
     {
-      type: "text",
+      type: FieldType.text,
       id: "fax",
       label: "Fax",
       maxLength: 20,
@@ -133,7 +135,7 @@ export const contact = {
       column: "fax",
     },
     {
-      type: "textmultiline",
+      type: FieldType.textmultiline,
       id: "address",
       label: "Address",
       width: 100,
@@ -141,7 +143,7 @@ export const contact = {
       column: "address",
     },
     {
-      type: "text",
+      type: FieldType.text,
       id: "city",
       label: "City",
       maxLength: 100,
@@ -150,14 +152,14 @@ export const contact = {
       inSearch: true,
     },
     {
-      type: "text",
+      type: FieldType.text,
       id: "state",
       label: "State",
       width: 23,
       column: "state",
     },
     {
-      type: "text",
+      type: FieldType.text,
       id: "zip",
       label: "Zip",
       maxLength: 12,
@@ -165,7 +167,7 @@ export const contact = {
       column: "zip",
     },
     {
-      type: "text",
+      type: FieldType.text,
       id: "country",
       label: "Country",
       maxLength: 60,
@@ -173,7 +175,7 @@ export const contact = {
       column: "country",
     },
     {
-      type: "textmultiline",
+      type: FieldType.textmultiline,
       id: "notes",
       label: "Notes",
       maxLength: 1000,
@@ -208,4 +210,4 @@ export const contact = {
       fields: ["category", "notes"],
     },
   ],
-};
+} satisfies Model;

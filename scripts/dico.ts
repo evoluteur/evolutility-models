@@ -7,61 +7,37 @@
  */
 
 import { config } from "../config.ts";
-import type { Field } from "./types.ts";
-
-export const fieldTypes = {
-  text: "text",
-  textml: "textmultiline",
-  bool: "boolean",
-  int: "integer",
-  dec: "decimal",
-  money: "money",
-  date: "date",
-  datetime: "datetime",
-  time: "time",
-  lov: "lov",
-  list: "list",
-  html: "html",
-  formula: "formula",
-  email: "email",
-  image: "image",
-  url: "url",
-  color: "color",
-  hidden: "hidden",
-  json: "json",
-} as const;
-
-const ft = fieldTypes;
+import { FieldType as ft, type Field } from "./types.ts";
 
 export const systemFields: Partial<Field>[] = [];
 
 if (config.wTimestamp) {
   systemFields.push(
-    { type: "datetime", column: config.createdDateColumn },
-    { type: "datetime", column: config.updatedDateColumn },
+    { type: ft.datetime, column: config.createdDateColumn },
+    { type: ft.datetime, column: config.updatedDateColumn },
   );
 }
 if (config.wWhoIs) {
   systemFields.push(
-    { type: "integer", column: "created_by" },
-    { type: "integer", column: "updated_by" },
+    { type: ft.integer, column: "created_by" },
+    { type: ft.integer, column: "updated_by" },
   );
 }
 if (config.wComments) {
-  systemFields.push({ type: "integer", column: "nb_comments" });
+  systemFields.push({ type: ft.integer, column: "nb_comments" });
 }
 if (config.wRating) {
   systemFields.push(
-    { type: "integer", column: "nb_ratings" },
-    { type: "integer", column: "avg_ratings" },
+    { type: ft.integer, column: "nb_ratings" },
+    { type: ft.integer, column: "avg_ratings" },
   );
 }
 
 export const fieldInMany = (f: Field): boolean => !!(f.inList || f.inMany);
 export const fieldIsNumber = (f: Field): boolean =>
-  f.type === ft.int || f.type === ft.dec || f.type === ft.money;
+  f.type === ft.integer || f.type === ft.decimal || f.type === ft.money;
 export const fieldIsText = (f: Field): boolean =>
-  ([ft.text, ft.textml, ft.url, ft.html, ft.email] as string[]).includes(
+  ([ft.text, ft.textmultiline, ft.url, ft.html, ft.email] as string[]).includes(
     f.type,
   );
 export const fieldIsDateOrTime = (f: Field): boolean =>
@@ -69,6 +45,6 @@ export const fieldIsDateOrTime = (f: Field): boolean =>
 export const fieldIsNumeric = (f: Field): boolean =>
   fieldIsNumber(f) || fieldIsDateOrTime(f);
 export const fieldChartable = (f: Field): boolean =>
-  f.type === ft.lov || f.type === ft.bool || fieldIsNumber(f);
+  f.type === ft.lov || f.type === ft.boolean || fieldIsNumber(f);
 export const fieldInCharts = (f: Field): boolean =>
   fieldChartable(f) && !f.noCharts;

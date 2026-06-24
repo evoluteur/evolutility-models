@@ -1,6 +1,6 @@
 # Evolutility-Models &middot; [![GitHub license](https://img.shields.io/github/license/evoluteur/evolutility-models)](https://github.com/evoluteur/evolutility-models/blob/master/LICENSE.md) [![npm version](https://img.shields.io/npm/v/evolutility-models)](https://www.npmjs.com/package/evolutility-models)
 
-Evolutility-Models provides a metamodel, some scripts, and a process, to build applications with models rather than code.
+Evolutility-Models provides a metamodel, sample models, mock data, some scripts, and a process, to build applications with models rather than code.
 
 Write simple models, and use them to generate your Database, your REST endpoints, and your Web UI automatically.
 
@@ -27,14 +27,6 @@ Write simple models, and use them to generate your Database, your REST endpoints
 
 [License](#License)
 
-Cool things to do with Evolutility models:
-
-- Create a database - [generate SQL for Postgres](#ScriptsDB).
-
-- Automatically provide REST or GraphQL endpoints using [Evolutility-Server-Node](https://github.com/evoluteur/evolutility-server-node) or [Hasura](https://hasura.io/).
-
-- Run a Web UI with [Evolutility-UI-React](https://github.com/evoluteur/evolutility-ui-react).
-
 <a name="MetaModel"></a>
 
 ## Metamodel
@@ -52,37 +44,37 @@ For every object, all UI views (List, Cards, Edit, Charts...) use the same model
 
 All Fields are present in the Edit and Browse views. Fields can be flagged as "inMany" to be included in List, Cards, and Charts views.
 
-```javascript
-module.exports = {
-	id: "todo",
-	label: "To-Do List",
-	name: "task",
-	namePlural: "tasks",
-	icon: "todo.png",
-	titleField: "title",
-	table: "task",
-	fields: [
-		{
-			id: "title",
-			label: "Title",
-			type: "text",
-			width: 100,
-			required: true,
-			inMany: true,
-			inSearch: true,
-			column: "title",
-			maxLength: 255
-		},
-		{
-			id: "duedate",
-			type: "date",
-			label: "Due Date",
-			width: 38,
-			inMany: true,
-			column: "due_date"
-		},
-		...
-	]
+```typescript
+export const = {
+  id: "todo",
+  label: "To-Do List",
+  name: "task",
+  namePlural: "tasks",
+  icon: "todo.png",
+  titleField: "title",
+  table: "task",
+  fields: [
+    {
+      id: "title",
+      label: "Title",
+      type: "text",
+      width: 100,
+      required: true,
+      inMany: true,
+      inSearch: true,
+      column: "title",
+      maxLength: 255
+    },
+    {
+      id: "duedate",
+      type: "date",
+      label: "Due Date",
+      width: 38,
+      inMany: true,
+      column: "due_date"
+    },
+    ...
+  ]
 }
 
 ```
@@ -91,7 +83,7 @@ module.exports = {
 
 ### Object
 
-| Property        | Meaning                                                      | UI  | DB  |
+| Property        | Meaning                                                      | UI  | BE  |
 | --------------- | -------------------------------------------------------------------------------------------------------------------------- | --- | --- |
 | id              | Unique key to identify the entity (used as API parameter).   | X   | X   |
 | icon            | Icon file name for the entity (example: "cube.png").         | X   |     |
@@ -109,7 +101,9 @@ module.exports = {
 | defaultViewMany | Default view for Many records (possible values: list, cards, charts).                                                      | X   |     |
 | defaultViewOne  | Default view for One record (possible values browse, edit).  | X   |     |
 
-X: Indicate if the property is used in UI/DB models.
+UI: The property is used in UI models.
+BE: The property is used in the Backend models.
+
 
 <a name="Field"></a>
 
@@ -118,12 +112,13 @@ X: Indicate if the property is used in UI/DB models.
 For the backend, fields are columns in a database table.
 For the frontend, fields are textboxes, checkboxes, datepickers... in Edit view, and they are columns in List view.
 
-| Property             | Meaning                          | UI  | DB  |
+| Property             | Meaning                          | UI  | BE  |
 | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --- | --- |
 | id                   | Unique key for the field (can be the same as column but doesn't have to be).             | X   | X   |
 | type                 | Field type to show in the UI. Possible field types: <ul><li>boolean (yes/no)</li><li>date</li><li>datetime</li><li>decimal</li><li>document</li><li>email</li><li>image</li><li>integer</li><li>json</li><li>list (multiselect)</li><li>lov (list of values)</li><li>money</li><li>text</li><li>textmultiline</li><li>time</li><li>url</li></ul> | X   | X   |
 | label                | Field description (displayed with an asterisk for required fields).                  | X   |     |
 | labelShort           | Optional shorter version of the labels (used in List and Cards views).                   | X   |     |
+| labelEdit            | Optional alternative label used in Edit view (instead of label).                         | X   |     |
 | required             | Determines if the field is required for saving.                                          | X   | X   |
 | readOnly             | Field value cannot be changed.   | X   | X   |
 | defaultValue         | Default field value for new records.                                                     | X   | X   |
@@ -139,7 +134,7 @@ For the frontend, fields are textboxes, checkboxes, datepickers... in Edit view,
 | help                 | Optional help on the field.      | X   |     |
 | chartType            | Default charts type used for the field ("Bars", "Pie", or "Table"). The default value is "Bars".                                                       | X   |     |
 | search               | Include field in search.         | X   | X   |
-| noFilter             | Exclude field from filters (only applies to fields of type integer, decimal, money, boolean, list of values which are "chartable").                    | X   | X   |
+| noFilters             | Exclude field from filters (only applies to fields of type integer, decimal, money, boolean, list of values which are "chartable").                    | X   | X   |
 | noCharts             | Exclude field from charts (only applies to fields of type integer, decimal, money, boolean, list of values which are "chartable").                     | X   | X   |
 | noStats              | Exclude field from stats.     | X   | X   |
 | column               | Database column name for the field.                                                      |     | X   |
@@ -151,8 +146,8 @@ For the frontend, fields are textboxes, checkboxes, datepickers... in Edit view,
 | object               | Model id for the object to link to (only for fields of "lov" type).                      | X   | X   |
 | unique               | Field value must be unique.                      | X   | X   |
 
-UI: The field will only be present in the UI model.
-DB: The field will only be present in the DB model.
+UI: The property is used in UI models.
+BE: The property is used in the Backend models.
 
 <a name="Group"></a>
 
@@ -162,7 +157,7 @@ Field Groups are used to visually group fields on the page for browsing or editi
 
 Field Groups are only used in UI models and are optional. By default a single group holds all fields.
 
-| Property | Meaning                             | UI  | DB  |
+| Property | Meaning                             | UI  | BE  |
 | -------- | ------------------------------------------------------------------------------------------------- | --- | --- |
 | id       | Unique key for the group. It is optional.     | X   |     |
 | type     | Type of group. Only "panel" is currently implemented ("tab" and "accordeon" will be added later). | X   |     |
@@ -173,13 +168,16 @@ Field Groups are only used in UI models and are optional. By default a single gr
 | header   | Text to be displayed at the top of the group (just below the group title).      | X   |     |
 | footer   | Text to be displayed below the group.      | X   |     |
 
+UI: The property is used in UI models.
+BE: The property is used in the Backend models.
+
 <a name="Collection"></a>
 
 ### Collection
 
 Multiple Master-Details can be specified with collections.
 
-| Property | Meaning                                                     | UI  | DB  |
+| Property | Meaning                                                     | UI  | BE  |
 | -------- | ------------------------------------------------------------------------------------------------------------------------- | --- | --- |
 | id       | Unique key for the collection.      | X   | X   |
 | title    | Collection title.       | X   |     |
@@ -193,6 +191,9 @@ Multiple Master-Details can be specified with collections.
 | help     | Optional help tooltip text.| X  ||
 | header   | Text to be displayed at the top of the collection.     | X   |     |
 | footer   | Text to be displayed below the collection.     | X   |     |
+
+UI: The property is used in UI models.
+BE: The property is used in the Backend models.
 
 <a name="Models"></a>
 
@@ -256,7 +257,7 @@ In the command line type the following:
 npm install
 
 # Create SQL for sample database w/ demo tables
-npm run db
+npm run codegen:db
 
 ```
 
@@ -276,17 +277,25 @@ This project provides scripts to make UI-models for [Evolutility-UI-React](https
 npm install
 
 # Generate DB and UI models
-npm run models
-
-## Generate UI models
-npm run models:ui
+npm run codegen:models
 
 ## Generate DB models
-npm run models:db
+npm run codegen:models:db
+
+## Generate UI models
+npm run codegen:models:ui
 
 ```
 
 Generated models are saved in the directories `/dist/ui/models` and `/dist/db/models`.
+
+For generating SQL scripts and models in one go:
+
+```bash
+# Create SQL scripts and models
+npm run codegen
+
+```
 
 Note: The full models can be used as they are by both UI and back-end (which ignore what they do not need in the models).
 

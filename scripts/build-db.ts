@@ -1,53 +1,51 @@
 /*!
- * evolutility-models :: utils/database.ts
- * Methods to create postgres schema and tables from models.
+ *  Methods to create postgres schema and tables from models.
  *
- * https://github.com/evoluteur/evolutility-models
- * (c) 2026 Olivier Giulieri
+ *  https://github.com/evoluteur/evolutility-models
+ *  (c) 2026 Olivier Giulieri
  */
 
 import fs from "fs";
 import { createRequire } from "module";
 import { models, prepModels } from "./model-manager.ts";
-import * as helper from "./helpers.ts";
-import { fieldTypes } from "./dico.ts";
+import { makeDirectoryPath, splash } from "./utils.ts";
+import { FieldType as ft } from "./types.ts";
 import * as data from "../data/all_data.js";
 import { config } from "../config.ts";
-import type { Field, Model } from "./types.ts";
+import { FieldType, type FieldDB as Field, type Model } from "./types.ts";
+
+const schema = config.schema ? '"' + config.schema + '"' : "";
+const dbuser = "postgres";
+const sqlFile = true;
 
 const require = createRequire(import.meta.url);
 const { version, homepage } = require("../package.json") as {
   version: string;
   homepage: string;
 };
-const ft = fieldTypes;
 
 prepModels();
 
-const schema = config.schema ? '"' + config.schema + '"' : "";
-const dbuser = "postgres"; // DB user
-const sqlFile = true;
-
 const noTZ = " without time zone";
 const ft_postgreSQL: Record<string, string> = {
-  text: "text",
-  textmultiline: "text",
-  boolean: "boolean",
-  integer: "integer",
-  decimal: "double precision",
-  money: "double precision", // "money",
-  date: "date",
-  datetime: "timestamp" + noTZ,
-  time: "time" + noTZ,
-  lov: "integer",
-  list: "integer[]",
-  html: "text",
-  email: "text",
-  pix: "text",
-  doc: "text",
-  url: "text",
-  color: "text",
-  json: "json",
+  [ft.text]: "text",
+  [ft.textmultiline]: "text",
+  [ft.boolean]: "boolean",
+  [ft.integer]: "integer",
+  [ft.decimal]: "double precision",
+  [ft.money]: "double precision",
+  [ft.date]: "date",
+  [ft.datetime]: "timestamp" + noTZ,
+  [ft.time]: "time" + noTZ,
+  [ft.lov]: "integer",
+  [ft.list]: "integer[]",
+  [ft.html]: "text",
+  [ft.email]: "text",
+  [ft.image]: "text",
+  [ft.document]: "text",
+  [ft.url]: "text",
+  [ft.color]: "text",
+  [ft.json]: "json",
 };
 
 const sysColumns: Record<string, boolean> = {
@@ -240,7 +238,7 @@ const sqlModel = (mid: string): [string, string] => {
     if (
       f.column &&
       f.column !== pKey &&
-      f.type !== "formula" &&
+      f.type !== FieldType.formula &&
       !fieldsAttr[f.column]
     ) {
       fieldsAttr[f.column] = true;
@@ -346,11 +344,10 @@ const logToFile = (sql: string, isData: boolean): void => {
 
 const createSchema = (): void => {
   const { sql, sqlData } = sqlSchemaWithData();
-  helper.makeDirectory("dist");
-  helper.makeDirectory("dist/db/");
-  helper.makeDirectory("dist/db/sql");
+  makeDirectoryPath("dist/db/sql");
   logToFile(sql, false);
   logToFile(sqlData, true);
 };
 
+splash();
 createSchema();

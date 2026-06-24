@@ -4,6 +4,8 @@
 	(c) 2026 Olivier Giulieri
 */
 
+import { FieldType, type Model } from "../../scripts/types.js";
+
 export const world = {
   id: "world",
   world: "designer",
@@ -19,7 +21,7 @@ export const world = {
     {
       id: "name",
       label: "Name",
-      type: "text",
+      type: FieldType.text,
       maxLength: 100,
       required: true,
       inMany: true,
@@ -32,7 +34,7 @@ export const world = {
       id: "active",
       column: "active",
       label: "Active",
-      type: "boolean",
+      type: FieldType.boolean,
       inMany: true,
       width: 15,
     },
@@ -40,7 +42,7 @@ export const world = {
       id: "description",
       column: "description",
       label: "Description",
-      type: "textmultiline",
+      type: FieldType.textmultiline,
       maxLength: 500,
       width: 85,
       height: 2,
@@ -51,7 +53,7 @@ export const world = {
       column: "position",
       label: "Position",
       help: "Order of the field",
-      type: "integer",
+      type: FieldType.integer,
       maxLength: 3,
       width: 15,
     },
@@ -66,4 +68,4 @@ export const world = {
       fields: ["title", "icon", "active"],
     },
   ],
-};
+} satisfies Model;
