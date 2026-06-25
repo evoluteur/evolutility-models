@@ -2,6 +2,8 @@
   Evolutility Model for Wine Cellar
 */
 
+import { FieldType, type Model } from "../../scripts/types.ts";
+
 export const winecellar = {
   id: "winecellar",
   oid: 5,
@@ -828,4 +830,4 @@ export const winecellar = {
       fields: ["drink_date", "robe", "nose", "taste", "notes"],
     },
   ],
-};
+} satisfies Model;
