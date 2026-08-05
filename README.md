@@ -40,12 +40,12 @@ The metamodel is the structure of the model (the model of models). I think about
 
 Models describe [objects](#Object) with [fields](#Field), [Field groups](#Group), and [collections](#Collection) (nested lists of objects).
 
-For every object, all UI views (List, Cards, Edit, Charts...) use the same model as the single source of thuth.
+For every object, all UI views (List, Cards, Edit, Charts...) use the same model as the single source of truth.
 
 All Fields are present in the Edit and Browse views. Fields can be flagged as "inMany" to be included in List, Cards, and Charts views.
 
 ```typescript
-export const = {
+export default {
   id: "todo",
   label: "To-Do List",
   name: "task",
@@ -94,10 +94,10 @@ export const = {
 | fields          | Array of [fields](#Field).                                   | X   | X   |
 | groups          | Array of [groups](#Group). If not provided a single group will be used.                                                    | X   |     |
 | collections     | Array of [collections](#Collection) (displayed as Lists).    | X   | X   |
-| titleField      | Id of the field which value is used as record title. titleField can also be a function.                                    | X   | X   |
-| titleFunction   | Function to calculate the record title based it's data. Example: titleFunction = (d) => d.firstname + " " + d.lastname;       | X   | X   |
+| titleField      | Id of the field whose value is used as record title. titleField can also be a function.                                    | X   | X   |
+| titleFunction   | Function to calculate the record title based on its data. Example: titleFunction = (d) => d.firstname + " " + d.lastname;       | X   | X   |
 | table           | Driving database table name (there are secondary tables for fields of type "lov").                                         |     | X   |
-| pKey            | Name of the Primary key column (single column of type serial). Default to "id". In the data the key is always called "id". |     | X   |
+| pKey            | Name of the Primary key column (single column of type serial). Defaults to "id". In the data the key is always called "id". |     | X   |
 | defaultViewMany | Default view for Many records (possible values: list, cards, charts).                                                      | X   |     |
 | defaultViewOne  | Default view for One record (possible values browse, edit).  | X   |     |
 
@@ -123,12 +123,12 @@ For the frontend, fields are textboxes, checkboxes, datepickers... in Edit view,
 | readOnly             | Field value cannot be changed.   | X   | X   |
 | defaultValue         | Default field value for new records.                                                     | X   | X   |
 | hideIfEmpty          | Hide field when empty in Browse view.                                                     | X   |     |
-| dependantField       | ID of an optional dependant field. Used when selecting in one list changes the content of dependant list (among 2 fields of type "lov").records.                                                     | X   | X   |
+| dependantField       | ID of an optional dependent field. Used when selecting in one list changes the content of the dependent list (among 2 fields of type "lov").                                                     | X   | X   |
 | max, min             | Maximum/Minimum value allowed (only applies to numeric fields).                          | X   | X   |
 | maxLength, minLength | Maximum/Minimum length allowed (only applies to text fields).                            | X   | X   |
 | regExp               | Regular expression used to validate the field value.                                     | X   | X   |
 | inMany               | Determines if the field is present (by default) in lists of records.                     | X   | X   |
-| inSearch             | Determine if the field is used in text searches.                                         |     | X   |
+| inSearch             | Determines if the field is used in text searches.                                         |     | X   |
 | height               | For fields of type "textmultiline", number of lines used in the field (in Browse and Edit views).                                                      | X   |     |
 | width                | Field width in Browse and Edit views (in percent of parent width). Default: 100%         | X   |     |
 | help                 | Optional help on the field.      | X   |     |
@@ -160,7 +160,7 @@ Field Groups are only used in UI models and are optional. By default a single gr
 | Property | Meaning                             | UI  | BE  |
 | -------- | ------------------------------------------------------------------------------------------------- | --- | --- |
 | id       | Unique key for the group. It is optional.     | X   |     |
-| type     | Type of group. Only "panel" is currently implemented ("tab" and "accordeon" will be added later). | X   |     |
+| type     | Type of group. Only "panel" is currently implemented ("tab" and "accordion" will be added later). | X   |     |
 | label    | Group title as displayed to the user.   | X   |     |
 | fields   | Array of [field](#Field) ids.     | X   |     |
 | width    | Width (in % of the container total width).   | X   |     |
@@ -186,7 +186,7 @@ Multiple Master-Details can be specified with collections.
 | object   | Model id for the object to link to. When specified, "column" and "table" can be omitted.                                  | X   | X   |
 | hideIfEmpty  | Hide Collection when it is empty in Edit view (always hidden when empty in Browse view).    |X||
 | order    | Direction to order by "asc" or "desc".      |  | X   |
-| orderBy  | SQL where clause, e.g. { orderBy="id" }.      |     | X   |
+| orderBy  | SQL order by clause, e.g. { orderBy: "id" }.      |     | X   |
 | fields   | Array of fields. Collections are not editable so their fields do not need as many properties as the main object's fields. | X   | X   |
 | help     | Optional help tooltip text.| X  ||
 | header   | Text to be displayed at the top of the collection.     | X   |     |
@@ -202,7 +202,7 @@ BE: The property is used in the Backend models.
 <a name="Demos"></a>
 ### Demo Apps
 
-Models are description of objects and their properties/fields, field groups, and sometimes nested-collections.
+Models are descriptions of objects and their properties/fields, field groups, and sometimes nested-collections.
 
 #### Organizer
 
@@ -261,7 +261,7 @@ npm run codegen:db
 
 ```
 
-The SQL scripts for creating the database creation and populating it are generated in the  "/dist/db/sql/" directory
+The SQL scripts for creating the database and populating it are generated in the "/dist/db/sql/" directory
 
 - `001_create_db_{datetime}.sql` to create the database
 - `002_seed_data_{datetime}.sql` to populate the database with seed data
