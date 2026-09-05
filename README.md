@@ -141,6 +141,7 @@ For the frontend, fields are textboxes, checkboxes, datepickers... in Edit view,
 | pii                  | Flag for personally identifiable information.                                                      |     | X   |
 | lovTable             | Table to join to for field value (only for fields of "lov" type).                        |     | X   |
 | lovColumn            | Column name (in the lovTable) for field value (only for fields of "lov" type).           |     | X   |
+| lovKey            | Primary key column name (in the lovTable) (default to "id").           |     | X   |
 | lovIcon              | LOV items have icons (only for fields of "lov" type).                                    | X   | X   |
 | deleteTrigger        | Deleting records in the lovTable will trigger a cascade delete (this property is only used for creating the database).                                 |     | X   |
 | object               | Model id for the object to link to (only for fields of "lov" type).                      | X   | X   |
