@@ -100,6 +100,7 @@ export default {
 | pKey            | Name of the Primary key column (single column of type serial). Defaults to "id". In the data the key is always called "id". |     | X   |
 | defaultViewMany | Default view for Many records (possible values: list, cards, charts).                                                      | X   |     |
 | defaultViewOne  | Default view for One record (possible values browse, edit).  | X   |     |
+| noStats         | Do not provide Stats view for this objct.     | X   | X   |
 
 UI: The property is used in UI models.
 BE: The property is used in the Backend models.
