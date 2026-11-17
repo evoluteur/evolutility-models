@@ -14,10 +14,7 @@
   "scripts": {
     "codegen:db": "tsx scripts/build-db.ts && tsx scripts/build-db-models.ts",
     "codegen:db:models": "tsx scripts/build-db-models.ts",
-    "codegen:models:ui": "tsx scripts/build-models-ui.ts",
-    "codegen:models:db": "tsx scripts/build-models-db.ts",
-    "codegen:models": "npm run codegen:models:db && npm run codegen:models:ui",
-    "codegen": "npm run codegen:db && npm run codegen:models",
+    "codegen": "npm run codegen:db",
     "typecheck": "tsc --noEmit"
   },
   "bugs": "https://github.com/evoluteur/evolutility-models/issues",

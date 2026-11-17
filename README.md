@@ -21,8 +21,6 @@ Write simple models, and use them to generate your Database, your REST endpoints
 [Scripts](#Scripts)
 
 - [Generate SQL script for Database](#ScriptsDB)
-- [Generate backend models](#ScriptsModels)
-- [Generate UI models](#ScriptsModels)
 
 [License](#License)
 
@@ -231,11 +229,7 @@ Models are descriptions of objects and their properties/fields, field groups, an
 
 <a name="ScriptsDB"></a>
 
-Evolutility-Models provides scripts (TypeScript in NodeJS) to transform your models.
-
-- generate SQL for the database creation
-- generate backend models for [Evolutility-Server-Node](https://github.com/evoluteur/evolutility-server-node)
-- generate UI models for [Evolutility-UI-React](https://github.com/evoluteur/evolutility-ui-react)
+Evolutility-Models provides scripts (TypeScript in NodeJS) to generate the SQL for the database: the tables and data, and the models themselves. [Evolutility-Server-Node](https://github.com/evoluteur/evolutility-server-node) and [Evolutility-UI-React](https://github.com/evoluteur/evolutility-ui-react) get the models from the database.
 
 ### Database
 
@@ -269,38 +263,7 @@ To only generate the SQL for the models:
 npm run codegen:db:models
 ```
 
-<a name="ScriptsModels"></a>
-
-### Models
-
-This project provides scripts to make UI-models for [Evolutility-UI-React](https://github.com/evoluteur/evolutility-ui-react) and DB-models for [Evolutility-Server-Node](https://github.com/evoluteur/evolutility-server-node) from models.
-
-```bash
-# Install dependencies
-npm install
-
-# Generate DB and UI models
-npm run codegen:models
-
-## Generate DB models
-npm run codegen:models:db
-
-## Generate UI models
-npm run codegen:models:ui
-
-```
-
-Generated models are saved in the directories `/dist/ui/models` and `/dist/db/models`.
-
-For generating SQL scripts and models in one go:
-
-```bash
-# Create SQL scripts and models
-npm run codegen
-
-```
-
-Note: The full models can be used as they are by both UI and back-end (which ignore what they do not need in the models).
+Note: Models are stored in full (UI and DB properties). The UI and the back-end ignore what they do not need.
 
 <a name="License"></a>
 
