@@ -1,6 +1,6 @@
 /*!
  *  TypeScript declarations
- *  evolutility-models vX
+ *  evolutility-models v0.3.0
  *  https://github.com/evoluteur/evolutility-models
  *  (c) 2026 Olivier Giulieri
  */
@@ -132,6 +132,7 @@ export interface Field extends FieldBase {
   lovTable?: string;
   dbtablelov?: string;
   lovColumn?: string;
+  lovKey?: string;
   dbcolumnreadlov?: string;
   deleteTrigger?: boolean;
   inSearch?: boolean;
