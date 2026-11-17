@@ -33,7 +33,7 @@ const ft_postgreSQL: Record<string, string> = {
   [ft.boolean]: "boolean",
   [ft.integer]: "integer",
   [ft.decimal]: "double precision",
-  [ft.money]: "double precision",
+  [ft.money]: "money",
   [ft.date]: "date",
   [ft.datetime]: "timestamp" + noTZ,
   [ft.time]: "time" + noTZ,
