@@ -17,7 +17,7 @@ export const album = {
   table: "music_album",
   name: "album",
   namePlural: "albums",
-  titleField: "name",
+  titleField: "title",
   defaultViewMany: "cards",
   noStats: true,
   fields: [

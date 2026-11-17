@@ -22,10 +22,3 @@ export { track } from "./music/track-data.js";
 
 // - Test
 export { test } from "./tests/test-data.js";
-
-// // - Designer
-export { world } from "./designer/world-data.js";
-export { object } from "./designer/object-data.js";
-export { field } from "./designer/field-data.js";
-export { group } from "./designer/group-data.js";
-export { collection } from "./designer/collection-data.js";

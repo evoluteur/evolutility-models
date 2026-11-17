@@ -24,13 +24,6 @@ export { track } from "./music/track.ts";
 // - Tests
 export { test } from "./tests/test.ts";
 
-// - Application Designer
-export { world } from "./designer/world.ts";
-export { object } from "./designer/object.ts";
-export { field } from "./designer/field.ts";
-export { group } from "./designer/group.ts";
-export { collection } from "./designer/collection.ts";
-
 // // - Collaboration features
 // export { user } from "./social/user.ts";
 // export { comment } from "./social/comment.ts";

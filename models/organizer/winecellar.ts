@@ -723,7 +723,7 @@ export const winecellar = {
       maxLength: 4,
       width: 50,
       min: 1900,
-      max: "2100",
+      max: 2100,
     },
     {
       id: "peak_from",

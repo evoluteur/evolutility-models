@@ -1,4 +1,4 @@
-# Evolutility-Models &middot; [![GitHub license](https://img.shields.io/github/license/evoluteur/evolutility-models)](https://github.com/evoluteur/evolutility-models/blob/master/LICENSE.md) [![npm version](https://img.shields.io/npm/v/evolutility-models)](https://www.npmjs.com/package/evolutility-models)
+# Evolutility-Models &middot; [![GitHub license](https://img.shields.io/github/license/evoluteur/evolutility-models)](https://github.com/evoluteur/evolutility-models/blob/main/LICENSE.md) [![npm version](https://img.shields.io/npm/v/evolutility-models)](https://www.npmjs.com/package/evolutility-models)
 
 Evolutility-Models provides a metamodel, sample models, mock data, some scripts, and a process, to build applications with models rather than code.
 
@@ -16,7 +16,6 @@ Write simple models, and use them to generate your Database, your REST endpoints
 [Models](#Models)
 
 - [Demo Apps](#Demos)
-- [Designer](#Designer)
 - [Test](#Test)
 
 [Scripts](#Scripts)
@@ -208,32 +207,22 @@ Models are descriptions of objects and their properties/fields, field groups, an
 
 #### Organizer
 
-- [To-do list](https://github.com/evoluteur/evolutility-models/blob/master/models/organizer/todo.js)
-- [Address book](https://github.com/evoluteur/evolutility-models/blob/master/models/organizer/contact.js)
-- [Restaurants list](https://github.com/evoluteur/evolutility-models/blob/master/models/organizer/restaurant.js)
-- [Graphic novels](https://github.com/evoluteur/evolutility-models/blob/master/models/organizer/comics.js)
-- [Wine cellar](https://github.com/evoluteur/evolutility-models/blob/master/models/organizer/winecellar.js)
+- [To-do list](https://github.com/evoluteur/evolutility-models/blob/main/models/organizer/todo.ts)
+- [Address book](https://github.com/evoluteur/evolutility-models/blob/main/models/organizer/contact.ts)
+- [Restaurants list](https://github.com/evoluteur/evolutility-models/blob/main/models/organizer/restaurant.ts)
+- [Graphic novels](https://github.com/evoluteur/evolutility-models/blob/main/models/organizer/comics.ts)
+- [Wine cellar](https://github.com/evoluteur/evolutility-models/blob/main/models/organizer/winecellar.ts)
 
 #### Music
 
-- [Artists](https://github.com/evoluteur/evolutility-models/blob/master/models/music/artist.js)
-- [Albums](https://github.com/evoluteur/evolutility-models/blob/master/models/music/album.js)
-- [Tracks](https://github.com/evoluteur/evolutility-models/blob/master/models/music/track.js)
-
-<a name="Designer"></a>
-#### Designer (Models of models)
-
-With models of models, we can store models in the database (instead of JSON files) and have an app to build other apps.
-
-- [Objects](https://github.com/evoluteur/evolutility-models/blob/master/models/designer/object.js)
-- [Fields](https://github.com/evoluteur/evolutility-models/blob/master/models/designer/field.js)
-- [Field Groups](https://github.com/evoluteur/evolutility-models/blob/master/models/designer/group.js)
-- [Nested Collections](https://github.com/evoluteur/evolutility-models/blob/master/models/designer/collection.js)
+- [Artists](https://github.com/evoluteur/evolutility-models/blob/main/models/music/artist.ts)
+- [Albums](https://github.com/evoluteur/evolutility-models/blob/main/models/music/album.ts)
+- [Tracks](https://github.com/evoluteur/evolutility-models/blob/main/models/music/track.ts)
 
 <a name="Test"></a>
 #### Test
 
-- [Test model](https://github.com/evoluteur/evolutility-models/blob/master/models/tests/test.js) with fields of all possible types.
+- [Test model](https://github.com/evoluteur/evolutility-models/blob/main/models/tests/test.ts) with fields of all possible types.
 
 
 <a name="Scripts"></a>
@@ -267,6 +256,18 @@ The SQL scripts for creating the database and populating it are generated in the
 
 - `001_create_db_{datetime}.sql` to create the database
 - `002_seed_data_{datetime}.sql` to populate the database with seed data
+- `003_create_models_{datetime}.sql` to create the tables "evol_model" (one JSON document per model) and "evol_model_history" (every saved version of the models)
+- `004_seed_models_{datetime}.sql` to store the models in the database (full models with UI and DB properties)
+
+Storing models in the database lets [Evolutility-Server-Node](https://github.com/evoluteur/evolutility-server-node) serve them and lets you edit them in the app.
+
+The models script can run again after changing models: models that changed get a new version (the previous one is kept in the history), and the others are left alone. A model edited in the app is replaced by the version from the files.
+
+To only generate the SQL for the models:
+
+```bash
+npm run codegen:db:models
+```
 
 <a name="ScriptsModels"></a>
 
@@ -305,6 +306,6 @@ Note: The full models can be used as they are by both UI and back-end (which ign
 
 ## License
 
-Evolutility-Models is released under the [MIT license](http://github.com/evoluteur/evolutility-models/blob/master/LICENSE.md).
+Evolutility-Models is released under the [MIT license](http://github.com/evoluteur/evolutility-models/blob/main/LICENSE.md).
 
 Copyright (c) 2026 [Olivier Giulieri](https://evoluteur.github.io/).
