@@ -252,6 +252,7 @@ The SQL scripts for creating the database and populating it are generated in the
 - `002_seed_data_{datetime}.sql` to populate the database with seed data
 - `003_create_models_{datetime}.sql` to create the tables "evol_model" (one JSON document per model) and "evol_model_history" (every saved version of the models)
 - `004_seed_models_{datetime}.sql` to store the models in the database (full models with UI and DB properties)
+- `005_create_users_{datetime}.sql` to create the tables "evol_user" (users with a role: viewer, editor, or admin) and "evol_session" (login sessions). No user is created: create the first one with [Evolutility-Server-Node](https://github.com/evoluteur/evolutility-server-node) (`npm run user:add -- you@example.com admin`, or `npm run user:add -- you@example.com admin --name="Your Name" --password=a-long-password`).
 
 Storing models in the database lets [Evolutility-Server-Node](https://github.com/evoluteur/evolutility-server-node) serve them and lets you edit them in the app.
 

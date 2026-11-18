@@ -12,8 +12,9 @@
     "url": "git://github.com/evoluteur/evolutility-models.git"
   },
   "scripts": {
-    "codegen:db": "tsx scripts/build-db.ts && tsx scripts/build-db-models.ts",
+    "codegen:db": "tsx scripts/build-db.ts && tsx scripts/build-db-models.ts && tsx scripts/build-db-users.ts",
     "codegen:db:models": "tsx scripts/build-db-models.ts",
+    "codegen:db:users": "tsx scripts/build-db-users.ts",
     "codegen": "npm run codegen:db",
     "typecheck": "tsc --noEmit"
   },
