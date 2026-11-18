@@ -1,0 +1,39 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:17
+        env:
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: evolutility
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready --health-interval 5s --health-timeout 5s --health-retries 10
+    env:
+      PGHOST: localhost
+      PGUSER: postgres
+      PGPASSWORD: postgres
+      PGDATABASE: evolutility
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22.x
+      - run: npm install --no-audit --no-fund
+      - run: npm run typecheck
+      # - generate the SQL and load it in Postgres (in order)
+      - run: npm run codegen
+      - run: |
+          for f in $(ls dist/db/sql/*.sql | sort); do
+            echo "== $f"
+            psql -v ON_ERROR_STOP=1 -q -f "$f"
+          done
+      - run: psql -c "SELECT count(*) AS models FROM evolutility.evol_model"
