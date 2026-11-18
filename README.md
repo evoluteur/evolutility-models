@@ -264,6 +264,22 @@ To only generate the SQL for the models:
 npm run codegen:db:models
 ```
 
+### Pull models from the database
+
+Models edited in the app (with the Designer of [Evolutility-UI-React](https://github.com/evoluteur/evolutility-ui-react)) are saved in the database. To bring these changes back into the model files:
+
+```bash
+# Models that changed (or "--dry-run" to only list them)
+npm run models:pull
+
+# Only some models
+npm run models:pull -- todo contact
+```
+
+Changed models are written in their file, and new models in "models/{world}/{id}.ts" (added to "models/all_models.ts"). Models only in the files are left alone. The files are written in the form stored in the database, so the SQL generated next is the same as the database (running it again changes nothing).
+
+The database is set in "config.ts" ("connectionString") or with the environment variable `DATABASE_URL`.
+
 Note: Models are stored in full (UI and DB properties). The UI and the back-end ignore what they do not need.
 
 <a name="License"></a>

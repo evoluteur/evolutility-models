@@ -15,6 +15,7 @@
     "codegen:db": "tsx scripts/build-db.ts && tsx scripts/build-db-models.ts && tsx scripts/build-db-users.ts",
     "codegen:db:models": "tsx scripts/build-db-models.ts",
     "codegen:db:users": "tsx scripts/build-db-users.ts",
+    "models:pull": "tsx scripts/models-pull.ts",
     "codegen": "npm run codegen:db",
     "typecheck": "tsc --noEmit"
   },
@@ -41,6 +42,8 @@
   },
   "devDependencies": {
     "@types/node": "^26.0.0",
+    "@types/pg": "^8.20.0",
+    "pg": "^8.21.0",
     "tsx": "^4.22.4",
     "typescript": "^6.0.3"
   }

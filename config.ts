@@ -1,4 +1,5 @@
 export interface Config {
+  connectionString: string;
   schema: string;
   wTimestamp: boolean;
   wWhoIs: boolean;
@@ -12,6 +13,10 @@ export interface Config {
 }
 
 export const config: Config = {
+  // - database w/ the models (for "npm run models:pull")
+  connectionString:
+    process.env.DATABASE_URL ||
+    "postgres://evol:love@localhost:5434/evolutility",
   schema: "evolutility",
 
   // - Optional fields
