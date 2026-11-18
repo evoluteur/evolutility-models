@@ -1,4 +1,4 @@
-import type { FieldUI as Field, Model } from "../../scripts/types.js";
+import type { Field, Model } from "../../scripts/types.js";
 import { FieldType } from "../../scripts/types.js";
 
 const flavors = [
@@ -61,7 +61,7 @@ const fields: Field[] = [
     inMany: true,
     help: "LOV ",
     object: "test",
-    chartType: "Pie",
+    chartType: "pie",
   },
   {
     id: "lovlc",

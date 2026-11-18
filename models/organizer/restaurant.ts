@@ -164,7 +164,6 @@ export const restaurant = {
       fields: [
         "name",
         "cuisine",
-        "schedule",
         "yelp",
         "price",
         "favorite",

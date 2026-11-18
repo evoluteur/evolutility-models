@@ -85,7 +85,6 @@ export const winecellar = {
       inSearch: true,
       width: 62,
       help: "Name of the wine as indicated on the label.",
-      inSearch: true,
     },
     {
       id: "vintage",
@@ -686,7 +685,7 @@ export const winecellar = {
       column: "remaining",
       type: "integer",
       label: "Remaining",
-      labeledit: "Bottles remaining",
+      labelEdit: "Bottles remaining",
       maxLength: 10,
       width: 60,
       inCharts: false,

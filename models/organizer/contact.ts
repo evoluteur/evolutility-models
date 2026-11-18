@@ -195,7 +195,7 @@ export const contact = {
       type: "panel",
       label: "Contact Info",
       width: 38,
-      fields: ["phone", "phonecell", "phonehome", "fax"],
+      fields: ["phonework", "phonecell", "phonehome", "fax"],
     },
     {
       type: "panel",
